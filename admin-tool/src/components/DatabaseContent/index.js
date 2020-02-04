@@ -39,7 +39,7 @@ const styles = theme => ({
 		padding: '48px 36px 0',
 	},
 })
-const tabNames = ['Data', 'Rules', 'Indexes', 'Usage']
+const tabNames = ['Data', 'Rules', 'Indexes', 'Usage', 'Whitelist']
 function DatabaseContent({ classes }) {
 	return (
 		<>

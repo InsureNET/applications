@@ -5,6 +5,9 @@ import Paper from '@material-ui/core/Paper'
 import Grid from '@material-ui/core/Grid'
 import { withStyles } from '@material-ui/core/styles'
 import ContentGraphic from './ContentGraphic'
+import Button from '@material-ui/core/Button';
+
+
 const styles = theme => ({
 	paper: {
 		margin: 'auto',
@@ -50,8 +53,13 @@ function Content({ classes }) {
 					</Grid>
 					<Grid lg={6} xs={12} item>
 						<Typography component="h2" variant="display1" color="textSecondary" align="center">
-							Welcome to your new project
-						</Typography>
+							Manage your new project
+						</Typography>						
+					</Grid>
+					<Grid>
+					<Button variant="contained" 
+								color="primary"
+						>Get Started</Button>
 					</Grid>
 				</Grid>
 			</Paper>

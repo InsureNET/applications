@@ -21,26 +21,45 @@ import TimerIcon from '@material-ui/icons/Timer'
 import SettingsIcon from '@material-ui/icons/Settings'
 import PhonelinkSetupIcon from '@material-ui/icons/PhonelinkSetup'
 import Logo from 'components/Logo'
+
 const categories = [
 	{
-		id: 'Develop',
+		id: 'Administration',
 		children: [
 			{ id: 'Authentication', icon: <PeopleIcon />, page: 'authentication' },
-			{ id: 'Database', icon: <DnsRoundedIcon />, page: 'database' },
-			{ id: 'Storage', icon: <PermMediaOutlinedIcon />, page: 'storage' },
 			{ id: 'Hosting', icon: <PublicIcon />, page: 'hosting' },
 			{ id: 'Functions', icon: <SettingsEthernetIcon />, page: 'functions' },
-			{ id: 'ML Kit', icon: <SettingsInputComponentIcon />, page: 'ml' },
+			
 		],
 	},
 	{
-		id: 'Quality',
+		id: 'AI & ML',
 		children: [
+			{ id: 'ML Kit', icon: <SettingsInputComponentIcon />, page: 'ml' },
+		]
+	},
+	{
+		id: 'Storage',
+		children: [
+			{ id: 'Database', icon: <DnsRoundedIcon />, page: 'database' },
+			{ id: 'IPFS', icon: <SettingsEthernetIcon/>, page: 'ipfs' },
+			{ id: 'Storage', icon: <PermMediaOutlinedIcon />, page: 'storage' },
+		]
+	},
+	{
+		id: 'Reporting',
+		children: [
+			{ id: 'Etherscan', icon: <SettingsInputComponentIcon/>, page: 'etherscan' },
 			{ id: 'Analytics', icon: <SettingsIcon />, page: 'analytics' },
 			{ id: 'Performance', icon: <TimerIcon />, page: 'performance' },
-			{ id: 'Test Lab', icon: <PhonelinkSetupIcon />, page: 'lab' },
 		],
 	},
+	{
+		id: 'Testing',
+		children: [
+			{ id: 'Test Lab', icon: <PhonelinkSetupIcon />, page: 'lab' },
+		]
+	}
 ]
 
 const styles = theme => ({
@@ -98,7 +117,7 @@ function Navigator({ classes, location = null, ...rest }) {
 						<Grid item>
 							<Logo />
 						</Grid>
-						<Grid item>Paperbase</Grid>
+						<Grid item>InsureNET</Grid>
 					</Grid>
 				</ListItem>
 

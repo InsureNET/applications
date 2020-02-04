@@ -39,7 +39,7 @@ const styles = theme => ({
 		padding: '48px 36px 0',
 	},
 })
-const tabNames = ['Users', 'Sign-in method', 'Templates', 'Usage']
+const tabNames = ['Users', 'Sign-in method', 'Templates', 'Usage', 'Tokens']
 function AuthContent({ classes }) {
 	return (
 		<>
@@ -55,7 +55,7 @@ function AuthContent({ classes }) {
 								<Grid item xs>
 									<TextField
 										fullWidth
-										placeholder="Search by email address, phone number, or user UID"
+										placeholder="Search by hash."
 										InputProps={{
 											disableUnderline: true,
 											className: classes.searchInput,
