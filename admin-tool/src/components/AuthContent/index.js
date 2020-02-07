@@ -39,7 +39,30 @@ const styles = theme => ({
 		padding: '48px 36px 0',
 	},
 })
-const tabNames = ['Users', 'Sign-in method', 'Templates', 'Usage', 'Tokens']
+
+const tabNames = ['Users', 'Sign-in method', 'Templates', 'Usage', 'Tokens', 'Token Holders']
+
+function addUser() {
+	console.log('Adding User');
+}
+
+function sendUserToken(user) {
+	
+}
+
+function mintUserToken(user) {
+	// mint the token
+
+	// send to the user
+	sendUserToken(user);
+}
+
+function revokeUserToken(user, token) {
+	// revoke the token or make it invalid for auth
+
+	// lock the user out
+}
+
 function AuthContent({ classes }) {
 	return (
 		<>
@@ -63,7 +86,11 @@ function AuthContent({ classes }) {
 									/>
 								</Grid>
 								<Grid item>
-									<Button variant="contained" color="primary" className={classes.addUser}>
+									<Button 
+									variant="contained" 
+									color="primary" 
+									className={classes.addUser}
+									onClick={addUser()}>
 										Add user
 									</Button>
 									<Tooltip title="Reload">
