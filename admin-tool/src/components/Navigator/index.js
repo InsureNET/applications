@@ -42,6 +42,12 @@ const categories = [
 		]
 	},
 	{
+		id: 'Smart Contracts',
+		children: [
+
+		]
+	},
+	{
 		id: 'Administration',
 		children: [
 			{ id: 'Authentication', icon: <PeopleIcon />, page: 'authentication' },
