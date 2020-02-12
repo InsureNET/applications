@@ -24,6 +24,24 @@ import Logo from 'components/Logo'
 
 const categories = [
 	{
+		id: 'dApps',
+		children: [
+			{ id: 'dApp Browser', icon: <PeopleIcon />, page: 'browser' },
+		]
+	},
+	{
+		id: 'Wallets',
+		children: [
+
+		]
+	},
+	{
+		id: 'Exchanges',
+		children: [
+
+		]
+	},
+	{
 		id: 'Administration',
 		children: [
 			{ id: 'Authentication', icon: <PeopleIcon />, page: 'authentication' },
