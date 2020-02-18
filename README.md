@@ -1,5 +1,5 @@
 <h1 align="center">    
-  InsureNET Platform
+  InsureNET ICO
 </h1>
 
 Our public info site 
