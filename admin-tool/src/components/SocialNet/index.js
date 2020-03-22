@@ -16,10 +16,11 @@ import RefreshIcon from '@material-ui/icons/Refresh'
 // Custom Components
 import TabBar from 'components/TabBar'
 import Navbar from 'components/Navbar'
+import Main from 'components/SocialNet/main.js'
 
 // Contract abis
 import SocialNetwork from 'abis/SocialNetwork.json'
-
+import Web3 from 'web3'
 
 
 const styles = theme => ({
@@ -129,7 +130,7 @@ class SocialNet extends React.Component {
         const networkId = await web3.eth.net.getId()
         const networkData = SocialNetwork.networks[networkId]
         if (networkData) {
-        const socialNetwork = web3.eth.Contract(SocialNetwork.abi, networkData.address)
+        const socialNetwork = new web3.eth.Contract(SocialNetwork.abi, networkData.address)
         this.setState({ socialNetwork })
         const postCount = await socialNetwork.methods.postCount().call()
         this.setState({ postCount })
