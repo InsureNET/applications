@@ -24,6 +24,20 @@ import Logo from 'components/Logo'
 
 const categories = [
 	{
+		id: 'Administration',
+		children: [
+			{ id: 'Authentication', icon: <PeopleIcon />, page: 'authentication' },
+			{ id: 'Hosting', icon: <PublicIcon />, page: 'hosting' },
+			
+		],
+	},
+	{
+		id: 'Social Network',
+		children: [
+			{ id: 'InsureNET Social', icon: <PeopleIcon />, page: 'socialnet' }
+		]
+	},
+	{
 		id: 'dApps',
 		children: [
 			{ id: 'dApp Browser', icon: <PeopleIcon />, page: 'browser' },
@@ -42,26 +56,24 @@ const categories = [
 		]
 	},
 	{
+		id: 'Risk Models',
+		children: [
+			{ id: 'RiskDashboard', icon: <DnsRoundedIcon />, page: 'riskdashboard' },
+		]
+	},
+	{
 		id: 'Smart Contracts',
 		children: [
 
 		]
 	},
-	{
-		id: 'Administration',
-		children: [
-			{ id: 'Authentication', icon: <PeopleIcon />, page: 'authentication' },
-			{ id: 'Hosting', icon: <PublicIcon />, page: 'hosting' },
-			{ id: 'Functions', icon: <SettingsEthernetIcon />, page: 'functions' },
-			
-		],
-	},
-	{
-		id: 'AI & ML',
-		children: [
-			{ id: 'ML Kit', icon: <SettingsInputComponentIcon />, page: 'ml' },
-		]
-	},
+	
+	// {
+	// 	id: 'AI & ML',
+	// 	children: [
+	// 		{ id: 'ML Kit', icon: <SettingsInputComponentIcon />, page: 'ml' },
+	// 	]
+	// },
 	{
 		id: 'Storage',
 		children: [
@@ -82,6 +94,7 @@ const categories = [
 		id: 'Testing',
 		children: [
 			{ id: 'Test Lab', icon: <PhonelinkSetupIcon />, page: 'lab' },
+			{ id: 'Functions', icon: <SettingsEthernetIcon />, page: 'functions' },
 		]
 	}
 ]

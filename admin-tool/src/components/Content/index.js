@@ -36,6 +36,7 @@ const styles = theme => ({
 	},
 })
 
+/** @dev main page - default home page */
 function Content({ classes }) {
 	return (
 		<div className={classes.container}>

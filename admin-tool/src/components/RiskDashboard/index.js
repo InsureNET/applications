@@ -13,6 +13,7 @@ import { withStyles } from '@material-ui/core/styles'
 import SearchIcon from '@material-ui/icons/Search'
 import RefreshIcon from '@material-ui/icons/Refresh'
 import TabBar from 'components/TabBar'
+import RiskDashboard from '../../pages/riskdashboard'
 
 const styles = theme => ({
 	paper: {
@@ -39,8 +40,31 @@ const styles = theme => ({
 		padding: '48px 36px 0',
 	},
 })
-const tabNames = ['Files', 'Rules', 'Usage']
-function StorageContent({ classes }) {
+
+const tabNames = ['Users', 'Sign-in method', 'Templates', 'Usage', 'Tokens', 'Token Holders']
+
+function addUser() {
+	console.log('Adding User');
+}
+
+function sendUserToken(user) {
+	
+}
+
+function mintUserToken(user) {
+	// mint the token
+
+	// send to the user
+	sendUserToken(user);
+}
+
+function revokeUserToken(user, token) {
+	// revoke the token or make it invalid for auth
+
+	// lock the user out
+}
+
+function RiskDashboardContent({ classes }) {
 	return (
 		<>
 			<TabBar tabNames={tabNames} />
@@ -55,7 +79,7 @@ function StorageContent({ classes }) {
 								<Grid item xs>
 									<TextField
 										fullWidth
-										placeholder="Search by filename, rule or usage id"
+										placeholder="Search by hash."
 										InputProps={{
 											disableUnderline: true,
 											className: classes.searchInput,
@@ -63,8 +87,12 @@ function StorageContent({ classes }) {
 									/>
 								</Grid>
 								<Grid item>
-									<Button variant="contained" color="primary" className={classes.addUser}>
-										Add File
+									<Button 
+									variant="contained" 
+									color="primary" 
+									className={classes.addUser}
+									onClick={addUser()}>
+										Add user
 									</Button>
 									<Tooltip title="Reload">
 										<IconButton>
@@ -80,8 +108,6 @@ function StorageContent({ classes }) {
 						<Typography color="textSecondary" align="center">
 							No users for this project yet
 						</Typography>
-						{/** @dev list the users here with a map function. */}
-						
 					</div>
 				</Paper>
 			</div>
@@ -89,8 +115,8 @@ function StorageContent({ classes }) {
 	)
 }
 
-StorageContent.propTypes = {
+RiskDashboardContent.propTypes = {
 	classes: PropTypes.object.isRequired,
 }
 
-export default withStyles(styles)(StorageContent)
+export default withStyles(styles)(RiskDashboardContent)

@@ -12,10 +12,20 @@ function DashboardIndex({ data, location }) {
 		</Layout>
 	)
 }
+
+/** @dev DashboardIndex PropTypes
+ * 
+ */
 DashboardIndex.propTypes = {
 	data: PropTypes.object.isRequired,
 	location: PropTypes.object,
 }
+
+/** @dev pageQuery
+ * @param site title
+ * @description exports the graphql query for the site title and 
+ * 				whatever else we want to add.
+ */
 export const pageQuery = graphql`
 	query {
 		site {
@@ -25,4 +35,5 @@ export const pageQuery = graphql`
 		}
 	}
 `
+
 export default DashboardIndex
