@@ -1,5 +1,5 @@
 <h1 align="center">    
-  InsureNET ICO
+  InsureNET Blockchain Insurance Platform and Protocols
 </h1>
 
 Our public info site 
