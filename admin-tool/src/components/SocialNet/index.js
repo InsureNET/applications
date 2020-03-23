@@ -49,7 +49,10 @@ const styles = theme => ({
 	},
 })
 
-
+/**
+ * @dev getWeb3()
+ * 
+ */
 const getWeb3 = () =>
   new Promise((resolve, reject) => {
       
@@ -95,7 +98,7 @@ class SocialNet extends React.Component {
     async componentDidMount() {
         console.group('Social Net')
         console.log('Component Did Mount =>')
-        //await this.getWeb3();
+        //await this.getWeb3;
         await this.loadWeb3();
         await this.loadBlockhainData();
 
@@ -103,8 +106,12 @@ class SocialNet extends React.Component {
     }
 
     async loadWeb3() {
+      new Promise((resolve, reject) => {
         console.group('Load Web3')
         console.info('loading Web3, please wait . . .')
+
+      })
+        
         if (window.ethereum) {
             window.web3 = new Web3(window.ethereum)
             await window.ethereum.enable()
@@ -204,6 +211,7 @@ class SocialNet extends React.Component {
                 posts={this.state.posts}
                 createPost={this.createPost}
                 tipPost={this.tipPost}
+                account={this.state.account}
               />
             }
           </div>
