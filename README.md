@@ -2,7 +2,8 @@
   InsureNET Blockchain Insurance Platform and Protocols
 </h1>
 
-Our public info site 
+- Our public info site 
+- InsureNET Dashboard
 
 ## iNET Token Pre-Sale coming in April
 https://<tobeannouced.com>
