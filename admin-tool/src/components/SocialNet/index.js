@@ -108,13 +108,14 @@ class SocialNet extends React.Component {
         if (window.ethereum) {
             window.web3 = new Web3(window.ethereum)
             await window.ethereum.enable()
-            console.info('Ethereum loaded')
+            console.info('Ethereum account loaded:')
         }
         else if (window.web3) {            
             window.web3 = new Web3(window.web3.currentProvider)
-            console.info('web3 loaded')
+            console.info('web3 account loaded')
         }
         else {
+            console.log('Non-Ethereum browser detected. You should consider trying MetaMask!')
             window.alert('Non-Ethereum browser detected. You should consider trying MetaMask!')
         }
 
