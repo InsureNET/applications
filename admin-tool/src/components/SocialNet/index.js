@@ -23,7 +23,36 @@ import SocialNetwork from 'abis/SocialNetwork.json'
 import Web3 from 'web3'
 import { Tab } from '@material-ui/core'
 
+const styles = theme => ({
+	paper: {
+		maxWidth: 936,
+		margin: 'auto',
+		overflow: 'hidden',
+	},
+	searchBar: {
+		borderBottom: '1px solid rgba(0, 0, 0, 0.12)',
+	},
+	searchInput: {
+		fontSize: theme.typography.fontSize,
+	},
+	block: {
+		display: 'block',
+	},
+	addUser: {
+		marginRight: theme.spacing.unit,
+	},
+	contentWrapper: {
+		margin: '40px 16px',
+	},
+	container: {
+		padding: '48px 36px 0',
+	},
+})
 
+/**
+ * @dev getWeb3()
+ * 
+ */
 
 const getWeb3 = () =>
   new Promise((resolve, reject) => {
@@ -70,7 +99,7 @@ class SocialNet extends React.Component {
     async componentDidMount() {
         console.group('Social Net')
         console.log('Component Did Mount =>')
-        //await this.getWeb3();
+        //await this.getWeb3;
         await this.loadWeb3();
         await this.loadBlockhainData();
 
@@ -78,8 +107,12 @@ class SocialNet extends React.Component {
     }
 
     async loadWeb3() {
+      new Promise((resolve, reject) => {
         console.group('Load Web3')
         console.info('loading Web3, please wait . . .')
+
+      })
+        
         if (window.ethereum) {
             window.web3 = new Web3(window.ethereum)
             await window.ethereum.enable()
@@ -97,13 +130,24 @@ class SocialNet extends React.Component {
         console.groupEnd()
     }
 
+    /**
+     * @dev load data from the blockchain, i.e. contracts
+     * 
+     */
     async loadBlockhainData() {
+        console.group('loading the blockchain data . . .')
         const web3 = window.web3
         // Load account
         const accounts = await web3.eth.getAccounts()
         this.setState({ account: accounts[0] })
+        console.info('loaded account: ', accounts[0])
         // Network ID
         const networkId = await web3.eth.net.getId()
+        console.info('network id: ', networkId)
+
+        /**
+         * @dev Get the network data using the abi 
+         */ 
         const networkData = SocialNetwork.networks[networkId]
         if (networkData) {
         const socialNetwork = new web3.eth.Contract(SocialNetwork.abi, networkData.address)
@@ -117,14 +161,23 @@ class SocialNet extends React.Component {
             posts: [...this.state.posts, post]
             })
         }
-        // Sort posts. Show highest tipped posts first
+
+        /**
+         * @dev Sort posts. Show highest tipped posts first
+         * 
+         */
         this.setState({
             posts: this.state.posts.sort((a, b) => b.tipAmount - a.tipAmount)
         })
+        // remove the loader from the screen
         this.setState({ loading: false })
-        } else {
-        window.alert('SocialNetwork contract not deployed to detected network.')
+        } 
+        else {
+          console.error('SocialNetwork contract not deployed to detected network.')
+          window.alert('SocialNetwork contract not deployed to detected network.')
         }
+
+        console.groupEnd();
     }
 
 
@@ -180,6 +233,7 @@ class SocialNet extends React.Component {
                 posts={this.state.posts}
                 createPost={this.createPost}
                 tipPost={this.tipPost}
+                account={this.state.account}
               />
             }
           </div>
