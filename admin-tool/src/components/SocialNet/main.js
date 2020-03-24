@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Identicon from 'identicon.js';
+import style from './main.css'
 
 class Main extends Component {
   constructor(props) {
@@ -11,9 +12,9 @@ class Main extends Component {
 
   render() {
     return (
-      <div className="container-fluid mt-5">
+      <div style={style} className="container-fluid mt-5">
         <div className="row">
-          <main role="main" className="col-lg-12 ml-auto mr-auto" style={{ maxWidth: '500px' }}>
+          <main role="main" className="main col-lg-12 ml-auto mr-auto">
             <div className="content mr-auto ml-auto">
               <p>&nbsp;</p>
               <form onSubmit={(event) => {
