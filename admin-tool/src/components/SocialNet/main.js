@@ -5,7 +5,7 @@ class Main extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      account: '',
+      account: this.props.account,
     }
   }
 

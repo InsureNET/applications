@@ -129,13 +129,24 @@ class SocialNet extends React.Component {
         console.groupEnd()
     }
 
+    /**
+     * @dev load data from the blockchain, i.e. contracts
+     * 
+     */
     async loadBlockhainData() {
+        console.group('loading the blockchain data . . .')
         const web3 = window.web3
         // Load account
         const accounts = await web3.eth.getAccounts()
         this.setState({ account: accounts[0] })
+        console.info('loaded account: ', accounts[0])
         // Network ID
         const networkId = await web3.eth.net.getId()
+        console.info('network id: ', networkId)
+
+        /**
+         * @dev Get the network data using the abi 
+         */ 
         const networkData = SocialNetwork.networks[networkId]
         if (networkData) {
         const socialNetwork = new web3.eth.Contract(SocialNetwork.abi, networkData.address)
@@ -149,14 +160,23 @@ class SocialNet extends React.Component {
             posts: [...this.state.posts, post]
             })
         }
-        // Sort posts. Show highest tipped posts first
+
+        /**
+         * @dev Sort posts. Show highest tipped posts first
+         * 
+         */
         this.setState({
             posts: this.state.posts.sort((a, b) => b.tipAmount - a.tipAmount)
         })
+        // remove the loader from the screen
         this.setState({ loading: false })
-        } else {
-        window.alert('SocialNetwork contract not deployed to detected network.')
+        } 
+        else {
+          console.error('SocialNetwork contract not deployed to detected network.')
+          window.alert('SocialNetwork contract not deployed to detected network.')
         }
+
+        console.groupEnd();
     }
 
 
