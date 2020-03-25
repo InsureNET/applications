@@ -24,12 +24,10 @@ import Logo from 'components/Logo'
 
 const categories = [
 	{
-		id: 'Administration',
+		id: 'Exchanges',
 		children: [
-			{ id: 'Authentication', icon: <PeopleIcon />, page: 'authentication' },
-			{ id: 'Hosting', icon: <PublicIcon />, page: 'hosting' },
-			
-		],
+			{ id: 'iNET Exchange', icon: <PublicIcon />, page: 'exchange' },
+		]
 	},
 	{
 		id: 'Social Network',
@@ -38,23 +36,29 @@ const categories = [
 		]
 	},
 	{
-		id: 'dApps',
+		id: 'Products',
 		children: [
-			{ id: 'dApp Browser', icon: <PeopleIcon />, page: 'browser' },
+			{ id: 'Property', icon: <PeopleIcon />, page: 'property' },
+			{ id: 'Liability', icon: <PeopleIcon />, page: 'liability' },
+			{ id: 'Weather', icon: <PeopleIcon />, page: 'weather' }
 		]
 	},
+	{
+		id: 'Administration',
+		children: [
+			{ id: 'Authentication', icon: <PeopleIcon />, page: 'authentication' },
+			{ id: 'Hosting', icon: <PublicIcon />, page: 'hosting' },
+			
+		],
+	},
+	
 	{
 		id: 'Wallets',
 		children: [
 
 		]
 	},
-	{
-		id: 'Exchanges',
-		children: [
-			{ id: 'iNET Exchange', icon: <PublicIcon />, page: 'exchange' },
-		]
-	},
+	
 	{
 		id: 'Risk Models',
 		children: [
@@ -64,7 +68,8 @@ const categories = [
 	{
 		id: 'Smart Contracts',
 		children: [
-
+			{ id: 'Solidity', icon: <DnsRoundedIcon />, page: 'solidity' },
+			{ id: 'Vyper', icon: <DnsRoundedIcon />, page: 'vyper' },
 		]
 	},
 	
