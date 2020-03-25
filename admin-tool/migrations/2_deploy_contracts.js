@@ -18,7 +18,7 @@ module.exports = async function(deployer) {
 
   // Transfer to the founders wallet
   // 25 Million until I set up the rest of the accounts
-  await token.transfer('0xd2cCea05436bf27aE49B01726075449F815B683e', '2500000000000000000000000');
+  await token.transfer('0x6F7d7d68c3Eed4Df81CF5F97582deef8ABC51533', '2500000000000000000000000');
 
   // Transfer to the partners wallets
 

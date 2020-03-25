@@ -7,16 +7,21 @@ import Identicon from 'identicon.js';
 /* Navbar Component */
 class Navbar extends Component {
 
+  constructor(props){
+    super(props)
+    this.state = {
+      account: this.props.account,
+    }
+
+    
+  }
+
   render() {
+    
     return (
       <nav className="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
-        
-        <ul className="navbar-nav px-3">
-          <li className="nav-item text-nowrap d-none d-sm-none d-sm-block">
-            <small className="text-secondary">
-              <small id="account">{this.props.account}</small>
-            </small>
-            {this.props.account
+        <p> Account:  <small id="account">{this.props.account}</small>
+          {/* {this.props.account
               ? <img
                 className='ml-2'
                 width='30'
@@ -25,9 +30,10 @@ class Navbar extends Component {
                 alt='Avatar'
               />
               : <span></span>
-            }
-          </li>
-        </ul>
+            } */}
+            
+        </p>
+        
       </nav>
     );
   }

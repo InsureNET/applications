@@ -3,7 +3,7 @@ import Identicon from 'identicon.js';
 import Web3 from 'web3'
 import Token from '../../abis/Token.json'
 import EthSwap from '../../abis/EthSwap.json'
-//import Navbar from './Navbar'
+import Navbar from '../Navbar/index'
 import Main from '../Exchange/main'
 
 class Exchange extends Component {
@@ -105,6 +105,7 @@ class Exchange extends Component {
     
         return (
           <div>
+            <Navbar account={this.state.account} />
             <div className="container-fluid mt-5">
               <div className="row">
                 <main 

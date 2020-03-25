@@ -43,7 +43,10 @@ const styles = theme => ({
 
 const tabNames = ['Home', 'Favorites']
 
-
+/**
+ * 
+ * @dev Browser Content Component
+ */
 function BrowserContent({classes}) {
     return(
         <>
