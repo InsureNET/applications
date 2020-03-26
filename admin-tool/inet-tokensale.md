@@ -8,7 +8,7 @@ This is the final and authoritative description of the iNET Token and Exchange.
 1. Name of the InsureNET token is "InsureNET Platform Protocol".
 1. Decimals of the iNET token is 18 and 1 iNET is represented as `100000000000000000`.
 1. Maximum Supply is 1,000,000,000 (1 Billion).
-1. The Token Contract implements ERC20 Specifications according to https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20-token-standard.md.
+1. The Token Contract implements ERC20 Specifications according to https://eips.ethereum.org/EIPS/eip-20.
 
 ### Specifications of general Exchange parameters
 1. Sale starts at `startTime` (inclusive).
