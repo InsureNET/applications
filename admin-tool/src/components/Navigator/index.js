@@ -9,18 +9,24 @@ import Grid from '@material-ui/core/Grid'
 import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemIcon from '@material-ui/core/ListItemIcon'
+import HttpIcon from '@material-ui/icons/Http';
 import ListItemText from '@material-ui/core/ListItemText'
+import LockIcon from '@material-ui/icons/Lock';
+import WbSunnyIcon from '@material-ui/icons/WbSunny';
 import HomeIcon from '@material-ui/icons/Home'
 import PeopleIcon from '@material-ui/icons/People'
 import DnsRoundedIcon from '@material-ui/icons/DnsRounded'
+import LocalShippingIcon from '@material-ui/icons/LocalShipping';
 import PermMediaOutlinedIcon from '@material-ui/icons/PhotoSizeSelectActual'
 import PublicIcon from '@material-ui/icons/Public'
 import SettingsEthernetIcon from '@material-ui/icons/SettingsEthernet'
+import HowToRegIcon from '@material-ui/icons/HowToReg';
 import SettingsInputComponentIcon from '@material-ui/icons/SettingsInputComponent'
 import TimerIcon from '@material-ui/icons/Timer'
 import SettingsIcon from '@material-ui/icons/Settings'
 import PhonelinkSetupIcon from '@material-ui/icons/PhonelinkSetup'
 import Logo from 'components/Logo'
+import HouseIcon from '@material-ui/icons/House';
 
 const categories = [
 	{
@@ -38,16 +44,17 @@ const categories = [
 	{
 		id: 'Products',
 		children: [
-			{ id: 'Property', icon: <PeopleIcon />, page: 'property' },
-			{ id: 'Liability', icon: <PeopleIcon />, page: 'liability' },
-			{ id: 'Weather', icon: <PeopleIcon />, page: 'weather' }
+			{ id: 'Property', icon: <HouseIcon />, page: 'property' },
+			{ id: 'Liability', icon: <HowToRegIcon />, page: 'liability' },
+			{ id: 'Weather', icon: <WbSunnyIcon />, page: 'weather' },
+			{ id: 'Transportation', icon: <LocalShippingIcon />, page: 'transportation' }
 		]
 	},
 	{
 		id: 'Administration',
 		children: [
-			{ id: 'Authentication', icon: <PeopleIcon />, page: 'authentication' },
-			{ id: 'Hosting', icon: <PublicIcon />, page: 'hosting' },
+			{ id: 'Authentication', icon: <LockIcon />, page: 'authentication' },
+			{ id: 'Hosting', icon: <HttpIcon />, page: 'hosting' },
 			
 		],
 	},
