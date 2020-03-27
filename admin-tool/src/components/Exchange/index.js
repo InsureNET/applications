@@ -8,7 +8,10 @@ import Main from '../Exchange/main'
 
 class Exchange extends Component {
     async componentWillMount() {
+        console.group('ComponentWillMount()')
+        console.info('loading web3...')
         await this.loadWeb3()
+        console.info('loading blockchain data...')
         await this.loadBlockchainData()
       }
     

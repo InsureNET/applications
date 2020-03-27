@@ -6,7 +6,7 @@ class BuyForm extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      account: '',
+      account: this.props.account,
       approved: true,
       transactions: [],
       metadata: {},
