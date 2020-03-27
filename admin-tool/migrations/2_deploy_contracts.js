@@ -1,9 +1,18 @@
 const SocialNetwork = artifacts.require("SocialNetwork");
 const Token = artifacts.require("Token");
 const EthSwap = artifacts.require("EthSwap");
+const DisasterBond = artifacts.require("DisasterBond");
+const TokenStake = artifacts.require("TokenStake");
 
 module.exports = async function(deployer) {
+  /**
+   * @dev Deployments
+   */
   await deployer.deploy(SocialNetwork);
+
+  // Deploy Product Contracts
+  await deployer.deploy(DisasterBond);
+  const disasterBond = await DisasterBond.deployed();
 
   // Deploy Token
   await deployer.deploy(Token);
@@ -13,6 +22,13 @@ module.exports = async function(deployer) {
   await deployer.deploy(EthSwap, token.address);
   const ethSwap = await EthSwap.deployed()
 
+  // Deploy TokenStake Contract
+  await deployer.deploy(TokenStake, token,address);
+  const tokenStake = await TokenStake.deployed();
+
+  /**
+   * @dev Transfers
+   */
   // Transfer 75 Million tokens to EthSwap (100million)
   await token.transfer(ethSwap.address, '75000000000000000000000000');
 

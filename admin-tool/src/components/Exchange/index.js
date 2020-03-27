@@ -12,9 +12,10 @@ class Exchange extends Component {
         await this.loadBlockchainData()
       }
     
+      // load the blockchain data
       async loadBlockchainData() {
         const web3 = window.web3
-    
+        // get the accounts
         const accounts = await web3.eth.getAccounts()
         this.setState({ account: accounts[0] })
     
@@ -25,7 +26,9 @@ class Exchange extends Component {
         const networkId =  await web3.eth.net.getId()
         const tokenData = Token.networks[networkId]
         if(tokenData) {
-          const token = new web3.eth.Contract(Token.abi, tokenData.address)
+          const tokenAbi = Token.abi;
+          const tokenAddress = tokenData.address;
+          const token = new web3.eth.Contract(tokenAbi, tokenAddress);
           this.setState({ token })
           let tokenBalance = await token.methods.balanceOf(this.state.account).call()
           this.setState({ tokenBalance: tokenBalance.toString() })
