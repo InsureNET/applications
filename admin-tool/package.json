@@ -25,6 +25,8 @@
   "devDependencies": {
     "babel-polyfill": "^6.26.0",
     "babel-register": "^6.26.0",
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
     "electron": "^8.2.0",
     "eslint": "^6.8.0",
     "eslint-config-react-app": "^5.1.0",
@@ -38,7 +40,7 @@
   "scripts": {
     "build": "gatsby build",
     "clean": "rm -rf public && rm -rf .cache",
-    "dev": "SET NODE_ENV=development rm -rf ./.cache && yarn && gatsby develop -H 0.0.0.0",
+    "dev": "NODE_ENV=development rm -rf ./.cache && yarn && gatsby develop -H 0.0.0.0",
     "develop": "yarn dev",
     "format": "prettier --write src/**/*.{js,jsx}",
     "prebuild": "yarn clean && yarn",
