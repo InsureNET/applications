@@ -1,6 +1,13 @@
 import React, { Component } from 'react';
 import Identicon from 'identicon.js';
+import { makeStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+
 import style from './main.css'
+
+
+
+
 
 class Main extends Component {
   constructor(props) {
@@ -12,6 +19,7 @@ class Main extends Component {
 
   render() {
     return (
+      <div className='main-container'>
       <div style={style} className="container-fluid mt-5">
         <div className="row">
           <main role="main" className="main col-lg-12 ml-auto mr-auto">
@@ -31,8 +39,12 @@ class Main extends Component {
                     className="form-control"
                     placeholder="What's on your mind?"
                     required />
+                  &nbsp;&nbsp;&nbsp;&nbsp;
+                  <Button type="submit" variant='contained' color='secondary' >
+                    Share
+                  </Button>
                 </div>
-                <button type="submit" className="btn btn-primary btn-block">Share</button>
+                
               </form>
               <p>&nbsp;</p>
               {this.props.posts.map((post, key) => {
@@ -76,6 +88,7 @@ class Main extends Component {
             </div>
           </main>
         </div>
+      </div>
       </div>
     );
   }

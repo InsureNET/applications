@@ -21,6 +21,9 @@ import TimerIcon from '@material-ui/icons/Timer'
 import SettingsIcon from '@material-ui/icons/Settings'
 import PhonelinkSetupIcon from '@material-ui/icons/PhonelinkSetup'
 import Logo from 'components/Logo'
+import AccountBalanceWalletIcon from '@material-ui/icons/AccountBalanceWallet';
+import LocalShippingIcon from '@material-ui/icons/LocalShipping';
+import Brightness7Icon from '@material-ui/icons/Brightness7';
 
 const categories = [
 	{
@@ -38,9 +41,11 @@ const categories = [
 	{
 		id: 'Products',
 		children: [
-			{ id: 'Property', icon: <PeopleIcon />, page: 'property' },
+			{ id: 'Property', icon: <HomeIcon />, page: 'property' },
 			{ id: 'Liability', icon: <PeopleIcon />, page: 'liability' },
-			{ id: 'Weather', icon: <PeopleIcon />, page: 'weather' }
+			{ id: 'Weather', icon: <Brightness7Icon />, page: 'weather' },
+			{ id: 'Transportation', icon: <LocalShippingIcon />, page: 'transportation' },
+			{ id: 'Custom', icon: <PeopleIcon />, page: 'custom' },
 		]
 	},
 	{
@@ -55,7 +60,7 @@ const categories = [
 	{
 		id: 'Wallets',
 		children: [
-
+			{ id: 'MetaMask', icon: <AccountBalanceWalletIcon />, page: 'metamask' }
 		]
 	},
 	

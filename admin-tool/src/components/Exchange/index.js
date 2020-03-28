@@ -5,6 +5,11 @@ import Token from '../../abis/Token.json'
 import EthSwap from '../../abis/EthSwap.json'
 import Navbar from '../Navbar/index'
 import Main from '../Exchange/main'
+import Paper from '@material-ui/core/Paper'
+import { withStyles } from '@material-ui/core/styles'
+import TabBar from 'components/TabBar'
+
+const tabNames = ['Buy', 'Sell', 'Active', 'Pending', 'Completed', 'All']
 
 class Exchange extends Component {
     async componentWillMount() {
@@ -108,9 +113,14 @@ class Exchange extends Component {
     
         return (
           <div>
-            <Navbar account={this.state.account} />
+            
             <div className="container-fluid mt-5">
               <div className="row">
+              <TabBar tabNames={tabNames}></TabBar>
+              <Navbar account={this.state.account} />
+              <Paper className='paper'>
+                
+              </Paper>
                 <main 
                   role="main" 
                   className="col-lg-12 ml-auto mr-auto" 

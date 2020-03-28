@@ -23,31 +23,8 @@ import SocialNetwork from 'abis/SocialNetwork.json'
 import Web3 from 'web3'
 import { Tab } from '@material-ui/core'
 
-const styles = theme => ({
-	paper: {
-		maxWidth: 936,
-		margin: 'auto',
-		overflow: 'hidden',
-	},
-	searchBar: {
-		borderBottom: '1px solid rgba(0, 0, 0, 0.12)',
-	},
-	searchInput: {
-		fontSize: theme.typography.fontSize,
-	},
-	block: {
-		display: 'block',
-	},
-	addUser: {
-		marginRight: theme.spacing.unit,
-	},
-	contentWrapper: {
-		margin: '40px 16px',
-	},
-	container: {
-		padding: '48px 36px 0',
-	},
-})
+const tabNames = ['Sell', 'Marketplace', 'Create', 'Trending', 'Following', 'My Account']
+
 
 /**
  * @dev SocialNet * 
@@ -182,9 +159,9 @@ class SocialNet extends React.Component {
       
     render() {
         return (
-          <div>
-            <TabBar />
-            <Navbar account={this.state.account} />
+          <div className='main-container'>            
+            <TabBar tabNames={tabNames}></TabBar>
+            <Navbar className='navbar' account={this.state.account} />
             {this.state.loading
               ? <div id="loader" className="text-center mt-5"><p>Loading...</p></div>
               : <Main
