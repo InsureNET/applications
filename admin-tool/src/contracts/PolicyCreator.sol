@@ -10,18 +10,32 @@ pragma solidity ^0.5.0;
 contract PolicyCreator {
     // State parameters
     address public policyHolder;
+    uint256 public policyHolderCount;
     uint256 public fee = 1550;
+    uint256 public policyCount;
+    // ToDo: Formula for this
+    uint256 public riskPoolAmountRequired;
 
     // Mappings
 
 
     // Structs
-
+    struct Policy {
+        uint id;
+        string name;
+        uint256 price;
+        uint256 converageAmount;
+        uint256 riskPoolRequirement;
+        address payable policyHolder;
+        uint256 fee;
+        bool active;
+    }
 
     // Events
     event PolicyCreated (
         uint id,
         string name,
+        string policyNumber,
         uint256 price,
         uint256 converageAmount,
         uint256 riskPoolRequirement,
@@ -60,9 +74,9 @@ contract PolicyCreator {
         uint256 _riskPoolAmtRqd
     ) public payable {
 
-
-        // ToDo: how do I want to do the id?? uuid??? custom???
-        emit PolicyCreated(1, _name, _price, _coverageAmt, _riskPoolAmtRqd, _policyHolder, _fee, true);
+        policyCount ++;
+        // ToDo: how do I want to do the policyNumber?? uuid??? custom???
+        emit PolicyCreated(policyCount, _name, '<PolicyNumber>', _price, _coverageAmt, _riskPoolAmtRqd, _policyHolder, _fee, true);
     }
 
 

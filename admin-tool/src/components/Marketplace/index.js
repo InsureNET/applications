@@ -109,7 +109,9 @@ class MarketplaceContent extends Component {
     const accounts = await web3.eth.getAccounts()
     this.setState({ account: accounts[0] })
     const networkId = await web3.eth.net.getId()
+    this.setState({ networkId })
     const networkData = Marketplace.networks[networkId]
+    this.setState({ networkData })
 
     // const policyNetworkData = PolicyMarketplace.networks[networkId]
     // console.log(policyNetworkData);
@@ -119,12 +121,15 @@ class MarketplaceContent extends Component {
       //const policyMarketplace = new web3.eth.Contract(PolicyMarketplace.abi, networkData.address)
       this.setState({ marketplace })
       const productCount = await marketplace.methods.productCount().call()
-      this.setState({ productCount })
+      const policyCount = await marketplace.methods.policyCount().call()
+      this.setState({ productCount, policyCount })
       // Load products
       for (var i = 1; i <= productCount; i++) {
         const product = await marketplace.methods.products(i).call()
+        const policy = await marketplace.methods.policies(i).call()
         this.setState({
-          products: [...this.state.products, product]
+          products: [...this.state.products, product],
+          policies: [...this.state.policies, policy]
         })
       }
       this.setState({ loading: false})
@@ -143,41 +148,50 @@ class MarketplaceContent extends Component {
       id : uuid.v4(),
       account: '',
       productCount: 0,
+      policyCount: 0,
       products: [],
+      policies: [],
       loading: false // I changed to false to see what happens
     }
 
     this.createProduct = this.createProduct.bind(this)
     this.purchaseProduct = this.purchaseProduct.bind(this)
+    this.createPolicy = this.createPolicy.bind(this)
     console.group('App Component')
   }
 
-  createPolicy(policyNumber, owner, buyer, date){
+  createPolicy(name, policyNumber, price){
     this.setState({ loading: true })
-    //this.state.
+    this.state.marketplace.methods.createPolicy(name, policyNumber, price)
+        .send({ from: this.state.account })
+        .once('receipt', (receipt) => {
+            console.log(receipt)
+            this.setState({ loading: false })
+        })
   }
 
   createProduct(name, price) {
     this.setState({ loading: true })
-    this.state.marketplace.methods.createProduct(name, price).send({ from: this.state.account })
-    .once('receipt', (receipt) => {
-      this.setState({ loading: false })
-    })
+    this.state.marketplace.methods.createProduct(name, price)
+        .send({ from: this.state.account })
+        .once('receipt', (receipt) => {
+            this.setState({ loading: false })
+        })
   }
 
   purchaseProduct(id, price) {
     this.setState({ loading: true })
-    this.state.marketplace.methods.purchaseProduct(id).send({ from: this.state.account, value: price })
-    .once('receipt', (receipt) => {
-      this.setState({ loading: false })
-    })
+    this.state.marketplace.methods.purchaseProduct(id)
+        .send({ from: this.state.account, value: price })
+        .once('receipt', (receipt) => {
+            this.setState({ loading: false })
+        })
   }
 
   render() {
-    return (
-      <div>
-        <Navbar account={this.state.account} id={this.state.id}/>
+    return (    
         <div className="container-fluid mt-5">
+          <Navbar account={this.state.account} id={this.state.id}/>
           <div className="row">
           <p>&nbsp;</p>
             {/* <img src={logo} alt='Agency Logo' height='50' width='50' /> */}
@@ -189,13 +203,14 @@ class MarketplaceContent extends Component {
                   </div>
                 : <Main
                   products={this.state.products}
+                  policies={this.state.policies}
                   createProduct={this.createProduct}
-                  purchaseProduct={this.purchaseProduct} />
+                  purchaseProduct={this.purchaseProduct}
+                  createPolicy={this.createPolicy} />
               }
             </main>
           </div>
         </div>
-      </div>
     );
   }
 

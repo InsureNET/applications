@@ -21,7 +21,7 @@ module.exports = async function(deployer) {
 
   // Deploy Policy Creator
   await deployer.deploy(PolicyCreator);
-  const polciyCreator = await polciyCreator.deployed();
+  //const polciyCreator = await polciyCreator.deployed();
 
   // Deploy Token
   await deployer.deploy(Token);

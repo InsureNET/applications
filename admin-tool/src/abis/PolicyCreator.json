@@ -93,6 +93,21 @@
     {
       "constant": true,
       "inputs": [],
+      "name": "policyCount",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
       "name": "policyHolder",
       "outputs": [
         {
@@ -155,25 +170,25 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"converageAmount\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"riskPoolRequirement\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"address payable\",\"name\":\"policyHolder\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"fee\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"bool\",\"name\":\"active\",\"type\":\"bool\"}],\"name\":\"PolicyCreated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"string\",\"name\":\"reason\",\"type\":\"string\"}],\"name\":\"PolicyDestroyed\",\"type\":\"event\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"string\",\"name\":\"_name\",\"type\":\"string\"},{\"internalType\":\"address payable\",\"name\":\"_policyHolder\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_price\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_fee\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_coverageAmt\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_riskPoolAmtRqd\",\"type\":\"uint256\"}],\"name\":\"createPolicy\",\"outputs\":[],\"payable\":true,\"stateMutability\":\"payable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[],\"name\":\"destroyPolicy\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"fee\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"policyHolder\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{\"constructor\":{\"details\":\"constructor\"},\"createPolicy(string,address,uint256,uint256,uint256,uint256)\":{\"details\":\"createPolicy\",\"params\":{\"_coverageAmt\":\"coverage amount (amount of payout)\",\"_fee\":\"fee for InsureNET\",\"_name\":\"name of the policy\",\"_policyHolder\":\"address of the policyHolder\",\"_price\":\"price of the policy\",\"_riskPoolAmtRqd\":\"the amount needed to cover this policies risk     \"}}}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/C/Projects/InsureNET/master-branch/admin-tool/src/contracts/PolicyCreator.sol\":\"PolicyCreator\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/C/Projects/InsureNET/master-branch/admin-tool/src/contracts/PolicyCreator.sol\":{\"keccak256\":\"0x74d3499cdbb315a5bbd7b4d5d70c0414ff5bff46f8138365e4e5e036ad2dccae\",\"urls\":[\"bzz-raw://0f0ad7a1a22e054ecaff7ce659d901f67c6835eabd64718afb727a2e93f26897\",\"dweb:/ipfs/Qmf9E7gEgq5nVd9k5vH8mgFWTuDvRLEdk1EtzufFTsUDxQ\"]}},\"version\":1}",
-  "bytecode": "0x608060405261060e60015534801561001657600080fd5b506103b8806100266000396000f3fe60806040526004361061003f5760003560e01c8063202d301a146100445780633433d7011461014757806381f8ac8e1461015e578063ddca3f43146101b5575b600080fd5b610145600480360360c081101561005a57600080fd5b810190808035906020019064010000000081111561007757600080fd5b82018360208201111561008957600080fd5b803590602001918460018302840111640100000000831117156100ab57600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f820116905080830192505050505050509192919290803573ffffffffffffffffffffffffffffffffffffffff169060200190929190803590602001909291908035906020019092919080359060200190929190803590602001909291905050506101e0565b005b34801561015357600080fd5b5061015c6102ee565b005b34801561016a57600080fd5b50610173610358565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b3480156101c157600080fd5b506101ca61037d565b6040518082815260200191505060405180910390f35b7f82df08bef02ad46c5f0d547ab3b4c5831a47b9dac85f54ae38bc2c3a1f7e93086001878685858a89600160405180898152602001806020018881526020018781526020018681526020018573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200184815260200183151515158152602001828103825289818151815260200191508051906020019080838360005b838110156102a557808201518184015260208101905061028a565b50505050905090810190601f1680156102d25780820380516001836020036101000a031916815260200191505b50995050505050505050505060405180910390a1505050505050565b7fb854d408981709638a788f4c013160169eb8b24d45ce28922f3d1b4afd8a897e60405180806020018281038252600c8152602001807f46656c74206c696b65206974000000000000000000000000000000000000000081525060200191505060405180910390a1565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6001548156fea265627a7a72315820d1a341e7344b6801c8d4ce26a624189c3ce6ab68a9d332f0564ef0452824461964736f6c63430005100032",
-  "deployedBytecode": "0x60806040526004361061003f5760003560e01c8063202d301a146100445780633433d7011461014757806381f8ac8e1461015e578063ddca3f43146101b5575b600080fd5b610145600480360360c081101561005a57600080fd5b810190808035906020019064010000000081111561007757600080fd5b82018360208201111561008957600080fd5b803590602001918460018302840111640100000000831117156100ab57600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f820116905080830192505050505050509192919290803573ffffffffffffffffffffffffffffffffffffffff169060200190929190803590602001909291908035906020019092919080359060200190929190803590602001909291905050506101e0565b005b34801561015357600080fd5b5061015c6102ee565b005b34801561016a57600080fd5b50610173610358565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b3480156101c157600080fd5b506101ca61037d565b6040518082815260200191505060405180910390f35b7f82df08bef02ad46c5f0d547ab3b4c5831a47b9dac85f54ae38bc2c3a1f7e93086001878685858a89600160405180898152602001806020018881526020018781526020018681526020018573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200184815260200183151515158152602001828103825289818151815260200191508051906020019080838360005b838110156102a557808201518184015260208101905061028a565b50505050905090810190601f1680156102d25780820380516001836020036101000a031916815260200191505b50995050505050505050505060405180910390a1505050505050565b7fb854d408981709638a788f4c013160169eb8b24d45ce28922f3d1b4afd8a897e60405180806020018281038252600c8152602001807f46656c74206c696b65206974000000000000000000000000000000000000000081525060200191505060405180910390a1565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6001548156fea265627a7a72315820d1a341e7344b6801c8d4ce26a624189c3ce6ab68a9d332f0564ef0452824461964736f6c63430005100032",
-  "sourceMap": "206:1459:7:-;;;316:4;295:25;;743:31;8:9:-1;5:2;;;30:1;27;20:12;5:2;743:31:7;206:1459;;;;;;",
-  "deployedSourceMap": "206:1459:7:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1142:410;;;;;;13:3:-1;8;5:12;2:2;;;30:1;27;20:12;2:2;1142:410:7;;;;;;;;;;21:11:-1;8;5:28;2:2;;;46:1;43;36:12;2:2;1142:410:7;;35:9:-1;28:4;12:14;8:25;5:40;2:2;;;58:1;55;48:12;2:2;1142:410:7;;;;;;100:9:-1;95:1;81:12;77:20;67:8;63:35;60:50;39:11;25:12;22:29;11:107;8:2;;;131:1;128;121:12;8:2;1142:410:7;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;30:3:-1;22:6;14;1:33;99:1;93:3;85:6;81:16;74:27;137:4;133:9;126:4;121:3;117:14;113:30;106:37;;169:3;161:6;157:16;147:26;;1142:410:7;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;1562:98;;8:9:-1;5:2;;;30:1;27;20:12;5:2;1562:98:7;;;:::i;:::-;;261:27;;8:9:-1;5:2;;;30:1;27;20:12;5:2;261:27:7;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;295:25;;8:9:-1;5:2;;;30:1;27;20:12;5:2;295:25:7;;;:::i;:::-;;;;;;;;;;;;;;;;;;;1142:410;1455:89;1469:1;1472:5;1479:6;1487:12;1501:15;1518:13;1533:4;1539;1455:89;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;1455:89:7;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1142:410;;;;;;:::o;1562:98::-;1621:31;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1562:98::o;261:27::-;;;;;;;;;;;;;:::o;295:25::-;;;;:::o",
-  "source": "/**\r\n * @title Policy Creator Contract\r\n * @dev InsureNET Decentralized Insurance Platform Policy Creator Contract.\r\n * @author Jason Romero\r\n * @copyright 2020 InsureNET\r\n */\r\n\r\npragma solidity ^0.5.0;\r\n\r\ncontract PolicyCreator {\r\n    // State parameters\r\n    address public policyHolder;\r\n    uint256 public fee = 1550;\r\n\r\n    // Mappings\r\n\r\n\r\n    // Structs\r\n\r\n\r\n    // Events\r\n    event PolicyCreated (\r\n        uint id,\r\n        string name,\r\n        uint256 price,\r\n        uint256 converageAmount,\r\n        uint256 riskPoolRequirement,\r\n        address payable policyHolder,\r\n        uint256 fee,\r\n        bool active\r\n    );\r\n\r\n    event PolicyDestroyed (\r\n        string reason\r\n    );\r\n\r\n    /**\r\n    * @dev constructor\r\n    */\r\n    constructor() public {\r\n\r\n    }\r\n\r\n    /**\r\n    * @dev createPolicy\r\n    * @param _name name of the policy\r\n    * @param _policyHolder address of the policyHolder\r\n    * @param _price price of the policy\r\n    * @param _fee fee for InsureNET\r\n    * @param _coverageAmt coverage amount (amount of payout)\r\n    * @param _riskPoolAmtRqd the amount needed to cover this policies risk\r\n    *\r\n    */\r\n    function createPolicy (\r\n        string memory _name,\r\n        address payable _policyHolder,\r\n        uint256 _price,\r\n        uint256 _fee,\r\n        uint256 _coverageAmt,\r\n        uint256 _riskPoolAmtRqd\r\n    ) public payable {\r\n\r\n\r\n        // ToDo: how do I want to do the id?? uuid??? custom???\r\n        emit PolicyCreated(1, _name, _price, _coverageAmt, _riskPoolAmtRqd, _policyHolder, _fee, true);\r\n    }\r\n\r\n\r\n    function destroyPolicy (\r\n\r\n    ) public {\r\n\r\n        emit PolicyDestroyed('Felt like it');\r\n    }\r\n\r\n}\r\n",
+  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"converageAmount\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"riskPoolRequirement\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"address payable\",\"name\":\"policyHolder\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"fee\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"bool\",\"name\":\"active\",\"type\":\"bool\"}],\"name\":\"PolicyCreated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"string\",\"name\":\"reason\",\"type\":\"string\"}],\"name\":\"PolicyDestroyed\",\"type\":\"event\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"string\",\"name\":\"_name\",\"type\":\"string\"},{\"internalType\":\"address payable\",\"name\":\"_policyHolder\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_price\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_fee\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_coverageAmt\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_riskPoolAmtRqd\",\"type\":\"uint256\"}],\"name\":\"createPolicy\",\"outputs\":[],\"payable\":true,\"stateMutability\":\"payable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[],\"name\":\"destroyPolicy\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"fee\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"policyCount\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"policyHolder\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{\"constructor\":{\"details\":\"constructor\"},\"createPolicy(string,address,uint256,uint256,uint256,uint256)\":{\"details\":\"createPolicy\",\"params\":{\"_coverageAmt\":\"coverage amount (amount of payout)\",\"_fee\":\"fee for InsureNET\",\"_name\":\"name of the policy\",\"_policyHolder\":\"address of the policyHolder\",\"_price\":\"price of the policy\",\"_riskPoolAmtRqd\":\"the amount needed to cover this policies risk     \"}}}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/C/Projects/InsureNET/master-branch/admin-tool/src/contracts/PolicyCreator.sol\":\"PolicyCreator\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/C/Projects/InsureNET/master-branch/admin-tool/src/contracts/PolicyCreator.sol\":{\"keccak256\":\"0xb75b7deb971a4562aaa17017fbb5d1357e11e810ec7ce28c072e5838e8352c3a\",\"urls\":[\"bzz-raw://c05607d780682c912262f3f214d012a3a4c4e656bdc92ec8ca468c57b4061a65\",\"dweb:/ipfs/QmV7nA7MqM32ivDY6e6AJcEe9pJpPF1YGjpQUiUQ1t1syY\"]}},\"version\":1}",
+  "bytecode": "0x608060405261060e60015534801561001657600080fd5b50610407806100266000396000f3fe60806040526004361061004a5760003560e01c8063202d301a1461004f5780633433d7011461015257806381f8ac8e14610169578063ddca3f43146101c0578063de54d429146101eb575b600080fd5b610150600480360360c081101561006557600080fd5b810190808035906020019064010000000081111561008257600080fd5b82018360208201111561009457600080fd5b803590602001918460018302840111640100000000831117156100b657600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f820116905080830192505050505050509192919290803573ffffffffffffffffffffffffffffffffffffffff16906020019092919080359060200190929190803590602001909291908035906020019092919080359060200190929190505050610216565b005b34801561015e57600080fd5b50610167610337565b005b34801561017557600080fd5b5061017e6103a1565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b3480156101cc57600080fd5b506101d56103c6565b6040518082815260200191505060405180910390f35b3480156101f757600080fd5b506102006103cc565b6040518082815260200191505060405180910390f35b6002600081548092919060010191905055507f82df08bef02ad46c5f0d547ab3b4c5831a47b9dac85f54ae38bc2c3a1f7e9308600254878685858a89600160405180898152602001806020018881526020018781526020018681526020018573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200184815260200183151515158152602001828103825289818151815260200191508051906020019080838360005b838110156102ee5780820151818401526020810190506102d3565b50505050905090810190601f16801561031b5780820380516001836020036101000a031916815260200191505b50995050505050505050505060405180910390a1505050505050565b7fb854d408981709638a788f4c013160169eb8b24d45ce28922f3d1b4afd8a897e60405180806020018281038252600c8152602001807f46656c74206c696b65206974000000000000000000000000000000000000000081525060200191505060405180910390a1565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b60015481565b6002548156fea265627a7a7231582097e7820c2d6c2931f63a130604b607b876fc51e905d6acf60bec21d63bd19a0f64736f6c63430005100032",
+  "deployedBytecode": "0x60806040526004361061004a5760003560e01c8063202d301a1461004f5780633433d7011461015257806381f8ac8e14610169578063ddca3f43146101c0578063de54d429146101eb575b600080fd5b610150600480360360c081101561006557600080fd5b810190808035906020019064010000000081111561008257600080fd5b82018360208201111561009457600080fd5b803590602001918460018302840111640100000000831117156100b657600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f820116905080830192505050505050509192919290803573ffffffffffffffffffffffffffffffffffffffff16906020019092919080359060200190929190803590602001909291908035906020019092919080359060200190929190505050610216565b005b34801561015e57600080fd5b50610167610337565b005b34801561017557600080fd5b5061017e6103a1565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b3480156101cc57600080fd5b506101d56103c6565b6040518082815260200191505060405180910390f35b3480156101f757600080fd5b506102006103cc565b6040518082815260200191505060405180910390f35b6002600081548092919060010191905055507f82df08bef02ad46c5f0d547ab3b4c5831a47b9dac85f54ae38bc2c3a1f7e9308600254878685858a89600160405180898152602001806020018881526020018781526020018681526020018573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200184815260200183151515158152602001828103825289818151815260200191508051906020019080838360005b838110156102ee5780820151818401526020810190506102d3565b50505050905090810190601f16801561031b5780820380516001836020036101000a031916815260200191505b50995050505050505050505060405180910390a1505050505050565b7fb854d408981709638a788f4c013160169eb8b24d45ce28922f3d1b4afd8a897e60405180806020018281038252600c8152602001807f46656c74206c696b65206974000000000000000000000000000000000000000081525060200191505060405180910390a1565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b60015481565b6002548156fea265627a7a7231582097e7820c2d6c2931f63a130604b607b876fc51e905d6acf60bec21d63bd19a0f64736f6c63430005100032",
+  "sourceMap": "206:1525:7:-;;;316:4;295:25;;776:31;8:9:-1;5:2;;;30:1;27;20:12;5:2;776:31:7;206:1525;;;;;;",
+  "deployedSourceMap": "206:1525:7:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1175:443;;;;;;13:3:-1;8;5:12;2:2;;;30:1;27;20:12;2:2;1175:443:7;;;;;;;;;;21:11:-1;8;5:28;2:2;;;46:1;43;36:12;2:2;1175:443:7;;35:9:-1;28:4;12:14;8:25;5:40;2:2;;;58:1;55;48:12;2:2;1175:443:7;;;;;;100:9:-1;95:1;81:12;77:20;67:8;63:35;60:50;39:11;25:12;22:29;11:107;8:2;;;131:1;128;121:12;8:2;1175:443:7;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;30:3:-1;22:6;14;1:33;99:1;93:3;85:6;81:16;74:27;137:4;133:9;126:4;121:3;117:14;113:30;106:37;;169:3;161:6;157:16;147:26;;1175:443:7;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;1628:98;;8:9:-1;5:2;;;30:1;27;20:12;5:2;1628:98:7;;;:::i;:::-;;261:27;;8:9:-1;5:2;;;30:1;27;20:12;5:2;261:27:7;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;295:25;;8:9:-1;5:2;;;30:1;27;20:12;5:2;295:25:7;;;:::i;:::-;;;;;;;;;;;;;;;;;;;327:26;;8:9:-1;5:2;;;30:1;27;20:12;5:2;327:26:7;;;:::i;:::-;;;;;;;;;;;;;;;;;;;1175:443;1416:11;;:14;;;;;;;;;;;;;1511:99;1525:11;;1538:5;1545:6;1553:12;1567:15;1584:13;1599:4;1605;1511:99;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;1511:99:7;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1175:443;;;;;;:::o;1628:98::-;1687:31;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1628:98::o;261:27::-;;;;;;;;;;;;;:::o;295:25::-;;;;:::o;327:26::-;;;;:::o",
+  "source": "/**\r\n * @title Policy Creator Contract\r\n * @dev InsureNET Decentralized Insurance Platform Policy Creator Contract.\r\n * @author Jason Romero\r\n * @copyright 2020 InsureNET\r\n */\r\n\r\npragma solidity ^0.5.0;\r\n\r\ncontract PolicyCreator {\r\n    // State parameters\r\n    address public policyHolder;\r\n    uint256 public fee = 1550;\r\n    uint256 public policyCount;\r\n\r\n    // Mappings\r\n\r\n\r\n    // Structs\r\n\r\n\r\n    // Events\r\n    event PolicyCreated (\r\n        uint id,\r\n        string name,\r\n        uint256 price,\r\n        uint256 converageAmount,\r\n        uint256 riskPoolRequirement,\r\n        address payable policyHolder,\r\n        uint256 fee,\r\n        bool active\r\n    );\r\n\r\n    event PolicyDestroyed (\r\n        string reason\r\n    );\r\n\r\n    /**\r\n    * @dev constructor\r\n    */\r\n    constructor() public {\r\n\r\n    }\r\n\r\n    /**\r\n    * @dev createPolicy\r\n    * @param _name name of the policy\r\n    * @param _policyHolder address of the policyHolder\r\n    * @param _price price of the policy\r\n    * @param _fee fee for InsureNET\r\n    * @param _coverageAmt coverage amount (amount of payout)\r\n    * @param _riskPoolAmtRqd the amount needed to cover this policies risk\r\n    *\r\n    */\r\n    function createPolicy (\r\n        string memory _name,\r\n        address payable _policyHolder,\r\n        uint256 _price,\r\n        uint256 _fee,\r\n        uint256 _coverageAmt,\r\n        uint256 _riskPoolAmtRqd\r\n    ) public payable {\r\n\r\n        policyCount ++;\r\n        // ToDo: how do I want to do the id?? uuid??? custom???\r\n        emit PolicyCreated(policyCount, _name, _price, _coverageAmt, _riskPoolAmtRqd, _policyHolder, _fee, true);\r\n    }\r\n\r\n\r\n    function destroyPolicy (\r\n\r\n    ) public {\r\n\r\n        emit PolicyDestroyed('Felt like it');\r\n    }\r\n\r\n}\r\n",
   "sourcePath": "C:\\Projects\\InsureNET\\master-branch\\admin-tool\\src\\contracts\\PolicyCreator.sol",
   "ast": {
     "absolutePath": "/C/Projects/InsureNET/master-branch/admin-tool/src/contracts/PolicyCreator.sol",
     "exportedSymbols": {
       "PolicyCreator": [
-        1122
+        1133
       ]
     },
-    "id": 1123,
+    "id": 1134,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 1055,
+        "id": 1061,
         "literals": [
           "solidity",
           "^",
@@ -189,19 +204,19 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 1122,
+        "id": 1133,
         "linearizedBaseContracts": [
-          1122
+          1133
         ],
         "name": "PolicyCreator",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": false,
-            "id": 1057,
+            "id": 1063,
             "name": "policyHolder",
             "nodeType": "VariableDeclaration",
-            "scope": 1122,
+            "scope": 1133,
             "src": "261:27:7",
             "stateVariable": true,
             "storageLocation": "default",
@@ -210,7 +225,7 @@
               "typeString": "address"
             },
             "typeName": {
-              "id": 1056,
+              "id": 1062,
               "name": "address",
               "nodeType": "ElementaryTypeName",
               "src": "261:7:7",
@@ -225,10 +240,10 @@
           },
           {
             "constant": false,
-            "id": 1060,
+            "id": 1066,
             "name": "fee",
             "nodeType": "VariableDeclaration",
-            "scope": 1122,
+            "scope": 1133,
             "src": "295:25:7",
             "stateVariable": true,
             "storageLocation": "default",
@@ -237,7 +252,7 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 1058,
+              "id": 1064,
               "name": "uint256",
               "nodeType": "ElementaryTypeName",
               "src": "295:7:7",
@@ -249,7 +264,7 @@
             "value": {
               "argumentTypes": null,
               "hexValue": "31353530",
-              "id": 1059,
+              "id": 1065,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
@@ -267,131 +282,49 @@
             "visibility": "public"
           },
           {
+            "constant": false,
+            "id": 1068,
+            "name": "policyCount",
+            "nodeType": "VariableDeclaration",
+            "scope": 1133,
+            "src": "327:26:7",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 1067,
+              "name": "uint256",
+              "nodeType": "ElementaryTypeName",
+              "src": "327:7:7",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
             "anonymous": false,
             "documentation": null,
-            "id": 1078,
+            "id": 1086,
             "name": "PolicyCreated",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 1077,
+              "id": 1085,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1062,
+                  "id": 1070,
                   "indexed": false,
                   "name": "id",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1078,
-                  "src": "416:7:7",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_uint256",
-                    "typeString": "uint256"
-                  },
-                  "typeName": {
-                    "id": 1061,
-                    "name": "uint",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "416:4:7",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_uint256",
-                      "typeString": "uint256"
-                    }
-                  },
-                  "value": null,
-                  "visibility": "internal"
-                },
-                {
-                  "constant": false,
-                  "id": 1064,
-                  "indexed": false,
-                  "name": "name",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 1078,
-                  "src": "434:11:7",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_string_memory_ptr",
-                    "typeString": "string"
-                  },
-                  "typeName": {
-                    "id": 1063,
-                    "name": "string",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "434:6:7",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_string_storage_ptr",
-                      "typeString": "string"
-                    }
-                  },
-                  "value": null,
-                  "visibility": "internal"
-                },
-                {
-                  "constant": false,
-                  "id": 1066,
-                  "indexed": false,
-                  "name": "price",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 1078,
-                  "src": "456:13:7",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_uint256",
-                    "typeString": "uint256"
-                  },
-                  "typeName": {
-                    "id": 1065,
-                    "name": "uint256",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "456:7:7",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_uint256",
-                      "typeString": "uint256"
-                    }
-                  },
-                  "value": null,
-                  "visibility": "internal"
-                },
-                {
-                  "constant": false,
-                  "id": 1068,
-                  "indexed": false,
-                  "name": "converageAmount",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 1078,
-                  "src": "480:23:7",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_uint256",
-                    "typeString": "uint256"
-                  },
-                  "typeName": {
-                    "id": 1067,
-                    "name": "uint256",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "480:7:7",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_uint256",
-                      "typeString": "uint256"
-                    }
-                  },
-                  "value": null,
-                  "visibility": "internal"
-                },
-                {
-                  "constant": false,
-                  "id": 1070,
-                  "indexed": false,
-                  "name": "riskPoolRequirement",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 1078,
-                  "src": "514:27:7",
+                  "scope": 1086,
+                  "src": "449:7:7",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -400,9 +333,9 @@
                   },
                   "typeName": {
                     "id": 1069,
-                    "name": "uint256",
+                    "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "514:7:7",
+                    "src": "449:4:7",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -415,25 +348,24 @@
                   "constant": false,
                   "id": 1072,
                   "indexed": false,
-                  "name": "policyHolder",
+                  "name": "name",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1078,
-                  "src": "552:28:7",
+                  "scope": 1086,
+                  "src": "467:11:7",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_address_payable",
-                    "typeString": "address payable"
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
                   },
                   "typeName": {
                     "id": 1071,
-                    "name": "address",
+                    "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "552:15:7",
-                    "stateMutability": "payable",
+                    "src": "467:6:7",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_address_payable",
-                      "typeString": "address payable"
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
                     }
                   },
                   "value": null,
@@ -443,10 +375,10 @@
                   "constant": false,
                   "id": 1074,
                   "indexed": false,
-                  "name": "fee",
+                  "name": "price",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1078,
-                  "src": "591:11:7",
+                  "scope": 1086,
+                  "src": "489:13:7",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -457,7 +389,7 @@
                     "id": 1073,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "591:7:7",
+                    "src": "489:7:7",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -470,10 +402,119 @@
                   "constant": false,
                   "id": 1076,
                   "indexed": false,
+                  "name": "converageAmount",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1086,
+                  "src": "513:23:7",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1075,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "513:7:7",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1078,
+                  "indexed": false,
+                  "name": "riskPoolRequirement",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1086,
+                  "src": "547:27:7",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1077,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "547:7:7",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1080,
+                  "indexed": false,
+                  "name": "policyHolder",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1086,
+                  "src": "585:28:7",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address_payable",
+                    "typeString": "address payable"
+                  },
+                  "typeName": {
+                    "id": 1079,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "585:15:7",
+                    "stateMutability": "payable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address_payable",
+                      "typeString": "address payable"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1082,
+                  "indexed": false,
+                  "name": "fee",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1086,
+                  "src": "624:11:7",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1081,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "624:7:7",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1084,
+                  "indexed": false,
                   "name": "active",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1078,
-                  "src": "613:11:7",
+                  "scope": 1086,
+                  "src": "646:11:7",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -481,10 +522,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 1075,
+                    "id": 1083,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "613:4:7",
+                    "src": "646:4:7",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -494,28 +535,28 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "405:226:7"
+              "src": "438:226:7"
             },
-            "src": "385:247:7"
+            "src": "418:247:7"
           },
           {
             "anonymous": false,
             "documentation": null,
-            "id": 1082,
+            "id": 1090,
             "name": "PolicyDestroyed",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 1081,
+              "id": 1089,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1080,
+                  "id": 1088,
                   "indexed": false,
                   "name": "reason",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1082,
-                  "src": "673:13:7",
+                  "scope": 1090,
+                  "src": "706:13:7",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -523,10 +564,10 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 1079,
+                    "id": 1087,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "673:6:7",
+                    "src": "706:6:7",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage_ptr",
                       "typeString": "string"
@@ -536,78 +577,107 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "662:31:7"
+              "src": "695:31:7"
             },
-            "src": "640:54:7"
+            "src": "673:54:7"
           },
           {
             "body": {
-              "id": 1085,
+              "id": 1093,
               "nodeType": "Block",
-              "src": "764:10:7",
+              "src": "797:10:7",
               "statements": []
             },
             "documentation": "@dev constructor",
-            "id": 1086,
+            "id": 1094,
             "implemented": true,
             "kind": "constructor",
             "modifiers": [],
             "name": "",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1083,
+              "id": 1091,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "754:2:7"
+              "src": "787:2:7"
             },
             "returnParameters": {
-              "id": 1084,
+              "id": 1092,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "764:0:7"
+              "src": "797:0:7"
             },
-            "scope": 1122,
-            "src": "743:31:7",
+            "scope": 1133,
+            "src": "776:31:7",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           },
           {
             "body": {
-              "id": 1112,
+              "id": 1123,
               "nodeType": "Block",
-              "src": "1370:182:7",
+              "src": "1403:215:7",
               "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 1110,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "UnaryOperation",
+                    "operator": "++",
+                    "prefix": false,
+                    "src": "1416:14:7",
+                    "subExpression": {
+                      "argumentTypes": null,
+                      "id": 1109,
+                      "name": "policyCount",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 1068,
+                      "src": "1416:11:7",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 1111,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1416:14:7"
+                },
                 {
                   "eventCall": {
                     "argumentTypes": null,
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "hexValue": "31",
-                        "id": 1102,
-                        "isConstant": false,
-                        "isLValue": false,
-                        "isPure": true,
-                        "kind": "number",
-                        "lValueRequested": false,
-                        "nodeType": "Literal",
-                        "src": "1469:1:7",
-                        "subdenomination": null,
+                        "id": 1113,
+                        "name": "policyCount",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 1068,
+                        "src": "1525:11:7",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_rational_1_by_1",
-                          "typeString": "int_const 1"
-                        },
-                        "value": "1"
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
                       },
                       {
                         "argumentTypes": null,
-                        "id": 1103,
+                        "id": 1114,
                         "name": "_name",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1088,
-                        "src": "1472:5:7",
+                        "referencedDeclaration": 1096,
+                        "src": "1538:5:7",
                         "typeDescriptions": {
                           "typeIdentifier": "t_string_memory_ptr",
                           "typeString": "string memory"
@@ -615,12 +685,12 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 1104,
+                        "id": 1115,
                         "name": "_price",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1092,
-                        "src": "1479:6:7",
+                        "referencedDeclaration": 1100,
+                        "src": "1545:6:7",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -628,12 +698,12 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 1105,
+                        "id": 1116,
                         "name": "_coverageAmt",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1096,
-                        "src": "1487:12:7",
+                        "referencedDeclaration": 1104,
+                        "src": "1553:12:7",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -641,12 +711,12 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 1106,
+                        "id": 1117,
                         "name": "_riskPoolAmtRqd",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1098,
-                        "src": "1501:15:7",
+                        "referencedDeclaration": 1106,
+                        "src": "1567:15:7",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -654,12 +724,12 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 1107,
+                        "id": 1118,
                         "name": "_policyHolder",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1090,
-                        "src": "1518:13:7",
+                        "referencedDeclaration": 1098,
+                        "src": "1584:13:7",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address_payable",
                           "typeString": "address payable"
@@ -667,12 +737,12 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 1108,
+                        "id": 1119,
                         "name": "_fee",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1094,
-                        "src": "1533:4:7",
+                        "referencedDeclaration": 1102,
+                        "src": "1599:4:7",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -681,14 +751,14 @@
                       {
                         "argumentTypes": null,
                         "hexValue": "74727565",
-                        "id": 1109,
+                        "id": 1120,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
                         "kind": "bool",
                         "lValueRequested": false,
                         "nodeType": "Literal",
-                        "src": "1539:4:7",
+                        "src": "1605:4:7",
                         "subdenomination": null,
                         "typeDescriptions": {
                           "typeIdentifier": "t_bool",
@@ -700,8 +770,8 @@
                     "expression": {
                       "argumentTypes": [
                         {
-                          "typeIdentifier": "t_rational_1_by_1",
-                          "typeString": "int_const 1"
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
                         },
                         {
                           "typeIdentifier": "t_string_memory_ptr",
@@ -732,18 +802,18 @@
                           "typeString": "bool"
                         }
                       ],
-                      "id": 1101,
+                      "id": 1112,
                       "name": "PolicyCreated",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1078,
-                      "src": "1455:13:7",
+                      "referencedDeclaration": 1086,
+                      "src": "1511:13:7",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_event_nonpayable$_t_uint256_$_t_string_memory_ptr_$_t_uint256_$_t_uint256_$_t_uint256_$_t_address_payable_$_t_uint256_$_t_bool_$returns$__$",
                         "typeString": "function (uint256,string memory,uint256,uint256,uint256,address payable,uint256,bool)"
                       }
                     },
-                    "id": 1110,
+                    "id": 1121,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -751,36 +821,36 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "1455:89:7",
+                    "src": "1511:99:7",
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 1111,
+                  "id": 1122,
                   "nodeType": "EmitStatement",
-                  "src": "1450:94:7"
+                  "src": "1506:104:7"
                 }
               ]
             },
             "documentation": "@dev createPolicy\n@param _name name of the policy\n@param _policyHolder address of the policyHolder\n@param _price price of the policy\n@param _fee fee for InsureNET\n@param _coverageAmt coverage amount (amount of payout)\n@param _riskPoolAmtRqd the amount needed to cover this policies risk\n\n    ",
-            "id": 1113,
+            "id": 1124,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "createPolicy",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1099,
+              "id": 1107,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1088,
+                  "id": 1096,
                   "name": "_name",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1113,
-                  "src": "1175:19:7",
+                  "scope": 1124,
+                  "src": "1208:19:7",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
@@ -788,10 +858,10 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 1087,
+                    "id": 1095,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1175:6:7",
+                    "src": "1208:6:7",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage_ptr",
                       "typeString": "string"
@@ -802,11 +872,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 1090,
+                  "id": 1098,
                   "name": "_policyHolder",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1113,
-                  "src": "1205:29:7",
+                  "scope": 1124,
+                  "src": "1238:29:7",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -814,10 +884,10 @@
                     "typeString": "address payable"
                   },
                   "typeName": {
-                    "id": 1089,
+                    "id": 1097,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1205:15:7",
+                    "src": "1238:15:7",
                     "stateMutability": "payable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address_payable",
@@ -829,11 +899,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 1092,
+                  "id": 1100,
                   "name": "_price",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1113,
-                  "src": "1245:14:7",
+                  "scope": 1124,
+                  "src": "1278:14:7",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -841,10 +911,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1091,
+                    "id": 1099,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1245:7:7",
+                    "src": "1278:7:7",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -855,11 +925,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 1094,
+                  "id": 1102,
                   "name": "_fee",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1113,
-                  "src": "1270:12:7",
+                  "scope": 1124,
+                  "src": "1303:12:7",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -867,10 +937,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1093,
+                    "id": 1101,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1270:7:7",
+                    "src": "1303:7:7",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -881,11 +951,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 1096,
+                  "id": 1104,
                   "name": "_coverageAmt",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1113,
-                  "src": "1293:20:7",
+                  "scope": 1124,
+                  "src": "1326:20:7",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -893,10 +963,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1095,
+                    "id": 1103,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1293:7:7",
+                    "src": "1326:7:7",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -907,11 +977,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 1098,
+                  "id": 1106,
                   "name": "_riskPoolAmtRqd",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1113,
-                  "src": "1324:23:7",
+                  "scope": 1124,
+                  "src": "1357:23:7",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -919,10 +989,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1097,
+                    "id": 1105,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1324:7:7",
+                    "src": "1357:7:7",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -932,25 +1002,25 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1164:190:7"
+              "src": "1197:190:7"
             },
             "returnParameters": {
-              "id": 1100,
+              "id": 1108,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1370:0:7"
+              "src": "1403:0:7"
             },
-            "scope": 1122,
-            "src": "1142:410:7",
+            "scope": 1133,
+            "src": "1175:443:7",
             "stateMutability": "payable",
             "superFunction": null,
             "visibility": "public"
           },
           {
             "body": {
-              "id": 1120,
+              "id": 1131,
               "nodeType": "Block",
-              "src": "1603:57:7",
+              "src": "1669:57:7",
               "statements": [
                 {
                   "eventCall": {
@@ -959,14 +1029,14 @@
                       {
                         "argumentTypes": null,
                         "hexValue": "46656c74206c696b65206974",
-                        "id": 1117,
+                        "id": 1128,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
                         "kind": "string",
                         "lValueRequested": false,
                         "nodeType": "Literal",
-                        "src": "1637:14:7",
+                        "src": "1703:14:7",
                         "subdenomination": null,
                         "typeDescriptions": {
                           "typeIdentifier": "t_stringliteral_af12b462029496509a15eecf71a459f6e9cc8937f062847fe85f49eaab206ef2",
@@ -982,18 +1052,18 @@
                           "typeString": "literal_string \"Felt like it\""
                         }
                       ],
-                      "id": 1116,
+                      "id": 1127,
                       "name": "PolicyDestroyed",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1082,
-                      "src": "1621:15:7",
+                      "referencedDeclaration": 1090,
+                      "src": "1687:15:7",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_event_nonpayable$_t_string_memory_ptr_$returns$__$",
                         "typeString": "function (string memory)"
                       }
                     },
-                    "id": 1118,
+                    "id": 1129,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1001,62 +1071,62 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "1621:31:7",
+                    "src": "1687:31:7",
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 1119,
+                  "id": 1130,
                   "nodeType": "EmitStatement",
-                  "src": "1616:36:7"
+                  "src": "1682:36:7"
                 }
               ]
             },
             "documentation": null,
-            "id": 1121,
+            "id": 1132,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "destroyPolicy",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1114,
+              "id": 1125,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1585:10:7"
+              "src": "1651:10:7"
             },
             "returnParameters": {
-              "id": 1115,
+              "id": 1126,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1603:0:7"
+              "src": "1669:0:7"
             },
-            "scope": 1122,
-            "src": "1562:98:7",
+            "scope": 1133,
+            "src": "1628:98:7",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 1123,
-        "src": "206:1459:7"
+        "scope": 1134,
+        "src": "206:1525:7"
       }
     ],
-    "src": "179:1488:7"
+    "src": "179:1554:7"
   },
   "legacyAST": {
     "absolutePath": "/C/Projects/InsureNET/master-branch/admin-tool/src/contracts/PolicyCreator.sol",
     "exportedSymbols": {
       "PolicyCreator": [
-        1122
+        1133
       ]
     },
-    "id": 1123,
+    "id": 1134,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 1055,
+        "id": 1061,
         "literals": [
           "solidity",
           "^",
@@ -1072,19 +1142,19 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 1122,
+        "id": 1133,
         "linearizedBaseContracts": [
-          1122
+          1133
         ],
         "name": "PolicyCreator",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": false,
-            "id": 1057,
+            "id": 1063,
             "name": "policyHolder",
             "nodeType": "VariableDeclaration",
-            "scope": 1122,
+            "scope": 1133,
             "src": "261:27:7",
             "stateVariable": true,
             "storageLocation": "default",
@@ -1093,7 +1163,7 @@
               "typeString": "address"
             },
             "typeName": {
-              "id": 1056,
+              "id": 1062,
               "name": "address",
               "nodeType": "ElementaryTypeName",
               "src": "261:7:7",
@@ -1108,10 +1178,10 @@
           },
           {
             "constant": false,
-            "id": 1060,
+            "id": 1066,
             "name": "fee",
             "nodeType": "VariableDeclaration",
-            "scope": 1122,
+            "scope": 1133,
             "src": "295:25:7",
             "stateVariable": true,
             "storageLocation": "default",
@@ -1120,7 +1190,7 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 1058,
+              "id": 1064,
               "name": "uint256",
               "nodeType": "ElementaryTypeName",
               "src": "295:7:7",
@@ -1132,7 +1202,7 @@
             "value": {
               "argumentTypes": null,
               "hexValue": "31353530",
-              "id": 1059,
+              "id": 1065,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
@@ -1150,131 +1220,49 @@
             "visibility": "public"
           },
           {
+            "constant": false,
+            "id": 1068,
+            "name": "policyCount",
+            "nodeType": "VariableDeclaration",
+            "scope": 1133,
+            "src": "327:26:7",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 1067,
+              "name": "uint256",
+              "nodeType": "ElementaryTypeName",
+              "src": "327:7:7",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
             "anonymous": false,
             "documentation": null,
-            "id": 1078,
+            "id": 1086,
             "name": "PolicyCreated",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 1077,
+              "id": 1085,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1062,
+                  "id": 1070,
                   "indexed": false,
                   "name": "id",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1078,
-                  "src": "416:7:7",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_uint256",
-                    "typeString": "uint256"
-                  },
-                  "typeName": {
-                    "id": 1061,
-                    "name": "uint",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "416:4:7",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_uint256",
-                      "typeString": "uint256"
-                    }
-                  },
-                  "value": null,
-                  "visibility": "internal"
-                },
-                {
-                  "constant": false,
-                  "id": 1064,
-                  "indexed": false,
-                  "name": "name",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 1078,
-                  "src": "434:11:7",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_string_memory_ptr",
-                    "typeString": "string"
-                  },
-                  "typeName": {
-                    "id": 1063,
-                    "name": "string",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "434:6:7",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_string_storage_ptr",
-                      "typeString": "string"
-                    }
-                  },
-                  "value": null,
-                  "visibility": "internal"
-                },
-                {
-                  "constant": false,
-                  "id": 1066,
-                  "indexed": false,
-                  "name": "price",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 1078,
-                  "src": "456:13:7",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_uint256",
-                    "typeString": "uint256"
-                  },
-                  "typeName": {
-                    "id": 1065,
-                    "name": "uint256",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "456:7:7",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_uint256",
-                      "typeString": "uint256"
-                    }
-                  },
-                  "value": null,
-                  "visibility": "internal"
-                },
-                {
-                  "constant": false,
-                  "id": 1068,
-                  "indexed": false,
-                  "name": "converageAmount",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 1078,
-                  "src": "480:23:7",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_uint256",
-                    "typeString": "uint256"
-                  },
-                  "typeName": {
-                    "id": 1067,
-                    "name": "uint256",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "480:7:7",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_uint256",
-                      "typeString": "uint256"
-                    }
-                  },
-                  "value": null,
-                  "visibility": "internal"
-                },
-                {
-                  "constant": false,
-                  "id": 1070,
-                  "indexed": false,
-                  "name": "riskPoolRequirement",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 1078,
-                  "src": "514:27:7",
+                  "scope": 1086,
+                  "src": "449:7:7",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1283,9 +1271,9 @@
                   },
                   "typeName": {
                     "id": 1069,
-                    "name": "uint256",
+                    "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "514:7:7",
+                    "src": "449:4:7",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1298,25 +1286,24 @@
                   "constant": false,
                   "id": 1072,
                   "indexed": false,
-                  "name": "policyHolder",
+                  "name": "name",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1078,
-                  "src": "552:28:7",
+                  "scope": 1086,
+                  "src": "467:11:7",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_address_payable",
-                    "typeString": "address payable"
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
                   },
                   "typeName": {
                     "id": 1071,
-                    "name": "address",
+                    "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "552:15:7",
-                    "stateMutability": "payable",
+                    "src": "467:6:7",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_address_payable",
-                      "typeString": "address payable"
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
                     }
                   },
                   "value": null,
@@ -1326,10 +1313,10 @@
                   "constant": false,
                   "id": 1074,
                   "indexed": false,
-                  "name": "fee",
+                  "name": "price",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1078,
-                  "src": "591:11:7",
+                  "scope": 1086,
+                  "src": "489:13:7",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1340,7 +1327,7 @@
                     "id": 1073,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "591:7:7",
+                    "src": "489:7:7",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1353,10 +1340,119 @@
                   "constant": false,
                   "id": 1076,
                   "indexed": false,
+                  "name": "converageAmount",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1086,
+                  "src": "513:23:7",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1075,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "513:7:7",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1078,
+                  "indexed": false,
+                  "name": "riskPoolRequirement",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1086,
+                  "src": "547:27:7",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1077,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "547:7:7",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1080,
+                  "indexed": false,
+                  "name": "policyHolder",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1086,
+                  "src": "585:28:7",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address_payable",
+                    "typeString": "address payable"
+                  },
+                  "typeName": {
+                    "id": 1079,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "585:15:7",
+                    "stateMutability": "payable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address_payable",
+                      "typeString": "address payable"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1082,
+                  "indexed": false,
+                  "name": "fee",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1086,
+                  "src": "624:11:7",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1081,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "624:7:7",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1084,
+                  "indexed": false,
                   "name": "active",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1078,
-                  "src": "613:11:7",
+                  "scope": 1086,
+                  "src": "646:11:7",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1364,10 +1460,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 1075,
+                    "id": 1083,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "613:4:7",
+                    "src": "646:4:7",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -1377,28 +1473,28 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "405:226:7"
+              "src": "438:226:7"
             },
-            "src": "385:247:7"
+            "src": "418:247:7"
           },
           {
             "anonymous": false,
             "documentation": null,
-            "id": 1082,
+            "id": 1090,
             "name": "PolicyDestroyed",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 1081,
+              "id": 1089,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1080,
+                  "id": 1088,
                   "indexed": false,
                   "name": "reason",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1082,
-                  "src": "673:13:7",
+                  "scope": 1090,
+                  "src": "706:13:7",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1406,10 +1502,10 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 1079,
+                    "id": 1087,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "673:6:7",
+                    "src": "706:6:7",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage_ptr",
                       "typeString": "string"
@@ -1419,78 +1515,107 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "662:31:7"
+              "src": "695:31:7"
             },
-            "src": "640:54:7"
+            "src": "673:54:7"
           },
           {
             "body": {
-              "id": 1085,
+              "id": 1093,
               "nodeType": "Block",
-              "src": "764:10:7",
+              "src": "797:10:7",
               "statements": []
             },
             "documentation": "@dev constructor",
-            "id": 1086,
+            "id": 1094,
             "implemented": true,
             "kind": "constructor",
             "modifiers": [],
             "name": "",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1083,
+              "id": 1091,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "754:2:7"
+              "src": "787:2:7"
             },
             "returnParameters": {
-              "id": 1084,
+              "id": 1092,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "764:0:7"
+              "src": "797:0:7"
             },
-            "scope": 1122,
-            "src": "743:31:7",
+            "scope": 1133,
+            "src": "776:31:7",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           },
           {
             "body": {
-              "id": 1112,
+              "id": 1123,
               "nodeType": "Block",
-              "src": "1370:182:7",
+              "src": "1403:215:7",
               "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 1110,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "UnaryOperation",
+                    "operator": "++",
+                    "prefix": false,
+                    "src": "1416:14:7",
+                    "subExpression": {
+                      "argumentTypes": null,
+                      "id": 1109,
+                      "name": "policyCount",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 1068,
+                      "src": "1416:11:7",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 1111,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1416:14:7"
+                },
                 {
                   "eventCall": {
                     "argumentTypes": null,
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "hexValue": "31",
-                        "id": 1102,
-                        "isConstant": false,
-                        "isLValue": false,
-                        "isPure": true,
-                        "kind": "number",
-                        "lValueRequested": false,
-                        "nodeType": "Literal",
-                        "src": "1469:1:7",
-                        "subdenomination": null,
+                        "id": 1113,
+                        "name": "policyCount",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 1068,
+                        "src": "1525:11:7",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_rational_1_by_1",
-                          "typeString": "int_const 1"
-                        },
-                        "value": "1"
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
                       },
                       {
                         "argumentTypes": null,
-                        "id": 1103,
+                        "id": 1114,
                         "name": "_name",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1088,
-                        "src": "1472:5:7",
+                        "referencedDeclaration": 1096,
+                        "src": "1538:5:7",
                         "typeDescriptions": {
                           "typeIdentifier": "t_string_memory_ptr",
                           "typeString": "string memory"
@@ -1498,12 +1623,12 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 1104,
+                        "id": 1115,
                         "name": "_price",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1092,
-                        "src": "1479:6:7",
+                        "referencedDeclaration": 1100,
+                        "src": "1545:6:7",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -1511,12 +1636,12 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 1105,
+                        "id": 1116,
                         "name": "_coverageAmt",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1096,
-                        "src": "1487:12:7",
+                        "referencedDeclaration": 1104,
+                        "src": "1553:12:7",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -1524,12 +1649,12 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 1106,
+                        "id": 1117,
                         "name": "_riskPoolAmtRqd",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1098,
-                        "src": "1501:15:7",
+                        "referencedDeclaration": 1106,
+                        "src": "1567:15:7",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -1537,12 +1662,12 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 1107,
+                        "id": 1118,
                         "name": "_policyHolder",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1090,
-                        "src": "1518:13:7",
+                        "referencedDeclaration": 1098,
+                        "src": "1584:13:7",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address_payable",
                           "typeString": "address payable"
@@ -1550,12 +1675,12 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 1108,
+                        "id": 1119,
                         "name": "_fee",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1094,
-                        "src": "1533:4:7",
+                        "referencedDeclaration": 1102,
+                        "src": "1599:4:7",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -1564,14 +1689,14 @@
                       {
                         "argumentTypes": null,
                         "hexValue": "74727565",
-                        "id": 1109,
+                        "id": 1120,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
                         "kind": "bool",
                         "lValueRequested": false,
                         "nodeType": "Literal",
-                        "src": "1539:4:7",
+                        "src": "1605:4:7",
                         "subdenomination": null,
                         "typeDescriptions": {
                           "typeIdentifier": "t_bool",
@@ -1583,8 +1708,8 @@
                     "expression": {
                       "argumentTypes": [
                         {
-                          "typeIdentifier": "t_rational_1_by_1",
-                          "typeString": "int_const 1"
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
                         },
                         {
                           "typeIdentifier": "t_string_memory_ptr",
@@ -1615,18 +1740,18 @@
                           "typeString": "bool"
                         }
                       ],
-                      "id": 1101,
+                      "id": 1112,
                       "name": "PolicyCreated",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1078,
-                      "src": "1455:13:7",
+                      "referencedDeclaration": 1086,
+                      "src": "1511:13:7",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_event_nonpayable$_t_uint256_$_t_string_memory_ptr_$_t_uint256_$_t_uint256_$_t_uint256_$_t_address_payable_$_t_uint256_$_t_bool_$returns$__$",
                         "typeString": "function (uint256,string memory,uint256,uint256,uint256,address payable,uint256,bool)"
                       }
                     },
-                    "id": 1110,
+                    "id": 1121,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1634,36 +1759,36 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "1455:89:7",
+                    "src": "1511:99:7",
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 1111,
+                  "id": 1122,
                   "nodeType": "EmitStatement",
-                  "src": "1450:94:7"
+                  "src": "1506:104:7"
                 }
               ]
             },
             "documentation": "@dev createPolicy\n@param _name name of the policy\n@param _policyHolder address of the policyHolder\n@param _price price of the policy\n@param _fee fee for InsureNET\n@param _coverageAmt coverage amount (amount of payout)\n@param _riskPoolAmtRqd the amount needed to cover this policies risk\n\n    ",
-            "id": 1113,
+            "id": 1124,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "createPolicy",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1099,
+              "id": 1107,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1088,
+                  "id": 1096,
                   "name": "_name",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1113,
-                  "src": "1175:19:7",
+                  "scope": 1124,
+                  "src": "1208:19:7",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
@@ -1671,10 +1796,10 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 1087,
+                    "id": 1095,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1175:6:7",
+                    "src": "1208:6:7",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage_ptr",
                       "typeString": "string"
@@ -1685,11 +1810,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 1090,
+                  "id": 1098,
                   "name": "_policyHolder",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1113,
-                  "src": "1205:29:7",
+                  "scope": 1124,
+                  "src": "1238:29:7",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1697,10 +1822,10 @@
                     "typeString": "address payable"
                   },
                   "typeName": {
-                    "id": 1089,
+                    "id": 1097,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1205:15:7",
+                    "src": "1238:15:7",
                     "stateMutability": "payable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address_payable",
@@ -1712,11 +1837,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 1092,
+                  "id": 1100,
                   "name": "_price",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1113,
-                  "src": "1245:14:7",
+                  "scope": 1124,
+                  "src": "1278:14:7",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1724,10 +1849,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1091,
+                    "id": 1099,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1245:7:7",
+                    "src": "1278:7:7",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1738,11 +1863,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 1094,
+                  "id": 1102,
                   "name": "_fee",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1113,
-                  "src": "1270:12:7",
+                  "scope": 1124,
+                  "src": "1303:12:7",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1750,10 +1875,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1093,
+                    "id": 1101,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1270:7:7",
+                    "src": "1303:7:7",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1764,11 +1889,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 1096,
+                  "id": 1104,
                   "name": "_coverageAmt",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1113,
-                  "src": "1293:20:7",
+                  "scope": 1124,
+                  "src": "1326:20:7",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1776,10 +1901,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1095,
+                    "id": 1103,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1293:7:7",
+                    "src": "1326:7:7",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1790,11 +1915,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 1098,
+                  "id": 1106,
                   "name": "_riskPoolAmtRqd",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1113,
-                  "src": "1324:23:7",
+                  "scope": 1124,
+                  "src": "1357:23:7",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1802,10 +1927,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1097,
+                    "id": 1105,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1324:7:7",
+                    "src": "1357:7:7",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1815,25 +1940,25 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1164:190:7"
+              "src": "1197:190:7"
             },
             "returnParameters": {
-              "id": 1100,
+              "id": 1108,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1370:0:7"
+              "src": "1403:0:7"
             },
-            "scope": 1122,
-            "src": "1142:410:7",
+            "scope": 1133,
+            "src": "1175:443:7",
             "stateMutability": "payable",
             "superFunction": null,
             "visibility": "public"
           },
           {
             "body": {
-              "id": 1120,
+              "id": 1131,
               "nodeType": "Block",
-              "src": "1603:57:7",
+              "src": "1669:57:7",
               "statements": [
                 {
                   "eventCall": {
@@ -1842,14 +1967,14 @@
                       {
                         "argumentTypes": null,
                         "hexValue": "46656c74206c696b65206974",
-                        "id": 1117,
+                        "id": 1128,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
                         "kind": "string",
                         "lValueRequested": false,
                         "nodeType": "Literal",
-                        "src": "1637:14:7",
+                        "src": "1703:14:7",
                         "subdenomination": null,
                         "typeDescriptions": {
                           "typeIdentifier": "t_stringliteral_af12b462029496509a15eecf71a459f6e9cc8937f062847fe85f49eaab206ef2",
@@ -1865,18 +1990,18 @@
                           "typeString": "literal_string \"Felt like it\""
                         }
                       ],
-                      "id": 1116,
+                      "id": 1127,
                       "name": "PolicyDestroyed",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1082,
-                      "src": "1621:15:7",
+                      "referencedDeclaration": 1090,
+                      "src": "1687:15:7",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_event_nonpayable$_t_string_memory_ptr_$returns$__$",
                         "typeString": "function (string memory)"
                       }
                     },
-                    "id": 1118,
+                    "id": 1129,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1884,57 +2009,134 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "1621:31:7",
+                    "src": "1687:31:7",
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 1119,
+                  "id": 1130,
                   "nodeType": "EmitStatement",
-                  "src": "1616:36:7"
+                  "src": "1682:36:7"
                 }
               ]
             },
             "documentation": null,
-            "id": 1121,
+            "id": 1132,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "destroyPolicy",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1114,
+              "id": 1125,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1585:10:7"
+              "src": "1651:10:7"
             },
             "returnParameters": {
-              "id": 1115,
+              "id": 1126,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1603:0:7"
+              "src": "1669:0:7"
             },
-            "scope": 1122,
-            "src": "1562:98:7",
+            "scope": 1133,
+            "src": "1628:98:7",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 1123,
-        "src": "206:1459:7"
+        "scope": 1134,
+        "src": "206:1525:7"
       }
     ],
-    "src": "179:1488:7"
+    "src": "179:1554:7"
   },
   "compiler": {
     "name": "solc",
     "version": "0.5.16+commit.9c3226ce.Emscripten.clang"
   },
-  "networks": {},
+  "networks": {
+    "5777": {
+      "events": {
+        "0x82df08bef02ad46c5f0d547ab3b4c5831a47b9dac85f54ae38bc2c3a1f7e9308": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "id",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "string",
+              "name": "name",
+              "type": "string"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "price",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "converageAmount",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "riskPoolRequirement",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "address payable",
+              "name": "policyHolder",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "fee",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "bool",
+              "name": "active",
+              "type": "bool"
+            }
+          ],
+          "name": "PolicyCreated",
+          "type": "event"
+        },
+        "0xb854d408981709638a788f4c013160169eb8b24d45ce28922f3d1b4afd8a897e": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "string",
+              "name": "reason",
+              "type": "string"
+            }
+          ],
+          "name": "PolicyDestroyed",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0xa3C69413b12abfEaeb1c67B1E941E105051285c0",
+      "transactionHash": "0xe8018a1b120a90821a3ea704f5a8ab38f2510931edeed390af63494d8d0cc636"
+    }
+  },
   "schemaVersion": "3.0.23",
-  "updatedAt": "2020-03-29T17:23:57.410Z",
+  "updatedAt": "2020-03-29T18:19:21.443Z",
+  "networkType": "ethereum",
   "devdoc": {
     "methods": {
       "constructor": {

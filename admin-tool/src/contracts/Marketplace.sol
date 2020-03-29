@@ -10,6 +10,10 @@ contract Marketplace {
     uint public productCount = 0;
     uint public policyCount = 0;
 
+    // Commissions and fees
+    uint256 public commission = 4; // 4%
+    uint256 public fee = 1; // 1%
+
     // Mapping by id's (indexing the arrays).
     mapping(uint => Product) public products;
     mapping(uint => Agent) public agents;
@@ -67,7 +71,6 @@ contract Marketplace {
         bool purchased
     );
 
-
     event ProductCreated(
         uint id,
         string name,
@@ -112,15 +115,22 @@ contract Marketplace {
     }
 
     // Create a Policy
-    function createPolicy(string memory _policyNumber, uint _price, uint _commission) public {
+    function createPolicy(
+        string memory _name,
+        string memory _policyNumber,
+        uint _price
+    ) public {
         // Validation
         // Require a valid name
         require(bytes(_policyNumber).length > 0, "Error");
         require(_price > 0, "Error");
 
+        // ToDo:
+        // Add commision(s) and fee(s) and pay them out.
+
         policyCount ++;
 
-        policies[policyCount] = Policy(policyCount, _policyNumber, msg.sender, _price, _commission, true, false, false);
+        policies[policyCount] = Policy(policyCount, _policyNumber, msg.sender, _price, commission, true, false, false);
 
         emit PolicyCreated(policyCount, _policyNumber, _price, msg.sender, false);
     }
