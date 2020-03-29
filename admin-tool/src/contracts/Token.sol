@@ -1,3 +1,10 @@
+/**
+ * @title Token Contract
+ * @dev InsureNET Decentralized Insurance Platform Token Contract.
+ * @author Jason Romero
+ * @copyright 2020 InsureNET
+ */
+
 pragma solidity ^0.5.0;
 
 /**
@@ -9,26 +16,27 @@ pragma solidity ^0.5.0;
 contract Token {
     string  public name = "iNET Token";
     string  public symbol = "iNET";
-    uint256 public totalSupply = 100000000000000000000000000; // 100 million tokens
+    uint256 public totalSupply = 1000000000000000000000000000; // 1 Billion tokens
     uint8   public decimals = 18;
 
     /**
-    * @dev all distribution will add up to the 100 million tokens minted.
+    * @dev all distribution will add up to the 1 Billion tokens minted.
     */
     // Founder
-    string public foundersAddress = '0xd2cCea05436bf27aE49B01726075449F815B683e';
-    uint256 public foundersDistribution = 1000000000000000000000000; // 10 Million Tokens
+    address public founder  = 0x6F7d7d68c3Eed4Df81CF5F97582deef8ABC51533;
+    string public foundersAddress = '0x6F7d7d68c3Eed4Df81CF5F97582deef8ABC51533';
+    uint256 public foundersDistribution = 100000000000000000000000000; // 100 Million Tokens
 
     // Partners, Bounties and Marketing
     string public partner1 = '';
     string public partner2 = '';
-    uint256 public partner1Dist = 150000000000000000000000; // 1.5 Million
-    uint256 public partner2Dist = 150000000000000000000000; // 1.5 Million
-    uint256 public bountyDist = 100000000000000000000000; // 1 Million
-    uint256 public marketingDist = 1000000000000000000000000; // 10 Million
+    uint256 public partner1Dist = 15000000000000000000000000 ; // 15 Million
+    uint256 public partner2Dist = 15000000000000000000000000; // 15 Million
+    uint256 public bountyDist = 20000000000000000000000000; // 20 Million
+    uint256 public marketingDist = 100000000000000000000000000; // 100 Million
 
     // Public Sale
-    uint256 public publicSaleDist = 75000000000000000000000000; // 75 Million
+    uint256 public publicSaleDist = 750000000000000000000000000; // 750 Million
 
     event Transfer(
         address indexed _from,
@@ -46,8 +54,9 @@ contract Token {
     mapping(address => mapping(address => uint256)) public allowance;
 
     constructor() public {
-        balanceOf[msg.sender] = totalSupply - 1000000000000000000000000;
+        balanceOf[msg.sender] = totalSupply - 100000000000000000000000000; // 1 Billion
     }
+
 
     function transfer(address _to, uint256 _value) public returns (bool success) {
         require(balanceOf[msg.sender] >= _value, 'you need more ether');
@@ -57,11 +66,13 @@ contract Token {
         return true;
     }
 
+
     function approve(address _spender, uint256 _value) public returns (bool success) {
         allowance[msg.sender][_spender] = _value;
         emit Approval(msg.sender, _spender, _value);
         return true;
     }
+
 
     function transferFrom(address _from, address _to, uint256 _value) public returns (bool success) {
         require(_value <= balanceOf[_from], 'not enough ether');

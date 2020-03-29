@@ -24,12 +24,25 @@ import Logo from 'components/Logo'
 import AccountBalanceWalletIcon from '@material-ui/icons/AccountBalanceWallet';
 import LocalShippingIcon from '@material-ui/icons/LocalShipping';
 import Brightness7Icon from '@material-ui/icons/Brightness7';
+import StoreIcon from '@material-ui/icons/Store';
+import AddToPhotosRoundedIcon from '@material-ui/icons/AddToPhotosRounded';
+import AccountBalanceRoundedIcon from '@material-ui/icons/AccountBalanceRounded';
+import ApartmentRoundedIcon from '@material-ui/icons/ApartmentRounded';
+import AssessmentRoundedIcon from '@material-ui/icons/AssessmentRounded';
+import AttachMoneyRoundedIcon from '@material-ui/icons/AttachMoneyRounded';
+import AttachFileRoundedIcon from '@material-ui/icons/AttachFileRounded';
+import UmbrellaIcon from '@material-ui/icons/BeachAccessRounded';
+import AutorenewRoundedIcon from '@material-ui/icons/AutorenewRounded';
+import WriteContractIcon from '@material-ui/icons/BorderColorRounded';
+
 
 const categories = [
 	{
 		id: 'Exchanges',
 		children: [
-			{ id: 'iNET Exchange', icon: <PublicIcon />, page: 'exchange' },
+			{ id: 'iNET Exchange', icon: <AttachMoneyRoundedIcon />, page: 'exchange' },
+			{ id: 'Uniswap', icon: <AutorenewRoundedIcon />, page: 'uniswap' },
+			{ id: 'p2pb2b', icon: <AutorenewRoundedIcon />, page: 'p2pb2b' },
 		]
 	},
 	{
@@ -41,11 +54,11 @@ const categories = [
 	{
 		id: 'Products',
 		children: [
+			{ id: 'Marketplace', icon: <StoreIcon />, page: 'marketplace' },
 			{ id: 'Property', icon: <HomeIcon />, page: 'property' },
 			{ id: 'Liability', icon: <PeopleIcon />, page: 'liability' },
 			{ id: 'Weather', icon: <Brightness7Icon />, page: 'weather' },
 			{ id: 'Transportation', icon: <LocalShippingIcon />, page: 'transportation' },
-			{ id: 'Custom', icon: <PeopleIcon />, page: 'custom' },
 		]
 	},
 	{

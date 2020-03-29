@@ -36,6 +36,8 @@ const styles = theme => ({
 	},
 })
 
+const tabs = [];
+
 /** @dev main page - default home page */
 function Content({ classes }) {
 	return (
@@ -54,14 +56,16 @@ function Content({ classes }) {
 					</Grid>
 					<Grid lg={6} xs={12} item>
 						<Typography component="h2" variant="display1" color="textSecondary" align="center">
-							Manage your new project
+							Welcome to InsureNET
 						</Typography>						
 					</Grid>
 					<Grid>
+					{/* if/else if there are items to list or fresh start... */}
 					<Button variant="contained" 
 								color="primary"
 						>Get Started</Button>
 					</Grid>
+
 				</Grid>
 			</Paper>
 		</div>

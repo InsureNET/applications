@@ -1,32 +1,31 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React, { Component } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+//import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Web3 from 'web3'
 //import logo from '../logo.png';
-import './App.css';
-import Marketplace from '../abis/Marketplace.json';
-import PolicyMarketplace from '../abis/PolicyMarketplace.json';
-import Navbar from './Navbar'
-import Home from '../pages/Home'
-import Main from './Main'
+//import './App.css';
+import Marketplace from '../../abis/marketplace.json';
+//import PolicyMarketplace from '../abis/PolicyMarketplace.json';
+import Navbar from '../Navbar'
+import Main from '../Marketplace/main'
 import uuid from 'uuid';
 import { 
   loadWeb3,
   loadAccount
-} from '../store/interactions'
+} from '../../store/interactions'
 
-class Marketplace extends Component {
+class MarketplaceContent extends Component {
 
   async componentWillMount() {
     console.group('componentWillMount')
     console.log('Mounting')
     await this.loadWeb3()
-    this.runSetup()
-    //await this.loadBlockchainData()
+    //this.runSetup()
+    await this.loadBlockchainData()
     console.groupEnd();
   }
 
-  async runSetup(dispatch) {
+  async runSetup() {
     console.group('Run Setup:')
     // Detect MetaMask
     if(typeof web3 !== 'undefined') {
@@ -35,13 +34,13 @@ class Marketplace extends Component {
       await this.loadBlockchainData()
 
       // test account
-      const account = "0x6F7d7d68c3Eed4Df81CF5F97582deef8ABC51533";
+      //const account = "0x6F7d7d68c3Eed4Df81CF5F97582deef8ABC51533";
       
       const web3 = await this.loadWeb3(dispatch)
       //const account = await loadAccount(web3, dispatch)
-      //const account = await web3.eth.getAccounts()
+      const account = await web3.eth.getAccounts()
       console.log(account)
-      this.checkAuthorization(account)
+      //this.checkAuthorization(account)
     } else {
       console.log('User does not have MetaMask installed')
       window.alert('Please install MetaMask!')
@@ -117,8 +116,8 @@ class Marketplace extends Component {
 
     if(networkData) {
       const marketplace = new web3.eth.Contract(Marketplace.abi, networkData.address)
-      const policyMarketplace = new web3.eth.Contract(PolicyMarketplace.abi, networkData.address)
-      this.setState({ marketplace, policyMarketplace })
+      //const policyMarketplace = new web3.eth.Contract(PolicyMarketplace.abi, networkData.address)
+      this.setState({ marketplace })
       const productCount = await marketplace.methods.productCount().call()
       this.setState({ productCount })
       // Load products
@@ -223,4 +222,4 @@ class Marketplace extends Component {
 
 }
 
-export default Marketplace;
+export default MarketplaceContent;
