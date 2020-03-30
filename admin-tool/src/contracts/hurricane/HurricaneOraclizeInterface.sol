@@ -10,12 +10,13 @@
 pragma solidity 0.5.16;
 
 
-import "../vendors/usingOraclize.sol";
+import "../oracles/UsingOracle.sol";
 
 
-contract HurricaneOraclizeInterface is usingOraclize {
+contract HurricaneOraclizeInterface is UsingOracle {
   modifier onlyOraclizeOr (address _emergency) {
-    require(msg.sender == oraclize_cbAddress() || msg.sender == _emergency, 'must be oracle');
+    
+    //require(msg.sender == oracle_cbAddress() || msg.sender == _emergency);
     _;
   }
 }

@@ -12,28 +12,28 @@ import "./HurricaneControllerInterface.sol";
 import "./HurricaneDatabaseModel.sol";
 
 contract HurricaneControlledContract is HurricaneDatabaseModel {
-  address public controller;
-  HurricaneGuardControllerInterface internal HG_CI;
+  // address public controller;
+  // HurricaneControllerInterface internal HG_CI;
 
-  modifier onlyController() {
-    require(msg.sender == controller, 'the sender is not the controller');
-    _;
-  }
+  // modifier onlyController() {
+  //   require(msg.sender == controller, 'the sender is not the controller');
+  //   _;
+  // }
 
-  function destruct() public onlyController {
-    selfdestruct(controller);
-  }
+  // function destruct() public onlyController {
+  //   selfdestruct(controller);
+  // }
 
-  // solhint-disable-next-line no-empty-blocks
-  function setContracts() public onlyController {}
+  // // solhint-disable-next-line no-empty-blocks
+  // function setContracts() public onlyController {}
 
-  function getContract(bytes32 _id) internal returns (address _addr) {
-    _addr = HG_CI.getContract(_id);
-  }
+  // function getContract(bytes32 _id) internal returns (address _addr) {
+  //   _addr = HG_CI.getContract(_id);
+  // }
 
-  function setController(address _controller) internal returns (bool _result) {
-    controller = _controller;
-    HG_CI = HurricaneControllerInterface(_controller);
-    _result = true;
-  }
+  // function setController(address _controller) internal returns (bool _result) {
+  //   controller = _controller;
+  //   HG_CI = HurricaneControllerInterface(_controller);
+  //   _result = true;
+  // }
 }
