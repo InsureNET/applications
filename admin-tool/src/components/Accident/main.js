@@ -62,7 +62,7 @@ function AccidentMainContent({ classes }) {
 					{/* if/else if there are items to list or fresh start... */}
 					<Button variant="contained" 
 								color="primary"
-						>Get Started</Button>
+						>Create Policy</Button>
 					</Grid>
 
 				</Grid>

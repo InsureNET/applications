@@ -69,7 +69,7 @@ function AccidentContent({ classes }) {
 }
 
 AccidentContent.propTypes = {
-    classes: PropTypes.object.isRequired,
+    classes: PropTypes.object,
 }
 
 export default withStyles(styles)(AccidentContent);
