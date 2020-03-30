@@ -5,7 +5,7 @@
  * @copyright 2020 InsureNET
  */
 
-pragma solidity ^0.5.0;
+pragma solidity ^0.5.16;
 
 contract PolicyCreator {
     // State parameters
@@ -30,6 +30,24 @@ contract PolicyCreator {
         uint256 fee;
         bool active;
     }
+
+  // the risk structure; this structure keeps track of the risk-
+  // specific parameters.
+  // several policies can share the same risk structure
+  // (typically same people in a specific geographic
+  // area [market] for a particular season)
+  struct Risk {
+    // 0 - Market, "PR" for pilot
+    bytes32 market;
+    // 1 - Season, the current year
+    bytes32 season;
+    // 2 - the event category that triggered payouts
+    bytes32 category;
+    // 3 - we limit the cumulated weighted premium to avoid cluster risks
+    uint cumulatedWeightedPremium;
+    // 4 - max cumulated Payout for this risk
+    uint premiumMultiplier;
+  }
 
     // Events
     event PolicyCreated (

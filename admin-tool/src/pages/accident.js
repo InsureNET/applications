@@ -15,4 +15,5 @@ AccidentPage.propTypes = {
 	data: PropTypes.object.isRequired,
 	location: PropTypes.object,
 }
+
 export default AccidentPage

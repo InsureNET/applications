@@ -32,8 +32,8 @@ contract('Marketplace', ([ deployer, seller, buyer ]) => {
         before(async () => {
             result = await marketplace.createPolicy(
                 'WP5000100',
-                web3.utils.toWei('5', ether),
-                web3.utils.toWei('.5', ether)
+                web3.utils.toWei('5', 'ether'),
+                web3.utils.toWei('.5', 'ether')
             )
 
             policyCount = await marketplace.policyCount();
@@ -42,9 +42,9 @@ contract('Marketplace', ([ deployer, seller, buyer ]) => {
         it('creates policies', async () => {
             const event = result.logs[0].args
             console.log(result.logs)
-            assert.equal(event.id,toNumber(), policyCount.toNumber(), 'id is correct')
-            assert.equal(event.name, 'WP5000100', 'name is correct')
-            
+            assert.equal(event.id.toNumber(), policyCount.toNumber(), 'id is correct')
+            assert.equal(event.name, web3.utils.toWei('5', 'ether'), 'amount is correct')
+
         })
     });
     
