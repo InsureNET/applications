@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React, { Component } from 'react';
+//import Explosion from 'react-explode'
 //import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Web3 from 'web3'
 //import logo from '../logo.png';
@@ -196,6 +197,7 @@ class MarketplaceContent extends Component {
           <p>&nbsp;</p>
             {/* <img src={logo} alt='Agency Logo' height='50' width='50' /> */}
             <main role="main" className="col-lg-12 d-flex">
+            
               { this.state.loading
                 ? <div id="loader" 
                         className="text-center">
@@ -214,6 +216,8 @@ class MarketplaceContent extends Component {
     );
   }
 
+
+  
   // render using react-router
   // render() {
   //   return (
@@ -235,6 +239,10 @@ class MarketplaceContent extends Component {
   // }
 
 
+}
+
+function componentWillUnmount () {
+    console.log('Unmounting')
 }
 
 export default MarketplaceContent;
