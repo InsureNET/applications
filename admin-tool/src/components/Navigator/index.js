@@ -55,6 +55,7 @@ const categories = [
 		id: 'Products',
 		children: [
 			{ id: 'Marketplace', icon: <StoreIcon />, page: 'marketplace' },
+			{ id: 'Accident', icon: <AssessmentRoundedIcon />, page: 'accident' },
 			{ id: 'Property', icon: <HomeIcon />, page: 'property' },
 			{ id: 'Liability', icon: <PeopleIcon />, page: 'liability' },
 			{ id: 'Weather', icon: <Brightness7Icon />, page: 'weather' },
