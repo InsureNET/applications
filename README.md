@@ -6,6 +6,6 @@
 - InsureNET Dashboard
 
 ## iNET Utility Token Pre-Sale coming in April
-https://<tobeannouced.com>
+https://insurenet-web.netlify.com
 
 <link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet"><a class="bmc-button" target="_blank" href="https://www.buymeacoffee.com/0rlSPxJaU"><img src="https://cdn.buymeacoffee.com/buttons/bmc-new-btn-logo.svg" alt="Buy me a coffee"><span style="margin-left:15px;font-size:28px !important;">Buy me a coffee</span></a>
