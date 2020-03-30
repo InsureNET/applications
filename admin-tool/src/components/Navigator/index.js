@@ -38,11 +38,19 @@ import WriteContractIcon from '@material-ui/icons/BorderColorRounded';
 
 const categories = [
 	{
+		id: 'Membership',
+		children: [
+			{ id: 'Login', icon: <PeopleIcon />, page: 'login' },
+			{ id: 'Join', icon: <PeopleIcon />, page: 'join' },
+			{ id: 'Member Dashboard', icon: <PeopleIcon />, page: 'membership' },
+		]
+	},
+	{
 		id: 'Exchanges',
 		children: [
-			{ id: 'iNET Exchange', icon: <AttachMoneyRoundedIcon />, page: 'exchange' },
+			{ id: 'Buy or Sell iNET', icon: <AttachMoneyRoundedIcon />, page: 'exchange' },
 			{ id: 'Uniswap', icon: <AutorenewRoundedIcon />, page: 'uniswap' },
-			{ id: 'p2pb2b', icon: <AutorenewRoundedIcon />, page: 'p2pb2b' },
+			//{ id: 'p2pb2b', icon: <AutorenewRoundedIcon />, page: 'p2pb2b' },
 		]
 	},
 	{
@@ -56,27 +64,28 @@ const categories = [
 		children: [
 			{ id: 'Marketplace', icon: <StoreIcon />, page: 'marketplace' },
 			{ id: 'Accident', icon: <AssessmentRoundedIcon />, page: 'accident' },
+			{ id: 'Hurricane', icon: <AssessmentRoundedIcon />, page: 'hurricane' },
 			{ id: 'Property', icon: <HomeIcon />, page: 'property' },
 			{ id: 'Liability', icon: <PeopleIcon />, page: 'liability' },
-			{ id: 'Weather', icon: <Brightness7Icon />, page: 'weather' },
+			//{ id: 'Weather', icon: <Brightness7Icon />, page: 'weather' },
 			{ id: 'Transportation', icon: <LocalShippingIcon />, page: 'transportation' },
 		]
 	},
-	{
-		id: 'Administration',
-		children: [
-			{ id: 'Authentication', icon: <PeopleIcon />, page: 'authentication' },
-			{ id: 'Hosting', icon: <PublicIcon />, page: 'hosting' },
+	// {
+	// 	id: 'Administration',
+	// 	children: [
+	// 		{ id: 'Authentication', icon: <PeopleIcon />, page: 'authentication' },
+	// 		{ id: 'Hosting', icon: <PublicIcon />, page: 'hosting' },
 			
-		],
-	},
+	// 	],
+	// },
 	
-	{
-		id: 'Wallets',
-		children: [
-			{ id: 'MetaMask', icon: <AccountBalanceWalletIcon />, page: 'metamask' }
-		]
-	},
+	// {
+	// 	id: 'Wallets',
+	// 	children: [
+	// 		{ id: 'MetaMask', icon: <AccountBalanceWalletIcon />, page: 'metamask' }
+	// 	]
+	// },
 	
 	{
 		id: 'Risk Models',
@@ -85,9 +94,17 @@ const categories = [
 		]
 	},
 	{
+		id: 'Risk Reporting',
+		children: [
+			{ id: 'Etherscan', icon: <SettingsInputComponentIcon/>, page: 'etherscan' },
+			{ id: 'Analytics', icon: <SettingsIcon />, page: 'analytics' },
+			{ id: 'Performance', icon: <TimerIcon />, page: 'performance' },
+		],
+	},
+	{
 		id: 'Smart Contracts',
 		children: [
-			{ id: 'Solidity', icon: <DnsRoundedIcon />, page: 'solidity' },
+			{ id: 'Solidity', icon: <WriteContractIcon />, page: 'solidity' },
 			{ id: 'Vyper', icon: <DnsRoundedIcon />, page: 'vyper' },
 		]
 	},
@@ -98,27 +115,26 @@ const categories = [
 	// 		{ id: 'ML Kit', icon: <SettingsInputComponentIcon />, page: 'ml' },
 	// 	]
 	// },
+	// {
+	// 	id: 'Storage',
+	// 	children: [
+	// 		{ id: 'Database', icon: <DnsRoundedIcon />, page: 'database' },
+	// 		{ id: 'IPFS', icon: <SettingsEthernetIcon/>, page: 'ipfs' },
+	// 		{ id: 'Storage', icon: <PermMediaOutlinedIcon />, page: 'storage' },
+	// 	]
+	// },
+	
+	// {
+	// 	id: 'Testing',
+	// 	children: [
+	// 		{ id: 'Test Lab', icon: <PhonelinkSetupIcon />, page: 'lab' },
+	// 		{ id: 'Functions', icon: <SettingsEthernetIcon />, page: 'functions' },
+	// 	]
+	// },
 	{
-		id: 'Storage',
+		id: 'Support',
 		children: [
-			{ id: 'Database', icon: <DnsRoundedIcon />, page: 'database' },
-			{ id: 'IPFS', icon: <SettingsEthernetIcon/>, page: 'ipfs' },
-			{ id: 'Storage', icon: <PermMediaOutlinedIcon />, page: 'storage' },
-		]
-	},
-	{
-		id: 'Reporting',
-		children: [
-			{ id: 'Etherscan', icon: <SettingsInputComponentIcon/>, page: 'etherscan' },
-			{ id: 'Analytics', icon: <SettingsIcon />, page: 'analytics' },
-			{ id: 'Performance', icon: <TimerIcon />, page: 'performance' },
-		],
-	},
-	{
-		id: 'Testing',
-		children: [
-			{ id: 'Test Lab', icon: <PhonelinkSetupIcon />, page: 'lab' },
-			{ id: 'Functions', icon: <SettingsEthernetIcon />, page: 'functions' },
+			{ id: 'Contact Support', icon: <PeopleIcon />, page: 'support' },
 		]
 	}
 ]

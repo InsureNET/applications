@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import Layout from 'components/Layout'
 import Content from 'components/Content'
 
-function PerformancePage({ location }) {
+function SupportPage({ location }) {
 	const pageTitle = location ? location.pathname.replace(/\//g, '') : ''
 	return (
 		<Layout location={location} title={pageTitle}>
@@ -11,7 +11,7 @@ function PerformancePage({ location }) {
 		</Layout>
 	)
 }
-PerformancePage.propTypes = {
+SupportPage.propTypes = {
 	location: PropTypes.object,
 }
-export default PerformancePage
+export default SupportPage

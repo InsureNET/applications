@@ -1,17 +1,18 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Layout from 'components/Layout'
-import Content from 'components/Content'
+import HurricaneContent from 'components/Hurricane'
 
-function PerformancePage({ location }) {
+function HurricanePage({ data, location }) {
 	const pageTitle = location ? location.pathname.replace(/\//g, '') : ''
 	return (
 		<Layout location={location} title={pageTitle}>
-			
+			<HurricaneContent />
 		</Layout>
 	)
 }
-PerformancePage.propTypes = {
+HurricanePage.propTypes = {
+	data: PropTypes.object.isRequired,
 	location: PropTypes.object,
 }
-export default PerformancePage
+export default HurricanePage

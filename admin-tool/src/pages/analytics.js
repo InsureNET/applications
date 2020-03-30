@@ -7,7 +7,7 @@ function AnalyticsPage({ data, location }) {
 	const pageTitle = location ? location.pathname.replace(/\//g, '') : ''
 	return (
 		<Layout location={location} title={pageTitle}>
-			<Content />
+			
 		</Layout>
 	)
 }

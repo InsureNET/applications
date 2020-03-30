@@ -4,7 +4,6 @@ import Typography from '@material-ui/core/Typography'
 import Paper from '@material-ui/core/Paper'
 import Grid from '@material-ui/core/Grid'
 import { withStyles } from '@material-ui/core/styles'
-import ContentGraphic from './ContentGraphic'
 import Button from '@material-ui/core/Button';
 
 
@@ -13,7 +12,7 @@ const styles = theme => ({
 		margin: 'auto',
 		overflow: 'hidden',
 		[theme.breakpoints.up('sm')]: {
-			minWidth: 600,
+			minWidth: 700,
 		},
 		[theme.breakpoints.up('lg')]: {
 			minWidth: 936,
@@ -36,10 +35,8 @@ const styles = theme => ({
 	},
 })
 
-const tabs = [];
-
 /** @dev main page - default home page */
-function Content({ classes }) {
+function HurricaneMainContent({ classes }) {
 	return (
 		<div className={classes.container}>
 			<Paper className={classes.paper}>
@@ -53,18 +50,17 @@ function Content({ classes }) {
 				>
 					<Grid lg={6} xs={12} item align="center">
 						
-						
 					</Grid>
 					<Grid lg={6} xs={12} item>
 						<Typography component="h2" variant="display1" color="textSecondary" align="center">
-							Welcome to InsureNET
+							Build a Hurricane policy
 						</Typography>						
 					</Grid>
 					<Grid>
 					{/* if/else if there are items to list or fresh start... */}
 					<Button variant="contained" 
 								color="primary"
-						>Get Started</Button>
+						>Create Policy</Button>
 					</Grid>
 
 				</Grid>
@@ -73,8 +69,8 @@ function Content({ classes }) {
 	)
 }
 
-Content.propTypes = {
+HurricaneMainContent.propTypes = {
 	classes: PropTypes.object.isRequired,
 }
 
-export default withStyles(styles)(Content)
+export default withStyles(styles)(HurricaneMainContent)
