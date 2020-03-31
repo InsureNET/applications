@@ -1,0 +1,660 @@
+{
+  "contractName": "HurricaneCreatePolicy",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "id",
+          "type": "uint256"
+        }
+      ],
+      "name": "PolicyCreated",
+      "type": "event"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_insured",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_value",
+          "type": "uint256"
+        }
+      ],
+      "name": "createPolicy",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"}],\"name\":\"PolicyCreated\",\"type\":\"event\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"address\",\"name\":\"_insured\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_value\",\"type\":\"uint256\"}],\"name\":\"createPolicy\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{\"createPolicy(address,uint256)\":{\"details\":\"Functions \"}}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/home/jaxcoder/Projects/InetMaster/applications/admin-tool/src/contracts/hurricane/HurricaneCreatePolicy.sol\":\"HurricaneCreatePolicy\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/jaxcoder/Projects/InetMaster/applications/admin-tool/src/contracts/hurricane/HurricaneCreatePolicy.sol\":{\"keccak256\":\"0xd00e1a7a06c81b61d15c8a1a4ce26dcbbaca3b98e41618dab1267cfec2a854d0\",\"urls\":[\"bzz-raw://18411c2f0108b66d767b81419d8547f5a0b8e9197967681c9de77bcc15cbdf60\",\"dweb:/ipfs/QmZVGG2JhRbiZfvLC8VPUtMLeZv6kHRyz4Jm3kJ7QyLhrZ\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b5060d18061001f6000396000f3fe6080604052348015600f57600080fd5b506004361060285760003560e01c80639abb9a2814602d575b600080fd5b607660048036036040811015604157600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190803590602001909291905050506090565b604051808215151515815260200191505060405180910390f35b6000600190509291505056fea265627a7a723158202dfc5f46a9c43b1515622a31851f4abf7142fc08b9b3feddefcc5be149392ae064736f6c63430005100032",
+  "deployedBytecode": "0x6080604052348015600f57600080fd5b506004361060285760003560e01c80639abb9a2814602d575b600080fd5b607660048036036040811015604157600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190803590602001909291905050506090565b604051808215151515815260200191505060405180910390f35b6000600190509291505056fea265627a7a723158202dfc5f46a9c43b1515622a31851f4abf7142fc08b9b3feddefcc5be149392ae064736f6c63430005100032",
+  "sourceMap": "227:502:13:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;227:502:13;;;;;;;",
+  "deployedSourceMap": "227:502:13:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;227:502:13;;;;;;;;;;;;;;;;;;;568:156;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;568:156:13;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;663:4;713;706:11;;568:156;;;;:::o",
+  "source": "/**\n * @title Generic Prametric Hurricane Contract\n * @dev InsureNET Decentralized Insurance Platform\n *      Parametruc Hurricane Contract.\n * @author Jason Romero\n * @copyright 2020 InsureNET\n */\n \n pragma solidity ^0.5.16;\n\ncontract HurricaneCreatePolicy {\n\n    /**\n    * @dev Category of the hurricane\n    */\n    enum Category { THREE, FOUR, FIVE }\n\n    /** State Properties */\n\n\n    /** @dev Events */\n    event PolicyCreated (\n        uint256 id\n    );\n\n    /** @dev Policy Stuct */\n    struct Policy {\n        uint256 id;\n    }\n\n\n    /** @dev Functions */\n\n    function createPolicy (\n        address _insured,\n        uint256 _value\n    ) public returns (bool) {\n        // ToDo: Checks\n\n\n\n        return true;\n    }\n\n\n\n}",
+  "sourcePath": "/home/jaxcoder/Projects/InetMaster/applications/admin-tool/src/contracts/hurricane/HurricaneCreatePolicy.sol",
+  "ast": {
+    "absolutePath": "/home/jaxcoder/Projects/InetMaster/applications/admin-tool/src/contracts/hurricane/HurricaneCreatePolicy.sol",
+    "exportedSymbols": {
+      "HurricaneCreatePolicy": [
+        1736
+      ]
+    },
+    "id": 1737,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1712,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".16"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "201:24:13"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 1736,
+        "linearizedBaseContracts": [
+          1736
+        ],
+        "name": "HurricaneCreatePolicy",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "HurricaneCreatePolicy.Category",
+            "id": 1716,
+            "members": [
+              {
+                "id": 1713,
+                "name": "THREE",
+                "nodeType": "EnumValue",
+                "src": "333:5:13"
+              },
+              {
+                "id": 1714,
+                "name": "FOUR",
+                "nodeType": "EnumValue",
+                "src": "340:4:13"
+              },
+              {
+                "id": 1715,
+                "name": "FIVE",
+                "nodeType": "EnumValue",
+                "src": "346:4:13"
+              }
+            ],
+            "name": "Category",
+            "nodeType": "EnumDefinition",
+            "src": "317:35:13"
+          },
+          {
+            "anonymous": false,
+            "documentation": "@dev Events ",
+            "id": 1720,
+            "name": "PolicyCreated",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 1719,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1718,
+                  "indexed": false,
+                  "name": "id",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1720,
+                  "src": "441:10:13",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1717,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "441:7:13",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "431:26:13"
+            },
+            "src": "411:47:13"
+          },
+          {
+            "canonicalName": "HurricaneCreatePolicy.Policy",
+            "id": 1723,
+            "members": [
+              {
+                "constant": false,
+                "id": 1722,
+                "name": "id",
+                "nodeType": "VariableDeclaration",
+                "scope": 1723,
+                "src": "517:10:13",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 1721,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "517:7:13",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "Policy",
+            "nodeType": "StructDefinition",
+            "scope": 1736,
+            "src": "493:41:13",
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 1734,
+              "nodeType": "Block",
+              "src": "669:55:13",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "hexValue": "74727565",
+                    "id": 1732,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": true,
+                    "kind": "bool",
+                    "lValueRequested": false,
+                    "nodeType": "Literal",
+                    "src": "713:4:13",
+                    "subdenomination": null,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    },
+                    "value": "true"
+                  },
+                  "functionReturnParameters": 1731,
+                  "id": 1733,
+                  "nodeType": "Return",
+                  "src": "706:11:13"
+                }
+              ]
+            },
+            "documentation": "@dev Functions ",
+            "id": 1735,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "createPolicy",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1728,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1725,
+                  "name": "_insured",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1735,
+                  "src": "600:16:13",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 1724,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "600:7:13",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1727,
+                  "name": "_value",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1735,
+                  "src": "626:14:13",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1726,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "626:7:13",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "590:56:13"
+            },
+            "returnParameters": {
+              "id": 1731,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1730,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1735,
+                  "src": "663:4:13",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 1729,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "663:4:13",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "662:6:13"
+            },
+            "scope": 1736,
+            "src": "568:156:13",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 1737,
+        "src": "227:502:13"
+      }
+    ],
+    "src": "201:528:13"
+  },
+  "legacyAST": {
+    "absolutePath": "/home/jaxcoder/Projects/InetMaster/applications/admin-tool/src/contracts/hurricane/HurricaneCreatePolicy.sol",
+    "exportedSymbols": {
+      "HurricaneCreatePolicy": [
+        1736
+      ]
+    },
+    "id": 1737,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1712,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".16"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "201:24:13"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 1736,
+        "linearizedBaseContracts": [
+          1736
+        ],
+        "name": "HurricaneCreatePolicy",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "HurricaneCreatePolicy.Category",
+            "id": 1716,
+            "members": [
+              {
+                "id": 1713,
+                "name": "THREE",
+                "nodeType": "EnumValue",
+                "src": "333:5:13"
+              },
+              {
+                "id": 1714,
+                "name": "FOUR",
+                "nodeType": "EnumValue",
+                "src": "340:4:13"
+              },
+              {
+                "id": 1715,
+                "name": "FIVE",
+                "nodeType": "EnumValue",
+                "src": "346:4:13"
+              }
+            ],
+            "name": "Category",
+            "nodeType": "EnumDefinition",
+            "src": "317:35:13"
+          },
+          {
+            "anonymous": false,
+            "documentation": "@dev Events ",
+            "id": 1720,
+            "name": "PolicyCreated",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 1719,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1718,
+                  "indexed": false,
+                  "name": "id",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1720,
+                  "src": "441:10:13",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1717,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "441:7:13",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "431:26:13"
+            },
+            "src": "411:47:13"
+          },
+          {
+            "canonicalName": "HurricaneCreatePolicy.Policy",
+            "id": 1723,
+            "members": [
+              {
+                "constant": false,
+                "id": 1722,
+                "name": "id",
+                "nodeType": "VariableDeclaration",
+                "scope": 1723,
+                "src": "517:10:13",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 1721,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "517:7:13",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "Policy",
+            "nodeType": "StructDefinition",
+            "scope": 1736,
+            "src": "493:41:13",
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 1734,
+              "nodeType": "Block",
+              "src": "669:55:13",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "hexValue": "74727565",
+                    "id": 1732,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": true,
+                    "kind": "bool",
+                    "lValueRequested": false,
+                    "nodeType": "Literal",
+                    "src": "713:4:13",
+                    "subdenomination": null,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    },
+                    "value": "true"
+                  },
+                  "functionReturnParameters": 1731,
+                  "id": 1733,
+                  "nodeType": "Return",
+                  "src": "706:11:13"
+                }
+              ]
+            },
+            "documentation": "@dev Functions ",
+            "id": 1735,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "createPolicy",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1728,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1725,
+                  "name": "_insured",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1735,
+                  "src": "600:16:13",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 1724,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "600:7:13",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1727,
+                  "name": "_value",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1735,
+                  "src": "626:14:13",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1726,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "626:7:13",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "590:56:13"
+            },
+            "returnParameters": {
+              "id": 1731,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1730,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1735,
+                  "src": "663:4:13",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 1729,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "663:4:13",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "662:6:13"
+            },
+            "scope": 1736,
+            "src": "568:156:13",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 1737,
+        "src": "227:502:13"
+      }
+    ],
+    "src": "201:528:13"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.5.16+commit.9c3226ce.Emscripten.clang"
+  },
+  "networks": {
+    "5777": {
+      "events": {
+        "0xde5ef345cecbaaffdfbe2454b7947aa14037bac2f45e4fc98976f8bffea38623": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "id",
+              "type": "uint256"
+            }
+          ],
+          "name": "PolicyCreated",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0x706fd7ce24bA005dEA4302b9A9D99400c0E5Edcf",
+      "transactionHash": "0xaa28d641bd4ac67df02526b7dd4ebc14c399a63504a13a7afef4b54018f438af"
+    }
+  },
+  "schemaVersion": "3.0.23",
+  "updatedAt": "2020-03-31T02:48:08.106Z",
+  "networkType": "ethereum",
+  "devdoc": {
+    "methods": {
+      "createPolicy(address,uint256)": {
+        "details": "Functions "
+      }
+    }
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}
