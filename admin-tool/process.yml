@@ -1,0 +1,23 @@
+name: balance-notifier
+steps:
+    - type: trigger
+      instance:
+        src: https://github.com/mesg-foundation/service-enit-event-interval
+      eventKey: every_10_seconds
+    - type: task
+      instance:
+        src: https://github.com/mesg-foundation/service-ethereum-erc20
+        env:
+            - PROVIDER_ENDPOINT=https://mainnet.infura.io/v3/d75ab9cb284f4536b1da2ce9f8201bdb
+        taskKey: balanceOf
+        inputs:
+          contractAddress: "0x420167d87d35c3a249b32ef6225872fbd9ab85d2"
+          address: "0x2b1892e181cc749b530e6acc0aecfa4cc9c13ac2"
+    - type: task
+    instance:
+        src: https://github.com/mesg-foundation/service-webhook
+        taskKey: call
+        inputs:
+          url: "https://webhook.site/abe438ba-0c54-4594-bdfd-251375006283"
+          data:
+            balance: { key: balance }

@@ -1,4 +1,4 @@
-pragma solidity ^0.5.0;
+pragma solidity ^0.5.16;
 /*
 1. We are using underscore prefix for all local variables.
 2. State variables do not.
@@ -19,37 +19,6 @@ contract Marketplace {
     mapping(uint => Agent) public agents;
     mapping(uint => User) public users;
     mapping(uint => Policy) public policies;
-
-    
-
-    // Describe the Binder
-    struct Binder {
-        uint id;
-        string name;
-        uint price;
-        address payable owner;
-        bool available;
-    }
-
-    // Describe the Product
-    struct Product {
-        uint id;
-        string name;
-        uint price;
-        address payable owner;
-        bool purchased;
-        bool available;
-    }
-
-    // Describe the Agent
-    struct Agent {
-        uint id;
-        string name;
-        string title;
-        uint commission;
-        address payable owner;
-        bool commissionPaid;
-    }
 
     // Describe the User. The user in this case
     // is the potential insured or buyer of the

@@ -31,18 +31,6 @@ const styles = theme => ({
 });
 
 const tabNames = ['Buy', 'Sell', 'Claims'];
-// Old
-//     return (
-//         <>
-//             <TabBar tabNames={tabNames} />
-//             <div className='container'>
-//                 <Paper className='paper'>
-//                     <Main />
-//                 </Paper>
-//             </div>
-//         </>
-//     )
-// };
 
 class HurricaneContent extends Component {
 	async componentWillMount() {
@@ -110,9 +98,6 @@ class HurricaneContent extends Component {
 	buyPolciy(coverageAmount1, coverageAmount2, coverageAmount3, premiumAmount) {
 		console.log('buying policy')
 	}
-
-
-
 
 	constructor(props){
 		super(props)

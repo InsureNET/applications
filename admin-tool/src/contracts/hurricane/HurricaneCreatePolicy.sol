@@ -28,6 +28,36 @@ contract HurricaneCreatePolicy {
         uint256 id;
     }
 
+    // Describe the Binder
+    struct Binder {
+        uint id;
+        string name;
+        uint price;
+        address payable owner;
+        bool available;
+    }
+
+    // Describe the Product
+    struct Product {
+        uint id;
+        string name;
+        uint price;
+        address payable owner;
+        bool purchased;
+        bool available;
+    }
+
+    // Describe the Agent
+    struct Agent {
+        uint id;
+        string name;
+        string title;
+        uint commission;
+        address payable owner;
+        bool commissionPaid;
+    }
+
+
 
     /** @dev Functions */
 

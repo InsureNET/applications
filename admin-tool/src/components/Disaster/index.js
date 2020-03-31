@@ -3,12 +3,12 @@ import PropTypes from 'prop-types'
 import Identicon from 'identicon.js';
 import Web3 from 'web3'
 import Token from '../../abis/Token.json'
+import EthSwap from '../../abis/EthSwap.json'
 import Navbar from '../Navbar/index'
 import Main from '../Exchange/main'
 import Paper from '@material-ui/core/Paper'
 import { withStyles } from '@material-ui/core/styles'
 import TabBar from 'components/TabBar'
-import AccidentMainContent from 'components/Accident/main'
 
 const styles = theme => ({
 	paper: {
@@ -58,7 +58,6 @@ function AccidentContent({ classes }) {
                 style={{ maxWidth: '600px' }}
               >
                 <div className="content mr-auto ml-auto">
-                  <AccidentMainContent />
                 </div>
               </main>
             </div>
