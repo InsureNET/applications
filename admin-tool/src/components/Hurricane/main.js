@@ -36,10 +36,20 @@ const styles = theme => ({
 })
 
 /** @dev main page - default home page */
-function HurricaneMainContent({ classes }) {
+function HurricaneMainContent({ classes , account, onClick, loading}) {
+	let content
+	if (loading) {
+		content = <p id="loader" className="text-center">Loading...</p>
+	} else {
+		content = <>Put here</>
+	}
+
 	return (
 		<div className={classes.container}>
 			<Paper className={classes.paper}>
+			<Grid lg={6} xs={12} item align="center">
+						
+					</Grid>
 				<Grid
 					container
 					spacing={16}
@@ -47,20 +57,18 @@ function HurricaneMainContent({ classes }) {
 					wrap
 					alignItems="center"
 					justify="center"
-				>
-					<Grid lg={6} xs={12} item align="center">
-						
-					</Grid>
+				>					
 					<Grid lg={6} xs={12} item>
-						<Typography component="h2" variant="display1" color="textSecondary" align="center">
-							Build a Hurricane policy
+						<Typography component="h2" color="textSecondary" align="center">
+							Buy a Hurricane policy for {account}
 						</Typography>						
 					</Grid>
 					<Grid>
 					{/* if/else if there are items to list or fresh start... */}
-					<Button variant="contained" 
-								color="primary"
-						>Create Policy</Button>
+						<Button variant="contained" 
+							color="primary"
+							onClick={onClick}
+						>Buy Policy</Button>
 					</Grid>
 
 				</Grid>

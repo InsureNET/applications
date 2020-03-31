@@ -89,24 +89,27 @@ class HurricaneContent extends Component {
 		// Get network id
 		const networkId = await web3.eth.net.getId()
 		console.log('network id: ', networkId)
-		const contractData = HurricaneContract.networks[networkId]
+		const contractData = await HurricaneContract.networks[networkId]
 		console.log('contract data: ', contractData)
 
 		if (contractData) {
 			const contractAbi = contractData.abi;
 			const contractAddress = contractData.address;
-			const contract = new web3.eth.Contract(contractAbi, contractAddress)
-			this.setState({ contract })
-
+			//const contract = new web3.eth.Contract(contractAbi, contractAddress)
+			//this.setState({ contract })
+			this.setState({ loaoding: false })
 		} else {
 			window.alert('Contract is not deployed on current network.')
 		}
 
-
+		this.setState({ loaoding: false })
 		console.groupEnd();
 	}
 
 
+	buyPolciy(coverageAmount1, coverageAmount2, coverageAmount3, premiumAmount) {
+		console.log('buying policy')
+	}
 
 
 
@@ -129,12 +132,30 @@ class HurricaneContent extends Component {
 
 
 	render(props){
+		let content
+		if (this.state.loading) {
+			content = <p id='loader' className='text-center'>Loading..</p>
+		} else {
+			content = <Main
+				account={this.state.account}
+				onClick={this.buyPolciy}
+				loading={this.state.loading}
+			/>
+		}
 		return (
 			<>
 				<TabBar tabNames={tabNames} />
 				<div className='container'>
 					<Paper className='paper'>
-						<Main />
+					<main 
+                  role="main" 
+                  className="col-lg-12 ml-auto mr-auto" 
+                  style={{ maxWidth: '600px' }}
+                >
+                  <div className="content mr-auto ml-auto">
+                    {content}
+                  </div>
+                </main>
 					</Paper>
 				</div>
 			</>
