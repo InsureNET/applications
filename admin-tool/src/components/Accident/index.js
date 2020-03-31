@@ -42,14 +42,14 @@ function addPolicy(event) {
     console.log(event.target)
 }
 
-function AccidentContent({ classes }) {
+function AccidentContent({ classes, account, id }) {
     return (
-        <div>
-          
+        <div>          
           <div className="container-fluid mt-5">
             <div className="row">
             <TabBar tabNames={tabNames}></TabBar>
-            <Paper className='paper'>
+			<Navbar account={account} id={id}/>
+			<Paper className='paper'>
               
             </Paper>
               <main 

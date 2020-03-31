@@ -134,6 +134,7 @@ const categories = [
 	{
 		id: 'Support',
 		children: [
+			{ id: 'Network Status', icon: <PeopleIcon />, page: 'network' },
 			{ id: 'Contact Support', icon: <PeopleIcon />, page: 'support' },
 		]
 	}

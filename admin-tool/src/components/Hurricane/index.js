@@ -77,15 +77,15 @@ class HurricaneContent extends Component {
 		// Get network id
 		const networkId = await web3.eth.net.getId()
 		console.log('network id: ', networkId)
-		const contractData = await HurricaneContract.networks[networkId]
+		const contractData = await HurricaneContract.networks['5777']
 		console.log('contract data: ', contractData)
 
 		if (contractData) {
-			const contractAbi = contractData.abi;
-			const contractAddress = contractData.address;
-			//const contract = new web3.eth.Contract(contractAbi, contractAddress)
-			//this.setState({ contract })
-			this.setState({ loaoding: false })
+			const contractAbi = HurricaneContract.abi;
+			const contractAddress = HurricaneContract.networks['5777'].address //contractData.address;
+			const contract = new web3.eth.Contract(contractAbi, contractAddress)
+			this.setState({ contract })
+			//this.setState({ loaoding: false })
 		} else {
 			window.alert('Contract is not deployed on current network.')
 		}
@@ -97,6 +97,7 @@ class HurricaneContent extends Component {
 
 	buyPolciy(coverageAmount1, coverageAmount2, coverageAmount3, premiumAmount) {
 		console.log('buying policy')
+		
 	}
 
 	constructor(props){
@@ -128,22 +129,27 @@ class HurricaneContent extends Component {
 			/>
 		}
 		return (
-			<>
+			<div>
+				<div className="container-fluid mt-5">
+				<div className="row">
 				<TabBar tabNames={tabNames} />
 				<div className='container'>
 					<Paper className='paper'>
-					<main 
-                  role="main" 
-                  className="col-lg-12 ml-auto mr-auto" 
-                  style={{ maxWidth: '600px' }}
-                >
-                  <div className="content mr-auto ml-auto">
-                    {content}
-                  </div>
-                </main>
+
 					</Paper>
+					<main 
+						role="main" 
+						className="col-lg-12 ml-auto mr-auto" 
+						style={{ maxWidth: '600px' }}
+					>
+						<div className="content mr-auto ml-auto">
+							{content}
+						</div>
+					</main>				
 				</div>
-			</>
+				</div>
+				</div>
+			</div>
 		)
 	}
 }

@@ -1,19 +1,43 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React, { Component } from 'react';
-//import Explosion from 'react-explode'
-//import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import PropTypes from 'prop-types'
 import Web3 from 'web3'
-//import logo from '../logo.png';
-//import './App.css';
 import Marketplace from '../../abis/Marketplace.json';
-//import PolicyMarketplace from '../abis/PolicyMarketplace.json';
+import TabBar from 'components/TabBar'
 import Navbar from '../Navbar'
 import Main from '../Marketplace/main'
 import uuid from 'uuid';
-import { 
-  loadWeb3,
-  loadAccount
-} from '../../store/interactions'
+import { withStyles } from '@material-ui/core/styles'
+
+const styles = theme => ({
+	paper: {
+		maxWidth: 936,
+		margin: 'auto',
+		overflow: 'hidden',
+	},
+	searchBar: {
+		borderBottom: '1px solid rgba(0, 0, 0, 0.12)',
+	},
+	searchInput: {
+		fontSize: theme.typography.fontSize,
+	},
+	block: {
+		display: 'block',
+	},
+	addPolicy: {
+		marginRight: theme.spacing.unit,
+	},
+	contentWrapper: {
+		margin: '40px 16px',
+	},
+	container: {
+		padding: '48px 36px 0',
+	},
+})
+
+
+const tabNames = [ 'My Policies', 'Pending', 'Bidding' ];
+
 
 class MarketplaceContent extends Component {
 
@@ -109,6 +133,7 @@ class MarketplaceContent extends Component {
     // Load account
     const accounts = await web3.eth.getAccounts()
     this.setState({ account: accounts[0] })
+    //await this.checkAuthorization(this.state.account)
     const networkId = await web3.eth.net.getId()
     this.setState({ networkId })
     const networkData = Marketplace.networks[networkId]
@@ -191,9 +216,11 @@ class MarketplaceContent extends Component {
 
   render() {
     return (    
-        <div className="container-fluid mt-5">
-          <Navbar account={this.state.account} id={this.state.id}/>
+      <div>
+        <div className="container-fluid mt-5">         
           <div className="row">
+          <TabBar tabNames={tabNames}></TabBar>          
+          <Navbar account={this.state.account} id={this.state.id}/>
           <p>&nbsp;</p>
             {/* <img src={logo} alt='Agency Logo' height='50' width='50' /> */}
             <main role="main" className="col-lg-12 d-flex">
@@ -204,45 +231,27 @@ class MarketplaceContent extends Component {
                       <p className="text-center">Loading...</p>
                   </div>
                 : <Main
-                  products={this.state.products}
-                  policies={this.state.policies}
-                  createProduct={this.createProduct}
-                  purchaseProduct={this.purchaseProduct}
-                  createPolicy={this.createPolicy} />
+                    products={this.state.products}
+                    policies={this.state.policies}
+                    createProduct={this.createProduct}
+                    purchaseProduct={this.purchaseProduct}
+                    createPolicy={this.createPolicy} 
+                  />
               }
             </main>
           </div>
         </div>
+      </div>
     );
   }
-
-
-  
-  // render using react-router
-  // render() {
-  //   return (
-  //     <BrowserRouter>
-  //     <Navbar account={this.state.account} id={this.state.id}/>
-  //       <div className="app">
-  //         <Navbar {...this.props}/>
-  //         <div id="content">
-  //           <Switch>
-  //             <Route path='/' render={(props) => (
-  //              <Home {...props} /> : null  
-                  
-  //               )} />
-  //           </Switch>
-  //         </div>
-  //       </div>
-  //     </BrowserRouter>
-  //   )
-  // }
-
-
 }
 
 function componentWillUnmount () {
     console.log('Unmounting')
 }
 
-export default MarketplaceContent;
+MarketplaceContent.propTypes = {
+  classes: PropTypes.object,
+}
+
+export default withStyles(styles)(MarketplaceContent);
