@@ -15,8 +15,8 @@ contract Marketplace {
     uint256 public fee = 1; // 1%
 
     // Mapping by id's (indexing the arrays).
-    mapping(uint => Product) public products;
-    mapping(uint => Agent) public agents;
+    //mapping(uint => Product) public products;
+    //mapping(uint => Agent) public agents;
     mapping(uint => User) public users;
     mapping(uint => Policy) public policies;
 
@@ -31,6 +31,36 @@ contract Marketplace {
         address payable owner;
         bool commissionPaid;
     }
+     // Describe the Binder
+    struct Binder {
+        uint id;
+        string name;
+        uint price;
+        address payable owner;
+        bool available;
+    }
+
+    // Describe the Product
+    struct Product {
+        uint id;
+        string name;
+        uint price;
+        address payable owner;
+        bool purchased;
+        bool available;
+    }
+
+    // Describe the Agent
+    struct Agent {
+        uint id;
+        string name;
+        string title;
+        uint commission;
+        address payable owner;
+        bool commissionPaid;
+    }
+
+
 
     event PolicyCreated(
         uint id,
