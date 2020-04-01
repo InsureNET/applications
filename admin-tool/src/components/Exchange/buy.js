@@ -23,7 +23,6 @@ class BuyForm extends Component {
         <CardComponent 
           account={this.state.account} 
           metadata={this.state.metadata}
-          ethBalance={window.web3.utils.fromWei(this.props.ethBalance, 'Ether' )}
           approvedAllowance={this.state.approvedAllowance}
           action={this.state.action}
         />

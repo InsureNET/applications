@@ -7,6 +7,7 @@ import { withStyles } from '@material-ui/core/styles'
 import ContentGraphic from './ContentGraphic'
 import Button from '@material-ui/core/Button';
 
+let MoneyButton = require('@moneybutton/react-money-button').default
 
 const styles = theme => ({
 	paper: {
@@ -58,7 +59,8 @@ function Content({ classes }) {
 					<Grid lg={6} xs={12} item>
 						<Typography component="h2" variant="display1" color="textSecondary" align="center">
 							Welcome to InsureNET
-						</Typography>						
+						</Typography>
+										
 					</Grid>
 					<Grid>
 					{/* if/else if there are items to list or fresh start... */}
@@ -66,9 +68,16 @@ function Content({ classes }) {
 								color="primary"
 						>Get Started</Button>
 					</Grid>
-
+					<Grid>
+						<MoneyButton
+							to={21477}
+							amount={.00089}
+							currency={'BSV'} 
+						/>
+					</Grid>
 				</Grid>
 			</Paper>
+			
 		</div>
 	)
 }
