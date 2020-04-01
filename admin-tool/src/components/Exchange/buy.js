@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import tokenLogo from '../../inetLogo.png'
 import ethLogo from '../../eth-logo.png'
-import CardComponent from '../Utility/CardComponent'
 
 class BuyForm extends Component {
   constructor(props) {
@@ -20,12 +19,6 @@ class BuyForm extends Component {
   render() {
     return (
       <div style={{ marginLeft: 35 }}> 
-        <CardComponent 
-          account={this.state.account} 
-          metadata={this.state.metadata}
-          approvedAllowance={this.state.approvedAllowance}
-          action={this.state.action}
-        />
       <form className="mb-3" onSubmit={(event) => {
           event.preventDefault()
           let etherAmount
@@ -36,7 +29,7 @@ class BuyForm extends Component {
         <div>
           <label className="float-left"><b>Input</b></label>
           <span className="float-right text-muted">
-            Balance: {this.props.ethBalance}
+            Balance: {window.web3.utils.fromWei(this.props.ethBalance, 'Ether' )}
           </span>
         </div>
         <div className="input-group mb-4">

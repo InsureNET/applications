@@ -16,6 +16,7 @@ class SellForm extends Component {
 
   render() {
     return (
+      <div style={{ marginLeft: 35 }}>
       <form className="mb-3" onSubmit={(event) => {
           event.preventDefault()
           let etherAmount
@@ -74,8 +75,9 @@ class SellForm extends Component {
           <span className="float-left text-muted">Exchange Rate</span>
           <span className="float-right text-muted">100 iNET = 1 ETH</span>
         </div>
-        <button type="submit" className="btn btn-primary btn-block btn-lg">EXCHANGE!</button>
+        <button type="submit" className="btn btn-primary btn-block btn-lg">EXCHANGE</button>
       </form>
+      </div>
     );
   }
 }
