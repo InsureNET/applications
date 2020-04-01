@@ -6,8 +6,9 @@ import Grid from '@material-ui/core/Grid'
 import { withStyles } from '@material-ui/core/styles'
 import ContentGraphic from './ContentGraphic'
 import Button from '@material-ui/core/Button';
-
-let MoneyButton = require('@moneybutton/react-money-button').default
+import TabBar from 'components/TabBar'
+import CustomTabs from '../Utility/CustomizedTabs'
+//import MoneyButton from '@moneybutton/react-money-button'
 
 const styles = theme => ({
 	paper: {
@@ -37,46 +38,15 @@ const styles = theme => ({
 	},
 })
 
-const tabs = [];
+const tabNames = ['Home', 'Profile', 'Membership'];
 
 /** @dev main page - default home page */
 function Content({ classes }) {
 	return (
 		<div className={classes.container}>
-			<Paper className={classes.paper}>
-				<Grid
-					container
-					spacing={16}
-					className={classes.contentWrapper}
-					wrap
-					alignItems="center"
-					justify="center"
-				>
-					<Grid lg={6} xs={12} item align="center">
-						
-						
-					</Grid>
-					<Grid lg={6} xs={12} item>
-						<Typography component="h2" variant="display1" color="textSecondary" align="center">
-							Welcome to InsureNET
-						</Typography>
-										
-					</Grid>
-					<Grid>
-					{/* if/else if there are items to list or fresh start... */}
-					<Button variant="contained" 
-								color="primary"
-						>Get Started</Button>
-					</Grid>
-					<Grid>
-						<MoneyButton
-							to={21477}
-							amount={.00089}
-							currency={'BSV'} 
-						/>
-					</Grid>
-				</Grid>
-			</Paper>
+			<CustomTabs tabNames={tabNames}></CustomTabs>
+
+			
 			
 		</div>
 	)
