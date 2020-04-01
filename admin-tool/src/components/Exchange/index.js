@@ -119,7 +119,7 @@ class Exchange extends Component {
               <TabBar tabNames={tabNames}></TabBar>
               <Navbar account={this.state.account} />
               <Paper className='paper'>
-                
+              
               </Paper>
                 <main 
                   role="main" 

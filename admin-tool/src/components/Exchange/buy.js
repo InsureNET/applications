@@ -1,21 +1,32 @@
 import React, { Component } from 'react'
 import tokenLogo from '../../inetLogo.png'
 import ethLogo from '../../eth-logo.png'
+import CardComponent from '../Utility/CardComponent'
 
 class BuyForm extends Component {
   constructor(props) {
     super(props)
     this.state = {
       account: '',
-      approved: true,
+      approvedAllowance: 100,
       transactions: [],
       metadata: {},
+      txData: {},
       output: '0',
+      action: 'BUY'
     }
   }
 
   render() {
     return (
+      <div style={{ marginLeft: 35 }}> 
+        <CardComponent 
+          account={this.state.account} 
+          metadata={this.state.metadata}
+          ethBalance={window.web3.utils.fromWei(this.props.ethBalance, 'Ether' )}
+          approvedAllowance={this.state.approvedAllowance}
+          action={this.state.action}
+        />
       <form className="mb-3" onSubmit={(event) => {
           event.preventDefault()
           let etherAmount
@@ -26,7 +37,7 @@ class BuyForm extends Component {
         <div>
           <label className="float-left"><b>Input</b></label>
           <span className="float-right text-muted">
-            Balance: {window.web3.utils.fromWei(this.props.ethBalance, 'Ether')}
+            Balance: {window.web3.utils.fromWei(this.props.ethBalance, 'Ether' )}
           </span>
         </div>
         <div className="input-group mb-4">
@@ -76,6 +87,7 @@ class BuyForm extends Component {
         </div>
         <button type="submit" className="btn btn-primary btn-block btn-lg">EXCHANGE!</button>
       </form>
+      </div>
     );
   }
 }
