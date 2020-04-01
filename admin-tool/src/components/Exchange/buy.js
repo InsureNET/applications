@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import tokenLogo from '../../inetLogo.png'
 import ethLogo from '../../eth-logo.png'
+import Button from '@material-ui/core/Button';
 
 class BuyForm extends Component {
   constructor(props) {
@@ -27,10 +28,8 @@ class BuyForm extends Component {
           this.props.buyTokens(etherAmount)
         }}>
         <div>
-          <label className="float-left"><b>Input</b></label>
-          <span className="float-right text-muted">
-            Balance: {this.props.ethBalance}
-          </span>
+          <label className="float-left"><b>Input</b></label><br />
+          
         </div>
         <div className="input-group mb-4">
           <input
@@ -44,7 +43,10 @@ class BuyForm extends Component {
             ref={(input) => { this.input = input }}
             className="form-control form-control-lg"
             placeholder="0"
-            required />
+            required /><br />
+            <span className="float-right text-muted">
+            Balance: {this.props.ethBalance}
+          </span>
           <div className="input-group-append">
             <div className="input-group-text">
               <img src={ethLogo} height='32' alt=""/>
@@ -53,10 +55,7 @@ class BuyForm extends Component {
           </div>
         </div>
         <div>
-          <label className="float-left"><b>Output</b></label>
-          <span className="float-right text-muted">
-            Balance: {this.props.tokenBalance}
-          </span>
+          <label className="float-left"><b>Output</b></label><br />          
         </div>
         <div className="input-group mb-2">
           <input
@@ -65,7 +64,10 @@ class BuyForm extends Component {
             placeholder="0"
             value={this.state.output}
             disabled
-          />
+          /><br />
+          <span className="float-right text-muted">
+            Balance: {this.props.tokenBalance}
+          </span>
           <div className="input-group-append">
             <div className="input-group-text">
               <img src={tokenLogo} height='32' alt=""/>
@@ -77,7 +79,8 @@ class BuyForm extends Component {
           <span className="float-left text-muted">Exchange Rate</span>
           <span className="float-right text-muted">1 ETH = 100 iNET</span>
         </div>
-        <button type="submit" className="btn btn-primary btn-block btn-lg">EXCHANGE!</button>
+        <Button type="submit" className="" variant="contained" color="primary" >EXCHANGE!</Button>
+        <br />
       </form>
       </div>
     );

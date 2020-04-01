@@ -8,6 +8,7 @@ import Main from '../Exchange/main'
 import Paper from '@material-ui/core/Paper'
 import { withStyles } from '@material-ui/core/styles'
 import TabBar from 'components/TabBar'
+import Backdrop from '../Utility/SimpleBackdrop'
 
 const tabNames = ['Buy', 'Sell', 'Active', 'Pending', 'Completed', 'All']
 
@@ -100,6 +101,7 @@ class Exchange extends Component {
         let content
         // Wait until the blockchain data has loaded.
         if(this.state.loading) {
+          <Backdrop />
           content = <p id="loader" className="text-center">Loading...</p>
         } else {
           content = <Main
@@ -112,15 +114,11 @@ class Exchange extends Component {
         }
     
         return (
-          <div>
-            
+          <div>            
             <div className="container-fluid mt-5">
               <div className="row">
-              <TabBar tabNames={tabNames}></TabBar>
-              <Navbar account={this.state.account} />
-              <Paper className='paper'>
-              
-              </Paper>
+                <TabBar tabNames={tabNames}></TabBar>
+                <Navbar account={this.state.account} />                
                 <main 
                   role="main" 
                   className="col-lg-12 ml-auto mr-auto" 
