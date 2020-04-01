@@ -15,8 +15,8 @@ contract Marketplace {
     uint256 public fee = 1; // 1%
 
     // Mapping by id's (indexing the arrays).
-    //mapping(uint => Product) public products;
-    //mapping(uint => Agent) public agents;
+    mapping(uint => Product) public products;
+    mapping(uint => Agent) public agents;
     mapping(uint => User) public users;
     mapping(uint => Policy) public policies;
 

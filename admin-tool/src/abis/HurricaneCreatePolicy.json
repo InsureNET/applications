@@ -41,21 +41,21 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"}],\"name\":\"PolicyCreated\",\"type\":\"event\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"address\",\"name\":\"_insured\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_value\",\"type\":\"uint256\"}],\"name\":\"createPolicy\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{\"createPolicy(address,uint256)\":{\"details\":\"Functions \"}}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/C/Projects/InsureNET/master-branch/admin-tool/src/contracts/hurricane/HurricaneCreatePolicy.sol\":\"HurricaneCreatePolicy\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/C/Projects/InsureNET/master-branch/admin-tool/src/contracts/hurricane/HurricaneCreatePolicy.sol\":{\"keccak256\":\"0x367fe26308d9fa661c7d698764eecbf2dbc1140bfcef03fa15a8d25e5219fc71\",\"urls\":[\"bzz-raw://b4423227885d90fda3dba5abb2c515c83138da29af0bd2891068a6d6c4ebbe71\",\"dweb:/ipfs/QmbzcVjnLueTuJhrw5omNwTA5Vvrwjij1jmHN8EpFwCRvE\"]}},\"version\":1}",
-  "bytecode": "0x608060405234801561001057600080fd5b5060d18061001f6000396000f3fe6080604052348015600f57600080fd5b506004361060285760003560e01c80639abb9a2814602d575b600080fd5b607660048036036040811015604157600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190803590602001909291905050506090565b604051808215151515815260200191505060405180910390f35b6000600190509291505056fea265627a7a7231582098f219fba1273ca573278bee88b87fe8391605f0105db59c73bc74b30c829dd564736f6c63430005100032",
-  "deployedBytecode": "0x6080604052348015600f57600080fd5b506004361060285760003560e01c80639abb9a2814602d575b600080fd5b607660048036036040811015604157600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190803590602001909291905050506090565b604051808215151515815260200191505060405180910390f35b6000600190509291505056fea265627a7a7231582098f219fba1273ca573278bee88b87fe8391605f0105db59c73bc74b30c829dd564736f6c63430005100032",
-  "sourceMap": "237:538:13:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;237:538:13;;;;;;;",
-  "deployedSourceMap": "237:538:13:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;237:538:13;;;;;;;;;;;;;;;;;;;601:165;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;601:165:13;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;699:4;754;747:11;;601:165;;;;:::o",
-  "source": "/**\r\n * @title Generic Prametric Hurricane Contract\r\n * @dev InsureNET Decentralized Insurance Platform\r\n *      Parametruc Hurricane Contract.\r\n * @author Jason Romero\r\n * @copyright 2020 InsureNET\r\n */\r\n \r\n pragma solidity ^0.5.16;\r\n\r\ncontract HurricaneCreatePolicy {\r\n\r\n    /**\r\n    * @dev Category of the hurricane\r\n    */\r\n    enum Category { THREE, FOUR, FIVE }\r\n\r\n    /** State Properties */\r\n\r\n\r\n    /** @dev Events */\r\n    event PolicyCreated (\r\n        uint256 id\r\n    );\r\n\r\n    /** @dev Policy Stuct */\r\n    struct Policy {\r\n        uint256 id;\r\n    }\r\n\r\n\r\n    /** @dev Functions */\r\n\r\n    function createPolicy (\r\n        address _insured,\r\n        uint256 _value\r\n    ) public returns (bool) {\r\n        // ToDo: Checks\r\n\r\n\r\n\r\n        return true;\r\n    }\r\n\r\n\r\n\r\n}",
+  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"}],\"name\":\"PolicyCreated\",\"type\":\"event\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"address\",\"name\":\"_insured\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_value\",\"type\":\"uint256\"}],\"name\":\"createPolicy\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{\"createPolicy(address,uint256)\":{\"details\":\"Functions \"}}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/C/Projects/InsureNET/master-branch/admin-tool/src/contracts/hurricane/HurricaneCreatePolicy.sol\":\"HurricaneCreatePolicy\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/C/Projects/InsureNET/master-branch/admin-tool/src/contracts/hurricane/HurricaneCreatePolicy.sol\":{\"keccak256\":\"0x841e6f71dc2f84ba70d8a0ce650bf6f2aade1db2c5c9e765aabf917f6622d4db\",\"urls\":[\"bzz-raw://655eaca869bff0fb7e0e9788b71a311a4364ba8d572920d207b2fd42065bfa24\",\"dweb:/ipfs/QmUAUQjVNQZpudGWqfAo3MVnPkoEcgoWjxq8TbRb6s84Zq\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b5060d18061001f6000396000f3fe6080604052348015600f57600080fd5b506004361060285760003560e01c80639abb9a2814602d575b600080fd5b607660048036036040811015604157600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190803590602001909291905050506090565b604051808215151515815260200191505060405180910390f35b6000600190509291505056fea265627a7a7231582070f561893d83c996097daf8140f00784f97f72d4c316ba13a13c1ef40279b5c864736f6c63430005100032",
+  "deployedBytecode": "0x6080604052348015600f57600080fd5b506004361060285760003560e01c80639abb9a2814602d575b600080fd5b607660048036036040811015604157600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190803590602001909291905050506090565b604051808215151515815260200191505060405180910390f35b6000600190509291505056fea265627a7a7231582070f561893d83c996097daf8140f00784f97f72d4c316ba13a13c1ef40279b5c864736f6c63430005100032",
+  "sourceMap": "237:1126:13:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;237:1126:13;;;;;;;",
+  "deployedSourceMap": "237:1126:13:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;237:1126:13;;;;;;;;;;;;;;;;;;;1189:165;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;1189:165:13;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;1287:4;1342;1335:11;;1189:165;;;;:::o",
+  "source": "/**\r\n * @title Generic Prametric Hurricane Contract\r\n * @dev InsureNET Decentralized Insurance Platform\r\n *      Parametruc Hurricane Contract.\r\n * @author Jason Romero\r\n * @copyright 2020 InsureNET\r\n */\r\n \r\n pragma solidity ^0.5.16;\r\n\r\ncontract HurricaneCreatePolicy {\r\n\r\n    /**\r\n    * @dev Category of the hurricane\r\n    */\r\n    enum Category { THREE, FOUR, FIVE }\r\n\r\n    /** State Properties */\r\n\r\n\r\n    /** @dev Events */\r\n    event PolicyCreated (\r\n        uint256 id\r\n    );\r\n\r\n    /** @dev Policy Stuct */\r\n    struct Policy {\r\n        uint256 id;\r\n    }\r\n\r\n    // Describe the Binder\r\n    struct Binder {\r\n        uint id;\r\n        string name;\r\n        uint price;\r\n        address payable owner;\r\n        bool available;\r\n    }\r\n\r\n    // Describe the Product\r\n    struct Product {\r\n        uint id;\r\n        string name;\r\n        uint price;\r\n        address payable owner;\r\n        bool purchased;\r\n        bool available;\r\n    }\r\n\r\n    // Describe the Agent\r\n    struct Agent {\r\n        uint id;\r\n        string name;\r\n        string title;\r\n        uint commission;\r\n        address payable owner;\r\n        bool commissionPaid;\r\n    }\r\n\r\n\r\n\r\n    /** @dev Functions */\r\n\r\n    function createPolicy (\r\n        address _insured,\r\n        uint256 _value\r\n    ) public returns (bool) {\r\n        // ToDo: Checks\r\n\r\n\r\n\r\n        return true;\r\n    }\r\n\r\n\r\n\r\n}",
   "sourcePath": "C:\\Projects\\InsureNET\\master-branch\\admin-tool\\src\\contracts\\hurricane\\HurricaneCreatePolicy.sol",
   "ast": {
     "absolutePath": "/C/Projects/InsureNET/master-branch/admin-tool/src/contracts/hurricane/HurricaneCreatePolicy.sol",
     "exportedSymbols": {
       "HurricaneCreatePolicy": [
-        1736
+        1773
       ]
     },
-    "id": 1737,
+    "id": 1774,
     "nodeType": "SourceUnit",
     "nodes": [
       {
@@ -75,9 +75,9 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 1736,
+        "id": 1773,
         "linearizedBaseContracts": [
-          1736
+          1773
         ],
         "name": "HurricaneCreatePolicy",
         "nodeType": "ContractDefinition",
@@ -184,28 +184,506 @@
             ],
             "name": "Policy",
             "nodeType": "StructDefinition",
-            "scope": 1736,
+            "scope": 1773,
             "src": "519:43:13",
             "visibility": "public"
           },
           {
+            "canonicalName": "HurricaneCreatePolicy.Binder",
+            "id": 1734,
+            "members": [
+              {
+                "constant": false,
+                "id": 1725,
+                "name": "id",
+                "nodeType": "VariableDeclaration",
+                "scope": 1734,
+                "src": "623:7:13",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 1724,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "623:4:13",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1727,
+                "name": "name",
+                "nodeType": "VariableDeclaration",
+                "scope": 1734,
+                "src": "641:11:13",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 1726,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "641:6:13",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1729,
+                "name": "price",
+                "nodeType": "VariableDeclaration",
+                "scope": 1734,
+                "src": "663:10:13",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 1728,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "663:4:13",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1731,
+                "name": "owner",
+                "nodeType": "VariableDeclaration",
+                "scope": 1734,
+                "src": "684:21:13",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address_payable",
+                  "typeString": "address payable"
+                },
+                "typeName": {
+                  "id": 1730,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "684:15:13",
+                  "stateMutability": "payable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address_payable",
+                    "typeString": "address payable"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1733,
+                "name": "available",
+                "nodeType": "VariableDeclaration",
+                "scope": 1734,
+                "src": "716:14:13",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bool",
+                  "typeString": "bool"
+                },
+                "typeName": {
+                  "id": 1732,
+                  "name": "bool",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "716:4:13",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "Binder",
+            "nodeType": "StructDefinition",
+            "scope": 1773,
+            "src": "598:140:13",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "HurricaneCreatePolicy.Product",
+            "id": 1747,
+            "members": [
+              {
+                "constant": false,
+                "id": 1736,
+                "name": "id",
+                "nodeType": "VariableDeclaration",
+                "scope": 1747,
+                "src": "801:7:13",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 1735,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "801:4:13",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1738,
+                "name": "name",
+                "nodeType": "VariableDeclaration",
+                "scope": 1747,
+                "src": "819:11:13",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 1737,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "819:6:13",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1740,
+                "name": "price",
+                "nodeType": "VariableDeclaration",
+                "scope": 1747,
+                "src": "841:10:13",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 1739,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "841:4:13",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1742,
+                "name": "owner",
+                "nodeType": "VariableDeclaration",
+                "scope": 1747,
+                "src": "862:21:13",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address_payable",
+                  "typeString": "address payable"
+                },
+                "typeName": {
+                  "id": 1741,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "862:15:13",
+                  "stateMutability": "payable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address_payable",
+                    "typeString": "address payable"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1744,
+                "name": "purchased",
+                "nodeType": "VariableDeclaration",
+                "scope": 1747,
+                "src": "894:14:13",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bool",
+                  "typeString": "bool"
+                },
+                "typeName": {
+                  "id": 1743,
+                  "name": "bool",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "894:4:13",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1746,
+                "name": "available",
+                "nodeType": "VariableDeclaration",
+                "scope": 1747,
+                "src": "919:14:13",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bool",
+                  "typeString": "bool"
+                },
+                "typeName": {
+                  "id": 1745,
+                  "name": "bool",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "919:4:13",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "Product",
+            "nodeType": "StructDefinition",
+            "scope": 1773,
+            "src": "775:166:13",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "HurricaneCreatePolicy.Agent",
+            "id": 1760,
+            "members": [
+              {
+                "constant": false,
+                "id": 1749,
+                "name": "id",
+                "nodeType": "VariableDeclaration",
+                "scope": 1760,
+                "src": "1000:7:13",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 1748,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1000:4:13",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1751,
+                "name": "name",
+                "nodeType": "VariableDeclaration",
+                "scope": 1760,
+                "src": "1018:11:13",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 1750,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1018:6:13",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1753,
+                "name": "title",
+                "nodeType": "VariableDeclaration",
+                "scope": 1760,
+                "src": "1040:12:13",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 1752,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1040:6:13",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1755,
+                "name": "commission",
+                "nodeType": "VariableDeclaration",
+                "scope": 1760,
+                "src": "1063:15:13",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 1754,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1063:4:13",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1757,
+                "name": "owner",
+                "nodeType": "VariableDeclaration",
+                "scope": 1760,
+                "src": "1089:21:13",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address_payable",
+                  "typeString": "address payable"
+                },
+                "typeName": {
+                  "id": 1756,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1089:15:13",
+                  "stateMutability": "payable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address_payable",
+                    "typeString": "address payable"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1759,
+                "name": "commissionPaid",
+                "nodeType": "VariableDeclaration",
+                "scope": 1760,
+                "src": "1121:19:13",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bool",
+                  "typeString": "bool"
+                },
+                "typeName": {
+                  "id": 1758,
+                  "name": "bool",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1121:4:13",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "Agent",
+            "nodeType": "StructDefinition",
+            "scope": 1773,
+            "src": "976:172:13",
+            "visibility": "public"
+          },
+          {
             "body": {
-              "id": 1734,
+              "id": 1771,
               "nodeType": "Block",
-              "src": "705:61:13",
+              "src": "1293:61:13",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
                     "hexValue": "74727565",
-                    "id": 1732,
+                    "id": 1769,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": true,
                     "kind": "bool",
                     "lValueRequested": false,
                     "nodeType": "Literal",
-                    "src": "754:4:13",
+                    "src": "1342:4:13",
                     "subdenomination": null,
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
@@ -213,31 +691,31 @@
                     },
                     "value": "true"
                   },
-                  "functionReturnParameters": 1731,
-                  "id": 1733,
+                  "functionReturnParameters": 1768,
+                  "id": 1770,
                   "nodeType": "Return",
-                  "src": "747:11:13"
+                  "src": "1335:11:13"
                 }
               ]
             },
             "documentation": "@dev Functions ",
-            "id": 1735,
+            "id": 1772,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "createPolicy",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1728,
+              "id": 1765,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1725,
+                  "id": 1762,
                   "name": "_insured",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1735,
-                  "src": "634:16:13",
+                  "scope": 1772,
+                  "src": "1222:16:13",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -245,10 +723,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1724,
+                    "id": 1761,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "634:7:13",
+                    "src": "1222:7:13",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -260,11 +738,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 1727,
+                  "id": 1764,
                   "name": "_value",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1735,
-                  "src": "661:14:13",
+                  "scope": 1772,
+                  "src": "1249:14:13",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -272,10 +750,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1726,
+                    "id": 1763,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "661:7:13",
+                    "src": "1249:7:13",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -285,19 +763,19 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "623:59:13"
+              "src": "1211:59:13"
             },
             "returnParameters": {
-              "id": 1731,
+              "id": 1768,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1730,
+                  "id": 1767,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1735,
-                  "src": "699:4:13",
+                  "scope": 1772,
+                  "src": "1287:4:13",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -305,10 +783,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 1729,
+                    "id": 1766,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "699:4:13",
+                    "src": "1287:4:13",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -318,29 +796,29 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "698:6:13"
+              "src": "1286:6:13"
             },
-            "scope": 1736,
-            "src": "601:165:13",
+            "scope": 1773,
+            "src": "1189:165:13",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 1737,
-        "src": "237:538:13"
+        "scope": 1774,
+        "src": "237:1126:13"
       }
     ],
-    "src": "209:566:13"
+    "src": "209:1154:13"
   },
   "legacyAST": {
     "absolutePath": "/C/Projects/InsureNET/master-branch/admin-tool/src/contracts/hurricane/HurricaneCreatePolicy.sol",
     "exportedSymbols": {
       "HurricaneCreatePolicy": [
-        1736
+        1773
       ]
     },
-    "id": 1737,
+    "id": 1774,
     "nodeType": "SourceUnit",
     "nodes": [
       {
@@ -360,9 +838,9 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 1736,
+        "id": 1773,
         "linearizedBaseContracts": [
-          1736
+          1773
         ],
         "name": "HurricaneCreatePolicy",
         "nodeType": "ContractDefinition",
@@ -469,28 +947,506 @@
             ],
             "name": "Policy",
             "nodeType": "StructDefinition",
-            "scope": 1736,
+            "scope": 1773,
             "src": "519:43:13",
             "visibility": "public"
           },
           {
+            "canonicalName": "HurricaneCreatePolicy.Binder",
+            "id": 1734,
+            "members": [
+              {
+                "constant": false,
+                "id": 1725,
+                "name": "id",
+                "nodeType": "VariableDeclaration",
+                "scope": 1734,
+                "src": "623:7:13",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 1724,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "623:4:13",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1727,
+                "name": "name",
+                "nodeType": "VariableDeclaration",
+                "scope": 1734,
+                "src": "641:11:13",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 1726,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "641:6:13",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1729,
+                "name": "price",
+                "nodeType": "VariableDeclaration",
+                "scope": 1734,
+                "src": "663:10:13",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 1728,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "663:4:13",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1731,
+                "name": "owner",
+                "nodeType": "VariableDeclaration",
+                "scope": 1734,
+                "src": "684:21:13",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address_payable",
+                  "typeString": "address payable"
+                },
+                "typeName": {
+                  "id": 1730,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "684:15:13",
+                  "stateMutability": "payable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address_payable",
+                    "typeString": "address payable"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1733,
+                "name": "available",
+                "nodeType": "VariableDeclaration",
+                "scope": 1734,
+                "src": "716:14:13",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bool",
+                  "typeString": "bool"
+                },
+                "typeName": {
+                  "id": 1732,
+                  "name": "bool",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "716:4:13",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "Binder",
+            "nodeType": "StructDefinition",
+            "scope": 1773,
+            "src": "598:140:13",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "HurricaneCreatePolicy.Product",
+            "id": 1747,
+            "members": [
+              {
+                "constant": false,
+                "id": 1736,
+                "name": "id",
+                "nodeType": "VariableDeclaration",
+                "scope": 1747,
+                "src": "801:7:13",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 1735,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "801:4:13",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1738,
+                "name": "name",
+                "nodeType": "VariableDeclaration",
+                "scope": 1747,
+                "src": "819:11:13",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 1737,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "819:6:13",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1740,
+                "name": "price",
+                "nodeType": "VariableDeclaration",
+                "scope": 1747,
+                "src": "841:10:13",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 1739,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "841:4:13",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1742,
+                "name": "owner",
+                "nodeType": "VariableDeclaration",
+                "scope": 1747,
+                "src": "862:21:13",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address_payable",
+                  "typeString": "address payable"
+                },
+                "typeName": {
+                  "id": 1741,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "862:15:13",
+                  "stateMutability": "payable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address_payable",
+                    "typeString": "address payable"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1744,
+                "name": "purchased",
+                "nodeType": "VariableDeclaration",
+                "scope": 1747,
+                "src": "894:14:13",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bool",
+                  "typeString": "bool"
+                },
+                "typeName": {
+                  "id": 1743,
+                  "name": "bool",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "894:4:13",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1746,
+                "name": "available",
+                "nodeType": "VariableDeclaration",
+                "scope": 1747,
+                "src": "919:14:13",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bool",
+                  "typeString": "bool"
+                },
+                "typeName": {
+                  "id": 1745,
+                  "name": "bool",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "919:4:13",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "Product",
+            "nodeType": "StructDefinition",
+            "scope": 1773,
+            "src": "775:166:13",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "HurricaneCreatePolicy.Agent",
+            "id": 1760,
+            "members": [
+              {
+                "constant": false,
+                "id": 1749,
+                "name": "id",
+                "nodeType": "VariableDeclaration",
+                "scope": 1760,
+                "src": "1000:7:13",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 1748,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1000:4:13",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1751,
+                "name": "name",
+                "nodeType": "VariableDeclaration",
+                "scope": 1760,
+                "src": "1018:11:13",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 1750,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1018:6:13",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1753,
+                "name": "title",
+                "nodeType": "VariableDeclaration",
+                "scope": 1760,
+                "src": "1040:12:13",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 1752,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1040:6:13",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1755,
+                "name": "commission",
+                "nodeType": "VariableDeclaration",
+                "scope": 1760,
+                "src": "1063:15:13",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 1754,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1063:4:13",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1757,
+                "name": "owner",
+                "nodeType": "VariableDeclaration",
+                "scope": 1760,
+                "src": "1089:21:13",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address_payable",
+                  "typeString": "address payable"
+                },
+                "typeName": {
+                  "id": 1756,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1089:15:13",
+                  "stateMutability": "payable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address_payable",
+                    "typeString": "address payable"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1759,
+                "name": "commissionPaid",
+                "nodeType": "VariableDeclaration",
+                "scope": 1760,
+                "src": "1121:19:13",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bool",
+                  "typeString": "bool"
+                },
+                "typeName": {
+                  "id": 1758,
+                  "name": "bool",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1121:4:13",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "Agent",
+            "nodeType": "StructDefinition",
+            "scope": 1773,
+            "src": "976:172:13",
+            "visibility": "public"
+          },
+          {
             "body": {
-              "id": 1734,
+              "id": 1771,
               "nodeType": "Block",
-              "src": "705:61:13",
+              "src": "1293:61:13",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
                     "hexValue": "74727565",
-                    "id": 1732,
+                    "id": 1769,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": true,
                     "kind": "bool",
                     "lValueRequested": false,
                     "nodeType": "Literal",
-                    "src": "754:4:13",
+                    "src": "1342:4:13",
                     "subdenomination": null,
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
@@ -498,31 +1454,31 @@
                     },
                     "value": "true"
                   },
-                  "functionReturnParameters": 1731,
-                  "id": 1733,
+                  "functionReturnParameters": 1768,
+                  "id": 1770,
                   "nodeType": "Return",
-                  "src": "747:11:13"
+                  "src": "1335:11:13"
                 }
               ]
             },
             "documentation": "@dev Functions ",
-            "id": 1735,
+            "id": 1772,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "createPolicy",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1728,
+              "id": 1765,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1725,
+                  "id": 1762,
                   "name": "_insured",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1735,
-                  "src": "634:16:13",
+                  "scope": 1772,
+                  "src": "1222:16:13",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -530,10 +1486,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1724,
+                    "id": 1761,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "634:7:13",
+                    "src": "1222:7:13",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -545,11 +1501,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 1727,
+                  "id": 1764,
                   "name": "_value",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1735,
-                  "src": "661:14:13",
+                  "scope": 1772,
+                  "src": "1249:14:13",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -557,10 +1513,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1726,
+                    "id": 1763,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "661:7:13",
+                    "src": "1249:7:13",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -570,19 +1526,19 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "623:59:13"
+              "src": "1211:59:13"
             },
             "returnParameters": {
-              "id": 1731,
+              "id": 1768,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1730,
+                  "id": 1767,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1735,
-                  "src": "699:4:13",
+                  "scope": 1772,
+                  "src": "1287:4:13",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -590,10 +1546,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 1729,
+                    "id": 1766,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "699:4:13",
+                    "src": "1287:4:13",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -603,20 +1559,20 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "698:6:13"
+              "src": "1286:6:13"
             },
-            "scope": 1736,
-            "src": "601:165:13",
+            "scope": 1773,
+            "src": "1189:165:13",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 1737,
-        "src": "237:538:13"
+        "scope": 1774,
+        "src": "237:1126:13"
       }
     ],
-    "src": "209:566:13"
+    "src": "209:1154:13"
   },
   "compiler": {
     "name": "solc",
@@ -645,7 +1601,7 @@
     }
   },
   "schemaVersion": "3.0.23",
-  "updatedAt": "2020-03-31T19:50:37.611Z",
+  "updatedAt": "2020-04-01T00:34:03.781Z",
   "devdoc": {
     "methods": {
       "createPolicy(address,uint256)": {
