@@ -192,10 +192,10 @@ function Navigator({ classes, location = null, ...rest }) {
 			<List disablePadding>
 				<ListItem className={classNames(classes.firebase, classes.item, classes.itemCategory)}>
 					<Grid container alignItems="center" spacing={8} direction="row">
-						<Grid item>
-							<Logo />
-						</Grid>
 						<Grid item>InsureNET</Grid>
+						<Grid item>
+							{/* <Logo /> */}
+						</Grid>						
 					</Grid>
 				</ListItem>
 
