@@ -44,9 +44,7 @@ const tabNames = ['Home', 'Profile', 'Membership'];
 function Content({ classes }) {
 	return (
 		<div className={classes.container}>
-			<CustomTabs tabNames={tabNames}></CustomTabs>
-
-			
+			<CustomTabs tabNames={tabNames}></CustomTabs>	
 			
 		</div>
 	)
