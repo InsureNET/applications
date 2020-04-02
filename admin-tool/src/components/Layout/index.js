@@ -123,7 +123,7 @@ theme = {
 	},
 }
 
-const drawerWidth = 256
+const drawerWidth = 250
 
 const styles = {
 	root: {

@@ -63,10 +63,10 @@ const categories = [
 		id: 'Products',
 		children: [
 			{ id: 'Marketplace', icon: <StoreIcon />, page: 'marketplace' },
-			{ id: 'Accident', icon: <AssessmentRoundedIcon />, page: 'accident' },
-			{ id: 'Hurricane', icon: <AssessmentRoundedIcon />, page: 'hurricane' },
+			{ id: 'Accident', icon: <WriteContractIcon />, page: 'accident' },
+			{ id: 'Hurricane', icon: <UmbrellaIcon />, page: 'hurricane' },
 			{ id: 'Property', icon: <HomeIcon />, page: 'property' },
-			{ id: 'Liability', icon: <PeopleIcon />, page: 'liability' },
+			{ id: 'Liability', icon: <ApartmentRoundedIcon />, page: 'liability' },
 			//{ id: 'Weather', icon: <Brightness7Icon />, page: 'weather' },
 			{ id: 'Transportation', icon: <LocalShippingIcon />, page: 'transportation' },
 		]
@@ -101,13 +101,13 @@ const categories = [
 			{ id: 'Performance', icon: <TimerIcon />, page: 'performance' },
 		],
 	},
-	{
-		id: 'Smart Contracts',
-		children: [
-			{ id: 'Solidity', icon: <WriteContractIcon />, page: 'solidity' },
-			{ id: 'Vyper', icon: <DnsRoundedIcon />, page: 'vyper' },
-		]
-	},
+	// {
+	// 	id: 'Smart Contracts',
+	// 	children: [
+	// 		{ id: 'Solidity', icon: <WriteContractIcon />, page: 'solidity' },
+	// 		{ id: 'Vyper', icon: <DnsRoundedIcon />, page: 'vyper' },
+	// 	]
+	// },
 	
 	// {
 	// 	id: 'AI & ML',
@@ -244,7 +244,6 @@ function Navigator({ classes, location = null, ...rest }) {
 										<ListItemText
 											classes={{
 												primary: classes.itemPrimary,
-												textDense: classes.textDense,
 											}}
 										>
 											{childId}

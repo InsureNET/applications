@@ -35,23 +35,27 @@ const styles = theme => ({
 	},
 	container: {
 		padding: '48px 36px 48px',
+		height: 1356,
+		backgroundImage: `url(${"src/ai-blockchain-iot-in-insurance.jpg"})`,
 	},
 })
 
 const tabNames = ['Home', 'Profile', 'Membership'];
 
 /** @dev main page - default home page */
-function Content({ classes }) {
+function Content({ }) {
 	return (
-		<div className={classes.container}>
+		<div className={styles.container}>
 			<CustomTabs tabNames={tabNames}></CustomTabs>	
-			
+			<div>
+
+			</div>
 		</div>
 	)
 }
 
 Content.propTypes = {
-	classes: PropTypes.object.isRequired,
+	classes: PropTypes.object,
 }
 
 export default withStyles(styles)(Content)
