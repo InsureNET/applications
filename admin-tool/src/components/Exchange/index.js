@@ -26,6 +26,7 @@ class Exchange extends Component {
         this.setState({ account: accounts[0] })
     
         const ethBalance = await web3.eth.getBalance(this.state.account)
+        //ethBalance = web3.utils.fromWei(ethBalance, 'ether')
         this.setState({ ethBalance })
     
         // Load Token
@@ -37,7 +38,8 @@ class Exchange extends Component {
           const token = new web3.eth.Contract(tokenAbi, tokenAddress);
           this.setState({ token })
           let tokenBalance = await token.methods.balanceOf(this.state.account).call()
-          this.setState({ tokenBalance: tokenBalance.toString() })
+          tokenBalance = web3.utils.fromWei(tokenBalance, 'ether')
+          this.setState({ tokenBalance: tokenBalance })
         } else {
           window.alert('Token contract not deployed to detected network.')
         }
@@ -69,9 +71,10 @@ class Exchange extends Component {
     
       buyTokens = (etherAmount) => {
         this.setState({ loading: true })
-        this.state.ethSwap.methods.buyTokens().send({ value: etherAmount, from: this.state.account }).on('transactionHash', (hash) => {
-          this.setState({ loading: false })
-        })
+        this.state.ethSwap.methods.buyTokens()
+          .send({ value: etherAmount, from: this.state.account }).on('transactionHash', (hash) => {
+            this.setState({ loading: false })
+          })
       }
     
       sellTokens = (tokenAmount) => {

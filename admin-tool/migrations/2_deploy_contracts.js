@@ -5,12 +5,16 @@ const DisasterBond = artifacts.require("DisasterBond");
 const Marketplace = artifacts.require('Marketplace');
 const PolicyCreator = artifacts.require('PolicyCreator');
 const HurricanePolicyCreator = this.artifacts.require('HurricaneCreatePolicy')
+const POE = artifacts.require('ProofOfExistence');
 
 module.exports = async function(deployer) {
   /**
    * @dev Deployments
    */
   await deployer.deploy(SocialNetwork);
+
+  // POE
+  await deployer.deploy(POE);
 
   // Deploy Marketplace
   await deployer.deploy(Marketplace);

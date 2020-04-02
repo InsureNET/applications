@@ -55,7 +55,7 @@ class BuyForm extends Component {
           </div>
         </div>
         <div>
-          <label className="float-left"><b>Output</b></label><br />          
+          <label className="float-left"><b>Output</b></label><br />       
         </div>
         <div className="input-group mb-2">
           <input

@@ -21,7 +21,7 @@ module.exports = {
     },
     main: {
       provider: () => new HDWalletProvider(
-        "976b9d6972ea4ba3ba311f823564ed50",
+        mnemonic,
         "https://mainnet.infura.io/v3/e8cc7c8e245b46b482873ce9382a542b",
       ),
       network_id: 5,
