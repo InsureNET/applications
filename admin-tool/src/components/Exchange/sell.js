@@ -42,7 +42,7 @@ class SellForm extends Component {
               placeholder="0"
               required /><br />
               <span className="float-right text-muted">
-              Balance: {window.web3.utils.fromWei(this.props.tokenBalance, 'Ether')}
+              Balance: {this.props.tokenBalance}
             </span>
           </div>
           <div className="input-group-append">

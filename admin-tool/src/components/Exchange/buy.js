@@ -45,7 +45,7 @@ class BuyForm extends Component {
             placeholder="0"
             required /><br />
             <span className="float-right text-muted">
-            Balance: {window.web3.utils.fromWei(this.props.ethBalance, 'Ether')}
+            Balance: {this.props.ethBalance}
           </span>
           <div className="input-group-append">
             <div className="input-group-text">
