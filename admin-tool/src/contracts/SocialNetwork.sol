@@ -13,6 +13,13 @@ contract SocialNetwork {
         address payable author;
     }
 
+    struct Author {
+        //uint256 id;
+        address payable id;
+        uint256[] posts;
+        uint256 balance;
+    }
+
     event PostCreated(
         uint256 id,
         string content,
@@ -62,14 +69,24 @@ contract SocialNetwork {
         emit PostTipped(postCount, _post.content, _post.tipAmount, _author);
     }
 
+    function followAuthor(uint256 _id) public returns (bool) {
+        // find the post
+
+        // get the author of the post
+
+        // add the address to your following array with your address
+
+        return true;
+    }
+
     function boostPost(uint256 _id) public payable {
         // check the id
         require(_id > 0 && _id <= postCount, 'you need an id to boost a post...');
         // Fetch the post
         Post memory _post = posts[_id];
-        // Add the boosted amount to the post, not the author.
+        // ToDo: Add the boosted amount to the post, not the author.
         // the author will get a portion of this.
-        address payable _author = _post.author;
+        // address payable _author = _post.author;
         // todo: pay the post and subtract fees
         // todo: address(_author).transfer(msg.value);
         // Increment the boost amount

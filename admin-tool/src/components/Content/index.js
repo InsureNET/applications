@@ -4,12 +4,12 @@ import Typography from '@material-ui/core/Typography'
 import Paper from '@material-ui/core/Paper'
 import Grid from '@material-ui/core/Grid'
 import { withStyles } from '@material-ui/core/styles'
-import ContentGraphic from './ContentGraphic'
 import Button from '@material-ui/core/Button';
 import TabBar from 'components/TabBar'
 import CustomTabs from '../Utility/CustomizedTabs'
 //import MoneyButton from '@moneybutton/react-money-button'
 import backgroundImage from '../../ai-blockchain-iot-in-insurance.jpg'
+
 const styles = theme => ({
 	paper: {
 		margin: 'auto',
@@ -53,7 +53,7 @@ function Content({ classes }) {
 		<div className={classes.container}>
 			<CustomTabs tabNames={tabNames}></CustomTabs>	
 			<div>
-
+				
 			</div>
 		</div>
 	)

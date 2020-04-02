@@ -9,6 +9,7 @@ import Paper from '@material-ui/core/Paper'
 import { withStyles } from '@material-ui/core/styles'
 import TabBar from 'components/TabBar'
 import Backdrop from '../Utility/SimpleBackdrop'
+import CustomTabs from '../Utility/CustomizedTabs'
 
 const tabNames = ['Buy', 'Sell', 'Active', 'Pending', 'Completed', 'All']
 
@@ -120,7 +121,7 @@ class Exchange extends Component {
           <div>            
             <div className="container-fluid mt-5">
               <div className="row">
-                <TabBar tabNames={tabNames}></TabBar>
+                <CustomTabs tabNames={tabNames}></CustomTabs>	
                 <Navbar account={this.state.account} />                
                 <main 
                   role="main" 

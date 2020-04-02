@@ -49,9 +49,7 @@ function AccidentContent({ classes, account, id }) {
             <div className="row">
             <TabBar tabNames={tabNames}></TabBar>
 			<Navbar account={account} id={id}/>
-			<Paper className='paper'>
-              
-            </Paper>
+			
               <main 
                 role="main" 
                 className="col-lg-12 ml-auto mr-auto" 

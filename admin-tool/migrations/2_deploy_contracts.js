@@ -21,7 +21,7 @@ module.exports = async function(deployer) {
   const marketplace = await Marketplace.deployed();
 
   // Deploy Product Contracts
-  await deployer.deploy(DisasterBond, '0x43593693D02FCf2b5eB708BED9B07aB468999d92', 10, 5000);
+  await deployer.deploy(DisasterBond, '0x51Caa385AB6363F6dF543BaEbe9501F057A8638e', 10, 5000);
   const disasterBond = await DisasterBond.deployed();
 
   // Deploy Policy Creator
@@ -45,7 +45,7 @@ module.exports = async function(deployer) {
 
   // Transfer to the founders wallet
   // 25 Million until I set up the rest of the accounts
-  await token.transfer('0x43593693D02FCf2b5eB708BED9B07aB468999d92', '25000000000000000000000000');
+  await token.transfer('0x51Caa385AB6363F6dF543BaEbe9501F057A8638e', '25000000000000000000000000');
 
   // Transfer to the partners wallets
 

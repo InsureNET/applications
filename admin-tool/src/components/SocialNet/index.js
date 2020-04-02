@@ -12,19 +12,19 @@ import IconButton from '@material-ui/core/IconButton'
 import { withStyles } from '@material-ui/core/styles'
 import SearchIcon from '@material-ui/icons/Search'
 import RefreshIcon from '@material-ui/icons/Refresh'
+import Web3 from 'web3'
+import { Tab } from '@material-ui/core'
 
 // Custom Components
 import TabBar from 'components/TabBar'
 import Navbar from 'components/Navbar'
 import Main from 'components/SocialNet/main.js'
+import CustomTabs from '../Utility/CustomizedTabs'
 
-// Contract abis
+// Contract abis - so we can talk to the contract using web3
 import SocialNetwork from 'abis/SocialNetwork.json'
-import Web3 from 'web3'
-import { Tab } from '@material-ui/core'
 
 const tabNames = ['Sell', 'Marketplace', 'Create', 'Trending', 'Following', 'My Account']
-
 
 /**
  * @dev SocialNet * 
@@ -115,7 +115,6 @@ class SocialNet extends React.Component {
         console.groupEnd();
     }
 
-
     createPost(content) {
         this.setState({ loading: true })
         this.state.socialNetwork.methods.createPost(content).send({ from: this.state.account })
@@ -124,22 +123,36 @@ class SocialNet extends React.Component {
         })
     }
 
+
     tipPost(id, tipAmount) {
         this.setState({ loading: true })
         this.state.socialNetwork.methods.tipPost(id).send({ from: this.state.account, value: tipAmount })
           .once('receipt', (receipt) => {
             this.setState({ loading: false })
           })
-      }
+    }
     
-      // Boosting can only be done by the owner of the post. 
-      boostPost(id, boostAmount) {
-        this.setState({ loading: true })
-        this.state.socialNetwork.methods.boostPost(id).send({ from: this.state.account, value: boostAmount })
-          .once('receipt', (receipt) => {
-            this.setState({ loading: false })
-          })
-      }
+    // Boosting can only be done by the owner of the post. 
+    boostPost(id, boostAmount) {
+      this.setState({ loading: true })
+      this.state.socialNetwork.methods.boostPost(id).send({ 
+          from: this.state.account,
+          value: boostAmount 
+        })
+        .once('receipt', (receipt) => {
+          this.setState({ loading: false })
+        })
+    }
+
+    // Follow a post author
+    followAuthor(id) {
+      this.setState({ loading: true })
+      this.state.socialNetwork.methods
+        .followAuthor(id)
+        .send({
+          from: this.state.account,
+        })
+    }
 
     constructor(props) {
         super(props)
@@ -160,7 +173,7 @@ class SocialNet extends React.Component {
     render() {
         return (
           <div className='main-container'>            
-            <TabBar tabNames={tabNames}></TabBar>
+            <CustomTabs tabNames={tabNames}></CustomTabs>	
             <Navbar className='navbar' account={this.state.account} />
             {this.state.loading
               ? <div id="loader" className="text-center mt-5"><p>Loading...</p></div>

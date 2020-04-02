@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import tokenLogo from '../../inetLogo.png'
 import ethLogo from '../../eth-logo.png'
+import Button from '@material-ui/core/Button';
 
 class SellForm extends Component {
   constructor(props) {
@@ -24,25 +25,26 @@ class SellForm extends Component {
           etherAmount = window.web3.utils.toWei(etherAmount, 'Ether')
           this.props.sellTokens(etherAmount)
         }}>
+
         <div>
-          <label className="float-left"><b>Input</b></label>
-          <span className="float-right text-muted">
-            Balance: {window.web3.utils.fromWei(this.props.tokenBalance, 'Ether')}
-          </span>
-        </div>
-        <div className="input-group mb-4">
-          <input
-            type="text"
-            onChange={(event) => {
-              const tokenAmount = this.input.value.toString()
-              this.setState({
-                output: tokenAmount / 100
-              })
-            }}
-            ref={(input) => { this.input = input }}
-            className="form-control form-control-lg"
-            placeholder="0"
-            required />
+          <label className="float-left"><b>Input</b></label>         
+          <div className="input-group mb-4">
+            <input
+              type="text"
+              onChange={(event) => {
+                const tokenAmount = this.input.value.toString()
+                this.setState({
+                  output: tokenAmount / 110
+                })
+              }}
+              ref={(input) => { this.input = input }}
+              className="form-control form-control-lg"
+              placeholder="0"
+              required /><br />
+              <span className="float-right text-muted">
+              Balance: {window.web3.utils.fromWei(this.props.tokenBalance, 'Ether')}
+            </span>
+          </div>
           <div className="input-group-append">
             <div className="input-group-text">
               <img src={tokenLogo} height='32' alt=""/>
@@ -75,7 +77,8 @@ class SellForm extends Component {
           <span className="float-left text-muted">Exchange Rate</span>
           <span className="float-right text-muted">100 iNET = 1 ETH</span>
         </div>
-        <button type="submit" className="btn btn-primary btn-block btn-lg">EXCHANGE</button>
+        <Button type="submit" className="" variant="contained" color="primary" >EXCHANGE!</Button>
+        <br />
       </form>
       </div>
     );

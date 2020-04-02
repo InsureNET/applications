@@ -40,8 +40,8 @@ const categories = [
 	{
 		id: 'Membership',
 		children: [
-			{ id: 'Login', icon: <PeopleIcon />, page: 'login' },
-			{ id: 'Join', icon: <PeopleIcon />, page: 'join' },
+			// { id: 'Login', icon: <PeopleIcon />, page: 'login' },
+			// { id: 'Join', icon: <PeopleIcon />, page: 'join' },
 			{ id: 'Member Dashboard', icon: <PeopleIcon />, page: 'membership' },
 		]
 	},
