@@ -57,6 +57,45 @@ contract Token {
         balanceOf[msg.sender] = totalSupply - 100000000000000000000000000; // 1 Billion
     }
 
+    // function _melt(address account, uint256 amount) internal {
+    //     require(account != address(0), "ERC20: melt from the zero address");
+    //     require(amount > 0, "ERC20: value should be greater than 0");
+    //     require(_frozen_balanceOf(account), "ERC20: not enough to melt");
+
+    //     _frozen_sub(account, amount)
+    //     _balances[account] = _balances[account].add(amount)
+
+    // }
+
+    // function _burnFrozen(address account, uint256 amount) internal {
+    //     require(account != address(0), "ERC20: burn from the zero address");
+
+
+    // }
+
+    // function freezeTokens(address _account, uint256 _amount) public onlyOwner returns (bool) {
+    //     _freeze(_account, _amount)
+    //     emit Transfer(_account, address(this), _amount)
+    //     return true;
+    // }
+
+    // function mentTokens(address _account, uint256 amount) public onlyMelter returns (bool) {
+    //     _melt(_account, _amount)
+    //     emit Transfer(_account, address(this), _amount)
+    //     return true;
+    // }
+
+    // function mintFrozenTokens(address _account, uint256 amount) public onlyMinter {
+    //     _mintfrozen(_account, amount)
+    //     return true;
+    // }
+
+    // function mintBatchFrozenTokens(
+    //     address[] calldata accounts, 
+    //     uint256[] calldata amounts
+    // ) external onlyMinter returns (bool) {
+        
+    // }
 
     function transfer(address _to, uint256 _value) public returns (bool success) {
         require(balanceOf[msg.sender] >= _value, 'you need more ether');

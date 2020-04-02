@@ -1,15 +1,15 @@
 {
   "contractName": "ConvertLib",
   "abi": [],
-  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/jaxcoder/Documents/Blockchain/InsureNET/applications/admin-tool/src/contracts/utility/convertLib.sol\":\"ConvertLib\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/jaxcoder/Documents/Blockchain/InsureNET/applications/admin-tool/src/contracts/utility/convertLib.sol\":{\"keccak256\":\"0x0df5e5a1acb6e77481581c85f28dec960f44d5668ac385e6e89e32385e8f945c\",\"urls\":[\"bzz-raw://539eb38abf4c1bfcf95e8ab5d4d07ed631ee1df1ec131c19a77855212fd4aaba\",\"dweb:/ipfs/QmRDwVxj9gyZRvzWwmwn7GHPGEYrb4r7LePTRFBCXZauVa\"]}},\"version\":1}",
-  "bytecode": "0x6080604052348015600f57600080fd5b50603e80601d6000396000f3fe6080604052600080fdfea265627a7a72315820f5f39b09f08f4330e01ccdd0cdfb3466ba582abde0bc1cfe6d53fa5010b0551464736f6c63430005100032",
-  "deployedBytecode": "0x6080604052600080fdfea265627a7a72315820f5f39b09f08f4330e01ccdd0cdfb3466ba582abde0bc1cfe6d53fa5010b0551464736f6c63430005100032",
-  "sourceMap": "182:3226:25:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;182:3226:25;;;;;;;",
-  "deployedSourceMap": "182:3226:25:-;;;;;",
-  "source": "// /**\n//  * Oraclized Underwriting and Payout\n//  *\n//  * @description\tConversions\n//  * @copyright (c) 2020 InsureNET\n//  * @author Jason Romero\n//  */\n\n\npragma solidity 0.5.16;\n\n\ncontract ConvertLib {\n\n//   // For date-time lib function getYear\n//   uint16 internal constant ORIGIN_YEAR = 1970;\n//   uint internal constant YEAR_IN_SECONDS = 31536000;\n//   uint internal constant LEAP_YEAR_IN_SECONDS = 31622400;\n\n//   // .. since beginning of the year\n//   uint16[12] internal days_since = [\n//     11,\n//     42,\n//     70,\n//     101,\n//     131,\n//     162,\n//     192,\n//     223,\n//     254,\n//     284,\n//     315,\n//     345\n//   ];\n\n//   function b32toHexString(bytes32 x) internal pure returns (string memory) {\n//     bytes memory b = new bytes(64);\n//     for (uint i = 0; i < 32; i++) {\n//       uint8 by = uint8(uint(x) / (2**(8*(31 - i))));\n//       uint8 high = by/16;\n//       uint8 low = by - 16*high;\n//       if (high > 9) {\n//         high += 39;\n//       }\n//       if (low > 9) {\n//         low += 39;\n//       }\n//       b[2*i] = byte(high+48);\n//       b[2*i+1] = byte(low+48);\n//     }\n\n//     return string(b);\n//   }\n\n//   // helper functions for getYear\n//   function isLeapYear(uint16 year) internal pure returns (bool) {\n//     if (year % 4 != 0) {\n//       return false;\n//     }\n//     if (year % 100 != 0) {\n//       return true;\n//     }\n//     if (year % 400 != 0) {\n//       return false;\n//     }\n//     return true;\n//   }\n\n//   function leapYearsBefore(uint year) internal pure returns (uint) {\n//     year -= 1;\n//     return year / 4 - year / 100 + year / 400;\n//   }\n\n//   function getYear(uint timestamp) internal pure returns (uint16) {\n//     uint secondsAccountedFor = 0;\n//     uint16 year;\n//     uint numLeapYears;\n\n//     // Year\n//     year = uint16(ORIGIN_YEAR + timestamp / YEAR_IN_SECONDS);\n//     numLeapYears = leapYearsBefore(year) - leapYearsBefore(ORIGIN_YEAR);\n\n//     secondsAccountedFor += LEAP_YEAR_IN_SECONDS * numLeapYears;\n//     secondsAccountedFor += YEAR_IN_SECONDS * (year - ORIGIN_YEAR - numLeapYears);\n\n//     while (secondsAccountedFor > timestamp) {\n//       if (isLeapYear(uint16(year - 1))) {\n//         secondsAccountedFor -= LEAP_YEAR_IN_SECONDS;\n//       } else {\n//         secondsAccountedFor -= YEAR_IN_SECONDS;\n//       }\n//       year -= 1;\n//     }\n//     return year;\n//   }\n\n//   function stringToBytes32(string memory _source) internal pure returns (bytes32 result) {\n//     bytes memory tempEmptyStringTest = bytes(_source);\n//     if (tempEmptyStringTest.length == 0) {\n//       return 0x0;\n//     }\n\n//     /* solhint-disable no-inline-assembly */\n//     assembly {\n//       result := mload(add(_source, 32))\n//     }\n//     /* solhint-enable no-inline-assembly */\n//   }\n\n//   function b32toString(\n//     bytes32 x\n//     ) internal pure returns (string memory) {\n//     // gas usage: about 1K gas per char.\n//     bytes memory bytesString = new bytes(32);\n//     uint charCount = 0;\n\n//     for (uint j = 0; j < 32; j++) {\n//       byte char = byte(bytes32(uint(x) * 2 ** (8 * j)));\n//       if (char != 0) {\n//         bytesString[charCount] = char;\n//         charCount++;\n//       }\n//     }\n\n//     bytes memory bytesStringTrimmed = new bytes(charCount);\n\n//     for (j = 0; j < charCount; j++) {\n//       bytesStringTrimmed[j] = bytesString[j];\n//     }\n\n//     return string(bytesStringTrimmed);\n//   }\n }",
-  "sourcePath": "/Users/jaxcoder/Documents/Blockchain/InsureNET/applications/admin-tool/src/contracts/utility/convertLib.sol",
+  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/C/Projects/InsureNET/master-branch/admin-tool/src/contracts/utility/convertLib.sol\":\"ConvertLib\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/C/Projects/InsureNET/master-branch/admin-tool/src/contracts/utility/convertLib.sol\":{\"keccak256\":\"0x8bb0386b045569ba40a4d23c07e844cac691429e9761133fa3634ceaf6d3e9bd\",\"urls\":[\"bzz-raw://5189f27e7776b6f269d169cd24da7de05cfb45ff8965af9c284a5f31f01201a9\",\"dweb:/ipfs/QmUYkXWzV8WrcXmdo4L1nnHRyPYKwPFbs2FAtLD5K23o1V\"]}},\"version\":1}",
+  "bytecode": "0x6080604052348015600f57600080fd5b50603e80601d6000396000f3fe6080604052600080fdfea265627a7a72315820ad93473132dac1d3dceb260270184037929450e82a147e8b36dc0b3bee6da5dc64736f6c63430005100032",
+  "deployedBytecode": "0x6080604052600080fdfea265627a7a72315820ad93473132dac1d3dceb260270184037929450e82a147e8b36dc0b3bee6da5dc64736f6c63430005100032",
+  "sourceMap": "194:3346:25:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;194:3346:25;;;;;;;",
+  "deployedSourceMap": "194:3346:25:-;;;;;",
+  "source": "// /**\r\n//  * Oraclized Underwriting and Payout\r\n//  *\r\n//  * @description\tConversions\r\n//  * @copyright (c) 2020 InsureNET\r\n//  * @author Jason Romero\r\n//  */\r\n\r\n\r\npragma solidity 0.5.16;\r\n\r\n\r\ncontract ConvertLib {\r\n\r\n//   // For date-time lib function getYear\r\n//   uint16 internal constant ORIGIN_YEAR = 1970;\r\n//   uint internal constant YEAR_IN_SECONDS = 31536000;\r\n//   uint internal constant LEAP_YEAR_IN_SECONDS = 31622400;\r\n\r\n//   // .. since beginning of the year\r\n//   uint16[12] internal days_since = [\r\n//     11,\r\n//     42,\r\n//     70,\r\n//     101,\r\n//     131,\r\n//     162,\r\n//     192,\r\n//     223,\r\n//     254,\r\n//     284,\r\n//     315,\r\n//     345\r\n//   ];\r\n\r\n//   function b32toHexString(bytes32 x) internal pure returns (string memory) {\r\n//     bytes memory b = new bytes(64);\r\n//     for (uint i = 0; i < 32; i++) {\r\n//       uint8 by = uint8(uint(x) / (2**(8*(31 - i))));\r\n//       uint8 high = by/16;\r\n//       uint8 low = by - 16*high;\r\n//       if (high > 9) {\r\n//         high += 39;\r\n//       }\r\n//       if (low > 9) {\r\n//         low += 39;\r\n//       }\r\n//       b[2*i] = byte(high+48);\r\n//       b[2*i+1] = byte(low+48);\r\n//     }\r\n\r\n//     return string(b);\r\n//   }\r\n\r\n//   // helper functions for getYear\r\n//   function isLeapYear(uint16 year) internal pure returns (bool) {\r\n//     if (year % 4 != 0) {\r\n//       return false;\r\n//     }\r\n//     if (year % 100 != 0) {\r\n//       return true;\r\n//     }\r\n//     if (year % 400 != 0) {\r\n//       return false;\r\n//     }\r\n//     return true;\r\n//   }\r\n\r\n//   function leapYearsBefore(uint year) internal pure returns (uint) {\r\n//     year -= 1;\r\n//     return year / 4 - year / 100 + year / 400;\r\n//   }\r\n\r\n//   function getYear(uint timestamp) internal pure returns (uint16) {\r\n//     uint secondsAccountedFor = 0;\r\n//     uint16 year;\r\n//     uint numLeapYears;\r\n\r\n//     // Year\r\n//     year = uint16(ORIGIN_YEAR + timestamp / YEAR_IN_SECONDS);\r\n//     numLeapYears = leapYearsBefore(year) - leapYearsBefore(ORIGIN_YEAR);\r\n\r\n//     secondsAccountedFor += LEAP_YEAR_IN_SECONDS * numLeapYears;\r\n//     secondsAccountedFor += YEAR_IN_SECONDS * (year - ORIGIN_YEAR - numLeapYears);\r\n\r\n//     while (secondsAccountedFor > timestamp) {\r\n//       if (isLeapYear(uint16(year - 1))) {\r\n//         secondsAccountedFor -= LEAP_YEAR_IN_SECONDS;\r\n//       } else {\r\n//         secondsAccountedFor -= YEAR_IN_SECONDS;\r\n//       }\r\n//       year -= 1;\r\n//     }\r\n//     return year;\r\n//   }\r\n\r\n//   function stringToBytes32(string memory _source) internal pure returns (bytes32 result) {\r\n//     bytes memory tempEmptyStringTest = bytes(_source);\r\n//     if (tempEmptyStringTest.length == 0) {\r\n//       return 0x0;\r\n//     }\r\n\r\n//     /* solhint-disable no-inline-assembly */\r\n//     assembly {\r\n//       result := mload(add(_source, 32))\r\n//     }\r\n//     /* solhint-enable no-inline-assembly */\r\n//   }\r\n\r\n//   function b32toString(\r\n//     bytes32 x\r\n//     ) internal pure returns (string memory) {\r\n//     // gas usage: about 1K gas per char.\r\n//     bytes memory bytesString = new bytes(32);\r\n//     uint charCount = 0;\r\n\r\n//     for (uint j = 0; j < 32; j++) {\r\n//       byte char = byte(bytes32(uint(x) * 2 ** (8 * j)));\r\n//       if (char != 0) {\r\n//         bytesString[charCount] = char;\r\n//         charCount++;\r\n//       }\r\n//     }\r\n\r\n//     bytes memory bytesStringTrimmed = new bytes(charCount);\r\n\r\n//     for (j = 0; j < charCount; j++) {\r\n//       bytesStringTrimmed[j] = bytesString[j];\r\n//     }\r\n\r\n//     return string(bytesStringTrimmed);\r\n//   }\r\n }",
+  "sourcePath": "C:\\Projects\\InsureNET\\master-branch\\admin-tool\\src\\contracts\\utility\\convertLib.sol",
   "ast": {
-    "absolutePath": "/Users/jaxcoder/Documents/Blockchain/InsureNET/applications/admin-tool/src/contracts/utility/convertLib.sol",
+    "absolutePath": "/C/Projects/InsureNET/master-branch/admin-tool/src/contracts/utility/convertLib.sol",
     "exportedSymbols": {
       "ConvertLib": [
         2458
@@ -26,7 +26,7 @@
           ".16"
         ],
         "nodeType": "PragmaDirective",
-        "src": "156:23:25"
+        "src": "165:23:25"
       },
       {
         "baseContracts": [],
@@ -42,13 +42,13 @@
         "nodeType": "ContractDefinition",
         "nodes": [],
         "scope": 2459,
-        "src": "182:3226:25"
+        "src": "194:3346:25"
       }
     ],
-    "src": "156:3252:25"
+    "src": "165:3375:25"
   },
   "legacyAST": {
-    "absolutePath": "/Users/jaxcoder/Documents/Blockchain/InsureNET/applications/admin-tool/src/contracts/utility/convertLib.sol",
+    "absolutePath": "/C/Projects/InsureNET/master-branch/admin-tool/src/contracts/utility/convertLib.sol",
     "exportedSymbols": {
       "ConvertLib": [
         2458
@@ -65,7 +65,7 @@
           ".16"
         ],
         "nodeType": "PragmaDirective",
-        "src": "156:23:25"
+        "src": "165:23:25"
       },
       {
         "baseContracts": [],
@@ -81,10 +81,10 @@
         "nodeType": "ContractDefinition",
         "nodes": [],
         "scope": 2459,
-        "src": "182:3226:25"
+        "src": "194:3346:25"
       }
     ],
-    "src": "156:3252:25"
+    "src": "165:3375:25"
   },
   "compiler": {
     "name": "solc",
@@ -92,7 +92,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.23",
-  "updatedAt": "2020-04-01T00:37:25.485Z",
+  "updatedAt": "2020-04-02T01:35:19.089Z",
   "devdoc": {
     "methods": {}
   },
