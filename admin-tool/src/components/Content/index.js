@@ -9,7 +9,7 @@ import Button from '@material-ui/core/Button';
 import TabBar from 'components/TabBar'
 import CustomTabs from '../Utility/CustomizedTabs'
 //import MoneyButton from '@moneybutton/react-money-button'
-
+import backgroundImage from '../../ai-blockchain-iot-in-insurance.jpg'
 const styles = theme => ({
 	paper: {
 		margin: 'auto',
@@ -34,18 +34,23 @@ const styles = theme => ({
 		height: 368,
 	},
 	container: {
-		padding: '48px 36px 48px',
-		height: 1356,
-		backgroundImage: `url(${"src/ai-blockchain-iot-in-insurance.jpg"})`,
+		padding: '0',
+		height: 1200,
+		backgroundImage: `url(${backgroundImage})`,
 	},
 })
+const BackgroundImagePage = () => {
+	return (
+		<div className="bg"></div>
+	);
+  }
 
 const tabNames = ['Home', 'Profile', 'Membership'];
 
 /** @dev main page - default home page */
-function Content({ }) {
+function Content({ classes }) {
 	return (
-		<div className={styles.container}>
+		<div className={classes.container}>
 			<CustomTabs tabNames={tabNames}></CustomTabs>	
 			<div>
 
