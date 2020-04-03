@@ -4,7 +4,7 @@ const EthSwap = artifacts.require("EthSwap");
 const DisasterBond = artifacts.require("DisasterBond");
 const Marketplace = artifacts.require('Marketplace');
 const PolicyCreator = artifacts.require('PolicyCreator');
-const HurricanePolicyCreator = this.artifacts.require('HurricaneCreatePolicy')
+const HurricanePolicyCreator = this.artifacts.require('HurricaneCreatePolicy');
 const POE = artifacts.require('ProofOfExistence');
 
 module.exports = async function(deployer) {
