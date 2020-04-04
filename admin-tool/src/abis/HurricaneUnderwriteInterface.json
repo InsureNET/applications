@@ -1,5 +1,5 @@
 {
-  "contractName": "HurricanePayoutInterface",
+  "contractName": "HurricaneUnderwriteInterface",
   "abi": [
     {
       "constant": false,
@@ -11,48 +11,44 @@
         },
         {
           "internalType": "bytes32",
-          "name": "_riskId",
+          "name": "_latlng",
           "type": "bytes32"
-        },
-        {
-          "internalType": "uint256",
-          "name": "_offset",
-          "type": "uint256"
         }
       ],
-      "name": "schedulePayoutOraclizeCall",
+      "name": "scheduleUnderwriteOraclizeCall",
       "outputs": [],
       "payable": false,
       "stateMutability": "nonpayable",
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":false,\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_policyId\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"_riskId\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"_offset\",\"type\":\"uint256\"}],\"name\":\"schedulePayoutOraclizeCall\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/C/Projects/InsureNET/master-branch/admin-tool/src/contracts/hurricane/HurricanePayoutInterface.sol\":\"HurricanePayoutInterface\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/C/Projects/InsureNET/master-branch/admin-tool/src/contracts/hurricane/HurricanePayoutInterface.sol\":{\"keccak256\":\"0x677ddaf4785803bad5998fed0bb8cb7086b1cbfd52d3c588214e998fb32f485b\",\"urls\":[\"bzz-raw://081890f8eab1500405bef8cf9ed4145ff702d1562684ca99369f262de384f61d\",\"dweb:/ipfs/QmRy4t2VKfuYQ51tSodM2ey67B2EhwdMrYp9TUv8RfYSKG\"]}},\"version\":1}",
+  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":false,\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_policyId\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"_latlng\",\"type\":\"bytes32\"}],\"name\":\"scheduleUnderwriteOraclizeCall\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/C/Projects/InsureNET/master-branch/admin-tool/src/contracts/hurricane/HurricaneUnderwriteInterface.sol\":\"HurricaneUnderwriteInterface\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/C/Projects/InsureNET/master-branch/admin-tool/src/contracts/hurricane/HurricaneUnderwriteInterface.sol\":{\"keccak256\":\"0xc7d5a577e59a4701de266a218b2e268f3dd3e3e8acdd6cb23ca4811a1814b083\",\"urls\":[\"bzz-raw://6bcf121ff49025abb05d79123790ebac1e67983bee0380bd9a446fc78665bf94\",\"dweb:/ipfs/QmV8iNozmYLZogckyuY1N9ZGFGqnwvoiDAKL9cb2yWVMgt\"]}},\"version\":1}",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "sourceMap": "",
   "deployedSourceMap": "",
-  "source": "/**\r\n * Oraclized Underwriting and Payout\r\n *\r\n * @description\tPayout contract interface\r\n * @copyright (c) 2020 InsureNET\r\n * @author Jason Romero\r\n */\r\n\r\npragma solidity 0.5.16;\r\n\r\n\r\ncontract HurricanePayoutInterface {\r\n  function schedulePayoutOraclizeCall(uint _policyId, bytes32 _riskId, uint _offset) public;\r\n}",
-  "sourcePath": "C:\\Projects\\InsureNET\\master-branch\\admin-tool\\src\\contracts\\hurricane\\HurricanePayoutInterface.sol",
+  "source": "/**\r\n * Oraclized Underwriting and Payout\r\n *\r\n * @description\tUnderwrite contract interface\r\n * @copyright (c) 2020 InsureNET\r\n * @author Jason Romero\r\n */\r\n\r\npragma solidity ^0.5.16;\r\n\r\ncontract HurricaneUnderwriteInterface {\r\n  function scheduleUnderwriteOraclizeCall(uint _policyId, bytes32 _latlng) public;\r\n}",
+  "sourcePath": "C:\\Projects\\InsureNET\\master-branch\\admin-tool\\src\\contracts\\hurricane\\HurricaneUnderwriteInterface.sol",
   "ast": {
-    "absolutePath": "/C/Projects/InsureNET/master-branch/admin-tool/src/contracts/hurricane/HurricanePayoutInterface.sol",
+    "absolutePath": "/C/Projects/InsureNET/master-branch/admin-tool/src/contracts/hurricane/HurricaneUnderwriteInterface.sol",
     "exportedSymbols": {
-      "HurricanePayoutInterface": [
-        2112
+      "HurricaneUnderwriteInterface": [
+        2143
       ]
     },
-    "id": 2113,
+    "id": 2144,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 2102,
+        "id": 2135,
         "literals": [
           "solidity",
+          "^",
           "0.5",
           ".16"
         ],
         "nodeType": "PragmaDirective",
-        "src": "156:23:18"
+        "src": "160:24:20"
       },
       {
         "baseContracts": [],
@@ -60,33 +56,33 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 2112,
+        "id": 2143,
         "linearizedBaseContracts": [
-          2112
+          2143
         ],
-        "name": "HurricanePayoutInterface",
+        "name": "HurricaneUnderwriteInterface",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "body": null,
             "documentation": null,
-            "id": 2111,
+            "id": 2142,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
-            "name": "schedulePayoutOraclizeCall",
+            "name": "scheduleUnderwriteOraclizeCall",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2109,
+              "id": 2140,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2104,
+                  "id": 2137,
                   "name": "_policyId",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2111,
-                  "src": "260:14:18",
+                  "scope": 2142,
+                  "src": "271:14:20",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -94,10 +90,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2103,
+                    "id": 2136,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "260:4:18",
+                    "src": "271:4:20",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -108,11 +104,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 2106,
-                  "name": "_riskId",
+                  "id": 2139,
+                  "name": "_latlng",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2111,
-                  "src": "276:15:18",
+                  "scope": 2142,
+                  "src": "287:15:20",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -120,10 +116,10 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 2105,
+                    "id": 2138,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "276:7:18",
+                    "src": "287:7:20",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -131,74 +127,49 @@
                   },
                   "value": null,
                   "visibility": "internal"
-                },
-                {
-                  "constant": false,
-                  "id": 2108,
-                  "name": "_offset",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 2111,
-                  "src": "293:12:18",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_uint256",
-                    "typeString": "uint256"
-                  },
-                  "typeName": {
-                    "id": 2107,
-                    "name": "uint",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "293:4:18",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_uint256",
-                      "typeString": "uint256"
-                    }
-                  },
-                  "value": null,
-                  "visibility": "internal"
                 }
               ],
-              "src": "259:47:18"
+              "src": "270:33:20"
             },
             "returnParameters": {
-              "id": 2110,
+              "id": 2141,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "313:0:18"
+              "src": "310:0:20"
             },
-            "scope": 2112,
-            "src": "224:90:18",
+            "scope": 2143,
+            "src": "231:80:20",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 2113,
-        "src": "185:132:18"
+        "scope": 2144,
+        "src": "188:126:20"
       }
     ],
-    "src": "156:161:18"
+    "src": "160:154:20"
   },
   "legacyAST": {
-    "absolutePath": "/C/Projects/InsureNET/master-branch/admin-tool/src/contracts/hurricane/HurricanePayoutInterface.sol",
+    "absolutePath": "/C/Projects/InsureNET/master-branch/admin-tool/src/contracts/hurricane/HurricaneUnderwriteInterface.sol",
     "exportedSymbols": {
-      "HurricanePayoutInterface": [
-        2112
+      "HurricaneUnderwriteInterface": [
+        2143
       ]
     },
-    "id": 2113,
+    "id": 2144,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 2102,
+        "id": 2135,
         "literals": [
           "solidity",
+          "^",
           "0.5",
           ".16"
         ],
         "nodeType": "PragmaDirective",
-        "src": "156:23:18"
+        "src": "160:24:20"
       },
       {
         "baseContracts": [],
@@ -206,33 +177,33 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 2112,
+        "id": 2143,
         "linearizedBaseContracts": [
-          2112
+          2143
         ],
-        "name": "HurricanePayoutInterface",
+        "name": "HurricaneUnderwriteInterface",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "body": null,
             "documentation": null,
-            "id": 2111,
+            "id": 2142,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
-            "name": "schedulePayoutOraclizeCall",
+            "name": "scheduleUnderwriteOraclizeCall",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2109,
+              "id": 2140,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2104,
+                  "id": 2137,
                   "name": "_policyId",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2111,
-                  "src": "260:14:18",
+                  "scope": 2142,
+                  "src": "271:14:20",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -240,10 +211,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2103,
+                    "id": 2136,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "260:4:18",
+                    "src": "271:4:20",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -254,11 +225,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 2106,
-                  "name": "_riskId",
+                  "id": 2139,
+                  "name": "_latlng",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2111,
-                  "src": "276:15:18",
+                  "scope": 2142,
+                  "src": "287:15:20",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -266,10 +237,10 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 2105,
+                    "id": 2138,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "276:7:18",
+                    "src": "287:7:20",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -277,54 +248,28 @@
                   },
                   "value": null,
                   "visibility": "internal"
-                },
-                {
-                  "constant": false,
-                  "id": 2108,
-                  "name": "_offset",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 2111,
-                  "src": "293:12:18",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_uint256",
-                    "typeString": "uint256"
-                  },
-                  "typeName": {
-                    "id": 2107,
-                    "name": "uint",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "293:4:18",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_uint256",
-                      "typeString": "uint256"
-                    }
-                  },
-                  "value": null,
-                  "visibility": "internal"
                 }
               ],
-              "src": "259:47:18"
+              "src": "270:33:20"
             },
             "returnParameters": {
-              "id": 2110,
+              "id": 2141,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "313:0:18"
+              "src": "310:0:20"
             },
-            "scope": 2112,
-            "src": "224:90:18",
+            "scope": 2143,
+            "src": "231:80:20",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 2113,
-        "src": "185:132:18"
+        "scope": 2144,
+        "src": "188:126:20"
       }
     ],
-    "src": "156:161:18"
+    "src": "160:154:20"
   },
   "compiler": {
     "name": "solc",
@@ -332,7 +277,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.23",
-  "updatedAt": "2020-04-03T23:15:01.687Z",
+  "updatedAt": "2020-04-03T23:15:01.689Z",
   "devdoc": {
     "methods": {}
   },
