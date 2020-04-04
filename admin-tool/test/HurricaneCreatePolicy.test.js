@@ -1,10 +1,8 @@
-import HurricaneCreatePolicy from artifacts.requre('HurricaneCreatePolicy');
-//import web3 from 'web3';
-
+const CreateHurricanePolicy = artifacts.requre('HurricaneCreatePolicy')
 
 require('chai')
 .use(require('chai-as-promised'))
-.should();
+.should()
 
 // function tokens (n) {
 //     retrun web3.utils.toWei(n, 'ether');
@@ -14,7 +12,7 @@ contract('HurricanePolicyCreator', ([ deployer, insured ]) => {
     let hurricaneContract
 
     before(async () => {
-        hurricaneContract = await HurricaneCreatePolicy.new()
+        hurricaneContract = await CreateHurricanePolicy.new()
         
     })
 

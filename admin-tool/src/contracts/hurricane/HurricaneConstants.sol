@@ -140,9 +140,11 @@ contract HurricaneConstants {
   // This api is a placeholder until we can integrate
   // an accurate risk pricing service
   // ToDo: setup our own oracle services
+  // todo: our own oracle
   string internal constant ORACLIZE_RATINGS_BASE_URL =
     "json(https://staging.hurricaneguard.io/api/oracle/ratings/?";
 
+  // todo: our own oracle
   string internal constant ORACLIZE_STATUS_BASE_URL =
     "json(https://staging.hurricaneguard.io/api/oracle/status/?";
 

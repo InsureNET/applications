@@ -5,7 +5,9 @@
  * @copyright 2020 InsureNET
  */
 
-pragma solidity ^0.5.0;
+import "@openzeppelin/contracts/math/SafeMath.sol";
+
+pragma solidity ^0.5.16;
 
 /**
 * @dev iNET Token Contract
@@ -16,14 +18,15 @@ pragma solidity ^0.5.0;
 contract Token {
     string  public name = "iNET Token";
     string  public symbol = "iNET";
-    uint256 public totalSupply = 1000000000000000000000000000; // 1 Billion tokens
+    uint256 public _totalSupply = 1000000000000000000000000000; // 1 Billion tokens
     uint8   public decimals = 18;
 
     /**
     * @dev all distribution will add up to the 1 Billion tokens minted.
     */
     // Founder
-    address public founder  = 0x6F7d7d68c3Eed4Df81CF5F97582deef8ABC51533;
+    address payable founder  = 0x6F7d7d68c3Eed4Df81CF5F97582deef8ABC51533;
+
     string public foundersAddress = '0x6F7d7d68c3Eed4Df81CF5F97582deef8ABC51533';
     uint256 public foundersDistribution = 100000000000000000000000000; // 100 Million Tokens
 
@@ -50,11 +53,31 @@ contract Token {
         uint256 _value
     );
 
+    // /**
+    // * @dev Throws if called by any account other than the owner.
+    // */
+    modifier onlyOwner() {
+        require(msg.sender == founder, 'Must me founder/owner');
+        _;
+    }
+
+
     mapping(address => uint256) public balanceOf;
     mapping(address => mapping(address => uint256)) public allowance;
 
     constructor() public {
-        balanceOf[msg.sender] = totalSupply - 100000000000000000000000000; // 1 Billion
+        balanceOf[msg.sender] = totalSupply();
+        founder = msg.sender;
+    }
+
+
+    // function balanceOf(address _account) public view returns (uint256) {
+    //     return _balanceOf[_account];
+    // }
+
+
+    function totalSupply() public view returns (uint256) {
+        return _totalSupply;
     }
 
     // function _melt(address account, uint256 amount) internal {

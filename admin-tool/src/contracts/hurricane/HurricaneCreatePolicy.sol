@@ -5,10 +5,21 @@
  * @author Jason Romero
  * @copyright 2020 InsureNET
  */
- 
+
+import "@openzeppelin/contracts/math/SafeMath.sol";
+import "./HurricaneConstants.sol";
+
  pragma solidity ^0.5.16;
 
-contract HurricaneCreatePolicy {
+contract HurricaneCreatePolicy is HurricaneConstants {
+    /**
+    * @dev state variables
+    */
+    uint256 public minPremium = 25;
+    uint256 public maxPremium = 500;
+
+    mapping(address => uint256) public policyHolders;
+
 
     /**
     * @dev Category of the hurricane
@@ -57,14 +68,24 @@ contract HurricaneCreatePolicy {
         bool commissionPaid;
     }
 
+    /**
+    * @dev Constructor function
+    */
+    constructor() public {
 
+    }
 
     /** @dev Functions */
 
+    /**
+    * @dev create a hurricane policy
+    * @param _insured address of the policy owner
+    * @param _value the premiu amount to pay
+    */
     function createPolicy (
         address _insured,
         uint256 _value
-    ) public returns (bool) {
+    ) public payable returns (bool) {
         // ToDo: Checks
 
 
