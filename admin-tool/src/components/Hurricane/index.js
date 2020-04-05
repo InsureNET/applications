@@ -83,8 +83,10 @@ class HurricaneContent extends Component {
 		if (contractData) {
 			const contractAbi = HurricaneContract.abi;
 			const contractAddress = HurricaneContract.networks['5777'].address //contractData.address;
+			console.log('Hurricane Contract Address:: ', contractAddress)
 			const contract = new web3.eth.Contract(contractAbi, contractAddress)
 			this.setState({ contract })
+			console.log('State Contract:: ', this.state.contract)
 			//this.setState({ loaoding: false })
 		} else {
 			window.alert('Contract is not deployed on current network.')
@@ -95,10 +97,19 @@ class HurricaneContent extends Component {
 	}
 
 
-	buyPolciy(coverageAmount1, coverageAmount2, coverageAmount3, premiumAmount) {
-		console.log('buying policy')
+	buyPolciy(event, coverageAmount1, coverageAmount2, coverageAmount3, premiumAmount) {
+		console.log('buying policy', event.target)
+		console.log(coverageAmount1)
 		
 	}
+
+	// ToDo: Set a delay ... not sure what is going on. the screen goes blank when
+	// todo: I move the slider using the setstate function.
+	onSliderChange = (value) => {
+		console.log('Slider Value: ', value)
+		//this.setState({ selectedPolicyAmount: value })
+	}
+
 
 	constructor(props){
 		super(props)
@@ -113,6 +124,7 @@ class HurricaneContent extends Component {
 			metadata: {},
 			policies: [],
 			transactions: [],
+			selectedPolicyAmount: 100,
 		}
 	}
 
@@ -125,7 +137,9 @@ class HurricaneContent extends Component {
 			content = <Main
 				account={this.state.account}
 				onClick={this.buyPolciy}
+				onSliderChange={this.onSliderChange}
 				loading={this.state.loading}
+				selectedPolicyAmount= {this.state.selectedPolicyAmount}
 			/>
 		}
 		return (
@@ -134,13 +148,10 @@ class HurricaneContent extends Component {
 				<div className="row">
 				<TabBar tabNames={tabNames} />
 				<div className='container'>
-					<Paper className='paper'>
-
-					</Paper>
 					<main 
 						role="main" 
 						className="col-lg-12 ml-auto mr-auto" 
-						style={{ maxWidth: '600px' }}
+						style={{ maxWidth: '2400px' }}
 					>
 						<div className="content mr-auto ml-auto">
 							{content}

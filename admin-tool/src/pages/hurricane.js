@@ -12,7 +12,7 @@ function HurricanePage({ data, location }) {
 	)
 }
 HurricanePage.propTypes = {
-	data: PropTypes.object.isRequired,
+	data: PropTypes.object,
 	location: PropTypes.object,
 }
 export default HurricanePage

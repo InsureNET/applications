@@ -3,16 +3,17 @@ import PropTypes from 'prop-types'
 import Typography from '@material-ui/core/Typography'
 import Paper from '@material-ui/core/Paper'
 import Grid from '@material-ui/core/Grid'
-import { withStyles } from '@material-ui/core/styles'
 import Button from '@material-ui/core/Button';
-
+import { withStyles, makeStyles } from '@material-ui/core/styles';
+import Slider from '@material-ui/core/Slider';
+import Tooltip from '@material-ui/core/Tooltip';
 
 const styles = theme => ({
 	paper: {
 		margin: 'auto',
 		overflow: 'hidden',
 		[theme.breakpoints.up('sm')]: {
-			minWidth: 700,
+			minWidth: 800,
 		},
 		[theme.breakpoints.up('lg')]: {
 			minWidth: 936,
@@ -35,8 +36,67 @@ const styles = theme => ({
 	},
 })
 
+const useStyles = makeStyles((theme) => ({
+	root: {
+	  width: 300 + theme.spacing(3) * 2,
+	},
+	margin: {
+	  height: theme.spacing(3),
+	},
+  }));
+
+  function ValueLabelComponent(props) {
+	const { children, open, value } = props;
+  
+	return (
+	  <Tooltip open={open} enterTouchDelay={0} placement="top" title={value}>
+		{children}
+	  </Tooltip>
+	);
+  }
+  
+  ValueLabelComponent.propTypes = {
+	children: PropTypes.element.isRequired,
+	open: PropTypes.bool.isRequired,
+	value: PropTypes.number.isRequired,
+  };
+
+  const PolicySlider = withStyles({
+	root: {
+	  color: '#52af77',
+	  height: 25,
+	  marginLeft: 50,
+	  marginRight: 50,
+	},
+	thumb: {
+	  height: 48,
+	  width: 24,
+	  backgroundColor: 'purple',
+	  border: '2px solid purple',
+	  marginTop: -8,
+	  marginLeft: -12,
+	  '&:focus, &:hover, &$active': {
+		boxShadow: 'inherit',
+	  },
+	},
+	active: {},
+	valueLabel: {
+	  left: 'calc(-50% + 4px)',
+	},
+	track: {
+	  height: 12,
+	  borderRadius: 2,
+	},
+	rail: {
+	  height: 12,
+	  borderRadius: 2,
+	},
+  })(Slider);
+
+
+
 /** @dev main page - default home page */
-function HurricaneMainContent({ classes , account, onClick, loading}) {
+function HurricaneMainContent({ classes , account, onClick, onSliderChange, loading, selectedPolicyAmount}) {
 	let content
 	if (loading) {
 		content = <p id="loader" className="text-center">Loading...</p>
@@ -46,33 +106,64 @@ function HurricaneMainContent({ classes , account, onClick, loading}) {
 
 	return (
 		<div className={classes.container}>
-			<Paper className={classes.paper}>
-			<Grid lg={6} xs={12} item align="center">
-						
-					</Grid>
-				<Grid
-					container
-					spacing={16}
-					className={classes.contentWrapper}
-					wrap
-					alignItems="center"
-					justify="center"
-				>					
-					<Grid lg={6} xs={12} item>
-						<Typography component="h2" color="textSecondary" align="center">
-							Buy a Hurricane policy for {account}
-						</Typography>						
-					</Grid>
-					<Grid>
-					{/* if/else if there are items to list or fresh start... */}
-						<Button variant="contained" 
-							color="primary"
-							onClick={onClick}
-						>Buy Policy</Button>
-					</Grid>
+			<Grid
+				container
+				spacing={16}
+				className={classes.contentWrapper}
+				wrap
+				alignItems="center"
+				justify="center"
+			>					
+				<Grid lg={12} xs={12} item>
+					<Typography component="h2" color="textSecondary" align="center">
+						Buy a Hurricane policy for {account}
+					</Typography>						
+				</Grid>
+				<Grid lg={12} xs={12} item>
+					<PolicySlider
+						min={25}
+						max={500}
+						step={5}
+						track={true}
+						valueLabelDisplay="on"
+						aria-label="pretto slider" 
+						defaultValue={100}
+						onChange={onSliderChange}	
+					/>
 
 				</Grid>
-			</Paper>
+				<Grid lg={12} xs={12} item>
+
+
+					<label>Selected Amount: </label>{selectedPolicyAmount}
+				</Grid>
+				<Grid lg={4} xs={12}>
+					<label>Category 3 </label>
+					<label>Max Payout: </label><br />
+					USD {selectedPolicyAmount * 10}
+
+				</Grid>
+				<Grid lg={4} xs={12}>
+					<label>Category 4 </label>
+					<label>Max Payout: </label><br />
+					USD {selectedPolicyAmount * 20}
+
+				</Grid>
+				<Grid lg={4} xs={12}>
+					<label>Category 5 </label>
+					<label>Max Payout: </label><br />
+					USD {selectedPolicyAmount *30}
+
+				</Grid>
+				<Grid>
+					{/* if/else if there are items to list or fresh start... */}
+					<Button variant="contained" 
+						color="primary"
+						value={account}
+						onClick={(account) => onClick(account)}
+					>Buy Policy</Button>
+				</Grid>
+				</Grid>
 		</div>
 	)
 }
