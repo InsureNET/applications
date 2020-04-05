@@ -49,7 +49,7 @@ const categories = [
 		id: 'Exchanges',
 		children: [
 			{ id: 'Buy or Sell iNET', icon: <AttachMoneyRoundedIcon />, page: 'exchange' },
-			{ id: 'Uniswap', icon: <AutorenewRoundedIcon />, page: 'uniswap' },
+			//{ id: 'Uniswap', icon: <AutorenewRoundedIcon />, page: 'uniswap' },
 			//{ id: 'p2pb2b', icon: <AutorenewRoundedIcon />, page: 'p2pb2b' },
 		]
 	},
@@ -97,8 +97,8 @@ const categories = [
 		id: 'Risk Reporting',
 		children: [
 			{ id: 'Etherscan', icon: <SettingsInputComponentIcon/>, page: 'etherscan' },
-			{ id: 'Analytics', icon: <SettingsIcon />, page: 'analytics' },
-			{ id: 'Performance', icon: <TimerIcon />, page: 'performance' },
+			//{ id: 'Analytics', icon: <SettingsIcon />, page: 'analytics' },
+			//{ id: 'Performance', icon: <TimerIcon />, page: 'performance' },
 		],
 	},
 	// {

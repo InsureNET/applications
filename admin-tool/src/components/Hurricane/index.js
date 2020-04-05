@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useEffect } from 'react';
 //import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Web3 from 'web3'
 import HurricaneContract from '../../abis/HurricaneCreatePolicy.json'
@@ -6,6 +6,7 @@ import { withStyles } from '@material-ui/core/styles'
 import Paper from '@material-ui/core/Paper'
 import TabBar from 'components/TabBar'
 import Main from 'components/Hurricane/main'
+import CustomTabs from '../Utility/CustomizedTabs'
 
 const styles = theme => ({
 	paper: {
@@ -33,13 +34,17 @@ const styles = theme => ({
 const tabNames = ['Buy', 'Sell', 'Claims'];
 
 class HurricaneContent extends Component {
-	async componentWillMount() {
+	async componentDidMount() {
 		console.group('[HurricaneContent]::[ComponentWillMount]')
 		this.loadWeb3();
 
 		this.loadBlockchainData()
 
 		console.groupEnd();
+	}
+
+	async componentDidUpdate() {
+
 	}
 
 	// Load Web3
@@ -98,18 +103,22 @@ class HurricaneContent extends Component {
 
 
 	buyPolciy(event, coverageAmount1, coverageAmount2, coverageAmount3, premiumAmount) {
-		console.log('buying policy', event.target)
+		console.log('Step One Complete: ', event.target)
 		console.log(coverageAmount1)
 		
 	}
 
-	// ToDo: Set a delay ... not sure what is going on. the screen goes blank when
-	// todo: I move the slider using the setstate function.
-	onSliderChange = (value) => {
-		console.log('Slider Value: ', value)
-		//this.setState({ selectedPolicyAmount: value })
+	nextStep(event) {
+		console.log('Step One Complete: ', event.target)
 	}
 
+	// ToDo: Set a delay ... not sure what is going on. the screen goes blank when
+	// todo: I move the slider using the setstate function.
+	onSliderChange = (event, newValue) => {
+		console.log('Slider Event: ', newValue)
+		this.setState({ selectedPolicyAmount: newValue })
+		
+	}
 
 	constructor(props){
 		super(props)
@@ -125,6 +134,7 @@ class HurricaneContent extends Component {
 			policies: [],
 			transactions: [],
 			selectedPolicyAmount: 100,
+			step: 1,
 		}
 	}
 
@@ -136,7 +146,7 @@ class HurricaneContent extends Component {
 		} else {
 			content = <Main
 				account={this.state.account}
-				onClick={this.buyPolciy}
+				nextStepClick={this.nextStep}
 				onSliderChange={this.onSliderChange}
 				loading={this.state.loading}
 				selectedPolicyAmount= {this.state.selectedPolicyAmount}
@@ -146,7 +156,7 @@ class HurricaneContent extends Component {
 			<div>
 				<div className="container-fluid mt-5">
 				<div className="row">
-				<TabBar tabNames={tabNames} />
+				<CustomTabs tabNames={tabNames} />
 				<div className='container'>
 					<main 
 						role="main" 
