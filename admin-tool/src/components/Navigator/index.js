@@ -46,6 +46,18 @@ const categories = [
 		]
 	},
 	{
+		id: 'Products',
+		children: [
+			//{ id: 'Marketplace', icon: <StoreIcon />, page: 'marketplace' },
+			//{ id: 'Accident', icon: <WriteContractIcon />, page: 'accident' },
+			{ id: 'Hurricane', icon: <UmbrellaIcon />, page: 'hurricane' },
+			//{ id: 'Property', icon: <HomeIcon />, page: 'property' },
+			//{ id: 'Liability', icon: <ApartmentRoundedIcon />, page: 'liability' },
+			//{ id: 'Weather', icon: <Brightness7Icon />, page: 'weather' },
+			//{ id: 'Transportation', icon: <LocalShippingIcon />, page: 'transportation' },
+		]
+	},
+	{
 		id: 'Exchanges',
 		children: [
 			{ id: 'Buy or Sell iNET', icon: <AttachMoneyRoundedIcon />, page: 'exchange' },
@@ -53,22 +65,12 @@ const categories = [
 			//{ id: 'p2pb2b', icon: <AutorenewRoundedIcon />, page: 'p2pb2b' },
 		]
 	},
+	
+	
 	{
 		id: 'Social Network',
 		children: [
 			{ id: 'InsureNET Social', icon: <PeopleIcon />, page: 'socialnet' }
-		]
-	},
-	{
-		id: 'Products',
-		children: [
-			{ id: 'Marketplace', icon: <StoreIcon />, page: 'marketplace' },
-			{ id: 'Accident', icon: <WriteContractIcon />, page: 'accident' },
-			{ id: 'Hurricane', icon: <UmbrellaIcon />, page: 'hurricane' },
-			{ id: 'Property', icon: <HomeIcon />, page: 'property' },
-			{ id: 'Liability', icon: <ApartmentRoundedIcon />, page: 'liability' },
-			//{ id: 'Weather', icon: <Brightness7Icon />, page: 'weather' },
-			{ id: 'Transportation', icon: <LocalShippingIcon />, page: 'transportation' },
 		]
 	},
 	// {

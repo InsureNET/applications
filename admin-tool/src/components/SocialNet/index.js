@@ -173,7 +173,7 @@ class SocialNet extends React.Component {
     render() {
         return (
           <div className='main-container'>            
-            <CustomTabs tabNames={tabNames}></CustomTabs>	
+            {/* <CustomTabs tabNames={tabNames}></CustomTabs>	 */}
             <Navbar className='navbar' account={this.state.account} />
             {this.state.loading
               ? <div id="loader" className="text-center mt-5"><p>Loading...</p></div>

@@ -45,11 +45,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function CustomizedTabs({ tabNames }) {
+function CustomizedTabs({ tabNames, onTabChanged }) {
     const classes = useStyles();
     const [value, setValue] = React.useState(0);
   
-    const handleChange = (event, newValue) => {
+    const handleChange = (event, newValue) => {      
+      onTabChanged(newValue);
       setValue(newValue);
     };
   

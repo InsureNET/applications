@@ -28,6 +28,7 @@ const styles = theme => ({
 	},
 	container: {
 		padding: '48px 36px 0',
+		backgroundColor: 'white',
 	},
 });
 
@@ -108,17 +109,31 @@ class HurricaneContent extends Component {
 		
 	}
 
-	nextStep(event) {
-		console.log('Step One Complete: ', event.target)
+	nextStep(el, account) {
+		console.log('Step One Complete: ', el)
+		console.log(account)
 	}
 
-	// ToDo: Set a delay ... not sure what is going on. the screen goes blank when
-	// todo: I move the slider using the setstate function.
+	/**
+	 * @dev changes the view based on tab index
+	 * 0 = Buy, 1 = Sell, 2 = Claims
+	 */
+	onTabChanged = (newValue) => {
+		console.log(newValue)
+		this.setState({ selectedTab: newValue})
+		console.log(this.state.selectedTab)
+	}
+
+	/**
+	 * @dev updates the value of the premium
+	 */
 	onSliderChange = (event, newValue) => {
-		console.log('Slider Event: ', newValue)
+		//console.log('Slider Event: ', newValue)
 		this.setState({ selectedPolicyAmount: newValue })
 		
 	}
+
+	
 
 	constructor(props){
 		super(props)
@@ -134,12 +149,12 @@ class HurricaneContent extends Component {
 			policies: [],
 			transactions: [],
 			selectedPolicyAmount: 100,
+			selectedTab: 1,
 			step: 1,
 		}
 	}
 
-
-	render(props){
+	render(){
 		let content
 		if (this.state.loading) {
 			content = <p id='loader' className='text-center'>Loading..</p>
@@ -156,12 +171,18 @@ class HurricaneContent extends Component {
 			<div>
 				<div className="container-fluid mt-5">
 				<div className="row">
-				<CustomTabs tabNames={tabNames} />
+				{/* <CustomTabs 
+					tabNames={tabNames}
+					value={this.state.selectedTab}
+					onTabChanged={this.onTabChanged}
+				/> */}
+				{/** ToDo: Add Progress Bar here.. */}
+				
 				<div className='container'>
 					<main 
 						role="main" 
 						className="col-lg-12 ml-auto mr-auto" 
-						style={{ maxWidth: '2400px' }}
+						style={{ maxWidth: '2400px', backgroundColor: 'white' }}
 					>
 						<div className="content mr-auto ml-auto">
 							{content}

@@ -129,6 +129,7 @@ const styles = {
 	root: {
 		display: 'flex',
 		minHeight: '100vh',
+		backgroundColor: 'white'
 	},
 	drawer: {
 		[theme.breakpoints.up('sm')]: {
@@ -140,12 +141,13 @@ const styles = {
 		flex: 1,
 		display: 'flex',
 		flexDirection: 'column',
+		backgroundColor: 'white'
 	},
 	mainContent: {
 		flex: 1,
 		padding: '0px',
-	},
-	backgroundColor: red
+		backgroundColor: 'white'
+	}
 }
 
 function Layout({ location, title, children, classes }) {

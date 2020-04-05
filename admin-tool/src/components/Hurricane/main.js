@@ -11,6 +11,18 @@ import FormLabel from '@material-ui/core/FormLabel';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import Radio from '@material-ui/core/Radio';
+import Fab from '@material-ui/core/Fab';
+import NavigateNextRoundedIcon from '@material-ui/icons/NavigateNextRounded';
+import StepConnector from '@material-ui/core/StepConnector';
+import clsx from 'clsx';
+import Check from '@material-ui/icons/Check';
+
+import Stepper from '@material-ui/core/Stepper';
+import Step from '@material-ui/core/Step';
+import StepLabel from '@material-ui/core/StepLabel';
+import SettingsIcon from '@material-ui/icons/Settings';
+import GroupAddIcon from '@material-ui/icons/GroupAdd';
+import VideoLabelIcon from '@material-ui/icons/VideoLabel';
 
 const styles = theme => ({
 	paper: {
@@ -42,28 +54,249 @@ const styles = theme => ({
 
 const useStyles = makeStyles((theme) => ({
 	root: {
-	  width: 300 + theme.spacing(3) * 2,
+		'& > *': {
+			margin: theme.spacing(1),
+		},
+	  	width: 300 + theme.spacing(3) * 2,
 	},
 	margin: {
 	  height: theme.spacing(3),
-	},
+	}
   }));
 
-  function ValueLabelComponent(props) {
-	const { children, open, value } = props;
+//   const QontoConnector = withStyles({
+// 	alternativeLabel: {
+// 	  top: 10,
+// 	  left: 'calc(-50% + 16px)',
+// 	  right: 'calc(50% + 16px)',
+// 	},
+// 	active: {
+// 	  '& $line': {
+// 		borderColor: '#784af4',
+// 	  },
+// 	},
+// 	completed: {
+// 	  '& $line': {
+// 		borderColor: '#784af4',
+// 	  },
+// 	},
+// 	line: {
+// 	  borderColor: '#eaeaf0',
+// 	  borderTopWidth: 3,
+// 	  borderRadius: 1,
+// 	},
+//   })(StepConnector);
+  
+//   const useQontoStepIconStyles = makeStyles({
+// 	root: {
+// 	  color: '#eaeaf0',
+// 	  display: 'flex',
+// 	  height: 22,
+// 	  alignItems: 'center',
+// 	},
+// 	active: {
+// 	  color: '#784af4',
+// 	},
+// 	circle: {
+// 	  width: 8,
+// 	  height: 8,
+// 	  borderRadius: '50%',
+// 	  backgroundColor: 'currentColor',
+// 	},
+// 	completed: {
+// 	  color: '#784af4',
+// 	  zIndex: 1,
+// 	  fontSize: 18,
+// 	},
+//   });
+  
+//   function QontoStepIcon(props) {
+// 	const classes = useQontoStepIconStyles();
+// 	const { active, completed } = props;
+  
+// 	return (
+// 	  <div
+// 		className={clsx(classes.root, {
+// 		  [classes.active]: active,
+// 		})}
+// 	  >
+// 		{completed ? <Check className={classes.completed} /> : <div className={classes.circle} />}
+// 	  </div>
+// 	);
+//   }
+  
+//   QontoStepIcon.propTypes = {
+// 	active: PropTypes.bool,
+// 	completed: PropTypes.bool,
+//   };
+  
+  const ColorlibConnector = withStyles({
+	alternativeLabel: {
+	  top: 22,
+	},
+	active: {
+	  '& $line': {
+		backgroundImage:
+		  'linear-gradient( 95deg,rgb(242,113,33) 0%,rgb(233,64,87) 50%,rgb(138,35,135) 100%)',
+	  },
+	},
+	completed: {
+	  '& $line': {
+		backgroundImage:
+		  'linear-gradient( 95deg,rgb(242,113,33) 0%,rgb(233,64,87) 50%,rgb(138,35,135) 100%)',
+	  },
+	},
+	line: {
+	  height: 3,
+	  border: 0,
+	  backgroundColor: '#eaeaf0',
+	  borderRadius: 1,
+	},
+  })(StepConnector);
+  
+  const useColorlibStepIconStyles = makeStyles({
+	root: {
+	  backgroundColor: '#ccc',
+	  zIndex: 1,
+	  color: '#fff',
+	  width: 50,
+	  height: 50,
+	  display: 'flex',
+	  borderRadius: '50%',
+	  justifyContent: 'center',
+	  alignItems: 'center',
+	},
+	active: {
+	  backgroundImage:
+		'linear-gradient( 136deg, rgb(242,113,33) 0%, rgb(233,64,87) 50%, rgb(138,35,135) 100%)',
+	  boxShadow: '0 4px 10px 0 rgba(0,0,0,.25)',
+	},
+	completed: {
+	  backgroundImage:
+		'linear-gradient( 136deg, rgb(242,113,33) 0%, rgb(233,64,87) 50%, rgb(138,35,135) 100%)',
+	},
+  });
+  
+  function ColorlibStepIcon(props) {
+	const classes = useColorlibStepIconStyles();
+	const { active, completed } = props;
+  
+	const icons = {
+	  1: <SettingsIcon />,
+	  2: <GroupAddIcon />,
+	  3: <VideoLabelIcon />,
+	};
   
 	return (
-	  <Tooltip open={open} enterTouchDelay={0} placement="top" title={value}>
-		{children}
-	  </Tooltip>
+	  <div
+		className={clsx(classes.root, {
+		  [classes.active]: active,
+		  [classes.completed]: completed,
+		})}
+	  >
+		{icons[String(props.icon)]}
+	  </div>
 	);
   }
   
-  ValueLabelComponent.propTypes = {
-	children: PropTypes.element.isRequired,
-	open: PropTypes.bool.isRequired,
-	value: PropTypes.number.isRequired,
+  ColorlibStepIcon.propTypes = {
+	active: PropTypes.bool,
+	completed: PropTypes.bool,
+	icon: PropTypes.node,
   };
+  
+  const useStepperStyles = makeStyles((theme) => ({
+	root: {
+	  width: '100%',
+	},
+	button: {
+	  marginRight: theme.spacing(1),
+	},
+	instructions: {
+	  marginTop: theme.spacing(1),
+	  marginBottom: theme.spacing(1),
+	},
+  }));
+  
+  function getSteps() {
+	return ['Select Amount of Coverage', 'Insured Information', 'Payment Method', 'Confirmation' ];
+  }
+  
+  function getStepContent(step) {
+	switch (step) {
+	  case 0:
+		return 'Select Amount of Coverage';
+	  case 1:
+		return 'What is an ad group anyways?';
+	  case 2:
+		return 'This is the bit I really care about!';
+	  default:
+		return 'Unknown step';
+	}
+  }
+  
+  function CustomizedSteppers() {
+	const classes = useStepperStyles();
+	const [activeStep, setActiveStep] = React.useState(1);
+	const steps = getSteps();
+  
+	const handleNext = () => {
+	  setActiveStep((prevActiveStep) => prevActiveStep + 1);
+	};
+  
+	const handleBack = () => {
+	  setActiveStep((prevActiveStep) => prevActiveStep - 1);
+	};
+  
+	const handleReset = () => {
+	  setActiveStep(0);
+	};
+  
+	return (
+	  <div className={classes.root}>
+		
+		
+		<Stepper alternativeLabel activeStep={activeStep} connector={<ColorlibConnector />}>
+		  {steps.map((label) => (
+			<Step key={label}>
+			  <StepLabel StepIconComponent={ColorlibStepIcon}>{label}</StepLabel>
+			</Step>
+		  ))}
+		</Stepper>
+		{/** ToDo: Move buttons to bottom */}
+		<div>
+		  {activeStep === steps.length ? (
+			<div>
+			  <Typography className={classes.instructions}>
+				All steps completed - you&apos;re finished
+			  </Typography>
+			  <Button onClick={handleReset} className={classes.button}>
+				Reset
+			  </Button>
+			</div>
+		  ) : (
+			<div>
+			  <Typography className={classes.instructions}>{getStepContent(activeStep)}</Typography>
+			  <div>
+				<Button disabled={activeStep === 0} onClick={handleBack} className={classes.button}>
+				  Back
+				</Button>
+				<Button
+				  variant="contained"
+				  color="primary"
+				  onClick={handleNext}
+				  className={classes.button}
+				>
+				  {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
+				</Button>
+			  </div>
+			</div>
+		  )}
+		</div>
+	  </div>
+
+	);
+  }
 
   const PolicySlider = withStyles({
 	root: {
@@ -75,8 +308,8 @@ const useStyles = makeStyles((theme) => ({
 	thumb: {
 	  height: 48,
 	  width: 24,
-	  backgroundColor: 'purple',
-	  border: '2px solid purple',
+	  backgroundColor: 'black',
+	  border: '2px solid black',
 	  marginTop: -8,
 	  marginLeft: -12,
 	  '&:focus, &:hover, &$active': {
@@ -89,16 +322,13 @@ const useStyles = makeStyles((theme) => ({
 	},
 	track: {
 	  height: 12,
-	  borderRadius: 2,
+	  borderRadius: 1,
 	},
 	rail: {
 	  height: 12,
-	  borderRadius: 2,
+	  borderRadius: 1,
 	},
-  })(Slider);
-
-
-  		
+  })(Slider);  		
 
 /** @dev main page - default home page */
 function HurricaneMainContent({ classes , account, nextStepClick, onSliderChange, loading, selectedPolicyAmount}) {
@@ -116,18 +346,25 @@ function HurricaneMainContent({ classes , account, nextStepClick, onSliderChange
 	});
 
 	return (
-		<div className={classes.container}>			
+		<div className={classes.container}>	
+		Connected Account: [{account}]		
 			<Grid
 				container
 				spacing={1}
 				className={classes.contentWrapper}
 				alignItems="center"
 				justify="center"
-			>					
+			>				
+				<Grid lg={12} sm={12}>
+					<CustomizedSteppers step={1} />
+				</Grid>	
 				<Grid lg={12} xs={12} item>
-					<Typography variant="h5" color="textPrimary" align="center">
-						Buy a Hurricane policy for account: [{account}]
-					</Typography>						
+					<Typography variant="h3" color="textPrimary" align="center">
+						Hurricane Coverage
+					</Typography>
+					{/* <Typography variant="h5" color="textPrimary" align="center">
+						Connected Account: [{account}]
+					</Typography>						 */}
 				</Grid>
 				<hr />
 				<Grid lg={12} xs={12} container item spacing={3}>
@@ -137,55 +374,57 @@ function HurricaneMainContent({ classes , account, nextStepClick, onSliderChange
 						max={500}
 						step={5}
 						valueLabelDisplay="on"
-						aria-label="pretto slider" 
+						aria-label="premium slider" 
 						defaultValue={100}
 						onChange={onSliderChange}	
 					/>
 				</Grid>
 				<Grid lg={12} xs={12} container item spacing={3}>
-
-
 					<label>Selected Amount: </label>{selectedPolicyAmount}
 				</Grid>
 				
 				<Grid lg={12} xs={12} container item spacing={3}>
-					<Typography component="h2" color="textPrimary" align="center">
+					<Typography variant="h4" color="textPrimary" align="center">
 						Claims are automatically paid if Hurricane-strength wind speeds
 			            are recorded by government weather stations within 15 mile radius
 						of your home or business.
 					</Typography>
 				</Grid>
 				<Grid lg={4} xs={12} container spacing={3} item>
-					<Typography component="h2" color="textPrimary" align="center">
-						<label>Category 3 </label>
-						<label>Max Payout: </label><br />
+					<Typography variant="h5" color="textPrimary" align="center">
+						<label>Category 3 [111 mph - 129 mph] </label><br />
+						<label>Max Payout: </label>
 						USD {selectedPolicyAmount * 10}
 					</Typography>
 				</Grid>
 				<Grid lg={4} xs={12} container spacing={3} item>
-					<Typography component="h2" color="textPrimary" align="center">
-						<label>Category 4 </label>
-						<label>Max Payout: </label><br />
+					<Typography variant="h5" color="textPrimary" align="center">
+						<label>Category 4 [130 mph - 156 mph] </label><br />
+						<label>Max Payout: </label>
 						USD {selectedPolicyAmount * 20}
 					</Typography>
 				</Grid>
-				<Grid lg={4} xs={12} container item spacing={3}>
-					<Typography component="h2" color="textPrimary" align="center">
-						<label>Category 5 </label>
-						<label>Max Payout: </label><br />
-						USD {selectedPolicyAmount *30}
+				<Grid lg={4} xs={12} container spacing={3} item>
+					<Typography variant="h5" color="textPrimary" align="center">
+						<label>Category 5 [157+ mph] </label><br />
+						<label>Max Payout: </label>
+						USD {selectedPolicyAmount * 30}
 					</Typography>
 				</Grid>
 				<Grid item container spacing={3}>
 					{/* if/else if there are items to list or fresh start... */}
-					<Button variant="contained" 
-						color="primary"
+					<Fab
+						account={account}
 						value={account}
-						onClick={(account) => nextStepClick(account)}
-					>Next Step</Button>
+						variant="extended"
+						color="primary"
+						onClick={(el, account) => nextStepClick(el, account)}
+					>
+						Next Step
+						<NavigateNextRoundedIcon className={classes.extendedIcon} />						
+					</Fab>
 				</Grid>
 			</Grid>
-			{/* <CenteredGrid c={classes} account={account} onSliderChange={onSliderChange} /> */}
 		</div>
 	)
 }
@@ -193,101 +432,5 @@ function HurricaneMainContent({ classes , account, nextStepClick, onSliderChange
 HurricaneMainContent.propTypes = {
 	classes: PropTypes.object,
 }
-
-function CenteredGrid({ c, account, onClick, onSliderChange, loading, selectedPolicyAmount}) {
-	//const classes = useStyles(c);
-  
-	return (
-	  <div className={c.root}>
-		<Grid container spacing={1}>
-		  <Grid item xs={12}>
-			<Paper className={c.paper}>
-				<Typography variant="h5" color="textPrimary" align="center">
-					Buy a Hurricane policy for account: [{account}]
-				</Typography>
-			</Paper>
-		  </Grid>
-		  <Grid item xs={12} lg={12}>
-			<Paper className={c.paper}>
-			<PolicySlider
-						className={c.slider}						
-						min={25}
-						max={500}
-						step={5}
-						valueLabelDisplay="on"
-						aria-label="pretto slider" 
-						defaultValue={100}
-						onChange={onSliderChange}	
-					/>
-			</Paper>
-		  </Grid>
-		  <Grid item xs={12} lg={4} >
-			<Paper className={c.paper}>
-				1
-			</Paper>
-		  </Grid>
-		  <Grid item xs={12} lg={4} >
-			<Paper className={c.paper}>
-				2
-			</Paper>
-		  </Grid>
-		  <Grid item xs={12} lg={4} >
-			<Paper className={c.paper}>
-				3
-			</Paper>
-		  </Grid>
-		  
-		</Grid>
-	  </div>
-	);
-  }
-
-function SpacingGrid() {
-	const [spacing, setSpacing] = React.useState(2);
-	const classes = useStyles();
-  
-	const onRadioChange = (event) => {
-	  setSpacing(Number(event.target.value));
-	};
-  
-	return (
-	  <Grid container className={classes.root} spacing={2}>
-		<Grid item xs={12}>
-		  <Grid container justify="center" spacing={spacing}>
-			{[0, 1, 2].map((value) => (
-			  <Grid key={value} item>
-				<Paper className={classes.paper} />
-			  </Grid>
-			))}
-		  </Grid>
-		</Grid>
-		<Grid item xs={12}>
-		  <Paper className={classes.control}>
-			<Grid container>
-			  <Grid item>
-				<FormLabel>spacing</FormLabel>
-				<RadioGroup
-				  name="spacing"
-				  aria-label="spacing"
-				  value={spacing.toString()}
-				  onChange={onRadioChange}
-				  row
-				>
-				  {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((value) => (
-					<FormControlLabel
-					  key={value}
-					  value={value.toString()}
-					  control={<Radio />}
-					  label={value.toString()}
-					/>
-				  ))}
-				</RadioGroup>
-			  </Grid>
-			</Grid>
-		  </Paper>
-		</Grid>
-	  </Grid>
-	);
-  }
 
 export default withStyles(styles)(HurricaneMainContent)

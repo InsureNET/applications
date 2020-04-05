@@ -4,9 +4,9 @@ import Typography from '@material-ui/core/Typography'
 import Paper from '@material-ui/core/Paper'
 import Grid from '@material-ui/core/Grid'
 import { withStyles } from '@material-ui/core/styles'
-import Button from '@material-ui/core/Button';
-import TabBar from 'components/TabBar'
-import CustomTabs from '../Utility/CustomizedTabs'
+//import Button from '@material-ui/core/Button';
+//import TabBar from 'components/TabBar'
+//import CustomTabs from '../Utility/CustomizedTabs'
 //import MoneyButton from '@moneybutton/react-money-button'
 import backgroundImage from '../../ai-blockchain-iot-in-insurance.jpg'
 
@@ -39,21 +39,23 @@ const styles = theme => ({
 		backgroundImage: `url(${backgroundImage})`,
 	},
 })
-const BackgroundImagePage = () => {
-	return (
-		<div className="bg"></div>
-	);
-  }
 
-const tabNames = ['Home', 'Profile', 'Membership'];
+// const BackgroundImagePage = () => {
+// 	return (
+// 		<div className="bg"></div>
+// 	);
+//   }
+
+//const tabNames = ['Home', 'Profile', 'Membership'];
 
 /** @dev main page - default home page */
 function Content({ classes }) {
 	return (
 		<div className={classes.container}>
-			<CustomTabs tabNames={tabNames}></CustomTabs>	
+			{/* <CustomTabs tabNames={tabNames}></CustomTabs>	 */}
 			<div>
-				
+				{/** @dev ToDo: Need to create the landing page content** */}
+
 			</div>
 		</div>
 	)
