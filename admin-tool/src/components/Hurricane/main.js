@@ -137,6 +137,13 @@ function HurricaneMainContent({ classes , account, onClick, onSliderChange, load
 
 					<label>Selected Amount: </label>{selectedPolicyAmount}
 				</Grid>
+				<Grid lg={12} xs={12} item>
+					<p>
+						Claims are automatically paid if Hurricane-strength wind speeds
+			            are recorded by government weather stations within 15 mile radius
+						of your home or business.
+					</p>
+				</Grid>
 				<Grid lg={4} xs={12}>
 					<label>Category 3 </label>
 					<label>Max Payout: </label><br />
