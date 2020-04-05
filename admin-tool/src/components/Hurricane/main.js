@@ -105,7 +105,7 @@ function HurricaneMainContent({ classes , account, onClick, onSliderChange, load
 	}
 
 	return (
-		<div className={classes.container}>
+		<div className={classes.container}>			
 			<Grid
 				container
 				spacing={16}
@@ -115,10 +115,11 @@ function HurricaneMainContent({ classes , account, onClick, onSliderChange, load
 				justify="center"
 			>					
 				<Grid lg={12} xs={12} item>
-					<Typography component="h2" color="textSecondary" align="center">
-						Buy a Hurricane policy for {account}
+					<Typography variant="h5" color="textPrimary" align="center">
+						Buy a Hurricane policy for account: [{account}]
 					</Typography>						
 				</Grid>
+				<hr />
 				<Grid lg={12} xs={12} item>
 					<PolicySlider
 						min={25}
@@ -130,37 +131,42 @@ function HurricaneMainContent({ classes , account, onClick, onSliderChange, load
 						defaultValue={100}
 						onChange={onSliderChange}	
 					/>
-
 				</Grid>
 				<Grid lg={12} xs={12} item>
 
 
 					<label>Selected Amount: </label>{selectedPolicyAmount}
 				</Grid>
+
 				<Grid lg={12} xs={12} item>
-					<p>
+				<Paper elevation={3}>
+					<Typography component="h2" color="textPrimary" align="center">
 						Claims are automatically paid if Hurricane-strength wind speeds
 			            are recorded by government weather stations within 15 mile radius
 						of your home or business.
-					</p>
+					</Typography>
+					</Paper>
 				</Grid>
 				<Grid lg={4} xs={12}>
-					<label>Category 3 </label>
-					<label>Max Payout: </label><br />
-					USD {selectedPolicyAmount * 10}
-
+					<Typography component="h2" color="textPrimary" align="center">
+						<label>Category 3 </label>
+						<label>Max Payout: </label><br />
+						USD {selectedPolicyAmount * 10}
+					</Typography>
 				</Grid>
 				<Grid lg={4} xs={12}>
-					<label>Category 4 </label>
-					<label>Max Payout: </label><br />
-					USD {selectedPolicyAmount * 20}
-
+					<Typography component="h2" color="textPrimary" align="center">
+						<label>Category 4 </label>
+						<label>Max Payout: </label><br />
+						USD {selectedPolicyAmount * 20}
+					</Typography>
 				</Grid>
 				<Grid lg={4} xs={12}>
-					<label>Category 5 </label>
-					<label>Max Payout: </label><br />
-					USD {selectedPolicyAmount *30}
-
+					<Typography component="h2" color="textPrimary" align="center">
+						<label>Category 5 </label>
+						<label>Max Payout: </label><br />
+						USD {selectedPolicyAmount *30}
+					</Typography>
 				</Grid>
 				<Grid>
 					{/* if/else if there are items to list or fresh start... */}
@@ -168,9 +174,9 @@ function HurricaneMainContent({ classes , account, onClick, onSliderChange, load
 						color="primary"
 						value={account}
 						onClick={(account) => onClick(account)}
-					>Buy Policy</Button>
+					>Next Step</Button>
 				</Grid>
-				</Grid>
+			</Grid>
 		</div>
 	)
 }
