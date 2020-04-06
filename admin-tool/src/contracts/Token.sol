@@ -6,6 +6,9 @@
  */
 
 import "@openzeppelin/contracts/math/SafeMath.sol";
+import "@openzeppelin/contracts/token/ERC20/ERC20Pausable.sol";
+import "@openzeppelin/contracts/token/ERC20/ERC20Mintable.sol";
+
 
 pragma solidity ^0.5.16;
 
@@ -18,7 +21,7 @@ pragma solidity ^0.5.16;
 contract Token {
     string  public name = "iNET Token";
     string  public symbol = "iNET";
-    uint256 public _totalSupply = 1000000000000000000000000000; // 1 Billion tokens
+    uint256 public _totalSupply = 10**9 * 10**18; // 1 Billion tokens
     uint8   public decimals = 18;
 
     /**

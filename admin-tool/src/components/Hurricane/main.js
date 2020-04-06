@@ -253,9 +253,7 @@ const useStyles = makeStyles((theme) => ({
 	};
   
 	return (
-	  <div className={classes.root}>
-		
-		
+	  <div className={classes.root}>		
 		<Stepper alternativeLabel activeStep={activeStep} connector={<ColorlibConnector />}>
 		  {steps.map((label) => (
 			<Step key={label}>

@@ -14,7 +14,7 @@ import Tooltip from '@material-ui/core/Tooltip'
 import Typography from '@material-ui/core/Typography'
 import { withStyles } from '@material-ui/core/styles'
 
-const lightColor = 'rgba(255, 255, 255, 0.7)'
+const lightColor = 'rgba(230, 230, 230, 0.7)'
 
 const styles = theme => ({
 	secondaryBar: {
@@ -24,7 +24,7 @@ const styles = theme => ({
 		marginLeft: -theme.spacing.unit,
 	},
 	iconButtonAvatar: {
-		padding: 4,
+		padding: 8,
 	},
 	link: {
 		color: lightColor,
@@ -37,17 +37,55 @@ const styles = theme => ({
 	},
 	avatar: {
 		img: {
-			margin: 0,
+			margin: 5,
 		},
 	},
 })
+
+/** 
+ * @dev Connect Wallet => MetaMaskk for now
+ *
+ */
+function connectWallet() {
+	confirm('Connect Wallet?')
+	
+}
+
+
 
 function Header({ classes, onDrawerToggle, title }) {
 	return (
 		<>
 			<AppBar color="primary" position="sticky" elevation={0}>
 				<Toolbar>
-					<Grid container spacing={8} alignItems="center">
+					<Grid container spacing={4} alignItems="center">
+					<Grid item xs>
+							<Typography 
+								style={{ textTransform: 'capitalize' }} 
+								color="inherit" 
+								variant="h5"
+							>
+								{title}
+							</Typography>
+						</Grid>
+						<Grid item>
+							<Button 
+								className={classes.button} 
+								variant="outlined" 
+								color="inherit" 
+								size="small"
+								onClick={connectWallet}
+							>
+								Connect Wallet
+							</Button>
+						</Grid>
+						<Grid item>
+							<Tooltip title="Help">
+								<IconButton color="inherit">
+									<HelpIcon />
+								</IconButton>
+							</Tooltip>
+						</Grid>
 						<Hidden smUp>
 							<Grid item>
 								<IconButton
@@ -62,34 +100,38 @@ function Header({ classes, onDrawerToggle, title }) {
 						</Hidden>
 						<Grid item xs />
 						<Grid item>
-							<Typography className={classes.link} component="a" href="#">
+							<Typography className={classes.link} component="a" href="/document">
 								Go to docs
 							</Typography>
 						</Grid>
 						<Grid item>
-							<Tooltip title="Alerts • No alters">
-								<IconButton color="inherit">
-									<NotificationsIcon />
-								</IconButton>
-							</Tooltip>
+							<Typography className={classes.link} component="a" href="/messages">
+								<Tooltip title="Alerts • No alters">
+									<IconButton color="inherit">
+										<NotificationsIcon />
+									</IconButton>
+								</Tooltip>
+							</Typography>
 						</Grid>
 						<Grid item>
-							<IconButton color="inherit" className={classes.iconButtonAvatar}>
-								<Avatar className={classes.avatar} src="/images/mockup4.jpg" />
-							</IconButton>
+							<Typography className={classes.link} component="a" href="/account">
+								<IconButton color="inherit" className={classes.iconButtonAvatar}>
+									<Avatar className={classes.avatar} src="/images/mockup4.jpg" />
+								</IconButton>
+							</Typography>
 						</Grid>
 					</Grid>
 				</Toolbar>
 			</AppBar>
-			<AppBar component="div" className={classes.secondaryBar} color="primary" position="static" elevation={0}>
+			{/*<AppBar component="div" className={classes.secondaryBar} color="primary" position="static" elevation={0}>
 				<Toolbar>
 					<Grid container alignItems="center" spacing={8}>
-						<Grid item xs>
+						 <Grid item xs>
 							<Typography style={{ textTransform: 'capitalize' }} color="inherit" variant="h5">
 								{title}
 							</Typography>
-						</Grid>
-						<Grid item>
+						</Grid> */}
+						{/* <Grid item>
 							<Button className={classes.button} variant="outlined" color="inherit" size="small">
 								Web setup
 							</Button>
@@ -100,10 +142,10 @@ function Header({ classes, onDrawerToggle, title }) {
 									<HelpIcon />
 								</IconButton>
 							</Tooltip>
-						</Grid>
+						</Grid> 
 					</Grid>
 				</Toolbar>
-			</AppBar>
+			</AppBar>*/}
 		</>
 	)
 }

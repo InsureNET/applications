@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Layout from 'components/Layout'
 import Content from 'components/Content'
-import AccidentContent from 'components/Accident'
+import AccountContent from 'components/Account'
 import Web3 from 'web3'
 
 async function loadWeb3() {
@@ -35,21 +35,22 @@ async function loadBlockchainData() {
 	return acct;
 }
 
-function AccidentPage({ data, location, account }) {
+function AccountPage({ data, location, account }) {
 	const pageTitle = location ? location.pathname.replace(/\//g, '') : ''
-	loadWeb3();
-	const accnt = loadBlockchainData();
+	//loadWeb3();
+	//const accnt = loadBlockchainData();
 
 	return (
 		<Layout location={location} title={pageTitle}>
-			<AccidentContent account={account} />		
+			{/* <AccountContent account={account} />		 */}
 			{data}
 		</Layout>
 	)
 }
-AccidentPage.propTypes = {
+
+AccountPage.propTypes = {
 	data: PropTypes.object,
 	location: PropTypes.object,
 }
 
-export default AccidentPage
+export default AccountPage

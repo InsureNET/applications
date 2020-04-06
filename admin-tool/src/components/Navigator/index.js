@@ -60,7 +60,7 @@ const categories = [
 	{
 		id: 'Exchanges',
 		children: [
-			{ id: 'Buy or Sell iNET', icon: <AttachMoneyRoundedIcon />, page: 'exchange' },
+			{ id: 'Buy iNET', icon: <AttachMoneyRoundedIcon />, page: 'exchange' },
 			//{ id: 'Uniswap', icon: <AutorenewRoundedIcon />, page: 'uniswap' },
 			//{ id: 'p2pb2b', icon: <AutorenewRoundedIcon />, page: 'p2pb2b' },
 		]
@@ -136,7 +136,7 @@ const categories = [
 	{
 		id: 'Support',
 		children: [
-			{ id: 'Network Status', icon: <PeopleIcon />, page: 'network' },
+			{ id: 'Network Status', icon: <SettingsInputComponentIcon />, page: 'network' },
 			{ id: 'Contact Support', icon: <PeopleIcon />, page: 'support' },
 		]
 	}
@@ -190,7 +190,15 @@ const styles = theme => ({
 function Navigator({ classes, location = null, ...rest }) {
 	const matchPath = location ? location.pathname.replace(/\//g, '') : null
 	return (
-		<Drawer variant="permanent" {...rest}>
+		<Drawer 
+			variant='permanent'
+			anchor='left'
+			open={open}
+			classes={{
+				paper: classes.drawerPaper,
+			}}
+			{...rest}
+		>
 			<List disablePadding>
 				<ListItem className={classNames(classes.firebase, classes.item, classes.itemCategory)}>
 					<Grid container alignItems="center" spacing={8} direction="row">
@@ -211,7 +219,7 @@ function Navigator({ classes, location = null, ...rest }) {
 								primary: classes.itemPrimary,
 							}}
 						>
-							Project Overview
+							Welcome Page
 						</ListItemText>
 					</ListItem>
 				</Link>

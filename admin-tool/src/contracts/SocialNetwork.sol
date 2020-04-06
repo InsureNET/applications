@@ -69,7 +69,7 @@ contract SocialNetwork {
         emit PostTipped(postCount, _post.content, _post.tipAmount, _author);
     }
 
-    function followAuthor(uint256 _id) public returns (bool) {
+    function followAuthor(uint256 _id) public pure returns (bool) {
         // find the post
 
         // get the author of the post

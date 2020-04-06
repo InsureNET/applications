@@ -3,12 +3,11 @@ import PropTypes from 'prop-types'
 import Identicon from 'identicon.js';
 import Web3 from 'web3'
 import Token from '../../abis/Token.json'
-import EthSwap from '../../abis/EthSwap.json'
 import Navbar from '../Navbar/index'
-import Main from '../Exchange/main'
 import Paper from '@material-ui/core/Paper'
 import { withStyles } from '@material-ui/core/styles'
 import TabBar from 'components/TabBar'
+import AccountPageContent from 'components/Account'
 
 const styles = theme => ({
 	paper: {
@@ -36,28 +35,27 @@ const styles = theme => ({
 	},
 })
 
-const tabNames = ['My Policies', 'Pending'];
+const tabNames = ['My Policies', 'Pending', 'Profile', 'Transactions', 'Sellng'];
 
-function addPolicy(event) {
-    console.log(event.target)
-}
 
-function DisasterContent({ classes }) {
+function AccountContent({ classes, account, id }) {
     return (
-        <div>
-          
+        <div>          
           <div className="container-fluid mt-5">
             <div className="row">
             <TabBar tabNames={tabNames}></TabBar>
-            <Paper className='paper'>
-              
-            </Paper>
+			<Navbar account={account} id={id}/>
+			
               <main 
                 role="main" 
                 className="col-lg-12 ml-auto mr-auto" 
                 style={{ maxWidth: '600px' }}
               >
                 <div className="content mr-auto ml-auto">
+                  <AccountPageContent account={account} />
+                  
+
+
                 </div>
               </main>
             </div>
@@ -66,8 +64,8 @@ function DisasterContent({ classes }) {
       );
 }
 
-DisasterContent.propTypes = {
+AccountContent.propTypes = {
     classes: PropTypes.object,
 }
 
-export default withStyles(styles)(DisasterContent);
+export default withStyles(styles)(AccountContent);

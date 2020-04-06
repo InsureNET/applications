@@ -16,3 +16,9 @@ export const loadAccount = async (web3, dispatch) => {
     dispatch(web3AccountLoaded(account))
     return account
 }
+
+export const loadBlockchainData = async (web3, dispatch) => {
+    data = {}
+
+    return data
+}

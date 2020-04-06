@@ -15,7 +15,9 @@ contract ProofOfExistence {
 
   // calculate and store the proof for a document
   // *transactional function*
-  function notarize(string memory _document) public returns (bytes32) {
+  function notarize(
+    string memory _document
+  ) public returns (bytes32) {
     proof = proofFor(_document);
     return proof;
   }
@@ -23,7 +25,9 @@ contract ProofOfExistence {
 
   // helper function to get a document's sha256
   // *read-only function*
-  function proofFor(string memory _document) internal returns (bytes32) {
+  function proofFor(
+    string memory _document
+  ) internal returns (bytes32) {
     return sha256(abi.encode(_document));
   }
 

@@ -121,7 +121,7 @@ class Exchange extends Component {
           <div>            
             <div className="container-fluid mt-5">
               <div className="row">
-                <CustomTabs tabNames={tabNames}></CustomTabs>	
+                {/* <CustomTabs tabNames={tabNames}></CustomTabs>	 */}
                 <Navbar account={this.state.account} />                
                 <main 
                   role="main" 
