@@ -72,9 +72,9 @@ function AutoGrid({ account }) {
 					</Typography>
 				</Paper>
 		  </Grid>
-		  <Grid item xs>
-			<Paper className={classes.paper}>
-				<table>
+		  <Grid item xl={12}>
+			  
+				<table className='table'>
 					<thead>
 						<tr>
 							<th>&nbsp;</th>
@@ -123,7 +123,6 @@ function AutoGrid({ account }) {
 						</tr>
 					</tbody>
 				</table>
-			</Paper>
 		  </Grid>
 		</Grid>
 		<Grid container spacing={3}>
