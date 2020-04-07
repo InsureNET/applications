@@ -1,23 +1,21 @@
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
-import Paper from '@material-ui/core/Paper'
-import Grid from '@material-ui/core/Grid'
+import { Paper, Grid, Avatar } from '@material-ui/core'
 import { withStyles, makeStyles } from '@material-ui/core/styles'
-import Avatar from '@material-ui/core/Avatar';
 //import Button from '@material-ui/core/Button';
 //import TabBar from 'components/TabBar'
 //import CustomTabs from '../Utility/CustomizedTabs'
 //import MoneyButton from '@moneybutton/react-money-button'
 //import backgroundImage from '../../inetLogo.png' 
-import { Container } from '@material-ui/core'
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Typography from '@material-ui/core/Typography';
+import { Container, CssBaseline, Typography } from '@material-ui/core'
+import { Table, TableBody, TableCell,
+		 TableContainer, TableHead, TableRow } from '@material-ui/core';
 
 //ai-blockchain-iot-in-insurance.jpg'
 const useStyles = makeStyles((theme) => ({
 	root: {
 	  	flexGrow: 1,
-	  	...theme.typography.button,
+	  	...theme.typography.subtitle2,
 		backgroundColor: theme.palette.background.paper,
 		padding: theme.spacing(1),
 	},
@@ -28,21 +26,103 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
+// Table data
+function createData(name, regular, our) {
+	return { name, regular, our };
+}
 
+// table rows
+const rows = [
+	createData('Speed of Payout', '2-9 Months', '< 24 Hours'),
+	createData('Cost', '$600 / Year', '$10'),
+	createData('Loss Of Income Protection', 'No', 'Yes'),
+	createData('Deductible', '2%', 'None'),
+	createData('Transparency', 'No', 'Yes'),
+];
+
+// Table styles
+const tableStyles = makeStyles({
+	table: {
+		minWidth: 650,
+	},
+});
+
+function AcccessibleTable() {
+	const classes = tableStyles();
+
+	return (
+	<TableContainer component={Paper} elevation={3}>
+		<Table className={classes.table} aria-label="caption table">
+		{/* <caption>Why our product is better than regular insurance</caption> */}
+		<TableHead>
+			<TableRow>
+			<TableCell>Example</TableCell>
+			<TableCell align="right">Regular Insurance</TableCell>
+			<TableCell align="right">InsureNET Policy</TableCell>
+			</TableRow>
+		</TableHead>
+		<TableBody>
+			{rows.map((row) => (
+			<TableRow key={row.name}>
+				<TableCell component="th" scope="row">
+				{row.name}
+				</TableCell>
+				<TableCell align="right">{row.regular}</TableCell>
+				<TableCell align="right">{row.our}</TableCell>
+			</TableRow>
+			))}
+		</TableBody>
+		</Table>
+	</TableContainer>
+	);
+}
 
 
 function AutoGrid({ account }) {
 	const classes = useStyles();
-  
+
 	return (
-	  <div className={classes.root}>
-		<Grid item lg>
-			
+	<div className={classes.root}>
+		<Grid container spacing={2}>
+			<Grid item lg={12} style={{textAlign: 'center'}}>
+				<Typography variant="h3" gutterBottom>
+					The problem with current insurance
+				</Typography>				
+			</Grid><br /><br />
+			<Grid item lg={6} sm={3}>
+				<Paper className={classes.paper} elevation={3}>
+					<Typography variant="body1">
+						If you have ever seen the aftermath of a hurricane you understand how 
+						imprtant a fast cash injection can help. With current insurance that never
+						happens and we are going to do something about it with this platform and you.
+						Automatic claim payments to all policies if wind speeds are
+						recorded within 15 miles of your home or business.
+					</Typography>
+				</Paper>
+			</Grid>
+			<Grid item lg={6} sm={3}>
+				<Paper className={classes.paper} elevation={3}>
+					<Typography variant="body1">
+						An immediate infusion of cash for the most important things you 
+						need like food, water, generator, fuel, medicine and other personal needs.
+						Using smart contracts on the Etheruem blockchain we can trigger events
+						based on advanced weather data. We can issue, track and pay out a policy
+						anywhere in the world in a secure and transparent way.
+					</Typography>
+				</Paper>
+			</Grid>
 		</Grid>
+		<br /><br /><br />
+		<div className='table-header' style={{textAlign: 'center'}}>
+			<Typography variant="h2" gutterBottom>
+			  Not Just Insurance, Better Insurance!
+			</Typography>
+		</div><br /><br />
+		<AcccessibleTable /><br /><br /><hr /><br /><br />
 		<Grid container spacing={3}>
 		{/* <label>Account: </label>{account} */}
-		  
-		  <Grid item xs>
+		
+		<Grid item xs>
 			<Paper className={classes.paper} elevation={3}>
 				<Typography variant="h6">
 					<label>Opportunity for Insurers</label><br />
@@ -54,9 +134,9 @@ function AutoGrid({ account }) {
 					powering innovations in micro-insurance and micro-finance.
 				</Typography>						
 			</Paper>
-		  </Grid>
-		  <Grid item xs>
-			  <Paper className={classes.paper} elevation={3}>
+		</Grid>
+		<Grid item xs>
+			<Paper className={classes.paper} elevation={3}>
 				<Typography variant="h6">
 						<label>Opportunity for Insureds</label><br />
 						Expected value of risk is redistribution of capital corresponding to sharing 
@@ -71,83 +151,13 @@ function AutoGrid({ account }) {
 						
 					</Typography>
 				</Paper>
-		  </Grid>
-		  <Grid item xl={12}>
-			  
-				<table className='table'>
-					<thead>
-						<tr>
-							<th>&nbsp;</th>
-							<td>&nbsp;</td>
-							<th>Regular Insurers</th>
-							<th></th>
-							<th>InsureNET</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							
-							<td>Speed of Payout</td>
-							<td>|</td>
-							<td>2-9 Months</td>
-							<td>|</td>
-							<td>24 Hours</td>
-						</tr>
-						<tr>
-							<td>Cost</td>	
-							<td>|</td>					
-							<td>$600 / Year</td>
-							<td>|</td>
-							<td>$10 and up</td>
-						</tr>
-						<tr>
-							<td>Loss of Income Protection</td>
-							<td>|</td>
-							<td>No</td>
-							<td>|</td>
-							<td>Yes</td>
-						</tr>
-						<tr>
-							<td>Deductible</td>
-							<td>|</td>
-							<td>2%</td>
-							<td>|</td>
-							<td>None</td>
-						</tr>
-						<tr>
-							<td>Transparency</td>
-							<td>|</td>
-							<td>No</td>
-							<td>|</td>
-							<td>Yes</td>
-						</tr>
-					</tbody>
-				</table>
-		  </Grid>
 		</Grid>
-		<Grid container spacing={3}>
-		  <Grid item xs>
-			<Paper className={classes.paper} elevation={3}>
-				Automatic claim payments to all policies if wind speeds are
-				recorded within 15 miles of your home or business.
-			</Paper>
-		  </Grid>
-		  <Grid item xs={3}>
-			<Paper className={classes.paper} elevation={3}>
-				Using smart contracts on the Etheruem blockchain we can trigger events
-				based on advanced weather data. We can issue, track and pay out a policy
-				anywhere in the world in a secure and transparent way.
-			</Paper>
-		  </Grid>
-		  <Grid item xs>
-			<Paper className={classes.paper} elevation={3}>
-				
-			</Paper>
-		  </Grid>
+		
 		</Grid>
-	  </div>
+		
+	</div>
 	);
-  }
+}
 
 /* <Typography>
 	<p>
@@ -174,6 +184,7 @@ function AutoGrid({ account }) {
 		<li>Transaction costs</li>
 	</ol>
 </Typography> */
+
 const styles = theme => ({
 	paper: {
 		margin: 'auto',
@@ -203,12 +214,6 @@ const styles = theme => ({
 		//backgroundImage: `url(${backgroundImage})`,
 	},
 })
-
-// const BackgroundImagePage = () => {
-// 	return (
-// 		<div className="bg"></div>
-// 	);
-//   }
 
 //const tabNames = ['Home', 'Profile', 'Membership'];
 

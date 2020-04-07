@@ -21,6 +21,7 @@ import TimerIcon from '@material-ui/icons/Timer'
 import SettingsIcon from '@material-ui/icons/Settings'
 import PhonelinkSetupIcon from '@material-ui/icons/PhonelinkSetup'
 import Logo from 'components/Logo'
+//import Logo from '../../../public/images/mockup.jpg'
 import AccountBalanceWalletIcon from '@material-ui/icons/AccountBalanceWallet';
 import LocalShippingIcon from '@material-ui/icons/LocalShipping';
 import Brightness7Icon from '@material-ui/icons/Brightness7';

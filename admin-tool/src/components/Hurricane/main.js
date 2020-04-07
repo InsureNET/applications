@@ -185,6 +185,7 @@ const useStyles = makeStyles((theme) => ({
 	  1: <SettingsIcon />,
 	  2: <GroupAddIcon />,
 	  3: <VideoLabelIcon />,
+	  4: <VideoLabelIcon />,
 	};
   
 	return (
