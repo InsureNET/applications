@@ -125,7 +125,7 @@ function AutoGrid({ account }) {
 		<Grid item xs>
 			<Paper className={classes.paper} elevation={3}>
 				<Typography variant="h6">
-					<label>Opportunity for Insurers</label><br />
+					<label>Opportunity for Insureds</label><br />
 					There are a number of decentralized applications and platforms developing 
 					alliances and partnerships with many crypto services to achieve capital efficiencies 
 					with single global ledgers and to expand our network. Driving automation to capture risk 
@@ -138,7 +138,7 @@ function AutoGrid({ account }) {
 		<Grid item xs>
 			<Paper className={classes.paper} elevation={3}>
 				<Typography variant="h6">
-						<label>Opportunity for Insureds</label><br />
+						<label>Opportunity for Insurers</label><br />
 						Expected value of risk is redistribution of capital corresponding to sharing 
 						risks among the policy holders. Capital has to be locked for a certain period
 						of time, and there is potential risk of losing the capital provided. Capital 
