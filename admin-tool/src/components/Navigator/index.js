@@ -193,7 +193,6 @@ function Navigator({ classes, location = null, ...rest }) {
 		<Drawer 
 			variant='permanent'
 			anchor='left'
-			open={open}
 			classes={{
 				paper: classes.drawerPaper,
 			}}

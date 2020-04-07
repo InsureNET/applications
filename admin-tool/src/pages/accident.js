@@ -31,22 +31,24 @@ import Web3 from 'web3'
 // 	const accounts = await web3.eth.getAccounts() 
 // 	const acct = accounts[0];
 // 	console.log('blockchain data loaded')
+// 	console.log(acct)
 // 	console.groupEnd();
 // 	return acct;
 // }
 
-function AccidentPage({ data, location, account }) {
+function AccidentPage({ data, location }) {
 	const pageTitle = location ? location.pathname.replace(/\//g, '') : ''
 	//loadWeb3();
-	//const accnt = loadBlockchainData();
+	//const account = loadBlockchainData();
 
 	return (
 		<Layout location={location} title={pageTitle}>
-			{/* <AccidentContent account={account} />		 
-			{data}*/}
+			{/* <AccidentContent account={account} />		
+			{data} */}
 		</Layout>
 	)
 }
+
 AccidentPage.propTypes = {
 	data: PropTypes.object,
 	location: PropTypes.object,

@@ -353,7 +353,7 @@ function HurricaneMainContent({ classes , account, nextStepClick, onSliderChange
 				alignItems="center"
 				justify="center"
 			>				
-				<Grid lg={12} sm={12}>
+				<Grid lg={12} sm={12} item>
 					<CustomizedSteppers step={1} />
 				</Grid>	
 				<Grid lg={12} xs={12} item>
