@@ -6,14 +6,14 @@ const Marketplace = artifacts.require('Marketplace');
 const PolicyCreator = artifacts.require('PolicyCreator');
 const HurricanePolicyCreator = this.artifacts.require('HurricaneCreatePolicy');
 const POE = artifacts.require('ProofOfExistence');
-const Casino = artifacts.require('Casino')
+//const Casino = artifacts.require('Casino')
 
 module.exports = async function(deployer) {
   /**
    * @dev Deployments
    */
 
-  await deployer.deploy(Casino, '1000000000000000')
+  //await deployer.deploy(Casino, '1000000000000000')
 
   await deployer.deploy(SocialNetwork);
 
