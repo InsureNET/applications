@@ -16,13 +16,14 @@ import NavigateNextRoundedIcon from '@material-ui/icons/NavigateNextRounded';
 import StepConnector from '@material-ui/core/StepConnector';
 import clsx from 'clsx';
 import Check from '@material-ui/icons/Check';
-
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
 import SettingsIcon from '@material-ui/icons/Settings';
 import GroupAddIcon from '@material-ui/icons/GroupAdd';
 import VideoLabelIcon from '@material-ui/icons/VideoLabel';
+import { Table, TableBody, TableCell,
+	TableContainer, TableHead, TableRow } from '@material-ui/core';
 
 const styles = theme => ({
 	paper: {
@@ -64,72 +65,6 @@ const useStyles = makeStyles((theme) => ({
 	}
   }));
 
-//   const QontoConnector = withStyles({
-// 	alternativeLabel: {
-// 	  top: 10,
-// 	  left: 'calc(-50% + 16px)',
-// 	  right: 'calc(50% + 16px)',
-// 	},
-// 	active: {
-// 	  '& $line': {
-// 		borderColor: '#784af4',
-// 	  },
-// 	},
-// 	completed: {
-// 	  '& $line': {
-// 		borderColor: '#784af4',
-// 	  },
-// 	},
-// 	line: {
-// 	  borderColor: '#eaeaf0',
-// 	  borderTopWidth: 3,
-// 	  borderRadius: 1,
-// 	},
-//   })(StepConnector);
-  
-//   const useQontoStepIconStyles = makeStyles({
-// 	root: {
-// 	  color: '#eaeaf0',
-// 	  display: 'flex',
-// 	  height: 22,
-// 	  alignItems: 'center',
-// 	},
-// 	active: {
-// 	  color: '#784af4',
-// 	},
-// 	circle: {
-// 	  width: 8,
-// 	  height: 8,
-// 	  borderRadius: '50%',
-// 	  backgroundColor: 'currentColor',
-// 	},
-// 	completed: {
-// 	  color: '#784af4',
-// 	  zIndex: 1,
-// 	  fontSize: 18,
-// 	},
-//   });
-  
-//   function QontoStepIcon(props) {
-// 	const classes = useQontoStepIconStyles();
-// 	const { active, completed } = props;
-  
-// 	return (
-// 	  <div
-// 		className={clsx(classes.root, {
-// 		  [classes.active]: active,
-// 		})}
-// 	  >
-// 		{completed ? <Check className={classes.completed} /> : <div className={classes.circle} />}
-// 	  </div>
-// 	);
-//   }
-  
-//   QontoStepIcon.propTypes = {
-// 	active: PropTypes.bool,
-// 	completed: PropTypes.bool,
-//   };
-  
   const ColorlibConnector = withStyles({
 	alternativeLabel: {
 	  top: 22,
@@ -219,26 +154,28 @@ const useStyles = makeStyles((theme) => ({
 	},
   }));
   
-  function getSteps() {
-	return ['Select Amount of Coverage', 'Insured Information', 'Payment Method', 'Confirmation' ];
-  }
+function getSteps() {
+	return ['Select Amount of Coverage', 'Insured Information', 'Payment Information', 'Confirmation' ];
+}
   
-  function getStepContent(step) {
+function getStepContent(step) {
 	switch (step) {
-	  case 0:
-		return 'Select Amount of Coverage';
-	  case 1:
-		return 'What is an ad group anyways?';
-	  case 2:
-		return 'This is the bit I really care about!';
-	  default:
-		return 'Unknown step';
+		case 0:
+			return 'Select Amount of Coverage';
+		case 1:
+			return 'Insured Information';
+		case 2:
+			return 'Payment Information';
+		case 3:
+			return 'Confirmation';
+		default:
+			return 'Unknown step';
 	}
-  }
+}
   
-  function CustomizedSteppers() {
+function CustomizedSteppers() {
 	const classes = useStepperStyles();
-	const [activeStep, setActiveStep] = React.useState(1);
+	const [activeStep, setActiveStep] = React.useState(0);
 	const steps = getSteps();
   
 	const handleNext = () => {
@@ -361,12 +298,19 @@ function HurricaneMainContent({ classes , account, nextStepClick, onSliderChange
 					<Typography variant="h3" color="textPrimary" align="center">
 						Hurricane Coverage
 					</Typography>
+					<Typography align='center'>
+						Coverage payouts pre-agreed upon amounts will be paid directly to the 
+						account you have on your profile.
+					</Typography>
 					{/* <Typography variant="h5" color="textPrimary" align="center">
 						Connected Account: [{account}]
 					</Typography>						 */}
 				</Grid>
-				<hr />
 				<Grid lg={12} xs={12} container item spacing={3}>
+
+				</Grid>
+				<Grid lg={12} xs={12} container item spacing={3}>
+				<br /><br />
 					<PolicySlider
 						className={classes.slider}						
 						min={25}
@@ -377,13 +321,13 @@ function HurricaneMainContent({ classes , account, nextStepClick, onSliderChange
 						defaultValue={100}
 						onChange={onSliderChange}	
 					/>
-				</Grid>
+				</Grid><br /><br /><br />
 				<Grid lg={12} xs={12} container item spacing={3}>
 					<label>Selected Amount: </label>{selectedPolicyAmount}
 				</Grid>
 				
 				<Grid lg={12} xs={12} container item spacing={3}>
-					<Typography variant="h4" color="textPrimary" align="center">
+					<Typography variant="h5" color="textPrimary" align="center">
 						Claims are automatically paid if Hurricane-strength wind speeds
 			            are recorded by government weather stations within 15 mile radius
 						of your home or business.
@@ -424,9 +368,54 @@ function HurricaneMainContent({ classes , account, nextStepClick, onSliderChange
 					</Fab>
 				</Grid>
 			</Grid>
+			{/* <TableContainer component={Paper} elevation={3}>
+				<Table className={classes.table} aria-label="caption table">
+				
+				<TableHead>
+					<TableRow>
+					<TableCell>Category</TableCell>
+					<TableCell align="right">Premium</TableCell>
+					<TableCell align="right">Max Payout</TableCell>
+					</TableRow>
+				</TableHead>
+				<TableBody>
+					{rows.map((row) => (
+					<TableRow key={row.name}>
+						<TableCell component="th" scope="row">
+						{row.name}
+						</TableCell>
+						<TableCell align="right">{row.regular}</TableCell>
+						<TableCell align="right">{row.our}</TableCell>
+					</TableRow>
+					))}
+				</TableBody>
+				</Table>
+			</TableContainer> */}
 		</div>
 	)
 }
+
+
+// Table data
+function createData(name, premium, payout) {
+	return { name, premium, payout };
+}
+
+// table rows
+const rows = [
+	createData('Category 3', '', ''),
+	createData('Category 4', '', ''),
+	createData('Category 5', '', ''),
+];
+
+// Table styles
+const tableStyles = makeStyles({
+	table: {
+		minWidth: 350,
+	},
+});
+
+
 
 HurricaneMainContent.propTypes = {
 	classes: PropTypes.object,
