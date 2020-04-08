@@ -22,6 +22,8 @@ import StepLabel from '@material-ui/core/StepLabel';
 import SettingsIcon from '@material-ui/icons/Settings';
 import GroupAddIcon from '@material-ui/icons/GroupAdd';
 import VideoLabelIcon from '@material-ui/icons/VideoLabel';
+import PaymentRoundedIcon from '@material-ui/icons/PaymentRounded';
+import DoneOutlineRoundedIcon from '@material-ui/icons/DoneOutlineRounded';
 import { Table, TableBody, TableCell,
 	TableContainer, TableHead, TableRow } from '@material-ui/core';
 
@@ -119,8 +121,8 @@ const useStyles = makeStyles((theme) => ({
 	const icons = {
 	  1: <SettingsIcon />,
 	  2: <GroupAddIcon />,
-	  3: <VideoLabelIcon />,
-	  4: <VideoLabelIcon />,
+	  3: <PaymentRoundedIcon />,
+	  4: <DoneOutlineRoundedIcon />,
 	};
   
 	return (
@@ -200,76 +202,64 @@ function CustomizedSteppers() {
 		  ))}
 		</Stepper>
 		{/** ToDo: Move buttons to bottom */}
-		<div>
-		  {activeStep === steps.length ? (
-			<div>
-			  <Typography className={classes.instructions}>
-				All steps completed - you&apos;re finished
-			  </Typography>
-			  <Button onClick={handleReset} className={classes.button}>
-				Reset
-			  </Button>
-			</div>
-		  ) : (
-			<div>
-			  <Typography className={classes.instructions}>{getStepContent(activeStep)}</Typography>
-			  <div>
-				<Button disabled={activeStep === 0} onClick={handleBack} className={classes.button}>
-				  Back
-				</Button>
-				<Button
-				  variant="contained"
-				  color="primary"
-				  onClick={handleNext}
-				  className={classes.button}
-				>
-				  {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
-				</Button>
-			  </div>
-			</div>
-		  )}
-		</div>
+		
 	  </div>
 
 	);
   }
 
-  const PolicySlider = withStyles({
-	root: {
-	  color: '#52af77',
-	  height: 25,
-	  marginLeft: 50,
-	  marginRight: 50,
+const PolicySlider = withStyles({
+root: {
+	color: '#52af77',
+	height: 25,
+	marginLeft: 50,
+	marginRight: 50,
+},
+thumb: {
+	height: 48,
+	width: 24,
+	backgroundColor: 'black',
+	border: '2px solid black',
+	marginTop: -8,
+	marginLeft: -12,
+	'&:focus, &:hover, &$active': {
+	boxShadow: 'inherit',
 	},
-	thumb: {
-	  height: 48,
-	  width: 24,
-	  backgroundColor: 'black',
-	  border: '2px solid black',
-	  marginTop: -8,
-	  marginLeft: -12,
-	  '&:focus, &:hover, &$active': {
-		boxShadow: 'inherit',
-	  },
-	},
-	active: {},
-	valueLabel: {
-	  left: 'calc(-50% + 4px)',
-	},
-	track: {
-	  height: 12,
-	  borderRadius: 1,
-	},
-	rail: {
-	  height: 12,
-	  borderRadius: 1,
-	},
-  })(Slider);  		
+},
+active: {},
+valueLabel: {
+	left: 'calc(-50% + 4px)',
+},
+track: {
+	height: 12,
+	borderRadius: 1,
+},
+rail: {
+	height: 12,
+	borderRadius: 1,
+},
+})(Slider);  		
 
 /** @dev main page - default home page */
-function HurricaneMainContent({ classes , account, nextStepClick, onSliderChange, loading, selectedPolicyAmount}) {
+function HurricaneMainContent({ classes , account, onSliderChange, loading, selectedPolicyAmount }) {
+
+	const [activeStep, setActiveStep] = React.useState(0);
+	const steps = getSteps();
+  
+	const handleNext = () => {
+	  setActiveStep((prevActiveStep) => prevActiveStep + 1);
+	};
+  
+	const handleBack = () => {
+	  setActiveStep((prevActiveStep) => prevActiveStep - 1);
+	};
+  
+	const handleReset = () => {
+	  setActiveStep(0);
+	};
+
 	let content
-	//const [] = useState(0)
+
 	if (loading) {
 		content = <p id="loader" className="text-center">Loading...</p>
 	} else {
@@ -292,7 +282,7 @@ function HurricaneMainContent({ classes , account, nextStepClick, onSliderChange
 				justify="center"
 			>				
 				<Grid lg={12} sm={12} item>
-					<CustomizedSteppers step={1} />
+					<CustomizedSteppers step={0} />
 				</Grid>	
 				<Grid lg={12} xs={12} item>
 					<Typography variant="h3" color="textPrimary" align="center">
@@ -306,8 +296,8 @@ function HurricaneMainContent({ classes , account, nextStepClick, onSliderChange
 						Connected Account: [{account}]
 					</Typography>						 */}
 				</Grid>
-				<Grid lg={12} xs={12} container item spacing={3}>
-
+				<Grid lg={12} xs={12} item spacing={3} align="center">
+					<label>Selected Amount: </label>{selectedPolicyAmount}
 				</Grid>
 				<Grid lg={12} xs={12} container item spacing={3}>
 				<br /><br />
@@ -321,42 +311,67 @@ function HurricaneMainContent({ classes , account, nextStepClick, onSliderChange
 						defaultValue={100}
 						onChange={onSliderChange}	
 					/>
-				</Grid><br /><br /><br />
-				<Grid lg={12} xs={12} container item spacing={3}>
-					<label>Selected Amount: </label>{selectedPolicyAmount}
-				</Grid>
-				
-				<Grid lg={12} xs={12} container item spacing={3}>
+				</Grid><br /><br /><br />			
+				<Grid lg={12} xs={12} container item spacing={3} align="center">
 					<Typography variant="h5" color="textPrimary" align="center">
 						Claims are automatically paid if Hurricane-strength wind speeds
 			            are recorded by government weather stations within 15 mile radius
 						of your home or business.
 					</Typography>
 				</Grid>
-				<Grid lg={4} xs={12} container spacing={3} item>
+				<Grid lg={4} xs={12} container spacing={3} item align="center">
 					<Typography variant="h5" color="textPrimary" align="center">
 						<label>Category 3 [111 mph - 129 mph] </label><br />
 						<label>Max Payout: </label>
 						USD {selectedPolicyAmount * 10}
 					</Typography>
 				</Grid>
-				<Grid lg={4} xs={12} container spacing={3} item>
+				<Grid lg={4} xs={12} container spacing={3} item align="center">
 					<Typography variant="h5" color="textPrimary" align="center">
 						<label>Category 4 [130 mph - 156 mph] </label><br />
 						<label>Max Payout: </label>
 						USD {selectedPolicyAmount * 20}
 					</Typography>
 				</Grid>
-				<Grid lg={4} xs={12} container spacing={3} item>
+				<Grid lg={4} xs={12} container spacing={3} item align="center">
 					<Typography variant="h5" color="textPrimary" align="center">
 						<label>Category 5 [157+ mph] </label><br />
 						<label>Max Payout: </label>
 						USD {selectedPolicyAmount * 30}
 					</Typography>
 				</Grid>
-				<Grid item container spacing={3}>
+				<Grid item lg={12} sm={12} spacing={3} align='center'>
+					<div>
+						{activeStep === steps.length ? (
+							<div>
+								<Typography className={classes.instructions}>
+									All steps completed - you&apos;re finished
+								</Typography>
+								<Button onClick={handleReset} className={classes.button}>
+									Reset
+								</Button>
+								</div>
+							) : (
+								<div>
+								<Typography className={classes.instructions}>{getStepContent(activeStep)}</Typography>
+								<div>
+									<Button disabled={activeStep === 0} onClick={handleBack} className={classes.button}>
+									Back
+									</Button>
+									<Button
+									variant="contained"
+									color="primary"
+									onClick={handleNext}
+									className={classes.button}
+									>
+									{activeStep === steps.length - 1 ? 'Finish' : 'Next'}
+									</Button>
+								</div>
+							</div>
+						)}
+					</div>
 					{/* if/else if there are items to list or fresh start... */}
-					<Fab
+					{/* <Fab
 						account={account}
 						value={account}
 						variant="extended"
@@ -365,7 +380,7 @@ function HurricaneMainContent({ classes , account, nextStepClick, onSliderChange
 					>
 						Next Step
 						<NavigateNextRoundedIcon className={classes.extendedIcon} />						
-					</Fab>
+					</Fab> */}
 				</Grid>
 			</Grid>
 			{/* <TableContainer component={Paper} elevation={3}>
@@ -382,7 +397,7 @@ function HurricaneMainContent({ classes , account, nextStepClick, onSliderChange
 					{rows.map((row) => (
 					<TableRow key={row.name}>
 						<TableCell component="th" scope="row">
-						{row.name}
+							{row.name}
 						</TableCell>
 						<TableCell align="right">{row.regular}</TableCell>
 						<TableCell align="right">{row.our}</TableCell>
