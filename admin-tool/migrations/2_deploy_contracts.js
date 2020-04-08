@@ -13,7 +13,7 @@ module.exports = async function(deployer) {
    * @dev Deployments
    */
 
-  await deployer.deploy(Casino, '10000000000000000')
+  await deployer.deploy(Casino, '1000000000000000')
 
   await deployer.deploy(SocialNetwork);
 

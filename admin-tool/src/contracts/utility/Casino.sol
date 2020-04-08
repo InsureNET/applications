@@ -50,7 +50,8 @@ contract Casino {
                 count++;
             }
             // Delete all players after distribution
-            delete playerInfo[playerAddress];
+            //delete playerInfo[playerAddress];
+            resetData();
         }
 
         players.length = 0;
@@ -84,6 +85,12 @@ contract Casino {
       if(numberOfBets >= maxAmountOfBets) {
           generateNumberWinner();
       }
+    }
+
+    function resetData() public {
+        players.length = 0; // Delete all the players array
+        totalBet = 0;
+        numberOfBets = 0;
     }
 
     function kill() public {
