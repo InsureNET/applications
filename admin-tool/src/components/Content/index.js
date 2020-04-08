@@ -86,21 +86,21 @@ function AutoGrid({ account }) {
 		<Grid container spacing={2}>
 			<Grid item lg={12} style={{textAlign: 'center'}}>
 				<Typography variant="h3" gutterBottom>
-					The problem with current insurance
+					The problem with current insurance...
 				</Typography>				
-			</Grid><br /><br />
-			<Grid item lg={6} sm={3}>
+			</Grid><br />
+			<Grid item lg={6} sm={6} xs={12}>
 				<Paper className={classes.paper} elevation={3}>
 					<Typography variant="body1">
-						If you have ever seen the aftermath of a hurricane you understand how 
-						imprtant a fast cash injection can help. With current insurance that never
+						If you have ever experienced the aftermath of a hurricane you understand how 
+						important a fast cash injection can help. With current insurance that never
 						happens and we are going to do something about it with this platform and you.
 						Automatic claim payments to all policies if wind speeds are
 						recorded within 15 miles of your home or business.
 					</Typography>
 				</Paper>
 			</Grid>
-			<Grid item lg={6} sm={3}>
+			<Grid item lg={6} sm={6} xs={12}>
 				<Paper className={classes.paper} elevation={3}>
 					<Typography variant="body1">
 						An immediate infusion of cash for the most important things you 
@@ -122,7 +122,7 @@ function AutoGrid({ account }) {
 		<Grid container spacing={3}>
 		{/* <label>Account: </label>{account} */}
 		
-		<Grid item xs>
+		<Grid item xs={12}>
 			<Paper className={classes.paper} elevation={3}>
 				<Typography variant="h6">
 					<label>Opportunity for Insureds</label><br />
@@ -135,7 +135,7 @@ function AutoGrid({ account }) {
 				</Typography>						
 			</Paper>
 		</Grid>
-		<Grid item xs>
+		<Grid item xs={12}>
 			<Paper className={classes.paper} elevation={3}>
 				<Typography variant="h6">
 						<label>Opportunity for Insurers</label><br />
