@@ -13,6 +13,7 @@ import Toolbar from '@material-ui/core/Toolbar'
 import Tooltip from '@material-ui/core/Tooltip'
 import Typography from '@material-ui/core/Typography'
 import { withStyles } from '@material-ui/core/styles'
+import web3 from 'web3'
 
 const lightColor = 'rgba(230, 230, 230, 0.7)'
 
@@ -50,6 +51,7 @@ function connectWallet() {
 	confirm('Connect Wallet?')
 	
 }
+
 
 
 

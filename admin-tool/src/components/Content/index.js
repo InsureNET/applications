@@ -34,9 +34,9 @@ function createData(name, regular, our) {
 // table rows
 const rows = [
 	createData('Speed of Payout', '2-9 Months', '< 24 Hours'),
-	createData('Cost', '$600 / Year', '$10'),
+	createData('Cost', '$600 or more / year', '$10'),
 	createData('Loss Of Income Protection', 'No', 'Yes'),
-	createData('Deductible', '2%', 'None'),
+	createData('Deductible', '2% and up', 'None'),
 	createData('Transparency', 'No', 'Yes'),
 ];
 
@@ -56,9 +56,9 @@ function AcccessibleTable() {
 		{/* <caption>Why our product is better than regular insurance</caption> */}
 		<TableHead>
 			<TableRow>
-			<TableCell>Example</TableCell>
-			<TableCell align="right">Regular Insurance</TableCell>
-			<TableCell align="right">InsureNET Policy</TableCell>
+			<TableCell style={{ fontWeight: 'bold' }}>Example</TableCell>
+			<TableCell align="right" style={{ fontWeight: 'bold' }}>Regular Insurance</TableCell>
+			<TableCell align="right" style={{ fontWeight: 'bold' }}>InsureNET Policy</TableCell>
 			</TableRow>
 		</TableHead>
 		<TableBody>
@@ -121,69 +121,51 @@ function AutoGrid({ account }) {
 		<AcccessibleTable /><br /><br /><hr /><br /><br />
 		<Grid container spacing={3}>
 		{/* <label>Account: </label>{account} */}
-		
-		<Grid item xs={12}>
-			<Paper className={classes.paper} elevation={3}>
-				<Typography variant="h6">
-					<label>Opportunity for Insureds</label><br />
-					There are a number of decentralized applications and platforms developing 
-					alliances and partnerships with many crypto services to achieve capital efficiencies 
-					with single global ledgers and to expand our network. Driving automation to capture risk 
-					data using smart contract technology to build market knowledge, automate payments
-					and attract financing risk. Decisions can be made faster and with full confidence 
-					powering innovations in micro-insurance and micro-finance.
-				</Typography>						
-			</Paper>
-		</Grid>
-		<Grid item xs={12}>
-			<Paper className={classes.paper} elevation={3}>
-				<Typography variant="h6">
-						<label>Opportunity for Insurers</label><br />
-						Expected value of risk is redistribution of capital corresponding to sharing 
-						risks among the policy holders. Capital has to be locked for a certain period
-						of time, and there is potential risk of losing the capital provided. Capital 
-						providers are also compensated for this risk and the compensation is calculated
-						based on the time of the ‘lock-up’ of the token and the length of time on which 
-						the risk is being insured. We argue that today insurance companies are the 
-						predominant way to organize these elements and that blockchain technology provides
-						an opportunity to replace insurance firms by decentralized structures using a 
-						standardized protocol. Capital and revenue streams can then be represented by tokens.
-						
-					</Typography>
+			<Grid item lg={12}>
+				<Typography variant="h3" align="center">
+					Hassle-free cash when you need it the most!
+				</Typography>
+				<Typography variant="h5" align="center">
+					Simple, transparent and reliable hurricane insurance for your home
+					business or loss of income
+				</Typography>
+			</Grid>
+			<Grid item xs={12}>
+				<Paper className={classes.paper} elevation={3}>
+					<Typography variant="h6">
+						<label style={{ fontWeight: 'bold' }}>Opportunity for Insureds</label><br />
+						There are a number of decentralized applications and platforms developing 
+						alliances and partnerships with many crypto services to achieve capital efficiencies 
+						with single global ledgers and to expand our network. Driving automation to capture risk 
+						data using smart contract technology to build market knowledge, automate payments
+						and attract financing risk. Decisions can be made faster and with full confidence 
+						powering innovations in micro-insurance and micro-finance.
+					</Typography>						
 				</Paper>
-		</Grid>
+			</Grid>
+			<Grid item xs={12}>
+				<Paper className={classes.paper} elevation={3}>
+					<Typography variant="h6">
+							<label style={{ fontWeight: 'bold' }}>Opportunity for Insurers</label><br />
+							Expected value of risk is redistribution of capital corresponding to sharing 
+							risks among the policy holders. Capital has to be locked for a certain period
+							of time, and there is potential risk of losing the capital provided. Capital 
+							providers are also compensated for this risk and the compensation is calculated
+							based on the time of the ‘lock-up’ of the token and the length of time on which 
+							the risk is being insured. We argue that today insurance companies are the 
+							predominant way to organize these elements and that blockchain technology provides
+							an opportunity to replace insurance firms by decentralized structures using a 
+							standardized protocol. Capital and revenue streams can then be represented by tokens.
+							
+						</Typography>
+					</Paper>
+			</Grid>
 		
 		</Grid>
 		
 	</div>
 	);
 }
-
-/* <Typography>
-	<p>
-		<i>Opportunity for Insurers:</i><br />
-		With the rise of DeFi (Decentralized Finance), insurance is not far behind.
-	</p>
-	<ol>
-		<li>Fraud detection and risk prevention</li>
-		<li>
-			<ol>
-				Blockchain has the potential to eliminate error, negligence and detect fraud by providing a decentralized digital repository to independently verify the veracity of customers, policies and claims [with a complete underlying transaction history verifiable on public record] so there is no need to duplicate with a typical audit log.
-			</ol>
-		</li>
-	</ol>
-</Typography> */
-/* <Typography>
-	<p>Everything is built in a predictable way using smart contracts to allow underwriting and risk 
-		assessment much faster and extremely accurate (Everyone will have the same up-to-date data at 
-		the same time).
-	</p>
-	<ol>
-		<li>Expected value of risk</li>
-		<li>Capital costs for long tail risks</li>
-		<li>Transaction costs</li>
-	</ol>
-</Typography> */
 
 const styles = theme => ({
 	paper: {

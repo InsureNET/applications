@@ -8,9 +8,7 @@ function DashboardIndex({ data, location, address }) {
 	const { title } = data.site.siteMetadata
 	return (
 		<Layout location={location} title={title}>
-
-			<Content address={address}/>
-			
+			<Content address={address}/>			
 		</Layout>
 	)
 }
