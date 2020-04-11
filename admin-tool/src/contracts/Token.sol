@@ -105,7 +105,7 @@ contract Token {
     //     return true;
     // }
 
-    // function mentTokens(address _account, uint256 amount) public onlyMelter returns (bool) {
+    // function mintTokens(address _account, uint256 amount) public onlyMelter returns (bool) {
     //     _melt(_account, _amount)
     //     emit Transfer(_account, address(this), _amount)
     //     return true;
@@ -117,7 +117,7 @@ contract Token {
     // }
 
     // function mintBatchFrozenTokens(
-    //     address[] calldata accounts, 
+    //     address[] calldata accounts,
     //     uint256[] calldata amounts
     // ) external onlyMinter returns (bool) {
         

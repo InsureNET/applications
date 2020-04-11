@@ -31,7 +31,20 @@ contract Marketplace {
         address payable owner;
         bool commissionPaid;
     }
-     // Describe the Binder
+
+     // Describe the Policy
+    struct Policy {
+        uint id;
+        string policyNumber;
+        address payable owner;
+        uint price;
+        uint commission;
+        bool active;
+        bool purchased;
+        bool renewable;
+    }
+
+    // Describe the Binder
     struct Binder {
         uint id;
         string name;
@@ -59,8 +72,6 @@ contract Marketplace {
         address payable owner;
         bool commissionPaid;
     }
-
-
 
     event PolicyCreated(
         uint id,
@@ -94,18 +105,7 @@ contract Marketplace {
         bool purchased
     );
 
-    // Describe the Policy
-    struct Policy {
-        uint id;
-        string policyNumber;
-        address payable owner;
-        uint price;
-        uint commission;
-        bool active;
-        bool purchased;
-        bool renewable;
-    }
-
+   
     constructor() public {
         name = "InsureNET Marketplace";
         //products = [];
