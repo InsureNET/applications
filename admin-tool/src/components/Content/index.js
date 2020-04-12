@@ -1,220 +1,240 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { Paper, Grid, Avatar } from '@material-ui/core'
 import { withStyles, makeStyles } from '@material-ui/core/styles'
 //import Button from '@material-ui/core/Button';
 //import TabBar from 'components/TabBar'
-//import CustomTabs from '../Utility/CustomizedTabs'
+import CustomTabs from '../Utility/CustomizedTabs'
+import Snackbar from '@material-ui/core/Snackbar';
+import MuiAlert from '@material-ui/lab/Alert';
 //import MoneyButton from '@moneybutton/react-money-button'
-//import backgroundImage from '../../inetLogo.png' 
-import { Container, CssBaseline, Typography } from '@material-ui/core'
-import { Table, TableBody, TableCell,
-		 TableContainer, TableHead, TableRow } from '@material-ui/core';
+import { Container, CssBaseline, Typography, Backdrop, CircularProgress, Button } from '@material-ui/core'
+//import { Table, TableBody, TableCell,
+//		 TableContainer, TableHead, TableRow } from '@material-ui/core';
 
-//ai-blockchain-iot-in-insurance.jpg'
+// Connect to HashGraph
+// import client
+const { Client, CryptoTransferTransaction, AccountId } = require('@hashgraph/sdk');
+
+// Grab the account id and key
+const operatorAccountId = '0.0.3792';
+const operatorPrivateKey = '302e020100300506032b657004220420bc5b7a6a77dbae570b36fd07a298fd8bf95eb1a3d95fe1adc90a8adce54c57fa';
+
+
+// Connect to Hedera and get balance of account
+async function connectToHedera() {
+	console.group('Hedera Connecting')
+	// if we cant grab the params then throw an error
+	if(operatorAccountId == null || operatorPrivateKey == null){
+		throw new Error('environment variables OPERATOR_KEY and OPERATOR_ID must be present');
+	}
+
+	// create connection to Hedera network
+	const client = Client.forTestnet();
+	client.setOperator(operatorAccountId, operatorPrivateKey);
+
+	// attempt to get balance HBAR
+	var currentBalance = (await client.getAccountBalance(operatorAccountId)).toString();	
+	//console.log("account balance:", currentBalance);
+
+	// console.log("balance before transfer:", (await client.getAccountBalance(operatorAccountId)).toString());
+    // const receipt = await (await new CryptoTransferTransaction()
+    //     .addSender(operatorAccountId, 1)
+    //     .addRecipient("0.0.3", 1)
+    //     .setTransactionMemo("sdk example")
+    //     .execute(client))
+    //     .getReceipt(client);
+    // console.log(receipt);
+	// console.log("balance after transfer:", (await client.getAccountBalance(operatorAccountId)).toString());
+	console.groupEnd();
+
+	return currentBalance;
+}
+var createCORSRequest = function(method, url) {
+	var xhr = new XMLHttpRequest();
+	if ("withCredentials" in xhr) {
+	  // Most browsers.
+	  xhr.open(method, url, true);
+	} else if (typeof XDomainRequest != "undefined") {
+	  // IE8 & IE9
+	  xhr = new XDomainRequest();
+	  xhr.open(method, url);
+	} else {
+	  // CORS not supported.
+	  xhr = null;
+	}
+	return xhr;
+};
+
+// ToDo: CORS is not supported! Need to use strict https!
+const getTopics = function() {
+	var xhr = new XMLHttpRequest();
+	var url = 'https://api-testnet.dragonglass.me/hedera/api/v1/topics';
+	var method = 'GET';
+	var xhr = createCORSRequest(method, url);
+
+	xhr.addEventListener('readystatechange', function () {
+		if (this.readyState === 4) {
+			
+		}
+	});
+
+	xhr.onload = function() {
+		var responseText = xhr.responseText;
+		console.log(`getTopics() respnse ${responseText}`);
+		// process the response.
+	};
+	   
+	xhr.onerror = function(error) {
+		 console.log(`[ERROR]::${error}`);
+	};
+
+	xhr.setRequestHeader('X-API-KEY', '0a17591c-d439-39ac-a497-5b54d857d00b');
+	xhr.withCredentials = true;
+	xhr.send();	
+}
+
 const useStyles = makeStyles((theme) => ({
-	root: {
-	  	flexGrow: 1,
-	  	...theme.typography.subtitle2,
-		backgroundColor: theme.palette.background.paper,
-		padding: theme.spacing(1),
-	},
-	paper: {
-	  padding: theme.spacing(2),
-	  textAlign: 'left',
-	  color: theme.palette.text.secondary,
+	backdrop: {
+	  zIndex: theme.zIndex.drawer + 1,
+	  color: '#fff',
 	},
 }));
 
-// Table data
-function createData(name, regular, our) {
-	return { name, regular, our };
+function Alert(props) {
+	return <MuiAlert elevation={6} variant="filled" {...props} />;
 }
 
-// table rows
-const rows = [
-	createData('Speed of Payout', '2-9 Months', '< 24 Hours'),
-	createData('Cost', '$600 or more / year', '$10'),
-	createData('Loss Of Income Protection', 'No', 'Yes'),
-	createData('Deductible', '2% and up', 'None'),
-	createData('Transparency', 'No', 'Yes'),
-];
-
-// Table styles
-const tableStyles = makeStyles({
-	table: {
-		minWidth: 650,
-	},
-});
-
-function AcccessibleTable() {
-	const classes = tableStyles();
-
-	return (
-	<TableContainer component={Paper} elevation={3}>
-		<Table className={classes.table} aria-label="caption table">
-		{/* <caption>Why our product is better than regular insurance</caption> */}
-		<TableHead>
-			<TableRow>
-			<TableCell style={{ fontWeight: 'bold' }}>Example</TableCell>
-			<TableCell align="right" style={{ fontWeight: 'bold' }}>Regular Insurance</TableCell>
-			<TableCell align="right" style={{ fontWeight: 'bold' }}>InsureNET Policy</TableCell>
-			</TableRow>
-		</TableHead>
-		<TableBody>
-			{rows.map((row) => (
-			<TableRow key={row.name}>
-				<TableCell component="th" scope="row">
-				{row.name}
-				</TableCell>
-				<TableCell align="right">{row.regular}</TableCell>
-				<TableCell align="right">{row.our}</TableCell>
-			</TableRow>
-			))}
-		</TableBody>
-		</Table>
-	</TableContainer>
-	);
-}
-
-
-function AutoGrid({ account }) {
+const SimpleBackdrop = function() {
 	const classes = useStyles();
-
+	const [open, setOpen] = React.useState(false);
+	const handleClose = () => {
+	  setOpen(false);
+	};
+	const handleToggle = () => {
+	  setOpen(!open);
+	};
+  
 	return (
-	<div className={classes.root}>
-		<Grid container spacing={2}>
-			<Grid item lg={12} style={{textAlign: 'center'}}>
-				<Typography variant="h3" gutterBottom>
-					The problem with current insurance...
-				</Typography>				
-			</Grid><br />
-			<Grid item lg={6} sm={6} xs={12}>
-				<Paper className={classes.paper} elevation={3}>
-					<Typography variant="body1">
-						If you have ever experienced the aftermath of a hurricane you understand how 
-						important a fast cash injection can help. With current insurance that never
-						happens and we are going to do something about it with this platform and you.
-						Automatic claim payments to all policies if wind speeds are
-						recorded within 15 miles of your home or business.
-					</Typography>
-				</Paper>
-			</Grid>
-			<Grid item lg={6} sm={6} xs={12}>
-				<Paper className={classes.paper} elevation={3}>
-					<Typography variant="body1">
-						An immediate infusion of cash for the most important things you 
-						need like food, water, generator, fuel, medicine and other personal needs.
-						Using smart contracts on the Etheruem blockchain we can trigger events
-						based on advanced weather data. We can issue, track and pay out a policy
-						anywhere in the world in a secure and transparent way.
-					</Typography>
-				</Paper>
-			</Grid>
-		</Grid>
-		<br /><br /><br />
-		<div className='table-header' style={{textAlign: 'center'}}>
-			<Typography variant="h2" gutterBottom>
-			  Not Just Insurance, Better Insurance!
-			</Typography>
-		</div><br /><br />
-		<AcccessibleTable /><br /><br /><hr /><br /><br />
-		<Grid container spacing={3}>
-		{/* <label>Account: </label>{account} */}
-			<Grid item lg={12}>
-				<Typography variant="h3" align="center">
-					Hassle-free cash when you need it the most!
-				</Typography>
-				<Typography variant="h5" align="center">
-					Simple, transparent and reliable hurricane insurance for your home
-					business or loss of income
-				</Typography>
-			</Grid>
-			<Grid item xs={12}>
-				<Paper className={classes.paper} elevation={3}>
-					<Typography variant="h6">
-						<label style={{ fontWeight: 'bold' }}>Opportunity for Insureds</label><br />
-						There are a number of decentralized applications and platforms developing 
-						alliances and partnerships with many crypto services to achieve capital efficiencies 
-						with single global ledgers and to expand our network. Driving automation to capture risk 
-						data using smart contract technology to build market knowledge, automate payments
-						and attract financing risk. Decisions can be made faster and with full confidence 
-						powering innovations in micro-insurance and micro-finance.
-					</Typography>						
-				</Paper>
-			</Grid>
-			<Grid item xs={12}>
-				<Paper className={classes.paper} elevation={3}>
-					<Typography variant="h6">
-							<label style={{ fontWeight: 'bold' }}>Opportunity for Insurers</label><br />
-							Expected value of risk is redistribution of capital corresponding to sharing 
-							risks among the policy holders. Capital has to be locked for a certain period
-							of time, and there is potential risk of losing the capital provided. Capital 
-							providers are also compensated for this risk and the compensation is calculated
-							based on the time of the ‘lock-up’ of the token and the length of time on which 
-							the risk is being insured. We argue that today insurance companies are the 
-							predominant way to organize these elements and that blockchain technology provides
-							an opportunity to replace insurance firms by decentralized structures using a 
-							standardized protocol. Capital and revenue streams can then be represented by tokens.
-							
-						</Typography>
-					</Paper>
-			</Grid>
-		
-		</Grid>
-		
-	</div>
+	  <div>
+		<Button variant="outlined" color="primary" onClick={handleToggle}>
+		  Show backdrop
+		</Button>
+		<Backdrop className={classes.backdrop} open={open} onClick={handleClose}>
+		  <CircularProgress color="inherit" />
+		</Backdrop>
+	  </div>
 	);
 }
 
-const styles = theme => ({
-	paper: {
-		margin: 'auto',
-		overflow: 'hidden',
-		[theme.breakpoints.up('sm')]: {
-			minWidth: 600,
-		},
-		[theme.breakpoints.up('lg')]: {
-			minWidth: 936,
-		},
-	},
-	searchBar: {
-		borderBottom: '1px solid rgba(0, 0, 0, 0.12)',
-	},
-	block: {
-		display: 'block',
-	},
-	addUser: {
-		marginRight: theme.spacing.unit,
-	},
-	contentWrapper: {
-		height: 368,
-	},
-	container: {
-		padding: 15,
-		height: 1200,
-		//backgroundImage: `url(${backgroundImage})`,
-	},
-})
+function Status(props) {
+	const [isOnline, setIsOnline] = useState(null);
+	
+	useEffect(() => {
+		if(props.status === 'online'){
+			setIsOnline('online');
+		}
 
-//const tabNames = ['Home', 'Profile', 'Membership'];
+		function handleStatusChange(status) {
+			console.log(`Setting status to ${status}`)
+			setIsOnline(status);
+		}  
+	  
+		// Specify how to clean up after this effect:
+		return function cleanup() {
+			
+		};
+	});
+  
+	if (isOnline === null) {
+	  return <SimpleBackdrop />;
+	}
+	return isOnline ? 'Online' : 'Offline';
+}
+
+const tabNames = ['Accounts', 'Transactions', 'Consensus', 'Files', 'Contracts'];
 
 /** @dev main page - default home page */
-function Content({ classes, account }) {
+function Content(props) {
+	const [operator, setOperator] = useState(operatorAccountId);
+	const [accountBalance, setAccountBalance] = useState(0);
+
+	useEffect(() => {
+		console.log(`[useEffect()]::Your balance is ${accountBalance}`)
+		//getTopics();
+		function handleOperatorChange(operator) {
+
+		}
+
+		function handleBalanceChange(balance) {
+
+		}
+
+		return function cleanup() {
+			console.log(`Cleanup function`)
+		}
+
+	});
+
+	
+	var accountInfo = Promise.resolve(connectToHedera());
+	accountInfo.then((value) => {
+		//console.log(value);
+		setAccountBalance(value);
+	});
+
 	return (
-		<div className={classes.container}>
-			{/* <CustomTabs tabNames={tabNames}></CustomTabs>	 */}
+		<div className='container'>
 			<div>
 				{/** @dev ToDo: Need to create the landing page content** */}				
 				<React.Fragment>
-					<Grid
-					container
-					direction="row"
-					justify="center"
-					alignItems="center"
-					>
-						<AutoGrid account={account} />
+					<CustomTabs tabNames={tabNames} onTabChanged={(e) => { console.log(` ${e} Tab Selected`)}} />
+					<Grid container item>
+						<Grid lg={4} sm={4} container item direction="row" justify="center" alignItems="center">
+							<Paper elevation={3} style={{ padding: '25px' }}>
+								<Status status={'online'}/>
+								<Typography>
+									HBAR Balance: {accountBalance}
+								</Typography>
+
+
+								</Paper>
+						</Grid>
+						<Grid lg={4} sm={4}
+						container item
+						direction="row"
+						justify="center"
+						alignItems="center"
+						>
+							<Paper elevation={3} style={{ padding: '25px' }}>
+
+								<Typography>
+									HBAR Balance: {accountBalance}
+								</Typography>
+
+
+							</Paper>
+						</Grid>
+						<Grid lg={4} sm={4}
+						container item
+						direction="row"
+						justify="center"
+						alignItems="center"
+						>
+							<Paper elevation={3} style={{ padding: '25px' }}>
+
+								<Typography>
+									HBAR Balance: {accountBalance}
+								</Typography>
+
+
+							</Paper>
+						</Grid>
+
+						
+
 					</Grid>
+
 				</React.Fragment>
 			</div>
 		</div>
@@ -222,7 +242,7 @@ function Content({ classes, account }) {
 }
 
 Content.propTypes = {
-	classes: PropTypes.object,
+	//classes: PropTypes.object,
 }
 
-export default withStyles(styles)(Content)
+export default Content

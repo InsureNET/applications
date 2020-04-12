@@ -104,13 +104,6 @@ const categories = [
 			//{ id: 'Performance', icon: <TimerIcon />, page: 'performance' },
 		],
 	},
-	// {
-	// 	id: 'Smart Contracts',
-	// 	children: [
-	// 		{ id: 'Solidity', icon: <WriteContractIcon />, page: 'solidity' },
-	// 		{ id: 'Vyper', icon: <DnsRoundedIcon />, page: 'vyper' },
-	// 	]
-	// },
 	
 	// {
 	// 	id: 'AI & ML',
