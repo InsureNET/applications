@@ -161,7 +161,7 @@ function Content(props) {
 
 	useEffect(() => {
 		console.log(`[useEffect()]::Your balance is ${accountBalance}`)
-		//getTopics();
+		getTopics();
 		function handleOperatorChange(operator) {
 
 		}
