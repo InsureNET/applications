@@ -12,26 +12,10 @@ import ListItemIcon from '@material-ui/core/ListItemIcon'
 import ListItemText from '@material-ui/core/ListItemText'
 import HomeIcon from '@material-ui/icons/Home'
 import PeopleIcon from '@material-ui/icons/People'
-import DnsRoundedIcon from '@material-ui/icons/DnsRounded'
-import PermMediaOutlinedIcon from '@material-ui/icons/PhotoSizeSelectActual'
-import PublicIcon from '@material-ui/icons/Public'
-import SettingsEthernetIcon from '@material-ui/icons/SettingsEthernet'
 import SettingsInputComponentIcon from '@material-ui/icons/SettingsInputComponent'
-import TimerIcon from '@material-ui/icons/Timer'
-import SettingsIcon from '@material-ui/icons/Settings'
-import PhonelinkSetupIcon from '@material-ui/icons/PhonelinkSetup'
-import Logo from 'components/Logo'
-//import Logo from '../../../public/images/mockup.jpg'
 import AccountBalanceWalletIcon from '@material-ui/icons/AccountBalanceWallet';
-import LocalShippingIcon from '@material-ui/icons/LocalShipping';
-import Brightness7Icon from '@material-ui/icons/Brightness7';
-import StoreIcon from '@material-ui/icons/Store';
-import AddToPhotosRoundedIcon from '@material-ui/icons/AddToPhotosRounded';
 import AccountBalanceRoundedIcon from '@material-ui/icons/AccountBalanceRounded';
-import ApartmentRoundedIcon from '@material-ui/icons/ApartmentRounded';
-import AssessmentRoundedIcon from '@material-ui/icons/AssessmentRounded';
 import AttachMoneyRoundedIcon from '@material-ui/icons/AttachMoneyRounded';
-import AttachFileRoundedIcon from '@material-ui/icons/AttachFileRounded';
 import UmbrellaIcon from '@material-ui/icons/BeachAccessRounded';
 import AutorenewRoundedIcon from '@material-ui/icons/AutorenewRounded';
 import WriteContractIcon from '@material-ui/icons/BorderColorRounded';
@@ -43,18 +27,22 @@ const categories = [
 		children: [
 			// { id: 'Login', icon: <PeopleIcon />, page: 'login' },
 			// { id: 'Join', icon: <PeopleIcon />, page: 'join' },
-			{ id: 'Member Dashboard', icon: <PeopleIcon />, page: 'membership' },
+			{ id: 'Member Dashboard', icon: <WriteContractIcon />, page: 'membership' },
 		]
 	},
 	{
-		id: 'Hedera Chat',
+		id: 'Hedera',
 		children: [
-			{ id: 'HederaChat', icon: <AccountBalanceWalletIcon />, page: 'hederachat' }
+			{ id: 'Hedera Chat', icon: <PeopleIcon />, page: 'hederachat' },
+			{ id: 'Hedera Wallet', icon: <AccountBalanceWalletIcon />, page: 'hederawallet' },
+			{ id: 'Buy HBAR', icon: <AccountBalanceRoundedIcon />, page: 'hbarexchange' },
+			{ id: 'Hedera Consensus', icon: <PeopleIcon />, page: 'hederasonsensus' },
 		]
 	},
 	{
 		id: 'Products',
 		children: [
+			{ id: 'Loss of Income', icon: <AttachMoneyRoundedIcon />, page: 'lossofincome' },
 			//{ id: 'Marketplace', icon: <StoreIcon />, page: 'marketplace' },
 			//{ id: 'Accident', icon: <WriteContractIcon />, page: 'accident' },
 			{ id: 'Hurricane', icon: <UmbrellaIcon />, page: 'hurricane' },
@@ -67,30 +55,32 @@ const categories = [
 	{
 		id: 'Exchanges',
 		children: [
-			{ id: 'Buy iNET', icon: <AttachMoneyRoundedIcon />, page: 'exchange' },
-			//{ id: 'Uniswap', icon: <AutorenewRoundedIcon />, page: 'uniswap' },
+			{ id: 'Buy iNET', icon: <AttachMoneyRoundedIcon />, page: 'exchange' },			
+			{ id: 'Uniswap', icon: <AutorenewRoundedIcon />, page: 'uniswap' },
 			//{ id: 'p2pb2b', icon: <AutorenewRoundedIcon />, page: 'p2pb2b' },
 		]
 	},
-	
-	
 	{
-		id: 'Social Network',
+		id: 'Support',
 		children: [
-			{ id: 'InsureNET Social', icon: <PeopleIcon />, page: 'socialnet' }
+			{ id: 'Network Status', icon: <SettingsInputComponentIcon />, page: 'network' },
+			{ id: 'Contact Support', icon: <PeopleIcon />, page: 'support' },
 		]
-	},
+	}
+	
+	// {
+	// 	id: 'Social Network',
+	// 	children: [
+	// 		{ id: 'InsureNET Social', icon: <PeopleIcon />, page: 'socialnet' }
+	// 	]
+	// },
 	// {
 	// 	id: 'Administration',
 	// 	children: [
 	// 		{ id: 'Authentication', icon: <PeopleIcon />, page: 'authentication' },
-	// 		{ id: 'Hosting', icon: <PublicIcon />, page: 'hosting' },
-			
+	// 		{ id: 'Hosting', icon: <PublicIcon />, page: 'hosting' },			
 	// 	],
-	// },
-	
-
-	
+	// },	
 	// {
 	// 	id: 'Risk Models',
 	// 	children: [
@@ -108,11 +98,9 @@ const categories = [
 	// {
 	// 	id: 'Smart Contracts',
 	// 	children: [
-	// 		{ id: 'Solidity', icon: <WriteContractIcon />, page: 'solidity' },
-	// 		{ id: 'Vyper', icon: <DnsRoundedIcon />, page: 'vyper' },
+	// 		{ id: 'Solidity', icon: <WriteContractIcon />, page: 'solidity' }
 	// 	]
-	// },
-	
+	// },	
 	// {
 	// 	id: 'AI & ML',
 	// 	children: [
@@ -126,8 +114,7 @@ const categories = [
 	// 		{ id: 'IPFS', icon: <SettingsEthernetIcon/>, page: 'ipfs' },
 	// 		{ id: 'Storage', icon: <PermMediaOutlinedIcon />, page: 'storage' },
 	// 	]
-	// },
-	
+	// },	
 	// {
 	// 	id: 'Testing',
 	// 	children: [
@@ -135,13 +122,7 @@ const categories = [
 	// 		{ id: 'Functions', icon: <SettingsEthernetIcon />, page: 'functions' },
 	// 	]
 	// },
-	{
-		id: 'Support',
-		children: [
-			{ id: 'Network Status', icon: <SettingsInputComponentIcon />, page: 'network' },
-			{ id: 'Contact Support', icon: <PeopleIcon />, page: 'support' },
-		]
-	}
+	
 ]
 
 const styles = theme => ({
