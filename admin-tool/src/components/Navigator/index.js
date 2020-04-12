@@ -47,6 +47,12 @@ const categories = [
 		]
 	},
 	{
+		id: 'Hedera Chat',
+		children: [
+			{ id: 'HederaChat', icon: <AccountBalanceWalletIcon />, page: 'hederachat' }
+		]
+	},
+	{
 		id: 'Products',
 		children: [
 			//{ id: 'Marketplace', icon: <StoreIcon />, page: 'marketplace' },
@@ -83,27 +89,22 @@ const categories = [
 	// 	],
 	// },
 	
+
+	
 	// {
-	// 	id: 'Wallets',
+	// 	id: 'Risk Models',
 	// 	children: [
-	// 		{ id: 'MetaMask', icon: <AccountBalanceWalletIcon />, page: 'metamask' }
+	// 		{ id: 'RiskDashboard', icon: <DnsRoundedIcon />, page: 'riskdashboard' },
 	// 	]
 	// },
-	
-	{
-		id: 'Risk Models',
-		children: [
-			{ id: 'RiskDashboard', icon: <DnsRoundedIcon />, page: 'riskdashboard' },
-		]
-	},
-	{
-		id: 'Risk Reporting',
-		children: [
-			{ id: 'Etherscan', icon: <SettingsInputComponentIcon/>, page: 'etherscan' },
-			//{ id: 'Analytics', icon: <SettingsIcon />, page: 'analytics' },
-			//{ id: 'Performance', icon: <TimerIcon />, page: 'performance' },
-		],
-	},
+	// {
+	// 	id: 'Risk Reporting',
+	// 	children: [
+	// 		{ id: 'Etherscan', icon: <SettingsInputComponentIcon/>, page: 'etherscan' },
+	// 		//{ id: 'Analytics', icon: <SettingsIcon />, page: 'analytics' },
+	// 		//{ id: 'Performance', icon: <TimerIcon />, page: 'performance' },
+	// 	],
+	// },
 	// {
 	// 	id: 'Smart Contracts',
 	// 	children: [
