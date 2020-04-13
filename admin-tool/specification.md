@@ -70,7 +70,7 @@ This is the working copy and authoritative description of the iNET token and Tok
 
 1. Contributors which sign an ECA with 1 year lockup get 10% bonus.
 2. Contributors which sign an ECA with 1 year lockup and which are in the first 10M of signed ECAs, get 25% bonus.
-3. iNET Holders which sign an ECA with 1 year lockup get 25% bonus. The Decision on bonus is made during whitelisting, but off-chain.
+3. iNET Holders which sign an ECA with 1 year lockup get 25% bonus. The Decision on bonus is made during whitelisting.
 
 \*Random and surprise bonuses will be announced as we roll out the platform!
 
