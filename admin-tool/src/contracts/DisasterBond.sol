@@ -7,7 +7,6 @@
 
 pragma solidity ^0.5.16;
 
-
 contract DisasterBond {
     /**
     * @dev Outcome of the event
@@ -18,7 +17,7 @@ contract DisasterBond {
     // state properties
     uint public principal;
     uint public coupon;
-    address public oracle;
+    address payable public oracle;
     address payable public sponsor;
     address payable public investor;
     uint public end;
@@ -26,7 +25,7 @@ contract DisasterBond {
     Outcome outcome;
 
     // Constructor (runs only once upon deployment)
-    constructor(address _oracle, uint _principal, uint _duration) public payable {
+    constructor(address payable _oracle, uint _principal, uint _duration) public payable {
         oracle = _oracle;
         principal = _principal;
         coupon = msg.value;
@@ -44,7 +43,6 @@ contract DisasterBond {
         investor = msg.sender;
         investor.transfer(coupon);
     }
-
 
     // Called by oracle to report the outcome
     function reportOutcome(Outcome _outcome) external {
@@ -67,12 +65,5 @@ contract DisasterBond {
             // default to investor
             investor.transfer(principal);
         }
-
     }
-
-
-
-
-
-
 }

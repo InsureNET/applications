@@ -15,6 +15,7 @@ contract HurricaneCreatePolicy is HurricaneConstants {
     /**
     * @dev state variables
     */
+    //uint256 is SafeMath;
     uint256 public minPremium = 25;
     uint256 public maxPremium = 500;
 
