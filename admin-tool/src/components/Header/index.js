@@ -88,18 +88,18 @@ function Header({ classes, onDrawerToggle, title }) {
 								</IconButton>
 							</Tooltip>
 						</Grid>
-						<Hidden smUp>
-							<Grid item>
-								<IconButton
-									color="inherit"
-									aria-label="Open drawer"
-									onClick={onDrawerToggle}
-									className={classes.menuButton}
-								>
-									<MenuIcon />
-								</IconButton>
-							</Grid>
-						</Hidden>
+							<Hidden smUp>
+								<Grid item>
+									<IconButton
+										color="inherit"
+										aria-label="Open drawer"
+										onClick={onDrawerToggle}
+										className={classes.menuButton}
+									>
+										<MenuIcon />
+									</IconButton>
+								</Grid>
+							</Hidden>
 						<Grid item xs />
 						<Grid item>
 							<Typography className={classes.link} component="a" href="/document">
