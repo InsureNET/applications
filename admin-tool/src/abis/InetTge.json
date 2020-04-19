@@ -413,15 +413,15 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[],\"name\":\"CrowdsaleFinalized\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"prevClosingTime\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"newClosingTime\",\"type\":\"uint256\"}],\"name\":\"TimedCrowdsaleExtended\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"purchaser\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"beneficiary\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"TokensPurchased\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"_contributor\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"_allowance\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"bool\",\"name\":\"_airdrop\",\"type\":\"bool\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"_bonus\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"_lockupPeriod\",\"type\":\"uint256\"}],\"name\":\"Whitelisted\",\"type\":\"event\"},{\"payable\":true,\"stateMutability\":\"payable\",\"type\":\"fallback\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"address\",\"name\":\"beneficiary\",\"type\":\"address\"}],\"name\":\"buyTokens\",\"outputs\":[],\"payable\":true,\"stateMutability\":\"payable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"closingTime\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"contributorList\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"allowance\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"contributionAmount\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"tokensIssued\",\"type\":\"uint256\"},{\"internalType\":\"bool\",\"name\":\"airdrop\",\"type\":\"bool\"},{\"internalType\":\"uint256\",\"name\":\"bonus\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"lockupPeriod\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"address[]\",\"name\":\"_contributorAddresses\",\"type\":\"address[]\"},{\"internalType\":\"uint256[]\",\"name\":\"_contributorAllowance\",\"type\":\"uint256[]\"},{\"internalType\":\"bool[]\",\"name\":\"_airdrop\",\"type\":\"bool[]\"},{\"internalType\":\"uint256[]\",\"name\":\"_bonus\",\"type\":\"uint256[]\"},{\"internalType\":\"uint256[]\",\"name\":\"_lockupPeriod\",\"type\":\"uint256[]\"}],\"name\":\"editContributors\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[],\"name\":\"finalize\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"finalized\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"hasClosed\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"isOpen\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"isOwner\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"openingTime\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"rate\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[],\"name\":\"renounceOwnership\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"token\",\"outputs\":[{\"internalType\":\"contract IERC20\",\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"wallet\",\"outputs\":[{\"internalType\":\"address payable\",\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"weiRaised\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{\"buyTokens(address)\":{\"details\":\"low level token purchase ***DO NOT OVERRIDE*** This function has a non-reentrancy guard, so it shouldn't be called by another `nonReentrant` function.\",\"params\":{\"beneficiary\":\"Recipient of the token purchase\"}},\"closingTime()\":{\"return\":\"the crowdsale closing time.\"},\"finalize()\":{\"details\":\"Must be called after crowdsale ends, to do some extra finalization work. Calls the contract's finalization function.\"},\"finalized()\":{\"return\":\"true if the crowdsale is finalized, false otherwise.\"},\"hasClosed()\":{\"details\":\"Checks whether the period in which the crowdsale is open has already elapsed.\",\"return\":\"Whether crowdsale period has elapsed\"},\"isOpen()\":{\"return\":\"true if the crowdsale is open, false otherwise.\"},\"isOwner()\":{\"details\":\"Returns true if the caller is the current owner.\"},\"openingTime()\":{\"return\":\"the crowdsale opening time.\"},\"owner()\":{\"details\":\"Returns the address of the current owner.\"},\"rate()\":{\"return\":\"the number of token units a buyer gets per wei.\"},\"renounceOwnership()\":{\"details\":\"Leaves the contract without owner. It will not be possible to call `onlyOwner` functions anymore. Can only be called by the current owner.     * NOTE: Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner.\"},\"token()\":{\"return\":\"the token being sold.\"},\"transferOwnership(address)\":{\"details\":\"Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner.\"},\"wallet()\":{\"return\":\"the address where funds are collected.\"},\"weiRaised()\":{\"return\":\"the amount of wei raised.\"}}},\"userdoc\":{\"methods\":{\"editContributors(address[],uint256[],bool[],uint256[],uint256[])\":{\"notice\":\"Push contributor data to the contract before the crowdsale\"}}}},\"settings\":{\"compilationTarget\":{\"/C/Projects/InsureNET/master-branch/admin-tool/src/contracts/InetTge.sol\":\"InetTge\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/C/Projects/InsureNET/master-branch/admin-tool/src/contracts/InetTge.sol\":{\"keccak256\":\"0xc829e3d3c3cc4ee51712e4dced2dfe4084cb00c250e80e9c19f8a689d12e6966\",\"urls\":[\"bzz-raw://18e72aab557197a023660bf27325168f6350146f2df7bfa4bcbe3ae6bc97af35\",\"dweb:/ipfs/QmagoHtTheejRavyALXRwvusKJnTaLTC8C6eC6PH7Y9NRC\"]},\"/C/Projects/InsureNET/master-branch/admin-tool/src/contracts/InetWhitelistedCrowdsale.sol\":{\"keccak256\":\"0xeccb4b94798da9743793e93b4f387dc40a080217b0d6d04df7fb068fa5b31452\",\"urls\":[\"bzz-raw://e1afedf1c71db3e904e0ff98c929389ab38f47bff4470e41d4ab3dabfdcc7d01\",\"dweb:/ipfs/QmNRm5ACEL4cbnSc9cmygzyAC4uWSGWfcgosHLkNqMawQN\"]},\"/C/Projects/InsureNET/master-branch/admin-tool/src/contracts/Token.sol\":{\"keccak256\":\"0x402cdf26baccf0c49c7bc1f20384792fdb5b921099a508d1dcb8561f86fab304\",\"urls\":[\"bzz-raw://6fe8f889695af55e9da3dd05bff3cc48d64d69ad86f6db484d4cc7076ffaeb4b\",\"dweb:/ipfs/QmcXJ8CD71JX3Kyy8TpyKSnwh6EBExsxvyR7HW1aGEZnyx\"]},\"@openzeppelin/contracts/GSN/Context.sol\":{\"keccak256\":\"0x90a3995645af7562d84b9d69363ffa5ae7217714ab61e951bf7bc450f40e4061\",\"urls\":[\"bzz-raw://216ef9d6b614db4eb46970b4e84903f2534a45572dd30a79f0041f1a5830f436\",\"dweb:/ipfs/QmNPrJ4MWKUAWzKXpUqeyKRUfosaoANZAqXgvepdrCwZAG\"]},\"@openzeppelin/contracts/access/Roles.sol\":{\"keccak256\":\"0xb002c378d7b82a101bd659c341518953ca0919d342c0a400196982c0e7e7bcdb\",\"urls\":[\"bzz-raw://00a788c4631466c220b385bdd100c571d24b2deccd657615cfbcef6cadf669a4\",\"dweb:/ipfs/QmTEwDbjJNxmMNCDMqtuou3dyM8Wtp8Q9NFvn7SAVM7Jf3\"]},\"@openzeppelin/contracts/access/roles/MinterRole.sol\":{\"keccak256\":\"0xbe8eef6f2cb4e427f5c5d8a76865ccd06e55a4f1d6671ba312d45bfa705aedbf\",\"urls\":[\"bzz-raw://badf338a5e22c8658c01fe2ce89b487d9dbf6d2d9d5eb49df7415383e2498765\",\"dweb:/ipfs/QmP5aMkvFwMJyuQjKE8ADh5tkWYqonb4KjgkAjgYEVVFAv\"]},\"@openzeppelin/contracts/access/roles/PauserRole.sol\":{\"keccak256\":\"0xd1b5c934bab36d753c22987ad98c7614cb50ebf641371a83c96f8138619d7c30\",\"urls\":[\"bzz-raw://69c4bb822caae3d1bfd38e81f03b6d618d4d83cbb8e9f8236d28e1c4fe1d0d81\",\"dweb:/ipfs/QmWamstbFhdySmocF2TSKYVLLZF24JG4aXMvHiRdWKv3RA\"]},\"@openzeppelin/contracts/crowdsale/Crowdsale.sol\":{\"keccak256\":\"0xe612eb8a3023c1a4f4d7e2d0aaf7f19c25e9d772c46a6e95790ddb42ba7baa99\",\"urls\":[\"bzz-raw://8b2bba5f74117ed67570e3b73bbd3ff51153275a0fcefe34df964ccba92ae028\",\"dweb:/ipfs/QmWZF4DnkWZZYzVHz8pAxbLFRxmNiKWE2n1Chd4w2rXWYh\"]},\"@openzeppelin/contracts/crowdsale/distribution/FinalizableCrowdsale.sol\":{\"keccak256\":\"0x22ad427395c439878122cbfbf13e896fd48d1fad0c6fc889a36b4f1bf4743ff4\",\"urls\":[\"bzz-raw://ac3d7abcb3ce59b3993ae46c3237e75fefad636c9befd692bcb5e212a03a7ca7\",\"dweb:/ipfs/QmUur1SjJ4yyRTDELyfMZSqjkgBUjLzK8iRVx8YKuZiciz\"]},\"@openzeppelin/contracts/crowdsale/emission/MintedCrowdsale.sol\":{\"keccak256\":\"0x343249b95ade6a20737b7f681a05a257f14a39b21043ff2e31d8e5d861d83777\",\"urls\":[\"bzz-raw://ace82fde631b4c630223282ec488c53adf0c53beb99a972736dea0a37351d55c\",\"dweb:/ipfs/QmdyGt7hjQ3D6JFr1HRaqa2xjS3EZGFomnwsqfjKHckcqx\"]},\"@openzeppelin/contracts/crowdsale/validation/TimedCrowdsale.sol\":{\"keccak256\":\"0x9407dd37cfed74aa107fd1614c478ba0a2bc3e084e9aa8fbd5a6f316c53aed3b\",\"urls\":[\"bzz-raw://d7d0b156b355c01268a533f127aed64c54f68e1e435efd76dc4ad7dd6138968a\",\"dweb:/ipfs/QmQ6npy1tbtRT6g8NR7gRryu4VYYejVvdnSjgdjG8Z4qAc\"]},\"@openzeppelin/contracts/lifecycle/Pausable.sol\":{\"keccak256\":\"0xd3e5a49edfb74654d122962cc60b917d1c60461e669a7262fd7aba201fac1260\",\"urls\":[\"bzz-raw://0307a3cae4df037aee16fb0b0d94849cb4d9b20d7d7182c185f3efac6d2caec0\",\"dweb:/ipfs/QmezTANBfrJmCvxfmfyfcfFGtbcUEUtoJCjfxKnAePiNoE\"]},\"@openzeppelin/contracts/math/SafeMath.sol\":{\"keccak256\":\"0x640b6dee7a4b830bdfd52b5031a07fc2b12209f5b2e29e5d364a7d37f69d8076\",\"urls\":[\"bzz-raw://31113152e1ddb78fe7a4197f247591ca894e93f916867beb708d8e747b6cc74f\",\"dweb:/ipfs/QmbZaJyXdpsYGykVhHH9qpVGQg9DGCxE2QufbCUy3daTgq\"]},\"@openzeppelin/contracts/ownership/Ownable.sol\":{\"keccak256\":\"0x6fb9d7889769d7cc161225f9ef7a90e468ba9788b253816f8d8b6894d3472c24\",\"urls\":[\"bzz-raw://cf4c00fc3c37cc5acf0c82ec6fd97bab67d72c2567fdc0ebf023d9c09b30a08e\",\"dweb:/ipfs/Qmb7TChG6DsEDX7LooJ4vmxot19f7VXX8S1zUGPeJTWbwZ\"]},\"@openzeppelin/contracts/token/ERC20/ERC20.sol\":{\"keccak256\":\"0xb15af804e2bc97db51e4e103f13de9fe13f87e6b835d7a88c897966c0e58506e\",\"urls\":[\"bzz-raw://1e8cff8437557fc915a3bed968fcd8f2df9809599e665ef69c2c9ce628548055\",\"dweb:/ipfs/QmP5spYP8vs2jvLF8zNrXUbqB79hMsoEvMHiLcBxerWKcm\"]},\"@openzeppelin/contracts/token/ERC20/ERC20Mintable.sol\":{\"keccak256\":\"0xa2b957cf89692c504962afb7506999155f83385373f808243246cd5879de5940\",\"urls\":[\"bzz-raw://c44ae0ad1bce141c33b962f8b4e9228bdf8df36c8ac363b4f0bf9498b8bfc32a\",\"dweb:/ipfs/QmcSBRdFwVvy2wFZrBwo5cvqNP4UHh9Eyzf8jnxBgnPqfe\"]},\"@openzeppelin/contracts/token/ERC20/ERC20Pausable.sol\":{\"keccak256\":\"0xd5ae72078a1c90af870e1b9b86b0fc05eb14b4034e417bc66d151d3eb4d342ca\",\"urls\":[\"bzz-raw://32a5f0d4de7c26125441e9b78a49de90cd30c467216fb8f69dc0b1f03c6e253c\",\"dweb:/ipfs/QmcuFRFJ4KNkvYRAmcs1t1fap1i3rRbJghWGqiaSNafdjp\"]},\"@openzeppelin/contracts/token/ERC20/IERC20.sol\":{\"keccak256\":\"0xe5bb0f57cff3e299f360052ba50f1ea0fff046df2be070b6943e0e3c3fdad8a9\",\"urls\":[\"bzz-raw://59fd025151435da35faa8093a5c7a17de02de9d08ad27275c5cdf05050820d91\",\"dweb:/ipfs/QmQMvwEcPhoRXzbXyrdoeRtvLoifUW9Qh7Luho7bmUPRkc\"]},\"@openzeppelin/contracts/token/ERC20/SafeERC20.sol\":{\"keccak256\":\"0x6f2c9955d65c522b80f4b8792f076512d2df947d2112cbc4d98a4781ed42ede2\",\"urls\":[\"bzz-raw://7d8ec81683520c06baeef3f7e06cd82bd6fd5fa611f26857f475f6c829540aff\",\"dweb:/ipfs/QmTDkFzKnrpiV1UKnSoiZAHPuguWzokrr4pFbSPvyaSo56\"]},\"@openzeppelin/contracts/utils/Address.sol\":{\"keccak256\":\"0x1a8e5072509c5ea7365eb1d48030b9be865140c8fb779968da0a459a0e174a11\",\"urls\":[\"bzz-raw://03335b7b07c7c8c8d613cfdd8ec39a0b5ec133ee510bf2fe6cc5a496767bef4b\",\"dweb:/ipfs/Qmebp4nzPja645c9yXSdJkGq96oU3am3LUnG2K3R7XxyKf\"]},\"@openzeppelin/contracts/utils/ReentrancyGuard.sol\":{\"keccak256\":\"0xb63221b23818d622bfd83d18e0968307e4fcb7a35536bdceded76e1cf8349acd\",\"urls\":[\"bzz-raw://44e1e8c22362c4708a8c3362735f1465f5b05e2f7315e16c7010d694ce019d73\",\"dweb:/ipfs/QmWj9g8X1hxkXRre2kwkEjLBetjuzmSbWHD81bsSojnBkS\"]}},\"version\":1}",
+  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[],\"name\":\"CrowdsaleFinalized\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"prevClosingTime\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"newClosingTime\",\"type\":\"uint256\"}],\"name\":\"TimedCrowdsaleExtended\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"purchaser\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"beneficiary\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"TokensPurchased\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"_contributor\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"_allowance\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"bool\",\"name\":\"_airdrop\",\"type\":\"bool\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"_bonus\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"_lockupPeriod\",\"type\":\"uint256\"}],\"name\":\"Whitelisted\",\"type\":\"event\"},{\"payable\":true,\"stateMutability\":\"payable\",\"type\":\"fallback\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"address\",\"name\":\"beneficiary\",\"type\":\"address\"}],\"name\":\"buyTokens\",\"outputs\":[],\"payable\":true,\"stateMutability\":\"payable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"closingTime\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"contributorList\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"allowance\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"contributionAmount\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"tokensIssued\",\"type\":\"uint256\"},{\"internalType\":\"bool\",\"name\":\"airdrop\",\"type\":\"bool\"},{\"internalType\":\"uint256\",\"name\":\"bonus\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"lockupPeriod\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"address[]\",\"name\":\"_contributorAddresses\",\"type\":\"address[]\"},{\"internalType\":\"uint256[]\",\"name\":\"_contributorAllowance\",\"type\":\"uint256[]\"},{\"internalType\":\"bool[]\",\"name\":\"_airdrop\",\"type\":\"bool[]\"},{\"internalType\":\"uint256[]\",\"name\":\"_bonus\",\"type\":\"uint256[]\"},{\"internalType\":\"uint256[]\",\"name\":\"_lockupPeriod\",\"type\":\"uint256[]\"}],\"name\":\"editContributors\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[],\"name\":\"finalize\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"finalized\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"hasClosed\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"isOpen\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"isOwner\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"openingTime\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"rate\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[],\"name\":\"renounceOwnership\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"token\",\"outputs\":[{\"internalType\":\"contract IERC20\",\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"wallet\",\"outputs\":[{\"internalType\":\"address payable\",\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"weiRaised\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{\"buyTokens(address)\":{\"details\":\"low level token purchase ***DO NOT OVERRIDE*** This function has a non-reentrancy guard, so it shouldn't be called by another `nonReentrant` function.\",\"params\":{\"beneficiary\":\"Recipient of the token purchase\"}},\"closingTime()\":{\"return\":\"the crowdsale closing time.\"},\"finalize()\":{\"details\":\"Must be called after crowdsale ends, to do some extra finalization work. Calls the contract's finalization function.\"},\"finalized()\":{\"return\":\"true if the crowdsale is finalized, false otherwise.\"},\"hasClosed()\":{\"details\":\"Checks whether the period in which the crowdsale is open has already elapsed.\",\"return\":\"Whether crowdsale period has elapsed\"},\"isOpen()\":{\"return\":\"true if the crowdsale is open, false otherwise.\"},\"isOwner()\":{\"details\":\"Returns true if the caller is the current owner.\"},\"openingTime()\":{\"return\":\"the crowdsale opening time.\"},\"owner()\":{\"details\":\"Returns the address of the current owner.\"},\"rate()\":{\"return\":\"the number of token units a buyer gets per wei.\"},\"renounceOwnership()\":{\"details\":\"Leaves the contract without owner. It will not be possible to call `onlyOwner` functions anymore. Can only be called by the current owner.     * NOTE: Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner.\"},\"token()\":{\"return\":\"the token being sold.\"},\"transferOwnership(address)\":{\"details\":\"Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner.\"},\"wallet()\":{\"return\":\"the address where funds are collected.\"},\"weiRaised()\":{\"return\":\"the amount of wei raised.\"}}},\"userdoc\":{\"methods\":{\"editContributors(address[],uint256[],bool[],uint256[],uint256[])\":{\"notice\":\"Push contributor data to the contract before the crowdsale\"}}}},\"settings\":{\"compilationTarget\":{\"/home/jaxcoder/Projects/InetMaster/applications/admin-tool/src/contracts/InetTge.sol\":\"InetTge\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/jaxcoder/Projects/InetMaster/applications/admin-tool/src/contracts/InetTge.sol\":{\"keccak256\":\"0x6a7f46ad68b8df88e01fce319f77a2c2ddf9814cc4947651c1c4fa3f2879a1d2\",\"urls\":[\"bzz-raw://2e711ed31ce5d8349b97d9e2878a7bf61c4c100809044a948f44f2592893a80f\",\"dweb:/ipfs/Qmaz7YiDezdmQQFq1uFqkoALwpkQkoBgSgrHVvp4giNX4d\"]},\"/home/jaxcoder/Projects/InetMaster/applications/admin-tool/src/contracts/InetWhitelistedCrowdsale.sol\":{\"keccak256\":\"0xaa783e81b1b077e9c98f90eb01501e72d3e6f264c845c5e9a155b8fe4823d491\",\"urls\":[\"bzz-raw://5b88d13b40ad3654f74768431ff5670b7083ce35c1eca88cb1a68a695cbbfb8c\",\"dweb:/ipfs/QmTX868bDnsuiDDEuTQM5bPKnxWPYuVjqMpBi9nAwm4Joj\"]},\"/home/jaxcoder/Projects/InetMaster/applications/admin-tool/src/contracts/Token.sol\":{\"keccak256\":\"0x214ee1f0667e7638923e7221c67f0ffe8ef91f200fa4e576f1538a2b8e21d34e\",\"urls\":[\"bzz-raw://063c74bdc04ecd7b851b0c923be643fd674bb2a528af4c30e2d08baef750259b\",\"dweb:/ipfs/QmQSsuec6BbgcKgRQsVynPu46VHHZ6HKZ6W9NUeNW2ZiVz\"]},\"@openzeppelin/contracts/GSN/Context.sol\":{\"keccak256\":\"0x90a3995645af7562d84b9d69363ffa5ae7217714ab61e951bf7bc450f40e4061\",\"urls\":[\"bzz-raw://216ef9d6b614db4eb46970b4e84903f2534a45572dd30a79f0041f1a5830f436\",\"dweb:/ipfs/QmNPrJ4MWKUAWzKXpUqeyKRUfosaoANZAqXgvepdrCwZAG\"]},\"@openzeppelin/contracts/access/Roles.sol\":{\"keccak256\":\"0xb002c378d7b82a101bd659c341518953ca0919d342c0a400196982c0e7e7bcdb\",\"urls\":[\"bzz-raw://00a788c4631466c220b385bdd100c571d24b2deccd657615cfbcef6cadf669a4\",\"dweb:/ipfs/QmTEwDbjJNxmMNCDMqtuou3dyM8Wtp8Q9NFvn7SAVM7Jf3\"]},\"@openzeppelin/contracts/access/roles/MinterRole.sol\":{\"keccak256\":\"0xbe8eef6f2cb4e427f5c5d8a76865ccd06e55a4f1d6671ba312d45bfa705aedbf\",\"urls\":[\"bzz-raw://badf338a5e22c8658c01fe2ce89b487d9dbf6d2d9d5eb49df7415383e2498765\",\"dweb:/ipfs/QmP5aMkvFwMJyuQjKE8ADh5tkWYqonb4KjgkAjgYEVVFAv\"]},\"@openzeppelin/contracts/access/roles/PauserRole.sol\":{\"keccak256\":\"0xd1b5c934bab36d753c22987ad98c7614cb50ebf641371a83c96f8138619d7c30\",\"urls\":[\"bzz-raw://69c4bb822caae3d1bfd38e81f03b6d618d4d83cbb8e9f8236d28e1c4fe1d0d81\",\"dweb:/ipfs/QmWamstbFhdySmocF2TSKYVLLZF24JG4aXMvHiRdWKv3RA\"]},\"@openzeppelin/contracts/crowdsale/Crowdsale.sol\":{\"keccak256\":\"0xe612eb8a3023c1a4f4d7e2d0aaf7f19c25e9d772c46a6e95790ddb42ba7baa99\",\"urls\":[\"bzz-raw://8b2bba5f74117ed67570e3b73bbd3ff51153275a0fcefe34df964ccba92ae028\",\"dweb:/ipfs/QmWZF4DnkWZZYzVHz8pAxbLFRxmNiKWE2n1Chd4w2rXWYh\"]},\"@openzeppelin/contracts/crowdsale/distribution/FinalizableCrowdsale.sol\":{\"keccak256\":\"0x22ad427395c439878122cbfbf13e896fd48d1fad0c6fc889a36b4f1bf4743ff4\",\"urls\":[\"bzz-raw://ac3d7abcb3ce59b3993ae46c3237e75fefad636c9befd692bcb5e212a03a7ca7\",\"dweb:/ipfs/QmUur1SjJ4yyRTDELyfMZSqjkgBUjLzK8iRVx8YKuZiciz\"]},\"@openzeppelin/contracts/crowdsale/emission/MintedCrowdsale.sol\":{\"keccak256\":\"0x343249b95ade6a20737b7f681a05a257f14a39b21043ff2e31d8e5d861d83777\",\"urls\":[\"bzz-raw://ace82fde631b4c630223282ec488c53adf0c53beb99a972736dea0a37351d55c\",\"dweb:/ipfs/QmdyGt7hjQ3D6JFr1HRaqa2xjS3EZGFomnwsqfjKHckcqx\"]},\"@openzeppelin/contracts/crowdsale/validation/TimedCrowdsale.sol\":{\"keccak256\":\"0x9407dd37cfed74aa107fd1614c478ba0a2bc3e084e9aa8fbd5a6f316c53aed3b\",\"urls\":[\"bzz-raw://d7d0b156b355c01268a533f127aed64c54f68e1e435efd76dc4ad7dd6138968a\",\"dweb:/ipfs/QmQ6npy1tbtRT6g8NR7gRryu4VYYejVvdnSjgdjG8Z4qAc\"]},\"@openzeppelin/contracts/lifecycle/Pausable.sol\":{\"keccak256\":\"0xd3e5a49edfb74654d122962cc60b917d1c60461e669a7262fd7aba201fac1260\",\"urls\":[\"bzz-raw://0307a3cae4df037aee16fb0b0d94849cb4d9b20d7d7182c185f3efac6d2caec0\",\"dweb:/ipfs/QmezTANBfrJmCvxfmfyfcfFGtbcUEUtoJCjfxKnAePiNoE\"]},\"@openzeppelin/contracts/math/SafeMath.sol\":{\"keccak256\":\"0x640b6dee7a4b830bdfd52b5031a07fc2b12209f5b2e29e5d364a7d37f69d8076\",\"urls\":[\"bzz-raw://31113152e1ddb78fe7a4197f247591ca894e93f916867beb708d8e747b6cc74f\",\"dweb:/ipfs/QmbZaJyXdpsYGykVhHH9qpVGQg9DGCxE2QufbCUy3daTgq\"]},\"@openzeppelin/contracts/ownership/Ownable.sol\":{\"keccak256\":\"0x6fb9d7889769d7cc161225f9ef7a90e468ba9788b253816f8d8b6894d3472c24\",\"urls\":[\"bzz-raw://cf4c00fc3c37cc5acf0c82ec6fd97bab67d72c2567fdc0ebf023d9c09b30a08e\",\"dweb:/ipfs/Qmb7TChG6DsEDX7LooJ4vmxot19f7VXX8S1zUGPeJTWbwZ\"]},\"@openzeppelin/contracts/token/ERC20/ERC20.sol\":{\"keccak256\":\"0xb15af804e2bc97db51e4e103f13de9fe13f87e6b835d7a88c897966c0e58506e\",\"urls\":[\"bzz-raw://1e8cff8437557fc915a3bed968fcd8f2df9809599e665ef69c2c9ce628548055\",\"dweb:/ipfs/QmP5spYP8vs2jvLF8zNrXUbqB79hMsoEvMHiLcBxerWKcm\"]},\"@openzeppelin/contracts/token/ERC20/ERC20Mintable.sol\":{\"keccak256\":\"0xa2b957cf89692c504962afb7506999155f83385373f808243246cd5879de5940\",\"urls\":[\"bzz-raw://c44ae0ad1bce141c33b962f8b4e9228bdf8df36c8ac363b4f0bf9498b8bfc32a\",\"dweb:/ipfs/QmcSBRdFwVvy2wFZrBwo5cvqNP4UHh9Eyzf8jnxBgnPqfe\"]},\"@openzeppelin/contracts/token/ERC20/ERC20Pausable.sol\":{\"keccak256\":\"0xd5ae72078a1c90af870e1b9b86b0fc05eb14b4034e417bc66d151d3eb4d342ca\",\"urls\":[\"bzz-raw://32a5f0d4de7c26125441e9b78a49de90cd30c467216fb8f69dc0b1f03c6e253c\",\"dweb:/ipfs/QmcuFRFJ4KNkvYRAmcs1t1fap1i3rRbJghWGqiaSNafdjp\"]},\"@openzeppelin/contracts/token/ERC20/IERC20.sol\":{\"keccak256\":\"0xe5bb0f57cff3e299f360052ba50f1ea0fff046df2be070b6943e0e3c3fdad8a9\",\"urls\":[\"bzz-raw://59fd025151435da35faa8093a5c7a17de02de9d08ad27275c5cdf05050820d91\",\"dweb:/ipfs/QmQMvwEcPhoRXzbXyrdoeRtvLoifUW9Qh7Luho7bmUPRkc\"]},\"@openzeppelin/contracts/token/ERC20/SafeERC20.sol\":{\"keccak256\":\"0x6f2c9955d65c522b80f4b8792f076512d2df947d2112cbc4d98a4781ed42ede2\",\"urls\":[\"bzz-raw://7d8ec81683520c06baeef3f7e06cd82bd6fd5fa611f26857f475f6c829540aff\",\"dweb:/ipfs/QmTDkFzKnrpiV1UKnSoiZAHPuguWzokrr4pFbSPvyaSo56\"]},\"@openzeppelin/contracts/utils/Address.sol\":{\"keccak256\":\"0x1a8e5072509c5ea7365eb1d48030b9be865140c8fb779968da0a459a0e174a11\",\"urls\":[\"bzz-raw://03335b7b07c7c8c8d613cfdd8ec39a0b5ec133ee510bf2fe6cc5a496767bef4b\",\"dweb:/ipfs/Qmebp4nzPja645c9yXSdJkGq96oU3am3LUnG2K3R7XxyKf\"]},\"@openzeppelin/contracts/utils/ReentrancyGuard.sol\":{\"keccak256\":\"0xb63221b23818d622bfd83d18e0968307e4fcb7a35536bdceded76e1cf8349acd\",\"urls\":[\"bzz-raw://44e1e8c22362c4708a8c3362735f1465f5b05e2f7315e16c7010d694ce019d73\",\"dweb:/ipfs/QmWj9g8X1hxkXRre2kwkEjLBetjuzmSbWHD81bsSojnBkS\"]}},\"version\":1}",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "sourceMap": "",
   "deployedSourceMap": "",
-  "source": "/**\r\n * @title iNET Token Generating Event - TGE\r\n * @notice The Decentralized Insurance Platform Token.\r\n * @author Jason Romero\r\n *\r\n * @copyright 2020 InsureNET\r\n */\r\n\r\npragma solidity ^0.5.0;\r\n\r\nimport \"@openzeppelin/contracts/math/SafeMath.sol\";\r\nimport \"@openzeppelin/contracts/token/ERC20/ERC20Mintable.sol\";\r\nimport \"@openzeppelin/contracts/token/ERC20/ERC20.sol\";\r\nimport \"@openzeppelin/contracts/crowdsale/distribution/FinalizableCrowdsale.sol\";\r\nimport \"./Token.sol\";\r\nimport \"./InetWhitelistedCrowdsale.sol\";\r\n\r\n\r\ncontract InetTge is InetWhitelistedCrowdsale, FinalizableCrowdsale {\r\n\r\n  using SafeMath for uint256;\r\n\r\n  enum state { preSale, priorityPass, crowdsale, crowdsaleEnded }\r\n\r\n//   uint256 public startOpenPreSaleTime;\r\n//   uint256 public hardCap;\r\n//   uint256 public lockInTime1; // token lock-in period for team, ECA, US accredited investors\r\n//   uint256 public lockInTime2; // token lock-in period for founders\r\n//   state public crowdsaleState = state.preSale;\r\n\r\n//   event InetTgeStarted(uint256 _time);\r\n//   event CrowdsaleStarted(uint256 _time);\r\n//   event HardCapReached(uint256 _time);\r\n//   event InetTgeEnded(uint256 _time);\r\n//   event TokenAllocated(address _beneficiary, uint256 _amount);\r\n\r\n//   constructor(\r\n//     uint256 _startTime,\r\n//     uint256 _startOpenPreSaleTime,\r\n//     uint256 _endTime,\r\n//     uint256 _lockInTime1,\r\n//     uint256 _lockInTime2,\r\n//     uint256 _hardCap,\r\n//     uint256 _rate,\r\n//     address _wallet\r\n//   )\r\n//     Crowdsale(_startTime, _endTime, _rate, _wallet)\r\n//     public\r\n//   {\r\n//     // Check arguments\r\n//     require(_startTime >= block.timestamp, '');\r\n//     require(_startOpenPreSaleTime >= _startTime, '');\r\n//     require(_endTime >= _startOpenPreSaleTime, '');\r\n//     require(_lockInTime1 >= _endTime, '');\r\n//     require(_lockInTime2 > _lockInTime1, '');\r\n//     require(_hardCap > 0, '');\r\n//     require(_rate > 0, '');\r\n//     //require(_wallet != 0x0, '');\r\n\r\n//     // Set contract fields\r\n//     startOpenPreSaleTime = _startOpenPreSaleTime;\r\n//     hardCap = _hardCap;\r\n//     lockInTime1 = _lockInTime1;\r\n//     lockInTime2 = _lockInTime2;\r\n//     //Token(token).pause();\r\n//   }\r\n\r\n//   function setRate(uint256 _rate) public onlyOwner {\r\n//     require(crowdsaleState == state.preSale, '');\r\n\r\n//     rate = _rate;\r\n//   }\r\n\r\n//   function unpauseToken() external onlyOwner{\r\n//     Token(token).unpause();\r\n//   }\r\n\r\n//   /**\r\n//    * Calculate the maximum remaining contribution allowed for an address\r\n//    * @param  _contributor the address of the contributor\r\n//    * @return maxContribution maximum allowed amount in wei\r\n//    */\r\n//   function calculateMaxContribution(address _contributor) public view returns (uint256 _maxContribution) {\r\n//     uint256 maxContrib = 0;\r\n\r\n//     if (crowdsaleState == state.priorityPass) {\r\n//       maxContrib = contributorList[_contributor].allowance.sub(contributorList[_contributor].contributionAmount);\r\n\r\n//       if (maxContrib > hardCap.sub(weiRaised)) {\r\n//         maxContrib = hardCap.sub(weiRaised);\r\n//       }\r\n//     } else if (crowdsaleState == state.crowdsale) {\r\n//       if (contributorList[_contributor].allowance > 0) {\r\n//         maxContrib = hardCap.sub(weiRaised);\r\n//       }\r\n//     }\r\n\r\n//     return maxContrib;\r\n//   }\r\n\r\n//   /**\r\n//    * Calculate amount of tokens\r\n//    * This is used twice:\r\n//    * 1) For calculation of token amount plus optional bonus from wei amount contributed\r\n//    * In this case, rate is the defined exchange rate of ETH against DIP.\r\n//    * 2) For calculation of token amount plus optional bonus from DIP token amount\r\n//    * In the second case, rate == 1 because we have already calculated DIP tokens from RSC amount\r\n//    * by applying a factor of 10/32.\r\n//    * @param _contributor the address of the contributor\r\n//    * @param _amount contribution amount\r\n//    * @return _tokens amount of tokens\r\n//    */\r\n//   function calculateTokens(address _contributor, uint256 _amount, uint256 _rate) public view returns (uint256 _tokens) {\r\n//     uint256 bonus = contributorList[_contributor].bonus;\r\n\r\n//     assert(bonus == 0 || bonus == 4 || bonus == 10);\r\n\r\n//     if (bonus > 0) {\r\n//       _tokens = _amount.add(_amount.div(bonus)).mul(_rate);\r\n//     } else {\r\n//       _tokens = _amount.mul(_rate);\r\n//     }\r\n//   }\r\n\r\n//   /**\r\n//    * Set the current state of the crowdsale.\r\n//    */\r\n//   function setCrowdsaleState() public {\r\n//     if (weiRaised >= hardCap && crowdsaleState != state.crowdsaleEnded) {\r\n\r\n//       crowdsaleState = state.crowdsaleEnded;\r\n//       emit HardCapReached(block.timestamp);\r\n//       emit InetTgeEnded(block.timestamp);\r\n\r\n//     } else if (\r\n//       //block.timestamp >= startTime &&\r\n//       //block.timestamp < startOpenPpTime &&\r\n//       crowdsaleState != state.priorityPass\r\n//     ) {\r\n\r\n//       crowdsaleState = state.priorityPass;\r\n//       emit InetTgeStarted(block.timestamp);\r\n\r\n//     } else if (\r\n//       //block.timestamp >= startOpenPpTime &&\r\n//       //block.timestamp <= endTime &&\r\n//       crowdsaleState != state.crowdsale\r\n//     ) {\r\n\r\n//       crowdsaleState = state.crowdsale;\r\n//       emit CrowdsaleStarted(block.timestamp);\r\n\r\n//     } else if (\r\n//       crowdsaleState != state.crowdsaleEnded //&&\r\n//       //block.timestamp > endTime\r\n//     ) {\r\n\r\n//       crowdsaleState = state.crowdsaleEnded;\r\n//       emit InetTgeEnded(block.timestamp);\r\n//     }\r\n    \r\n//   }\r\n\r\n\r\n//   /**\r\n//    * The token buying function.\r\n//    * @param  _beneficiary  receiver of tokens.\r\n//    */\r\n//   function buyTokens(address _beneficiary) public payable {\r\n//     require(_beneficiary != 0x0, '');\r\n//     //require(validPurchase(), '');\r\n//     require(contributorList[_beneficiary].airdrop == false, '');\r\n\r\n//     setCrowdsaleState();\r\n\r\n//     uint256 weiAmount = msg.value;\r\n//     uint256 maxContrib = calculateMaxContribution(_beneficiary);\r\n//     uint256 refund;\r\n\r\n//     if (weiAmount > maxContrib) {\r\n//       refund = weiAmount.sub(maxContrib);\r\n//       weiAmount = maxContrib;\r\n//     }\r\n\r\n//     // stop here if transaction does not yield tokens\r\n//     require(weiAmount > 0, '');\r\n\r\n//     // calculate token amount to be created\r\n//     uint256 tokens = calculateTokens(_beneficiary, weiAmount, rate);\r\n\r\n//     assert(tokens > 0);\r\n\r\n//     // update state\r\n//     weiRaised = weiRaised.add(weiAmount);\r\n\r\n//     require(token.mint(_beneficiary, tokens), '');\r\n//     emit TokensPurchased(msg.sender, _beneficiary, weiAmount, tokens);\r\n\r\n//     contributorList[_beneficiary].contributionAmount = contributorList[_beneficiary].contributionAmount.add(weiAmount);\r\n//     contributorList[_beneficiary].tokensIssued = contributorList[_beneficiary].tokensIssued.add(tokens);\r\n\r\n//     wallet.transfer(weiAmount);\r\n\r\n//     if (refund != 0) _beneficiary.transfer(refund);\r\n//   }\r\n\r\n//   /**\r\n//    * Check if token is locked.\r\n//    */\r\n//   function tokenIsLocked(address _contributor) public view returns (bool) {\r\n\r\n//     if (block.timestamp < lockInTime1 && contributorList[_contributor].lockupPeriod == 1) {\r\n//       return true;\r\n//     } else if (block.timestamp < lockInTime2 && contributorList[_contributor].lockupPeriod == 2) {\r\n//       return true;\r\n//     }\r\n\r\n//     return false;\r\n\r\n//   }\r\n\r\n\r\n//   /**\r\n//    * Distribute tokens to selected team members & founders.\r\n//    * Unit of Allowance is ETH and is converted in number of tokens by multiplying with Rate.\r\n//    * This can be called by any whitelisted beneficiary.\r\n//    */\r\n//   function airdrop() public {\r\n//     airdropFor(msg.sender);\r\n//   }\r\n\r\n\r\n//   /**\r\n//    * Alternatively to airdrop(); tokens can be directly sent to beneficiaries by this function\r\n//    * This can be called only once.\r\n//    */\r\n//   function airdropFor(address _beneficiary) public {\r\n//     require(_beneficiary != 0x0, '');\r\n//     require(contributorList[_beneficiary].airdrop == true, '');\r\n//     require(contributorList[_beneficiary].tokensIssued == 0, '');\r\n//     require(contributorList[_beneficiary].allowance > 0, '');\r\n\r\n//     setCrowdsaleState();\r\n\r\n//     require(crowdsaleState == state.crowdsaleEnded, '');\r\n\r\n//     uint256 amount = contributorList[_beneficiary].allowance.mul(rate);\r\n//     require(token.mint(_beneficiary, amount), '');\r\n//     emit TokenAllocated(_beneficiary, amount);\r\n\r\n//     contributorList[_beneficiary].tokensIssued = contributorList[_beneficiary].tokensIssued.add(amount);\r\n//   }\r\n\r\n//   /**\r\n//    * Creates an new ERC20 Token contract for the iNETr Token.\r\n//    * Overrides Crowdsale function\r\n//    * @return the created token\r\n//    */\r\n//   function createTokenContract() internal returns (ERC20Mintable) {\r\n//     return new Token();\r\n//   }\r\n\r\n//   /**\r\n//    * Finalize sale and perform cleanup actions.\r\n//    */\r\n//   function finalization() internal {\r\n//     uint256 maxSupply = Token(token).MAXIMUM_SUPPLY();\r\n//     token.mint(wallet, maxSupply.sub(token.totalSupply())); // Alternativly, hardcode remaining token distribution.\r\n//     token.finishMinting();\r\n//     token.transferOwnership(owner);\r\n//   }\r\n\r\n//   /**\r\n//    * Owner can transfer back tokens which have been sent to this contract by mistake.\r\n//    * @param  _token address of token contract of the respective tokens\r\n//    * @param  _to where to send the tokens\r\n//    */\r\n//   function salvageTokens(ERC20 _token, address _to) external onlyOwner {\r\n//     _token.transfer(_to, _token.balanceOf(this));\r\n//   }\r\n}",
-  "sourcePath": "C:\\Projects\\InsureNET\\master-branch\\admin-tool\\src\\contracts\\InetTge.sol",
+  "source": "/**\n * @title iNET Token Generating Event - TGE\n * @notice The Decentralized Insurance Platform Token.\n * @author Jason Romero\n *\n * @copyright 2020 InsureNET\n */\n\npragma solidity ^0.5.0;\n\nimport \"@openzeppelin/contracts/math/SafeMath.sol\";\nimport \"@openzeppelin/contracts/token/ERC20/ERC20Mintable.sol\";\nimport \"@openzeppelin/contracts/token/ERC20/ERC20.sol\";\nimport \"@openzeppelin/contracts/crowdsale/distribution/FinalizableCrowdsale.sol\";\nimport \"./Token.sol\";\nimport \"./InetWhitelistedCrowdsale.sol\";\n\n\ncontract InetTge is InetWhitelistedCrowdsale, FinalizableCrowdsale {\n\n  using SafeMath for uint256;\n\n  enum state { preSale, priorityPass, crowdsale, crowdsaleEnded }\n\n//   uint256 public startOpenPreSaleTime;\n//   uint256 public hardCap;\n//   uint256 public lockInTime1; // token lock-in period for team, ECA, US accredited investors\n//   uint256 public lockInTime2; // token lock-in period for founders\n//   state public crowdsaleState = state.preSale;\n\n//   event InetTgeStarted(uint256 _time);\n//   event CrowdsaleStarted(uint256 _time);\n//   event HardCapReached(uint256 _time);\n//   event InetTgeEnded(uint256 _time);\n//   event TokenAllocated(address _beneficiary, uint256 _amount);\n\n//   constructor(\n//     uint256 _startTime,\n//     uint256 _startOpenPreSaleTime,\n//     uint256 _endTime,\n//     uint256 _lockInTime1,\n//     uint256 _lockInTime2,\n//     uint256 _hardCap,\n//     uint256 _rate,\n//     address _wallet\n//   )\n//     Crowdsale(_startTime, _endTime, _rate, _wallet)\n//     public\n//   {\n//     // Check arguments\n//     require(_startTime >= block.timestamp, '');\n//     require(_startOpenPreSaleTime >= _startTime, '');\n//     require(_endTime >= _startOpenPreSaleTime, '');\n//     require(_lockInTime1 >= _endTime, '');\n//     require(_lockInTime2 > _lockInTime1, '');\n//     require(_hardCap > 0, '');\n//     require(_rate > 0, '');\n//     //require(_wallet != 0x0, '');\n\n//     // Set contract fields\n//     startOpenPreSaleTime = _startOpenPreSaleTime;\n//     hardCap = _hardCap;\n//     lockInTime1 = _lockInTime1;\n//     lockInTime2 = _lockInTime2;\n//     //Token(token).pause();\n//   }\n\n//   function setRate(uint256 _rate) public onlyOwner {\n//     require(crowdsaleState == state.preSale, '');\n\n//     rate = _rate;\n//   }\n\n//   function unpauseToken() external onlyOwner{\n//     Token(token).unpause();\n//   }\n\n//   /**\n//    * Calculate the maximum remaining contribution allowed for an address\n//    * @param  _contributor the address of the contributor\n//    * @return maxContribution maximum allowed amount in wei\n//    */\n//   function calculateMaxContribution(address _contributor) public view returns (uint256 _maxContribution) {\n//     uint256 maxContrib = 0;\n\n//     if (crowdsaleState == state.priorityPass) {\n//       maxContrib = contributorList[_contributor].allowance.sub(contributorList[_contributor].contributionAmount);\n\n//       if (maxContrib > hardCap.sub(weiRaised)) {\n//         maxContrib = hardCap.sub(weiRaised);\n//       }\n//     } else if (crowdsaleState == state.crowdsale) {\n//       if (contributorList[_contributor].allowance > 0) {\n//         maxContrib = hardCap.sub(weiRaised);\n//       }\n//     }\n\n//     return maxContrib;\n//   }\n\n//   /**\n//    * Calculate amount of tokens\n//    * This is used twice:\n//    * 1) For calculation of token amount plus optional bonus from wei amount contributed\n//    * In this case, rate is the defined exchange rate of ETH against DIP.\n//    * 2) For calculation of token amount plus optional bonus from DIP token amount\n//    * In the second case, rate == 1 because we have already calculated DIP tokens from RSC amount\n//    * by applying a factor of 10/32.\n//    * @param _contributor the address of the contributor\n//    * @param _amount contribution amount\n//    * @return _tokens amount of tokens\n//    */\n//   function calculateTokens(address _contributor, uint256 _amount, uint256 _rate) public view returns (uint256 _tokens) {\n//     uint256 bonus = contributorList[_contributor].bonus;\n\n//     assert(bonus == 0 || bonus == 4 || bonus == 10);\n\n//     if (bonus > 0) {\n//       _tokens = _amount.add(_amount.div(bonus)).mul(_rate);\n//     } else {\n//       _tokens = _amount.mul(_rate);\n//     }\n//   }\n\n//   /**\n//    * Set the current state of the crowdsale.\n//    */\n//   function setCrowdsaleState() public {\n//     if (weiRaised >= hardCap && crowdsaleState != state.crowdsaleEnded) {\n\n//       crowdsaleState = state.crowdsaleEnded;\n//       emit HardCapReached(block.timestamp);\n//       emit InetTgeEnded(block.timestamp);\n\n//     } else if (\n//       //block.timestamp >= startTime &&\n//       //block.timestamp < startOpenPpTime &&\n//       crowdsaleState != state.priorityPass\n//     ) {\n\n//       crowdsaleState = state.priorityPass;\n//       emit InetTgeStarted(block.timestamp);\n\n//     } else if (\n//       //block.timestamp >= startOpenPpTime &&\n//       //block.timestamp <= endTime &&\n//       crowdsaleState != state.crowdsale\n//     ) {\n\n//       crowdsaleState = state.crowdsale;\n//       emit CrowdsaleStarted(block.timestamp);\n\n//     } else if (\n//       crowdsaleState != state.crowdsaleEnded //&&\n//       //block.timestamp > endTime\n//     ) {\n\n//       crowdsaleState = state.crowdsaleEnded;\n//       emit InetTgeEnded(block.timestamp);\n//     }\n    \n//   }\n\n\n//   /**\n//    * The token buying function.\n//    * @param  _beneficiary  receiver of tokens.\n//    */\n//   function buyTokens(address _beneficiary) public payable {\n//     require(_beneficiary != 0x0, '');\n//     //require(validPurchase(), '');\n//     require(contributorList[_beneficiary].airdrop == false, '');\n\n//     setCrowdsaleState();\n\n//     uint256 weiAmount = msg.value;\n//     uint256 maxContrib = calculateMaxContribution(_beneficiary);\n//     uint256 refund;\n\n//     if (weiAmount > maxContrib) {\n//       refund = weiAmount.sub(maxContrib);\n//       weiAmount = maxContrib;\n//     }\n\n//     // stop here if transaction does not yield tokens\n//     require(weiAmount > 0, '');\n\n//     // calculate token amount to be created\n//     uint256 tokens = calculateTokens(_beneficiary, weiAmount, rate);\n\n//     assert(tokens > 0);\n\n//     // update state\n//     weiRaised = weiRaised.add(weiAmount);\n\n//     require(token.mint(_beneficiary, tokens), '');\n//     emit TokensPurchased(msg.sender, _beneficiary, weiAmount, tokens);\n\n//     contributorList[_beneficiary].contributionAmount = contributorList[_beneficiary].contributionAmount.add(weiAmount);\n//     contributorList[_beneficiary].tokensIssued = contributorList[_beneficiary].tokensIssued.add(tokens);\n\n//     wallet.transfer(weiAmount);\n\n//     if (refund != 0) _beneficiary.transfer(refund);\n//   }\n\n//   /**\n//    * Check if token is locked.\n//    */\n//   function tokenIsLocked(address _contributor) public view returns (bool) {\n\n//     if (block.timestamp < lockInTime1 && contributorList[_contributor].lockupPeriod == 1) {\n//       return true;\n//     } else if (block.timestamp < lockInTime2 && contributorList[_contributor].lockupPeriod == 2) {\n//       return true;\n//     }\n\n//     return false;\n\n//   }\n\n\n//   /**\n//    * Distribute tokens to selected team members & founders.\n//    * Unit of Allowance is ETH and is converted in number of tokens by multiplying with Rate.\n//    * This can be called by any whitelisted beneficiary.\n//    */\n//   function airdrop() public {\n//     airdropFor(msg.sender);\n//   }\n\n\n//   /**\n//    * Alternatively to airdrop(); tokens can be directly sent to beneficiaries by this function\n//    * This can be called only once.\n//    */\n//   function airdropFor(address _beneficiary) public {\n//     require(_beneficiary != 0x0, '');\n//     require(contributorList[_beneficiary].airdrop == true, '');\n//     require(contributorList[_beneficiary].tokensIssued == 0, '');\n//     require(contributorList[_beneficiary].allowance > 0, '');\n\n//     setCrowdsaleState();\n\n//     require(crowdsaleState == state.crowdsaleEnded, '');\n\n//     uint256 amount = contributorList[_beneficiary].allowance.mul(rate);\n//     require(token.mint(_beneficiary, amount), '');\n//     emit TokenAllocated(_beneficiary, amount);\n\n//     contributorList[_beneficiary].tokensIssued = contributorList[_beneficiary].tokensIssued.add(amount);\n//   }\n\n//   /**\n//    * Creates an new ERC20 Token contract for the iNETr Token.\n//    * Overrides Crowdsale function\n//    * @return the created token\n//    */\n//   function createTokenContract() internal returns (ERC20Mintable) {\n//     return new Token();\n//   }\n\n//   /**\n//    * Finalize sale and perform cleanup actions.\n//    */\n//   function finalization() internal {\n//     uint256 maxSupply = Token(token).MAXIMUM_SUPPLY();\n//     token.mint(wallet, maxSupply.sub(token.totalSupply())); // Alternativly, hardcode remaining token distribution.\n//     token.finishMinting();\n//     token.transferOwnership(owner);\n//   }\n\n//   /**\n//    * Owner can transfer back tokens which have been sent to this contract by mistake.\n//    * @param  _token address of token contract of the respective tokens\n//    * @param  _to where to send the tokens\n//    */\n//   function salvageTokens(ERC20 _token, address _to) external onlyOwner {\n//     _token.transfer(_to, _token.balanceOf(this));\n//   }\n}",
+  "sourcePath": "/home/jaxcoder/Projects/InetMaster/applications/admin-tool/src/contracts/InetTge.sol",
   "ast": {
-    "absolutePath": "/C/Projects/InsureNET/master-branch/admin-tool/src/contracts/InetTge.sol",
+    "absolutePath": "/home/jaxcoder/Projects/InetMaster/applications/admin-tool/src/contracts/InetTge.sol",
     "exportedSymbols": {
       "InetTge": [
         1111
@@ -439,7 +439,7 @@
           ".0"
         ],
         "nodeType": "PragmaDirective",
-        "src": "172:23:4"
+        "src": "164:23:4"
       },
       {
         "absolutePath": "@openzeppelin/contracts/math/SafeMath.sol",
@@ -448,7 +448,7 @@
         "nodeType": "ImportDirective",
         "scope": 1112,
         "sourceUnit": 5119,
-        "src": "199:51:4",
+        "src": "189:51:4",
         "symbolAliases": [],
         "unitAlias": ""
       },
@@ -459,7 +459,7 @@
         "nodeType": "ImportDirective",
         "scope": 1112,
         "sourceUnit": 5728,
-        "src": "252:63:4",
+        "src": "241:63:4",
         "symbolAliases": [],
         "unitAlias": ""
       },
@@ -470,7 +470,7 @@
         "nodeType": "ImportDirective",
         "scope": 1112,
         "sourceUnit": 5642,
-        "src": "317:55:4",
+        "src": "305:55:4",
         "symbolAliases": [],
         "unitAlias": ""
       },
@@ -481,29 +481,29 @@
         "nodeType": "ImportDirective",
         "scope": 1112,
         "sourceUnit": 4665,
-        "src": "374:81:4",
+        "src": "361:81:4",
         "symbolAliases": [],
         "unitAlias": ""
       },
       {
-        "absolutePath": "/C/Projects/InsureNET/master-branch/admin-tool/src/contracts/Token.sol",
+        "absolutePath": "/home/jaxcoder/Projects/InetMaster/applications/admin-tool/src/contracts/Token.sol",
         "file": "./Token.sol",
         "id": 1097,
         "nodeType": "ImportDirective",
         "scope": 1112,
         "sourceUnit": 2669,
-        "src": "457:21:4",
+        "src": "443:21:4",
         "symbolAliases": [],
         "unitAlias": ""
       },
       {
-        "absolutePath": "/C/Projects/InsureNET/master-branch/admin-tool/src/contracts/InetWhitelistedCrowdsale.sol",
+        "absolutePath": "/home/jaxcoder/Projects/InetMaster/applications/admin-tool/src/contracts/InetWhitelistedCrowdsale.sol",
         "file": "./InetWhitelistedCrowdsale.sol",
         "id": 1098,
         "nodeType": "ImportDirective",
         "scope": 1112,
         "sourceUnit": 1664,
-        "src": "480:40:4",
+        "src": "465:40:4",
         "symbolAliases": [],
         "unitAlias": ""
       },
@@ -517,7 +517,7 @@
               "name": "InetWhitelistedCrowdsale",
               "nodeType": "UserDefinedTypeName",
               "referencedDeclaration": 1663,
-              "src": "546:24:4",
+              "src": "528:24:4",
               "typeDescriptions": {
                 "typeIdentifier": "t_contract$_InetWhitelistedCrowdsale_$1663",
                 "typeString": "contract InetWhitelistedCrowdsale"
@@ -525,7 +525,7 @@
             },
             "id": 1100,
             "nodeType": "InheritanceSpecifier",
-            "src": "546:24:4"
+            "src": "528:24:4"
           },
           {
             "arguments": null,
@@ -535,7 +535,7 @@
               "name": "FinalizableCrowdsale",
               "nodeType": "UserDefinedTypeName",
               "referencedDeclaration": 4664,
-              "src": "572:20:4",
+              "src": "554:20:4",
               "typeDescriptions": {
                 "typeIdentifier": "t_contract$_FinalizableCrowdsale_$4664",
                 "typeString": "contract FinalizableCrowdsale"
@@ -543,7 +543,7 @@
             },
             "id": 1102,
             "nodeType": "InheritanceSpecifier",
-            "src": "572:20:4"
+            "src": "554:20:4"
           }
         ],
         "contractDependencies": [
@@ -580,19 +580,19 @@
               "name": "SafeMath",
               "nodeType": "UserDefinedTypeName",
               "referencedDeclaration": 5118,
-              "src": "606:8:4",
+              "src": "586:8:4",
               "typeDescriptions": {
                 "typeIdentifier": "t_contract$_SafeMath_$5118",
                 "typeString": "library SafeMath"
               }
             },
             "nodeType": "UsingForDirective",
-            "src": "600:27:4",
+            "src": "580:27:4",
             "typeName": {
               "id": 1104,
               "name": "uint256",
               "nodeType": "ElementaryTypeName",
-              "src": "619:7:4",
+              "src": "599:7:4",
               "typeDescriptions": {
                 "typeIdentifier": "t_uint256",
                 "typeString": "uint256"
@@ -607,40 +607,40 @@
                 "id": 1106,
                 "name": "preSale",
                 "nodeType": "EnumValue",
-                "src": "646:7:4"
+                "src": "624:7:4"
               },
               {
                 "id": 1107,
                 "name": "priorityPass",
                 "nodeType": "EnumValue",
-                "src": "655:12:4"
+                "src": "633:12:4"
               },
               {
                 "id": 1108,
                 "name": "crowdsale",
                 "nodeType": "EnumValue",
-                "src": "669:9:4"
+                "src": "647:9:4"
               },
               {
                 "id": 1109,
                 "name": "crowdsaleEnded",
                 "nodeType": "EnumValue",
-                "src": "680:14:4"
+                "src": "658:14:4"
               }
             ],
             "name": "state",
             "nodeType": "EnumDefinition",
-            "src": "633:63:4"
+            "src": "611:63:4"
           }
         ],
         "scope": 1112,
-        "src": "526:8979:4"
+        "src": "508:8717:4"
       }
     ],
-    "src": "172:9333:4"
+    "src": "164:9061:4"
   },
   "legacyAST": {
-    "absolutePath": "/C/Projects/InsureNET/master-branch/admin-tool/src/contracts/InetTge.sol",
+    "absolutePath": "/home/jaxcoder/Projects/InetMaster/applications/admin-tool/src/contracts/InetTge.sol",
     "exportedSymbols": {
       "InetTge": [
         1111
@@ -658,7 +658,7 @@
           ".0"
         ],
         "nodeType": "PragmaDirective",
-        "src": "172:23:4"
+        "src": "164:23:4"
       },
       {
         "absolutePath": "@openzeppelin/contracts/math/SafeMath.sol",
@@ -667,7 +667,7 @@
         "nodeType": "ImportDirective",
         "scope": 1112,
         "sourceUnit": 5119,
-        "src": "199:51:4",
+        "src": "189:51:4",
         "symbolAliases": [],
         "unitAlias": ""
       },
@@ -678,7 +678,7 @@
         "nodeType": "ImportDirective",
         "scope": 1112,
         "sourceUnit": 5728,
-        "src": "252:63:4",
+        "src": "241:63:4",
         "symbolAliases": [],
         "unitAlias": ""
       },
@@ -689,7 +689,7 @@
         "nodeType": "ImportDirective",
         "scope": 1112,
         "sourceUnit": 5642,
-        "src": "317:55:4",
+        "src": "305:55:4",
         "symbolAliases": [],
         "unitAlias": ""
       },
@@ -700,29 +700,29 @@
         "nodeType": "ImportDirective",
         "scope": 1112,
         "sourceUnit": 4665,
-        "src": "374:81:4",
+        "src": "361:81:4",
         "symbolAliases": [],
         "unitAlias": ""
       },
       {
-        "absolutePath": "/C/Projects/InsureNET/master-branch/admin-tool/src/contracts/Token.sol",
+        "absolutePath": "/home/jaxcoder/Projects/InetMaster/applications/admin-tool/src/contracts/Token.sol",
         "file": "./Token.sol",
         "id": 1097,
         "nodeType": "ImportDirective",
         "scope": 1112,
         "sourceUnit": 2669,
-        "src": "457:21:4",
+        "src": "443:21:4",
         "symbolAliases": [],
         "unitAlias": ""
       },
       {
-        "absolutePath": "/C/Projects/InsureNET/master-branch/admin-tool/src/contracts/InetWhitelistedCrowdsale.sol",
+        "absolutePath": "/home/jaxcoder/Projects/InetMaster/applications/admin-tool/src/contracts/InetWhitelistedCrowdsale.sol",
         "file": "./InetWhitelistedCrowdsale.sol",
         "id": 1098,
         "nodeType": "ImportDirective",
         "scope": 1112,
         "sourceUnit": 1664,
-        "src": "480:40:4",
+        "src": "465:40:4",
         "symbolAliases": [],
         "unitAlias": ""
       },
@@ -736,7 +736,7 @@
               "name": "InetWhitelistedCrowdsale",
               "nodeType": "UserDefinedTypeName",
               "referencedDeclaration": 1663,
-              "src": "546:24:4",
+              "src": "528:24:4",
               "typeDescriptions": {
                 "typeIdentifier": "t_contract$_InetWhitelistedCrowdsale_$1663",
                 "typeString": "contract InetWhitelistedCrowdsale"
@@ -744,7 +744,7 @@
             },
             "id": 1100,
             "nodeType": "InheritanceSpecifier",
-            "src": "546:24:4"
+            "src": "528:24:4"
           },
           {
             "arguments": null,
@@ -754,7 +754,7 @@
               "name": "FinalizableCrowdsale",
               "nodeType": "UserDefinedTypeName",
               "referencedDeclaration": 4664,
-              "src": "572:20:4",
+              "src": "554:20:4",
               "typeDescriptions": {
                 "typeIdentifier": "t_contract$_FinalizableCrowdsale_$4664",
                 "typeString": "contract FinalizableCrowdsale"
@@ -762,7 +762,7 @@
             },
             "id": 1102,
             "nodeType": "InheritanceSpecifier",
-            "src": "572:20:4"
+            "src": "554:20:4"
           }
         ],
         "contractDependencies": [
@@ -799,19 +799,19 @@
               "name": "SafeMath",
               "nodeType": "UserDefinedTypeName",
               "referencedDeclaration": 5118,
-              "src": "606:8:4",
+              "src": "586:8:4",
               "typeDescriptions": {
                 "typeIdentifier": "t_contract$_SafeMath_$5118",
                 "typeString": "library SafeMath"
               }
             },
             "nodeType": "UsingForDirective",
-            "src": "600:27:4",
+            "src": "580:27:4",
             "typeName": {
               "id": 1104,
               "name": "uint256",
               "nodeType": "ElementaryTypeName",
-              "src": "619:7:4",
+              "src": "599:7:4",
               "typeDescriptions": {
                 "typeIdentifier": "t_uint256",
                 "typeString": "uint256"
@@ -826,37 +826,37 @@
                 "id": 1106,
                 "name": "preSale",
                 "nodeType": "EnumValue",
-                "src": "646:7:4"
+                "src": "624:7:4"
               },
               {
                 "id": 1107,
                 "name": "priorityPass",
                 "nodeType": "EnumValue",
-                "src": "655:12:4"
+                "src": "633:12:4"
               },
               {
                 "id": 1108,
                 "name": "crowdsale",
                 "nodeType": "EnumValue",
-                "src": "669:9:4"
+                "src": "647:9:4"
               },
               {
                 "id": 1109,
                 "name": "crowdsaleEnded",
                 "nodeType": "EnumValue",
-                "src": "680:14:4"
+                "src": "658:14:4"
               }
             ],
             "name": "state",
             "nodeType": "EnumDefinition",
-            "src": "633:63:4"
+            "src": "611:63:4"
           }
         ],
         "scope": 1112,
-        "src": "526:8979:4"
+        "src": "508:8717:4"
       }
     ],
-    "src": "172:9333:4"
+    "src": "164:9061:4"
   },
   "compiler": {
     "name": "solc",
@@ -864,7 +864,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.23",
-  "updatedAt": "2020-04-08T02:37:28.098Z",
+  "updatedAt": "2020-04-18T18:34:24.880Z",
   "devdoc": {
     "methods": {
       "buyTokens(address)": {

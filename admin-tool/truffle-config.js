@@ -3,6 +3,8 @@ require('babel-polyfill');
 const HDWalletProvider = require("truffle-hdwallet-provider");
 
 const mnemonic = "outside bridge shrimp above piece myth acquire doll void filter fit reject";
+const ganacheMnemonicUbuntuNet = 'elite two fluid mask toe theme stomach since repeat host beauty walnut';
+
 
 module.exports = {
   networks: {
