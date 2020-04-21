@@ -4,29 +4,29 @@
   "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/C/Projects/InsureNET/master-branch/admin-tool/src/contracts/hurricane/HurricaneDatabaseModel.sol\":\"HurricaneDatabaseModel\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/C/Projects/InsureNET/master-branch/admin-tool/src/contracts/hurricane/HurricaneDatabaseModel.sol\":{\"keccak256\":\"0x71bd00db30af787eed7ded701d100e5b937c693521ef6c371372fd8c595506d1\",\"urls\":[\"bzz-raw://c5bf98be99adde3c8ef93195c45dbe2804eac38b8006636969d870f8803cdf39\",\"dweb:/ipfs/QmRR5TvL2d1G66DdunadyuEUfwXHNdijnZEoxzikXiJkuJ\"]}},\"version\":1}",
   "bytecode": "0x6080604052348015600f57600080fd5b50603e80601d6000396000f3fe6080604052600080fdfea265627a7a72315820f121ddf6674c63b2e440d45a1e7671849fe2020fecba0d1de35bd47bbc00268564736f6c63430005100032",
   "deployedBytecode": "0x6080604052600080fdfea265627a7a72315820f121ddf6674c63b2e440d45a1e7671849fe2020fecba0d1de35bd47bbc00268564736f6c63430005100032",
-  "sourceMap": "176:4085:18:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;176:4085:18;;;;;;;",
-  "deployedSourceMap": "176:4085:18:-;;;;;",
+  "sourceMap": "176:4085:17:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;176:4085:17;;;;;;;",
+  "deployedSourceMap": "176:4085:17:-;;;;;",
   "source": "/**\r\n * Oraclized Underwriting and Payout\r\n *\r\n * @description Database model\r\n * @copyright (c) 2020 InsureNET\r\n * @author Jason Romero\r\n */\r\n\r\n\r\npragma solidity 0.5.16;\r\n\r\n\r\ncontract HurricaneDatabaseModel {\r\n\r\n  // Ledger accounts.\r\n  enum Acc {\r\n    Premium,      // 0\r\n    RiskFund,     // 1\r\n    Payout,       // 2\r\n    Balance,      // 3\r\n    Reward,       // 4\r\n    OraclizeCosts // 5\r\n  }\r\n\r\n  // policy Status Codes and meaning:\r\n  //\r\n  // 00 = Applied:\t  the customer has payed a premium, but the oracle has\r\n  //\t\t\t\t\t        not yet checked and confirmed.\r\n  //\t\t\t\t\t        The customer can still revoke the policy.\r\n  // 01 = Accepted:\t  the oracle has checked and confirmed.\r\n  //\t\t\t\t\t        The customer can still revoke the policy.\r\n  // 02 = Revoked:\t  The customer has revoked the policy.\r\n  //\t\t\t\t\t        The premium minus cancellation fee is payed back to the\r\n  //\t\t\t\t\t        customer by the oracle.\r\n  // 03 = PaidOut:\t  An atmospheric event of specified intensity happened\r\n  //                  at a specifc distance from the submitted location.\r\n  //\t\t\t\t\t        The oracle has checked and payed out.\r\n  // 04 = Expired:\t  The season covered has ended.\r\n  //\t\t\t\t\t        No payout.\r\n  // 05 = Declined:\t  The application was invalid.\r\n  //\t\t\t\t\t        The premium minus cancellation fee is payed back to the\r\n  //\t\t\t\t\t        customer by the oracle.\r\n  // 06 = SendFailed:\tDuring Revoke, Decline or Payout, sending ether failed\r\n  //\t\t\t\t\t        for unknown reasons.\r\n  //\t\t\t\t\t        The funds remain in the contracts RiskFund.\r\n  //                   00       01        02       03        04      05           06\r\n  enum PolicyState { Applied, Accepted, Revoked, PaidOut, Expired, Declined, SendFailed }\r\n\r\n  // oraclize callback types:\r\n  enum OraclizeState { ForUnderwriting, ForPayout }\r\n\r\n  //               00   01\r\n  enum Currency { ETH, USD }\r\n\r\n  // the policy structure: this structure keeps track of the individual parameters of a policy.\r\n  // typically customer address, premium and some status information.\r\n  struct Policy {\r\n    // 0 - the customer\r\n    address customer;\r\n\r\n    // 1 - premium\r\n    uint premium;\r\n    // risk specific parameters:\r\n    // 2 - pointer to the risk in the risks mapping\r\n    bytes32 riskId;\r\n    // custom payout pattern\r\n    // in future versions, customer will be able to tamper with this array.\r\n    // to keep things simple, we have decided to hard-code the array for all policies.\r\n    // uint8[5] pattern;\r\n    // 3 - probability weight. this is the central parameter\r\n    uint weight;\r\n    // 4 - calculated Payout\r\n    uint calculatedPayout;\r\n    // 5 - actual Payout\r\n    uint actualPayout;\r\n\r\n    // status fields:\r\n    // 6 - the state of the policy\r\n    PolicyState state;\r\n    // 7 - time of last state change\r\n    uint stateTime;\r\n    // 8 - state change message/reason\r\n    bytes32 stateMessage;\r\n    // 9 - TLSNotary Proof\r\n    bytes proof;\r\n    // 10 - Currency\r\n    Currency currency;\r\n    // 10 - External customer id\r\n    bytes32 customerExternalId;\r\n    // 11 - Policy lat, lng\r\n    bytes32 latlng;\r\n  }\r\n\r\n  // the risk structure; this structure keeps track of the risk-\r\n  // specific parameters.\r\n  // several policies can share the same risk structure\r\n  // (typically same people in a specific geographic\r\n  // area [market] for a particular season)\r\n  struct Risk {\r\n    // 0 - Market, \"PR\" for pilot\r\n    bytes32 market;\r\n    // 1 - Season, the current year\r\n    bytes32 season;\r\n    // 2 - the event category that triggered payouts\r\n    bytes32 category;\r\n    // 3 - we limit the cumulated weighted premium to avoid cluster risks\r\n    uint cumulatedWeightedPremium;\r\n    // 4 - max cumulated Payout for this risk\r\n    uint premiumMultiplier;\r\n  }\r\n\r\n  // the oraclize callback structure: we use several oraclize calls.\r\n  // all oraclize calls will result in a common callback to __callback(...).\r\n  // to keep track of the different querys we have to introduce this struct.\r\n  struct OraclizeCallback {\r\n    // for which policy have we called?\r\n    uint policyId;\r\n    // for which purpose did we call? {ForUnderwrite | ForPayout}\r\n    OraclizeState oState;\r\n  }\r\n\r\n  struct Customer {\r\n    bytes32 customerExternalId;\r\n    bool identityConfirmed;\r\n  }\r\n}",
   "sourcePath": "C:\\Projects\\InsureNET\\master-branch\\admin-tool\\src\\contracts\\hurricane\\HurricaneDatabaseModel.sol",
   "ast": {
     "absolutePath": "/C/Projects/InsureNET/master-branch/admin-tool/src/contracts/hurricane/HurricaneDatabaseModel.sol",
     "exportedSymbols": {
       "HurricaneDatabaseModel": [
-        3240
+        2893
       ]
     },
-    "id": 3241,
+    "id": 2894,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 3170,
+        "id": 2823,
         "literals": [
           "solidity",
           "0.5",
           ".16"
         ],
         "nodeType": "PragmaDirective",
-        "src": "147:23:18"
+        "src": "147:23:17"
       },
       {
         "baseContracts": [],
@@ -34,162 +34,162 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 3240,
+        "id": 2893,
         "linearizedBaseContracts": [
-          3240
+          2893
         ],
         "name": "HurricaneDatabaseModel",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "canonicalName": "HurricaneDatabaseModel.Acc",
-            "id": 3177,
+            "id": 2830,
             "members": [
               {
-                "id": 3171,
+                "id": 2824,
                 "name": "Premium",
                 "nodeType": "EnumValue",
-                "src": "254:7:18"
+                "src": "254:7:17"
               },
               {
-                "id": 3172,
+                "id": 2825,
                 "name": "RiskFund",
                 "nodeType": "EnumValue",
-                "src": "278:8:18"
+                "src": "278:8:17"
               },
               {
-                "id": 3173,
+                "id": 2826,
                 "name": "Payout",
                 "nodeType": "EnumValue",
-                "src": "302:6:18"
+                "src": "302:6:17"
               },
               {
-                "id": 3174,
+                "id": 2827,
                 "name": "Balance",
                 "nodeType": "EnumValue",
-                "src": "326:7:18"
+                "src": "326:7:17"
               },
               {
-                "id": 3175,
+                "id": 2828,
                 "name": "Reward",
                 "nodeType": "EnumValue",
-                "src": "350:6:18"
+                "src": "350:6:17"
               },
               {
-                "id": 3176,
+                "id": 2829,
                 "name": "OraclizeCosts",
                 "nodeType": "EnumValue",
-                "src": "374:13:18"
+                "src": "374:13:17"
               }
             ],
             "name": "Acc",
             "nodeType": "EnumDefinition",
-            "src": "238:159:18"
+            "src": "238:159:17"
           },
           {
             "canonicalName": "HurricaneDatabaseModel.PolicyState",
-            "id": 3185,
+            "id": 2838,
             "members": [
               {
-                "id": 3178,
+                "id": 2831,
                 "name": "Applied",
                 "nodeType": "EnumValue",
-                "src": "1666:7:18"
+                "src": "1666:7:17"
               },
               {
-                "id": 3179,
+                "id": 2832,
                 "name": "Accepted",
                 "nodeType": "EnumValue",
-                "src": "1675:8:18"
+                "src": "1675:8:17"
               },
               {
-                "id": 3180,
+                "id": 2833,
                 "name": "Revoked",
                 "nodeType": "EnumValue",
-                "src": "1685:7:18"
+                "src": "1685:7:17"
               },
               {
-                "id": 3181,
+                "id": 2834,
                 "name": "PaidOut",
                 "nodeType": "EnumValue",
-                "src": "1694:7:18"
+                "src": "1694:7:17"
               },
               {
-                "id": 3182,
+                "id": 2835,
                 "name": "Expired",
                 "nodeType": "EnumValue",
-                "src": "1703:7:18"
+                "src": "1703:7:17"
               },
               {
-                "id": 3183,
+                "id": 2836,
                 "name": "Declined",
                 "nodeType": "EnumValue",
-                "src": "1712:8:18"
+                "src": "1712:8:17"
               },
               {
-                "id": 3184,
+                "id": 2837,
                 "name": "SendFailed",
                 "nodeType": "EnumValue",
-                "src": "1722:10:18"
+                "src": "1722:10:17"
               }
             ],
             "name": "PolicyState",
             "nodeType": "EnumDefinition",
-            "src": "1647:87:18"
+            "src": "1647:87:17"
           },
           {
             "canonicalName": "HurricaneDatabaseModel.OraclizeState",
-            "id": 3188,
+            "id": 2841,
             "members": [
               {
-                "id": 3186,
+                "id": 2839,
                 "name": "ForUnderwriting",
                 "nodeType": "EnumValue",
-                "src": "1792:15:18"
+                "src": "1792:15:17"
               },
               {
-                "id": 3187,
+                "id": 2840,
                 "name": "ForPayout",
                 "nodeType": "EnumValue",
-                "src": "1809:9:18"
+                "src": "1809:9:17"
               }
             ],
             "name": "OraclizeState",
             "nodeType": "EnumDefinition",
-            "src": "1771:49:18"
+            "src": "1771:49:17"
           },
           {
             "canonicalName": "HurricaneDatabaseModel.Currency",
-            "id": 3191,
+            "id": 2844,
             "members": [
               {
-                "id": 3189,
+                "id": 2842,
                 "name": "ETH",
                 "nodeType": "EnumValue",
-                "src": "1870:3:18"
+                "src": "1870:3:17"
               },
               {
-                "id": 3190,
+                "id": 2843,
                 "name": "USD",
                 "nodeType": "EnumValue",
-                "src": "1875:3:18"
+                "src": "1875:3:17"
               }
             ],
             "name": "Currency",
             "nodeType": "EnumDefinition",
-            "src": "1854:26:18"
+            "src": "1854:26:17"
           },
           {
             "canonicalName": "HurricaneDatabaseModel.Policy",
-            "id": 3218,
+            "id": 2871,
             "members": [
               {
                 "constant": false,
-                "id": 3193,
+                "id": 2846,
                 "name": "customer",
                 "nodeType": "VariableDeclaration",
-                "scope": 3218,
-                "src": "2100:16:18",
+                "scope": 2871,
+                "src": "2100:16:17",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -197,10 +197,10 @@
                   "typeString": "address"
                 },
                 "typeName": {
-                  "id": 3192,
+                  "id": 2845,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
-                  "src": "2100:7:18",
+                  "src": "2100:7:17",
                   "stateMutability": "nonpayable",
                   "typeDescriptions": {
                     "typeIdentifier": "t_address",
@@ -212,11 +212,11 @@
               },
               {
                 "constant": false,
-                "id": 3195,
+                "id": 2848,
                 "name": "premium",
                 "nodeType": "VariableDeclaration",
-                "scope": 3218,
-                "src": "2145:12:18",
+                "scope": 2871,
+                "src": "2145:12:17",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -224,10 +224,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 3194,
+                  "id": 2847,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
-                  "src": "2145:4:18",
+                  "src": "2145:4:17",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -238,11 +238,11 @@
               },
               {
                 "constant": false,
-                "id": 3197,
+                "id": 2850,
                 "name": "riskId",
                 "nodeType": "VariableDeclaration",
-                "scope": 3218,
-                "src": "2251:14:18",
+                "scope": 2871,
+                "src": "2251:14:17",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -250,10 +250,10 @@
                   "typeString": "bytes32"
                 },
                 "typeName": {
-                  "id": 3196,
+                  "id": 2849,
                   "name": "bytes32",
                   "nodeType": "ElementaryTypeName",
-                  "src": "2251:7:18",
+                  "src": "2251:7:17",
                   "typeDescriptions": {
                     "typeIdentifier": "t_bytes32",
                     "typeString": "bytes32"
@@ -264,11 +264,11 @@
               },
               {
                 "constant": false,
-                "id": 3199,
+                "id": 2852,
                 "name": "weight",
                 "nodeType": "VariableDeclaration",
-                "scope": 3218,
-                "src": "2555:11:18",
+                "scope": 2871,
+                "src": "2555:11:17",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -276,10 +276,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 3198,
+                  "id": 2851,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
-                  "src": "2555:4:18",
+                  "src": "2555:4:17",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -290,11 +290,11 @@
               },
               {
                 "constant": false,
-                "id": 3201,
+                "id": 2854,
                 "name": "calculatedPayout",
                 "nodeType": "VariableDeclaration",
-                "scope": 3218,
-                "src": "2603:21:18",
+                "scope": 2871,
+                "src": "2603:21:17",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -302,10 +302,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 3200,
+                  "id": 2853,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
-                  "src": "2603:4:18",
+                  "src": "2603:4:17",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -316,11 +316,11 @@
               },
               {
                 "constant": false,
-                "id": 3203,
+                "id": 2856,
                 "name": "actualPayout",
                 "nodeType": "VariableDeclaration",
-                "scope": 3218,
-                "src": "2657:17:18",
+                "scope": 2871,
+                "src": "2657:17:17",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -328,10 +328,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 3202,
+                  "id": 2855,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
-                  "src": "2657:4:18",
+                  "src": "2657:4:17",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -342,26 +342,26 @@
               },
               {
                 "constant": false,
-                "id": 3205,
+                "id": 2858,
                 "name": "state",
                 "nodeType": "VariableDeclaration",
-                "scope": 3218,
-                "src": "2742:17:18",
+                "scope": 2871,
+                "src": "2742:17:17",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_enum$_PolicyState_$3185",
+                  "typeIdentifier": "t_enum$_PolicyState_$2838",
                   "typeString": "enum HurricaneDatabaseModel.PolicyState"
                 },
                 "typeName": {
                   "contractScope": null,
-                  "id": 3204,
+                  "id": 2857,
                   "name": "PolicyState",
                   "nodeType": "UserDefinedTypeName",
-                  "referencedDeclaration": 3185,
-                  "src": "2742:11:18",
+                  "referencedDeclaration": 2838,
+                  "src": "2742:11:17",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_enum$_PolicyState_$3185",
+                    "typeIdentifier": "t_enum$_PolicyState_$2838",
                     "typeString": "enum HurricaneDatabaseModel.PolicyState"
                   }
                 },
@@ -370,11 +370,11 @@
               },
               {
                 "constant": false,
-                "id": 3207,
+                "id": 2860,
                 "name": "stateTime",
                 "nodeType": "VariableDeclaration",
-                "scope": 3218,
-                "src": "2804:14:18",
+                "scope": 2871,
+                "src": "2804:14:17",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -382,10 +382,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 3206,
+                  "id": 2859,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
-                  "src": "2804:4:18",
+                  "src": "2804:4:17",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -396,11 +396,11 @@
               },
               {
                 "constant": false,
-                "id": 3209,
+                "id": 2862,
                 "name": "stateMessage",
                 "nodeType": "VariableDeclaration",
-                "scope": 3218,
-                "src": "2865:20:18",
+                "scope": 2871,
+                "src": "2865:20:17",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -408,10 +408,10 @@
                   "typeString": "bytes32"
                 },
                 "typeName": {
-                  "id": 3208,
+                  "id": 2861,
                   "name": "bytes32",
                   "nodeType": "ElementaryTypeName",
-                  "src": "2865:7:18",
+                  "src": "2865:7:17",
                   "typeDescriptions": {
                     "typeIdentifier": "t_bytes32",
                     "typeString": "bytes32"
@@ -422,11 +422,11 @@
               },
               {
                 "constant": false,
-                "id": 3211,
+                "id": 2864,
                 "name": "proof",
                 "nodeType": "VariableDeclaration",
-                "scope": 3218,
-                "src": "2920:11:18",
+                "scope": 2871,
+                "src": "2920:11:17",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -434,10 +434,10 @@
                   "typeString": "bytes"
                 },
                 "typeName": {
-                  "id": 3210,
+                  "id": 2863,
                   "name": "bytes",
                   "nodeType": "ElementaryTypeName",
-                  "src": "2920:5:18",
+                  "src": "2920:5:17",
                   "typeDescriptions": {
                     "typeIdentifier": "t_bytes_storage_ptr",
                     "typeString": "bytes"
@@ -448,26 +448,26 @@
               },
               {
                 "constant": false,
-                "id": 3213,
+                "id": 2866,
                 "name": "currency",
                 "nodeType": "VariableDeclaration",
-                "scope": 3218,
-                "src": "2960:17:18",
+                "scope": 2871,
+                "src": "2960:17:17",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_enum$_Currency_$3191",
+                  "typeIdentifier": "t_enum$_Currency_$2844",
                   "typeString": "enum HurricaneDatabaseModel.Currency"
                 },
                 "typeName": {
                   "contractScope": null,
-                  "id": 3212,
+                  "id": 2865,
                   "name": "Currency",
                   "nodeType": "UserDefinedTypeName",
-                  "referencedDeclaration": 3191,
-                  "src": "2960:8:18",
+                  "referencedDeclaration": 2844,
+                  "src": "2960:8:17",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_enum$_Currency_$3191",
+                    "typeIdentifier": "t_enum$_Currency_$2844",
                     "typeString": "enum HurricaneDatabaseModel.Currency"
                   }
                 },
@@ -476,11 +476,11 @@
               },
               {
                 "constant": false,
-                "id": 3215,
+                "id": 2868,
                 "name": "customerExternalId",
                 "nodeType": "VariableDeclaration",
-                "scope": 3218,
-                "src": "3018:26:18",
+                "scope": 2871,
+                "src": "3018:26:17",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -488,10 +488,10 @@
                   "typeString": "bytes32"
                 },
                 "typeName": {
-                  "id": 3214,
+                  "id": 2867,
                   "name": "bytes32",
                   "nodeType": "ElementaryTypeName",
-                  "src": "3018:7:18",
+                  "src": "3018:7:17",
                   "typeDescriptions": {
                     "typeIdentifier": "t_bytes32",
                     "typeString": "bytes32"
@@ -502,11 +502,11 @@
               },
               {
                 "constant": false,
-                "id": 3217,
+                "id": 2870,
                 "name": "latlng",
                 "nodeType": "VariableDeclaration",
-                "scope": 3218,
-                "src": "3080:14:18",
+                "scope": 2871,
+                "src": "3080:14:17",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -514,10 +514,10 @@
                   "typeString": "bytes32"
                 },
                 "typeName": {
-                  "id": 3216,
+                  "id": 2869,
                   "name": "bytes32",
                   "nodeType": "ElementaryTypeName",
-                  "src": "3080:7:18",
+                  "src": "3080:7:17",
                   "typeDescriptions": {
                     "typeIdentifier": "t_bytes32",
                     "typeString": "bytes32"
@@ -529,21 +529,21 @@
             ],
             "name": "Policy",
             "nodeType": "StructDefinition",
-            "scope": 3240,
-            "src": "2054:1046:18",
+            "scope": 2893,
+            "src": "2054:1046:17",
             "visibility": "public"
           },
           {
             "canonicalName": "HurricaneDatabaseModel.Risk",
-            "id": 3229,
+            "id": 2882,
             "members": [
               {
                 "constant": false,
-                "id": 3220,
+                "id": 2873,
                 "name": "market",
                 "nodeType": "VariableDeclaration",
-                "scope": 3229,
-                "src": "3409:14:18",
+                "scope": 2882,
+                "src": "3409:14:17",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -551,10 +551,10 @@
                   "typeString": "bytes32"
                 },
                 "typeName": {
-                  "id": 3219,
+                  "id": 2872,
                   "name": "bytes32",
                   "nodeType": "ElementaryTypeName",
-                  "src": "3409:7:18",
+                  "src": "3409:7:17",
                   "typeDescriptions": {
                     "typeIdentifier": "t_bytes32",
                     "typeString": "bytes32"
@@ -565,11 +565,11 @@
               },
               {
                 "constant": false,
-                "id": 3222,
+                "id": 2875,
                 "name": "season",
                 "nodeType": "VariableDeclaration",
-                "scope": 3229,
-                "src": "3467:14:18",
+                "scope": 2882,
+                "src": "3467:14:17",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -577,10 +577,10 @@
                   "typeString": "bytes32"
                 },
                 "typeName": {
-                  "id": 3221,
+                  "id": 2874,
                   "name": "bytes32",
                   "nodeType": "ElementaryTypeName",
-                  "src": "3467:7:18",
+                  "src": "3467:7:17",
                   "typeDescriptions": {
                     "typeIdentifier": "t_bytes32",
                     "typeString": "bytes32"
@@ -591,11 +591,11 @@
               },
               {
                 "constant": false,
-                "id": 3224,
+                "id": 2877,
                 "name": "category",
                 "nodeType": "VariableDeclaration",
-                "scope": 3229,
-                "src": "3542:16:18",
+                "scope": 2882,
+                "src": "3542:16:17",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -603,10 +603,10 @@
                   "typeString": "bytes32"
                 },
                 "typeName": {
-                  "id": 3223,
+                  "id": 2876,
                   "name": "bytes32",
                   "nodeType": "ElementaryTypeName",
-                  "src": "3542:7:18",
+                  "src": "3542:7:17",
                   "typeDescriptions": {
                     "typeIdentifier": "t_bytes32",
                     "typeString": "bytes32"
@@ -617,11 +617,11 @@
               },
               {
                 "constant": false,
-                "id": 3226,
+                "id": 2879,
                 "name": "cumulatedWeightedPremium",
                 "nodeType": "VariableDeclaration",
-                "scope": 3229,
-                "src": "3640:29:18",
+                "scope": 2882,
+                "src": "3640:29:17",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -629,10 +629,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 3225,
+                  "id": 2878,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
-                  "src": "3640:4:18",
+                  "src": "3640:4:17",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -643,11 +643,11 @@
               },
               {
                 "constant": false,
-                "id": 3228,
+                "id": 2881,
                 "name": "premiumMultiplier",
                 "nodeType": "VariableDeclaration",
-                "scope": 3229,
-                "src": "3723:22:18",
+                "scope": 2882,
+                "src": "3723:22:17",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -655,10 +655,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 3227,
+                  "id": 2880,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
-                  "src": "3723:4:18",
+                  "src": "3723:4:17",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -670,21 +670,21 @@
             ],
             "name": "Risk",
             "nodeType": "StructDefinition",
-            "scope": 3240,
-            "src": "3355:396:18",
+            "scope": 2893,
+            "src": "3355:396:17",
             "visibility": "public"
           },
           {
             "canonicalName": "HurricaneDatabaseModel.OraclizeCallback",
-            "id": 3234,
+            "id": 2887,
             "members": [
               {
                 "constant": false,
-                "id": 3231,
+                "id": 2884,
                 "name": "policyId",
                 "nodeType": "VariableDeclaration",
-                "scope": 3234,
-                "src": "4055:13:18",
+                "scope": 2887,
+                "src": "4055:13:17",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -692,10 +692,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 3230,
+                  "id": 2883,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
-                  "src": "4055:4:18",
+                  "src": "4055:4:17",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -706,26 +706,26 @@
               },
               {
                 "constant": false,
-                "id": 3233,
+                "id": 2886,
                 "name": "oState",
                 "nodeType": "VariableDeclaration",
-                "scope": 3234,
-                "src": "4142:20:18",
+                "scope": 2887,
+                "src": "4142:20:17",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_enum$_OraclizeState_$3188",
+                  "typeIdentifier": "t_enum$_OraclizeState_$2841",
                   "typeString": "enum HurricaneDatabaseModel.OraclizeState"
                 },
                 "typeName": {
                   "contractScope": null,
-                  "id": 3232,
+                  "id": 2885,
                   "name": "OraclizeState",
                   "nodeType": "UserDefinedTypeName",
-                  "referencedDeclaration": 3188,
-                  "src": "4142:13:18",
+                  "referencedDeclaration": 2841,
+                  "src": "4142:13:17",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_enum$_OraclizeState_$3188",
+                    "typeIdentifier": "t_enum$_OraclizeState_$2841",
                     "typeString": "enum HurricaneDatabaseModel.OraclizeState"
                   }
                 },
@@ -735,21 +735,21 @@
             ],
             "name": "OraclizeCallback",
             "nodeType": "StructDefinition",
-            "scope": 3240,
-            "src": "3983:185:18",
+            "scope": 2893,
+            "src": "3983:185:17",
             "visibility": "public"
           },
           {
             "canonicalName": "HurricaneDatabaseModel.Customer",
-            "id": 3239,
+            "id": 2892,
             "members": [
               {
                 "constant": false,
-                "id": 3236,
+                "id": 2889,
                 "name": "customerExternalId",
                 "nodeType": "VariableDeclaration",
-                "scope": 3239,
-                "src": "4197:26:18",
+                "scope": 2892,
+                "src": "4197:26:17",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -757,10 +757,10 @@
                   "typeString": "bytes32"
                 },
                 "typeName": {
-                  "id": 3235,
+                  "id": 2888,
                   "name": "bytes32",
                   "nodeType": "ElementaryTypeName",
-                  "src": "4197:7:18",
+                  "src": "4197:7:17",
                   "typeDescriptions": {
                     "typeIdentifier": "t_bytes32",
                     "typeString": "bytes32"
@@ -771,11 +771,11 @@
               },
               {
                 "constant": false,
-                "id": 3238,
+                "id": 2891,
                 "name": "identityConfirmed",
                 "nodeType": "VariableDeclaration",
-                "scope": 3239,
-                "src": "4230:22:18",
+                "scope": 2892,
+                "src": "4230:22:17",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -783,10 +783,10 @@
                   "typeString": "bool"
                 },
                 "typeName": {
-                  "id": 3237,
+                  "id": 2890,
                   "name": "bool",
                   "nodeType": "ElementaryTypeName",
-                  "src": "4230:4:18",
+                  "src": "4230:4:17",
                   "typeDescriptions": {
                     "typeIdentifier": "t_bool",
                     "typeString": "bool"
@@ -798,36 +798,36 @@
             ],
             "name": "Customer",
             "nodeType": "StructDefinition",
-            "scope": 3240,
-            "src": "4174:84:18",
+            "scope": 2893,
+            "src": "4174:84:17",
             "visibility": "public"
           }
         ],
-        "scope": 3241,
-        "src": "176:4085:18"
+        "scope": 2894,
+        "src": "176:4085:17"
       }
     ],
-    "src": "147:4114:18"
+    "src": "147:4114:17"
   },
   "legacyAST": {
     "absolutePath": "/C/Projects/InsureNET/master-branch/admin-tool/src/contracts/hurricane/HurricaneDatabaseModel.sol",
     "exportedSymbols": {
       "HurricaneDatabaseModel": [
-        3240
+        2893
       ]
     },
-    "id": 3241,
+    "id": 2894,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 3170,
+        "id": 2823,
         "literals": [
           "solidity",
           "0.5",
           ".16"
         ],
         "nodeType": "PragmaDirective",
-        "src": "147:23:18"
+        "src": "147:23:17"
       },
       {
         "baseContracts": [],
@@ -835,162 +835,162 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 3240,
+        "id": 2893,
         "linearizedBaseContracts": [
-          3240
+          2893
         ],
         "name": "HurricaneDatabaseModel",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "canonicalName": "HurricaneDatabaseModel.Acc",
-            "id": 3177,
+            "id": 2830,
             "members": [
               {
-                "id": 3171,
+                "id": 2824,
                 "name": "Premium",
                 "nodeType": "EnumValue",
-                "src": "254:7:18"
+                "src": "254:7:17"
               },
               {
-                "id": 3172,
+                "id": 2825,
                 "name": "RiskFund",
                 "nodeType": "EnumValue",
-                "src": "278:8:18"
+                "src": "278:8:17"
               },
               {
-                "id": 3173,
+                "id": 2826,
                 "name": "Payout",
                 "nodeType": "EnumValue",
-                "src": "302:6:18"
+                "src": "302:6:17"
               },
               {
-                "id": 3174,
+                "id": 2827,
                 "name": "Balance",
                 "nodeType": "EnumValue",
-                "src": "326:7:18"
+                "src": "326:7:17"
               },
               {
-                "id": 3175,
+                "id": 2828,
                 "name": "Reward",
                 "nodeType": "EnumValue",
-                "src": "350:6:18"
+                "src": "350:6:17"
               },
               {
-                "id": 3176,
+                "id": 2829,
                 "name": "OraclizeCosts",
                 "nodeType": "EnumValue",
-                "src": "374:13:18"
+                "src": "374:13:17"
               }
             ],
             "name": "Acc",
             "nodeType": "EnumDefinition",
-            "src": "238:159:18"
+            "src": "238:159:17"
           },
           {
             "canonicalName": "HurricaneDatabaseModel.PolicyState",
-            "id": 3185,
+            "id": 2838,
             "members": [
               {
-                "id": 3178,
+                "id": 2831,
                 "name": "Applied",
                 "nodeType": "EnumValue",
-                "src": "1666:7:18"
+                "src": "1666:7:17"
               },
               {
-                "id": 3179,
+                "id": 2832,
                 "name": "Accepted",
                 "nodeType": "EnumValue",
-                "src": "1675:8:18"
+                "src": "1675:8:17"
               },
               {
-                "id": 3180,
+                "id": 2833,
                 "name": "Revoked",
                 "nodeType": "EnumValue",
-                "src": "1685:7:18"
+                "src": "1685:7:17"
               },
               {
-                "id": 3181,
+                "id": 2834,
                 "name": "PaidOut",
                 "nodeType": "EnumValue",
-                "src": "1694:7:18"
+                "src": "1694:7:17"
               },
               {
-                "id": 3182,
+                "id": 2835,
                 "name": "Expired",
                 "nodeType": "EnumValue",
-                "src": "1703:7:18"
+                "src": "1703:7:17"
               },
               {
-                "id": 3183,
+                "id": 2836,
                 "name": "Declined",
                 "nodeType": "EnumValue",
-                "src": "1712:8:18"
+                "src": "1712:8:17"
               },
               {
-                "id": 3184,
+                "id": 2837,
                 "name": "SendFailed",
                 "nodeType": "EnumValue",
-                "src": "1722:10:18"
+                "src": "1722:10:17"
               }
             ],
             "name": "PolicyState",
             "nodeType": "EnumDefinition",
-            "src": "1647:87:18"
+            "src": "1647:87:17"
           },
           {
             "canonicalName": "HurricaneDatabaseModel.OraclizeState",
-            "id": 3188,
+            "id": 2841,
             "members": [
               {
-                "id": 3186,
+                "id": 2839,
                 "name": "ForUnderwriting",
                 "nodeType": "EnumValue",
-                "src": "1792:15:18"
+                "src": "1792:15:17"
               },
               {
-                "id": 3187,
+                "id": 2840,
                 "name": "ForPayout",
                 "nodeType": "EnumValue",
-                "src": "1809:9:18"
+                "src": "1809:9:17"
               }
             ],
             "name": "OraclizeState",
             "nodeType": "EnumDefinition",
-            "src": "1771:49:18"
+            "src": "1771:49:17"
           },
           {
             "canonicalName": "HurricaneDatabaseModel.Currency",
-            "id": 3191,
+            "id": 2844,
             "members": [
               {
-                "id": 3189,
+                "id": 2842,
                 "name": "ETH",
                 "nodeType": "EnumValue",
-                "src": "1870:3:18"
+                "src": "1870:3:17"
               },
               {
-                "id": 3190,
+                "id": 2843,
                 "name": "USD",
                 "nodeType": "EnumValue",
-                "src": "1875:3:18"
+                "src": "1875:3:17"
               }
             ],
             "name": "Currency",
             "nodeType": "EnumDefinition",
-            "src": "1854:26:18"
+            "src": "1854:26:17"
           },
           {
             "canonicalName": "HurricaneDatabaseModel.Policy",
-            "id": 3218,
+            "id": 2871,
             "members": [
               {
                 "constant": false,
-                "id": 3193,
+                "id": 2846,
                 "name": "customer",
                 "nodeType": "VariableDeclaration",
-                "scope": 3218,
-                "src": "2100:16:18",
+                "scope": 2871,
+                "src": "2100:16:17",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -998,10 +998,10 @@
                   "typeString": "address"
                 },
                 "typeName": {
-                  "id": 3192,
+                  "id": 2845,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
-                  "src": "2100:7:18",
+                  "src": "2100:7:17",
                   "stateMutability": "nonpayable",
                   "typeDescriptions": {
                     "typeIdentifier": "t_address",
@@ -1013,11 +1013,11 @@
               },
               {
                 "constant": false,
-                "id": 3195,
+                "id": 2848,
                 "name": "premium",
                 "nodeType": "VariableDeclaration",
-                "scope": 3218,
-                "src": "2145:12:18",
+                "scope": 2871,
+                "src": "2145:12:17",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1025,10 +1025,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 3194,
+                  "id": 2847,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
-                  "src": "2145:4:18",
+                  "src": "2145:4:17",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -1039,11 +1039,11 @@
               },
               {
                 "constant": false,
-                "id": 3197,
+                "id": 2850,
                 "name": "riskId",
                 "nodeType": "VariableDeclaration",
-                "scope": 3218,
-                "src": "2251:14:18",
+                "scope": 2871,
+                "src": "2251:14:17",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1051,10 +1051,10 @@
                   "typeString": "bytes32"
                 },
                 "typeName": {
-                  "id": 3196,
+                  "id": 2849,
                   "name": "bytes32",
                   "nodeType": "ElementaryTypeName",
-                  "src": "2251:7:18",
+                  "src": "2251:7:17",
                   "typeDescriptions": {
                     "typeIdentifier": "t_bytes32",
                     "typeString": "bytes32"
@@ -1065,11 +1065,11 @@
               },
               {
                 "constant": false,
-                "id": 3199,
+                "id": 2852,
                 "name": "weight",
                 "nodeType": "VariableDeclaration",
-                "scope": 3218,
-                "src": "2555:11:18",
+                "scope": 2871,
+                "src": "2555:11:17",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1077,10 +1077,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 3198,
+                  "id": 2851,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
-                  "src": "2555:4:18",
+                  "src": "2555:4:17",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -1091,11 +1091,11 @@
               },
               {
                 "constant": false,
-                "id": 3201,
+                "id": 2854,
                 "name": "calculatedPayout",
                 "nodeType": "VariableDeclaration",
-                "scope": 3218,
-                "src": "2603:21:18",
+                "scope": 2871,
+                "src": "2603:21:17",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1103,10 +1103,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 3200,
+                  "id": 2853,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
-                  "src": "2603:4:18",
+                  "src": "2603:4:17",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -1117,11 +1117,11 @@
               },
               {
                 "constant": false,
-                "id": 3203,
+                "id": 2856,
                 "name": "actualPayout",
                 "nodeType": "VariableDeclaration",
-                "scope": 3218,
-                "src": "2657:17:18",
+                "scope": 2871,
+                "src": "2657:17:17",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1129,10 +1129,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 3202,
+                  "id": 2855,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
-                  "src": "2657:4:18",
+                  "src": "2657:4:17",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -1143,26 +1143,26 @@
               },
               {
                 "constant": false,
-                "id": 3205,
+                "id": 2858,
                 "name": "state",
                 "nodeType": "VariableDeclaration",
-                "scope": 3218,
-                "src": "2742:17:18",
+                "scope": 2871,
+                "src": "2742:17:17",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_enum$_PolicyState_$3185",
+                  "typeIdentifier": "t_enum$_PolicyState_$2838",
                   "typeString": "enum HurricaneDatabaseModel.PolicyState"
                 },
                 "typeName": {
                   "contractScope": null,
-                  "id": 3204,
+                  "id": 2857,
                   "name": "PolicyState",
                   "nodeType": "UserDefinedTypeName",
-                  "referencedDeclaration": 3185,
-                  "src": "2742:11:18",
+                  "referencedDeclaration": 2838,
+                  "src": "2742:11:17",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_enum$_PolicyState_$3185",
+                    "typeIdentifier": "t_enum$_PolicyState_$2838",
                     "typeString": "enum HurricaneDatabaseModel.PolicyState"
                   }
                 },
@@ -1171,11 +1171,11 @@
               },
               {
                 "constant": false,
-                "id": 3207,
+                "id": 2860,
                 "name": "stateTime",
                 "nodeType": "VariableDeclaration",
-                "scope": 3218,
-                "src": "2804:14:18",
+                "scope": 2871,
+                "src": "2804:14:17",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1183,10 +1183,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 3206,
+                  "id": 2859,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
-                  "src": "2804:4:18",
+                  "src": "2804:4:17",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -1197,11 +1197,11 @@
               },
               {
                 "constant": false,
-                "id": 3209,
+                "id": 2862,
                 "name": "stateMessage",
                 "nodeType": "VariableDeclaration",
-                "scope": 3218,
-                "src": "2865:20:18",
+                "scope": 2871,
+                "src": "2865:20:17",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1209,10 +1209,10 @@
                   "typeString": "bytes32"
                 },
                 "typeName": {
-                  "id": 3208,
+                  "id": 2861,
                   "name": "bytes32",
                   "nodeType": "ElementaryTypeName",
-                  "src": "2865:7:18",
+                  "src": "2865:7:17",
                   "typeDescriptions": {
                     "typeIdentifier": "t_bytes32",
                     "typeString": "bytes32"
@@ -1223,11 +1223,11 @@
               },
               {
                 "constant": false,
-                "id": 3211,
+                "id": 2864,
                 "name": "proof",
                 "nodeType": "VariableDeclaration",
-                "scope": 3218,
-                "src": "2920:11:18",
+                "scope": 2871,
+                "src": "2920:11:17",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1235,10 +1235,10 @@
                   "typeString": "bytes"
                 },
                 "typeName": {
-                  "id": 3210,
+                  "id": 2863,
                   "name": "bytes",
                   "nodeType": "ElementaryTypeName",
-                  "src": "2920:5:18",
+                  "src": "2920:5:17",
                   "typeDescriptions": {
                     "typeIdentifier": "t_bytes_storage_ptr",
                     "typeString": "bytes"
@@ -1249,26 +1249,26 @@
               },
               {
                 "constant": false,
-                "id": 3213,
+                "id": 2866,
                 "name": "currency",
                 "nodeType": "VariableDeclaration",
-                "scope": 3218,
-                "src": "2960:17:18",
+                "scope": 2871,
+                "src": "2960:17:17",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_enum$_Currency_$3191",
+                  "typeIdentifier": "t_enum$_Currency_$2844",
                   "typeString": "enum HurricaneDatabaseModel.Currency"
                 },
                 "typeName": {
                   "contractScope": null,
-                  "id": 3212,
+                  "id": 2865,
                   "name": "Currency",
                   "nodeType": "UserDefinedTypeName",
-                  "referencedDeclaration": 3191,
-                  "src": "2960:8:18",
+                  "referencedDeclaration": 2844,
+                  "src": "2960:8:17",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_enum$_Currency_$3191",
+                    "typeIdentifier": "t_enum$_Currency_$2844",
                     "typeString": "enum HurricaneDatabaseModel.Currency"
                   }
                 },
@@ -1277,11 +1277,11 @@
               },
               {
                 "constant": false,
-                "id": 3215,
+                "id": 2868,
                 "name": "customerExternalId",
                 "nodeType": "VariableDeclaration",
-                "scope": 3218,
-                "src": "3018:26:18",
+                "scope": 2871,
+                "src": "3018:26:17",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1289,10 +1289,10 @@
                   "typeString": "bytes32"
                 },
                 "typeName": {
-                  "id": 3214,
+                  "id": 2867,
                   "name": "bytes32",
                   "nodeType": "ElementaryTypeName",
-                  "src": "3018:7:18",
+                  "src": "3018:7:17",
                   "typeDescriptions": {
                     "typeIdentifier": "t_bytes32",
                     "typeString": "bytes32"
@@ -1303,11 +1303,11 @@
               },
               {
                 "constant": false,
-                "id": 3217,
+                "id": 2870,
                 "name": "latlng",
                 "nodeType": "VariableDeclaration",
-                "scope": 3218,
-                "src": "3080:14:18",
+                "scope": 2871,
+                "src": "3080:14:17",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1315,10 +1315,10 @@
                   "typeString": "bytes32"
                 },
                 "typeName": {
-                  "id": 3216,
+                  "id": 2869,
                   "name": "bytes32",
                   "nodeType": "ElementaryTypeName",
-                  "src": "3080:7:18",
+                  "src": "3080:7:17",
                   "typeDescriptions": {
                     "typeIdentifier": "t_bytes32",
                     "typeString": "bytes32"
@@ -1330,21 +1330,21 @@
             ],
             "name": "Policy",
             "nodeType": "StructDefinition",
-            "scope": 3240,
-            "src": "2054:1046:18",
+            "scope": 2893,
+            "src": "2054:1046:17",
             "visibility": "public"
           },
           {
             "canonicalName": "HurricaneDatabaseModel.Risk",
-            "id": 3229,
+            "id": 2882,
             "members": [
               {
                 "constant": false,
-                "id": 3220,
+                "id": 2873,
                 "name": "market",
                 "nodeType": "VariableDeclaration",
-                "scope": 3229,
-                "src": "3409:14:18",
+                "scope": 2882,
+                "src": "3409:14:17",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1352,10 +1352,10 @@
                   "typeString": "bytes32"
                 },
                 "typeName": {
-                  "id": 3219,
+                  "id": 2872,
                   "name": "bytes32",
                   "nodeType": "ElementaryTypeName",
-                  "src": "3409:7:18",
+                  "src": "3409:7:17",
                   "typeDescriptions": {
                     "typeIdentifier": "t_bytes32",
                     "typeString": "bytes32"
@@ -1366,11 +1366,11 @@
               },
               {
                 "constant": false,
-                "id": 3222,
+                "id": 2875,
                 "name": "season",
                 "nodeType": "VariableDeclaration",
-                "scope": 3229,
-                "src": "3467:14:18",
+                "scope": 2882,
+                "src": "3467:14:17",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1378,10 +1378,10 @@
                   "typeString": "bytes32"
                 },
                 "typeName": {
-                  "id": 3221,
+                  "id": 2874,
                   "name": "bytes32",
                   "nodeType": "ElementaryTypeName",
-                  "src": "3467:7:18",
+                  "src": "3467:7:17",
                   "typeDescriptions": {
                     "typeIdentifier": "t_bytes32",
                     "typeString": "bytes32"
@@ -1392,11 +1392,11 @@
               },
               {
                 "constant": false,
-                "id": 3224,
+                "id": 2877,
                 "name": "category",
                 "nodeType": "VariableDeclaration",
-                "scope": 3229,
-                "src": "3542:16:18",
+                "scope": 2882,
+                "src": "3542:16:17",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1404,10 +1404,10 @@
                   "typeString": "bytes32"
                 },
                 "typeName": {
-                  "id": 3223,
+                  "id": 2876,
                   "name": "bytes32",
                   "nodeType": "ElementaryTypeName",
-                  "src": "3542:7:18",
+                  "src": "3542:7:17",
                   "typeDescriptions": {
                     "typeIdentifier": "t_bytes32",
                     "typeString": "bytes32"
@@ -1418,11 +1418,11 @@
               },
               {
                 "constant": false,
-                "id": 3226,
+                "id": 2879,
                 "name": "cumulatedWeightedPremium",
                 "nodeType": "VariableDeclaration",
-                "scope": 3229,
-                "src": "3640:29:18",
+                "scope": 2882,
+                "src": "3640:29:17",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1430,10 +1430,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 3225,
+                  "id": 2878,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
-                  "src": "3640:4:18",
+                  "src": "3640:4:17",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -1444,11 +1444,11 @@
               },
               {
                 "constant": false,
-                "id": 3228,
+                "id": 2881,
                 "name": "premiumMultiplier",
                 "nodeType": "VariableDeclaration",
-                "scope": 3229,
-                "src": "3723:22:18",
+                "scope": 2882,
+                "src": "3723:22:17",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1456,10 +1456,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 3227,
+                  "id": 2880,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
-                  "src": "3723:4:18",
+                  "src": "3723:4:17",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -1471,21 +1471,21 @@
             ],
             "name": "Risk",
             "nodeType": "StructDefinition",
-            "scope": 3240,
-            "src": "3355:396:18",
+            "scope": 2893,
+            "src": "3355:396:17",
             "visibility": "public"
           },
           {
             "canonicalName": "HurricaneDatabaseModel.OraclizeCallback",
-            "id": 3234,
+            "id": 2887,
             "members": [
               {
                 "constant": false,
-                "id": 3231,
+                "id": 2884,
                 "name": "policyId",
                 "nodeType": "VariableDeclaration",
-                "scope": 3234,
-                "src": "4055:13:18",
+                "scope": 2887,
+                "src": "4055:13:17",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1493,10 +1493,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 3230,
+                  "id": 2883,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
-                  "src": "4055:4:18",
+                  "src": "4055:4:17",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -1507,26 +1507,26 @@
               },
               {
                 "constant": false,
-                "id": 3233,
+                "id": 2886,
                 "name": "oState",
                 "nodeType": "VariableDeclaration",
-                "scope": 3234,
-                "src": "4142:20:18",
+                "scope": 2887,
+                "src": "4142:20:17",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_enum$_OraclizeState_$3188",
+                  "typeIdentifier": "t_enum$_OraclizeState_$2841",
                   "typeString": "enum HurricaneDatabaseModel.OraclizeState"
                 },
                 "typeName": {
                   "contractScope": null,
-                  "id": 3232,
+                  "id": 2885,
                   "name": "OraclizeState",
                   "nodeType": "UserDefinedTypeName",
-                  "referencedDeclaration": 3188,
-                  "src": "4142:13:18",
+                  "referencedDeclaration": 2841,
+                  "src": "4142:13:17",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_enum$_OraclizeState_$3188",
+                    "typeIdentifier": "t_enum$_OraclizeState_$2841",
                     "typeString": "enum HurricaneDatabaseModel.OraclizeState"
                   }
                 },
@@ -1536,21 +1536,21 @@
             ],
             "name": "OraclizeCallback",
             "nodeType": "StructDefinition",
-            "scope": 3240,
-            "src": "3983:185:18",
+            "scope": 2893,
+            "src": "3983:185:17",
             "visibility": "public"
           },
           {
             "canonicalName": "HurricaneDatabaseModel.Customer",
-            "id": 3239,
+            "id": 2892,
             "members": [
               {
                 "constant": false,
-                "id": 3236,
+                "id": 2889,
                 "name": "customerExternalId",
                 "nodeType": "VariableDeclaration",
-                "scope": 3239,
-                "src": "4197:26:18",
+                "scope": 2892,
+                "src": "4197:26:17",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1558,10 +1558,10 @@
                   "typeString": "bytes32"
                 },
                 "typeName": {
-                  "id": 3235,
+                  "id": 2888,
                   "name": "bytes32",
                   "nodeType": "ElementaryTypeName",
-                  "src": "4197:7:18",
+                  "src": "4197:7:17",
                   "typeDescriptions": {
                     "typeIdentifier": "t_bytes32",
                     "typeString": "bytes32"
@@ -1572,11 +1572,11 @@
               },
               {
                 "constant": false,
-                "id": 3238,
+                "id": 2891,
                 "name": "identityConfirmed",
                 "nodeType": "VariableDeclaration",
-                "scope": 3239,
-                "src": "4230:22:18",
+                "scope": 2892,
+                "src": "4230:22:17",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1584,10 +1584,10 @@
                   "typeString": "bool"
                 },
                 "typeName": {
-                  "id": 3237,
+                  "id": 2890,
                   "name": "bool",
                   "nodeType": "ElementaryTypeName",
-                  "src": "4230:4:18",
+                  "src": "4230:4:17",
                   "typeDescriptions": {
                     "typeIdentifier": "t_bool",
                     "typeString": "bool"
@@ -1599,16 +1599,16 @@
             ],
             "name": "Customer",
             "nodeType": "StructDefinition",
-            "scope": 3240,
-            "src": "4174:84:18",
+            "scope": 2893,
+            "src": "4174:84:17",
             "visibility": "public"
           }
         ],
-        "scope": 3241,
-        "src": "176:4085:18"
+        "scope": 2894,
+        "src": "176:4085:17"
       }
     ],
-    "src": "147:4114:18"
+    "src": "147:4114:17"
   },
   "compiler": {
     "name": "solc",
@@ -1616,7 +1616,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.23",
-  "updatedAt": "2020-04-16T14:28:55.009Z",
+  "updatedAt": "2020-04-21T22:10:01.869Z",
   "devdoc": {
     "methods": {}
   },

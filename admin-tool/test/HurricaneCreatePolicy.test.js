@@ -8,13 +8,28 @@ require('chai')
 //     retrun web3.utils.toWei(n, 'ether');
 // }
 
-contract('HurricanePolicyCreator', ([ deployer, insured ]) => {
+contract('HurricaneCreatePolicy', ([ deployer, insured ]) => {
     let hurricaneContract
 
     before(async () => {
-        hurricaneContract = await CreateHurricanePolicy.new()
-        
-    })
+        hurricaneContract = await CreateHurricanePolicy.new()        
+    });
+
+    describe('deployment', async () => {
+        it('deploys successfully', async () => {
+            const address = await hurricaneContract.address
+            assert.notEqual(address, 0x0)
+            assert.notEqual(address, '')
+            assert.notEqual(address, null)
+            assert.notEqual(address, undefined)            
+        });
+
+        it('has a name', async () => {
+            const name = await hurricaneContract.name()
+            assert.equal(name, 'InsureNET Marketplace')
+        });
+    });
+
 
 
 })
