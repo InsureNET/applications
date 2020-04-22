@@ -1,9 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Layout from 'components/Layout'
-import Content from 'components/Content'
-import AccidentContent from 'components/Accident'
-import Web3 from 'web3'
+//import AccidentContent from 'components/Accident'
+//import Web3 from 'web3'
 
 // async function loadWeb3() {
 // 	console.group('Web3');
@@ -22,7 +21,6 @@ import Web3 from 'web3'
 // 		console.groupEnd();
 // 	}
 // }
-
 // async function loadBlockchainData() {
 // 	console.group('Blockchain Data');
 // 	console.log('loading blockchain data')
