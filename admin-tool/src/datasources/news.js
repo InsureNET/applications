@@ -5,15 +5,14 @@ const NEWS_PROVIDER = 'http://newsapi.org/v2/everything?q=bitcoin&from=2020-03-2
 const PATH_TO_BRIEF = 'data.articles[0].content';
 const NUM_CHARS_TO_GRAB = 128;
 
-var url = 'http://newsapi.org/v2/top-headlines?' +
-          'country=us&' +
-          'apiKey=825668e87e0f424fa7237b1ecfb03dec';
+// var url = 'http://newsapi.org/v2/top-headlines?' +
+//           'country=us&apiKey=825668e87e0f424fa7237b1ecfb03dec';
 
-var req = new Request(url);
-fetch(req)
-    .then(function(response) {
-        console.log(response.json());
-    });
+// let req = new Request(url);
+// fetch(req)
+//     .then(function(response) {
+//         console.log(response.json());
+//     });
 
 Object.byString = function(o, s) {
     s = s.replace(/\[(\w+)\]/g, '.$1'); // convert indexes to properties

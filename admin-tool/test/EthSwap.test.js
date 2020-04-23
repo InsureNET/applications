@@ -4,6 +4,7 @@ const EthSwap = artifacts.require('EthSwap')
 require('chai')
   .use(require('chai-as-promised'))
   .should()
+  
 
 function tokens(n) {
   return web3.utils.toWei(n, 'ether');
