@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Layout from 'components/Layout'
-import Content from 'components/Content'
 import AccountContent from 'components/Account'
 import Web3 from 'web3'
 
@@ -39,7 +38,6 @@ function AccountPage({ data, location, account }) {
 	const pageTitle = location ? location.pathname.replace(/\//g, '') : ''
 	//loadWeb3();
 	//const accnt = loadBlockchainData();
-
 	return (
 		<Layout location={location} title={pageTitle}>
 			{/* <AccountContent account={account} />		 */}
