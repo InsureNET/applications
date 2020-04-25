@@ -35,9 +35,9 @@ class BuyForm extends Component {
           <input
             type="text"
             onChange={(event) => {
-              const etherAmount = this.input.value.toString()
+              const etherAmount = web3.utils.fromWei(this.input.value.toString(), 'Ether')
               this.setState({
-                output: etherAmount * 100
+                output: etherAmount * 1000
               })
             }}
             ref={(input) => { this.input = input }}

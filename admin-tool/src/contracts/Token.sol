@@ -10,7 +10,7 @@ import "@openzeppelin/contracts/token/ERC20/ERC20Pausable.sol";
 import "@openzeppelin/contracts/token/ERC20/ERC20Mintable.sol";
 
 
-pragma solidity ^0.5.16;
+pragma solidity ^0.5.15;
 
 /**
 * @dev iNET Token Contract
@@ -28,9 +28,9 @@ contract Token {
     * @dev all distribution will add up to the 1 Billion tokens minted.
     */
     // Founder
-    address payable founder  = 0x6F7d7d68c3Eed4Df81CF5F97582deef8ABC51533;
+    address payable founder  = 0xd2cCea05436bf27aE49B01726075449F815B683e;
 
-    string public foundersAddress = '0x6F7d7d68c3Eed4Df81CF5F97582deef8ABC51533';
+    string public foundersAddress = '0xd2cCea05436bf27aE49B01726075449F815B683e';
     uint256 public foundersDistribution = 100000000000000000000000000; // 100 Million Tokens
 
     // Partners, Bounties and Marketing

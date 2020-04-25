@@ -50,7 +50,7 @@ const categories = [
 		id: 'Products',
 		children: [
 			{ id: 'Marketplace', icon: <StoreIcon />, page: 'marketplace' },
-			{ id: 'Annuity', icon: <AssessmentRoundedIcon />, page: 'annuity' },
+			{ id: 'Income Stream', icon: <AssessmentRoundedIcon />, page: 'income-stream' },
 			{ id: 'Accident', icon: <WriteContractIcon />, page: 'accident' },
 			{ id: 'Hurricane', icon: <UmbrellaIcon />, page: 'hurricane' },
 			{ id: 'Property', icon: <HomeIcon />, page: 'property' },

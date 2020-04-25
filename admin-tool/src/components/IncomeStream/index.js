@@ -16,7 +16,7 @@ import { Table, TableBody, TableCell,
  * @dev AnnuityContent Page Class Component
  * 
  */
-class AnnuityContent extends React.Component {
+class IncomeStreamContent extends React.Component {
     constructor(props){
         super(props)
         this.state = {
@@ -36,8 +36,8 @@ class AnnuityContent extends React.Component {
 
 }
 
-AnnuityContent.propTypes = {
+IncomeStreamContent.propTypes = {
 
 }
 
-export default AnnuityContent;
+export default IncomeStreamContent

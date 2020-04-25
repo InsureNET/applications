@@ -16,7 +16,7 @@ function ExchangePage({ data, location }) {
 	)
 }
 ExchangePage.propTypes = {
-	data: PropTypes.object.isRequired,
+	data: PropTypes.object,
 	location: PropTypes.object,
 }
 export default ExchangePage;
