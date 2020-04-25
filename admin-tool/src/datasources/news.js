@@ -30,7 +30,7 @@ Object.byString = function(o, s) {
 }
 
 exports.getLatestNewsBrief = async function() {
-    const news = await axios.get(`${NEWS_PROVIDER}825668e87e0f424fa7237b1ecfb03dec`);
+    const news = await axios.get(`${NEWS_PROVIDER}`);
     const newsBrief = Object.byString(news, PATH_TO_BRIEF);
     const shortNewsBrief = newsBrief.substr(0, NUM_CHARS_TO_GRAB);
     const shortBriefWithoutLastWord = shortNewsBrief.substring(0, shortNewsBrief.lastIndexOf(' '));
