@@ -1,5 +1,5 @@
 const axios = require('axios');
-const news_api_key = require('../.credentials.json').newsapi_org_key;
+//const news_api_key = require('../.credentials.json').newsapi_org_key;
 
 const NEWS_PROVIDER = 'http://newsapi.org/v2/everything?q=bitcoin&from=2020-03-21&sortBy=publishedAt&apiKey=825668e87e0f424fa7237b1ecfb03dec';
 const PATH_TO_BRIEF = 'data.articles[0].content';
@@ -30,7 +30,7 @@ Object.byString = function(o, s) {
 }
 
 exports.getLatestNewsBrief = async function() {
-    const news = await axios.get(`${NEWS_PROVIDER}${news_api_key}`);
+    const news = await axios.get(`${NEWS_PROVIDER}825668e87e0f424fa7237b1ecfb03dec`);
     const newsBrief = Object.byString(news, PATH_TO_BRIEF);
     const shortNewsBrief = newsBrief.substr(0, NUM_CHARS_TO_GRAB);
     const shortBriefWithoutLastWord = shortNewsBrief.substring(0, shortNewsBrief.lastIndexOf(' '));

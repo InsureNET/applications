@@ -73,15 +73,15 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":false,\"inputs\":[{\"internalType\":\"enum HurricaneDatabaseModel.Acc\",\"name\":\"_from\",\"type\":\"uint8\"},{\"internalType\":\"enum HurricaneDatabaseModel.Acc\",\"name\":\"_to\",\"type\":\"uint8\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"bookkeeping\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"enum HurricaneDatabaseModel.Acc\",\"name\":\"_to\",\"type\":\"uint8\"}],\"name\":\"receiveFunds\",\"outputs\":[],\"payable\":true,\"stateMutability\":\"payable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"address\",\"name\":\"_recipient\",\"type\":\"address\"},{\"internalType\":\"enum HurricaneDatabaseModel.Acc\",\"name\":\"_from\",\"type\":\"uint8\"},{\"internalType\":\"uint256\",\"name\":\"_amount\",\"type\":\"uint256\"}],\"name\":\"sendFunds\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"_success\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/home/jaxcoder/Projects/InetMaster/applications/admin-tool/src/contracts/hurricane/HurricaneLedgerInterface.sol\":\"HurricaneLedgerInterface\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/jaxcoder/Projects/InetMaster/applications/admin-tool/src/contracts/hurricane/HurricaneDatabaseModel.sol\":{\"keccak256\":\"0x297ecadda18b862a200e228afb6d8f9ff8ae50447be948a4f27c61f05c20ea73\",\"urls\":[\"bzz-raw://0ddb1fc425b60d8f3f2103a9d1559e537d2fcad223f5c9396e91c51884500c7c\",\"dweb:/ipfs/QmPRva8xHAxK7FfZoTcru37UmMDjR91kNo77SqU1sQwane\"]},\"/home/jaxcoder/Projects/InetMaster/applications/admin-tool/src/contracts/hurricane/HurricaneLedgerInterface.sol\":{\"keccak256\":\"0x9f5c2a1fe3327ec5ca70e921b9e8355b61cdc16a404956f09f0bf7fbdc6baa74\",\"urls\":[\"bzz-raw://40e5074c269d94224f92b8729f868bebba4b42570999e9d50db9123b638b348b\",\"dweb:/ipfs/QmZXcqpM35JW8NdUCJNwc794nEagCfbioYGAPCwxjKukHd\"]}},\"version\":1}",
+  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":false,\"inputs\":[{\"internalType\":\"enum HurricaneDatabaseModel.Acc\",\"name\":\"_from\",\"type\":\"uint8\"},{\"internalType\":\"enum HurricaneDatabaseModel.Acc\",\"name\":\"_to\",\"type\":\"uint8\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"bookkeeping\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"enum HurricaneDatabaseModel.Acc\",\"name\":\"_to\",\"type\":\"uint8\"}],\"name\":\"receiveFunds\",\"outputs\":[],\"payable\":true,\"stateMutability\":\"payable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"address\",\"name\":\"_recipient\",\"type\":\"address\"},{\"internalType\":\"enum HurricaneDatabaseModel.Acc\",\"name\":\"_from\",\"type\":\"uint8\"},{\"internalType\":\"uint256\",\"name\":\"_amount\",\"type\":\"uint256\"}],\"name\":\"sendFunds\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"_success\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/C/Projects/INET-IncomeStream/App/admin-tool/src/contracts/hurricane/HurricaneLedgerInterface.sol\":\"HurricaneLedgerInterface\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/C/Projects/INET-IncomeStream/App/admin-tool/src/contracts/hurricane/HurricaneDatabaseModel.sol\":{\"keccak256\":\"0x71bd00db30af787eed7ded701d100e5b937c693521ef6c371372fd8c595506d1\",\"urls\":[\"bzz-raw://c5bf98be99adde3c8ef93195c45dbe2804eac38b8006636969d870f8803cdf39\",\"dweb:/ipfs/QmRR5TvL2d1G66DdunadyuEUfwXHNdijnZEoxzikXiJkuJ\"]},\"/C/Projects/INET-IncomeStream/App/admin-tool/src/contracts/hurricane/HurricaneLedgerInterface.sol\":{\"keccak256\":\"0x40c048f3b2527a3ad56ee2f5f79d7a8e3d88728753b316884b458eb27aa38236\",\"urls\":[\"bzz-raw://dafe70729be0948d167bf4995cef64e52e34c1630779f744c35ca5603858803c\",\"dweb:/ipfs/QmZXZNWazfayMvaSdZU75S82wWL4hXZhGAVQHgHujGtXfc\"]}},\"version\":1}",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "sourceMap": "",
   "deployedSourceMap": "",
-  "source": "/**\n * Oraclized Underwriting and Payout\n *\n * @description\tLedger contract interface\n * @copyright (c) 2020 InsureNET\n * @author Jason Romero\n */\n\npragma solidity 0.5.16;\n\nimport \"./HurricaneDatabaseModel.sol\";\n\n\ncontract HurricaneLedgerInterface is HurricaneDatabaseModel {\n  function receiveFunds(Acc _to) public payable;\n\n  function sendFunds(address _recipient, Acc _from, uint _amount) public returns (bool _success);\n\n  function bookkeeping(Acc _from, Acc _to, uint amount) public;\n}",
-  "sourcePath": "/home/jaxcoder/Projects/InetMaster/applications/admin-tool/src/contracts/hurricane/HurricaneLedgerInterface.sol",
+  "source": "/**\r\n * Oraclized Underwriting and Payout\r\n *\r\n * @description\tLedger contract interface\r\n * @copyright (c) 2020 InsureNET\r\n * @author Jason Romero\r\n */\r\n\r\npragma solidity 0.5.16;\r\n\r\nimport \"./HurricaneDatabaseModel.sol\";\r\n\r\n\r\ncontract HurricaneLedgerInterface is HurricaneDatabaseModel {\r\n  function receiveFunds(Acc _to) public payable;\r\n\r\n  function sendFunds(address _recipient, Acc _from, uint _amount) public returns (bool _success);\r\n\r\n  function bookkeeping(Acc _from, Acc _to, uint amount) public;\r\n}",
+  "sourcePath": "C:\\Projects\\INET-IncomeStream\\App\\admin-tool\\src\\contracts\\hurricane\\HurricaneLedgerInterface.sol",
   "ast": {
-    "absolutePath": "/home/jaxcoder/Projects/InetMaster/applications/admin-tool/src/contracts/hurricane/HurricaneLedgerInterface.sol",
+    "absolutePath": "/C/Projects/INET-IncomeStream/App/admin-tool/src/contracts/hurricane/HurricaneLedgerInterface.sol",
     "exportedSymbols": {
       "HurricaneLedgerInterface": [
         2924
@@ -101,7 +101,7 @@
         "src": "156:23:18"
       },
       {
-        "absolutePath": "/home/jaxcoder/Projects/InetMaster/applications/admin-tool/src/contracts/hurricane/HurricaneDatabaseModel.sol",
+        "absolutePath": "/C/Projects/INET-IncomeStream/App/admin-tool/src/contracts/hurricane/HurricaneDatabaseModel.sol",
         "file": "./HurricaneDatabaseModel.sol",
         "id": 2896,
         "nodeType": "ImportDirective",
@@ -456,7 +456,7 @@
     "src": "156:353:18"
   },
   "legacyAST": {
-    "absolutePath": "/home/jaxcoder/Projects/InetMaster/applications/admin-tool/src/contracts/hurricane/HurricaneLedgerInterface.sol",
+    "absolutePath": "/C/Projects/INET-IncomeStream/App/admin-tool/src/contracts/hurricane/HurricaneLedgerInterface.sol",
     "exportedSymbols": {
       "HurricaneLedgerInterface": [
         2924
@@ -476,7 +476,7 @@
         "src": "156:23:18"
       },
       {
-        "absolutePath": "/home/jaxcoder/Projects/InetMaster/applications/admin-tool/src/contracts/hurricane/HurricaneDatabaseModel.sol",
+        "absolutePath": "/C/Projects/INET-IncomeStream/App/admin-tool/src/contracts/hurricane/HurricaneDatabaseModel.sol",
         "file": "./HurricaneDatabaseModel.sol",
         "id": 2896,
         "nodeType": "ImportDirective",
@@ -836,15 +836,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.23",
-<<<<<<< HEAD
-<<<<<<< HEAD
-  "updatedAt": "2020-04-18T18:34:24.969Z",
-=======
-  "updatedAt": "2020-04-16T14:28:55.010Z",
->>>>>>> 36b0d5f3bf0ebccba57c4d0791aae1d41cb5c827
-=======
-  "updatedAt": "2020-04-21T22:10:01.871Z",
->>>>>>> ee303f788f936d4520e78653b719739650301464
+  "updatedAt": "2020-04-25T19:31:30.590Z",
   "devdoc": {
     "methods": {}
   },

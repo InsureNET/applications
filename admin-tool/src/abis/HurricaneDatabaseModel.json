@@ -1,15 +1,15 @@
 {
   "contractName": "HurricaneDatabaseModel",
   "abi": [],
-  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/C/Projects/InsureNET/master-branch/admin-tool/src/contracts/hurricane/HurricaneDatabaseModel.sol\":\"HurricaneDatabaseModel\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/C/Projects/InsureNET/master-branch/admin-tool/src/contracts/hurricane/HurricaneDatabaseModel.sol\":{\"keccak256\":\"0x71bd00db30af787eed7ded701d100e5b937c693521ef6c371372fd8c595506d1\",\"urls\":[\"bzz-raw://c5bf98be99adde3c8ef93195c45dbe2804eac38b8006636969d870f8803cdf39\",\"dweb:/ipfs/QmRR5TvL2d1G66DdunadyuEUfwXHNdijnZEoxzikXiJkuJ\"]}},\"version\":1}",
-  "bytecode": "0x6080604052348015600f57600080fd5b50603e80601d6000396000f3fe6080604052600080fdfea265627a7a72315820f121ddf6674c63b2e440d45a1e7671849fe2020fecba0d1de35bd47bbc00268564736f6c63430005100032",
-  "deployedBytecode": "0x6080604052600080fdfea265627a7a72315820f121ddf6674c63b2e440d45a1e7671849fe2020fecba0d1de35bd47bbc00268564736f6c63430005100032",
+  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/C/Projects/INET-IncomeStream/App/admin-tool/src/contracts/hurricane/HurricaneDatabaseModel.sol\":\"HurricaneDatabaseModel\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/C/Projects/INET-IncomeStream/App/admin-tool/src/contracts/hurricane/HurricaneDatabaseModel.sol\":{\"keccak256\":\"0x71bd00db30af787eed7ded701d100e5b937c693521ef6c371372fd8c595506d1\",\"urls\":[\"bzz-raw://c5bf98be99adde3c8ef93195c45dbe2804eac38b8006636969d870f8803cdf39\",\"dweb:/ipfs/QmRR5TvL2d1G66DdunadyuEUfwXHNdijnZEoxzikXiJkuJ\"]}},\"version\":1}",
+  "bytecode": "0x6080604052348015600f57600080fd5b50603e80601d6000396000f3fe6080604052600080fdfea265627a7a723158202b545d0e887dc697c5f9af70a04d08c814a3c680d52f59c1d7b21d263e05728164736f6c63430005100032",
+  "deployedBytecode": "0x6080604052600080fdfea265627a7a723158202b545d0e887dc697c5f9af70a04d08c814a3c680d52f59c1d7b21d263e05728164736f6c63430005100032",
   "sourceMap": "176:4085:17:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;176:4085:17;;;;;;;",
   "deployedSourceMap": "176:4085:17:-;;;;;",
   "source": "/**\r\n * Oraclized Underwriting and Payout\r\n *\r\n * @description Database model\r\n * @copyright (c) 2020 InsureNET\r\n * @author Jason Romero\r\n */\r\n\r\n\r\npragma solidity 0.5.16;\r\n\r\n\r\ncontract HurricaneDatabaseModel {\r\n\r\n  // Ledger accounts.\r\n  enum Acc {\r\n    Premium,      // 0\r\n    RiskFund,     // 1\r\n    Payout,       // 2\r\n    Balance,      // 3\r\n    Reward,       // 4\r\n    OraclizeCosts // 5\r\n  }\r\n\r\n  // policy Status Codes and meaning:\r\n  //\r\n  // 00 = Applied:\t  the customer has payed a premium, but the oracle has\r\n  //\t\t\t\t\t        not yet checked and confirmed.\r\n  //\t\t\t\t\t        The customer can still revoke the policy.\r\n  // 01 = Accepted:\t  the oracle has checked and confirmed.\r\n  //\t\t\t\t\t        The customer can still revoke the policy.\r\n  // 02 = Revoked:\t  The customer has revoked the policy.\r\n  //\t\t\t\t\t        The premium minus cancellation fee is payed back to the\r\n  //\t\t\t\t\t        customer by the oracle.\r\n  // 03 = PaidOut:\t  An atmospheric event of specified intensity happened\r\n  //                  at a specifc distance from the submitted location.\r\n  //\t\t\t\t\t        The oracle has checked and payed out.\r\n  // 04 = Expired:\t  The season covered has ended.\r\n  //\t\t\t\t\t        No payout.\r\n  // 05 = Declined:\t  The application was invalid.\r\n  //\t\t\t\t\t        The premium minus cancellation fee is payed back to the\r\n  //\t\t\t\t\t        customer by the oracle.\r\n  // 06 = SendFailed:\tDuring Revoke, Decline or Payout, sending ether failed\r\n  //\t\t\t\t\t        for unknown reasons.\r\n  //\t\t\t\t\t        The funds remain in the contracts RiskFund.\r\n  //                   00       01        02       03        04      05           06\r\n  enum PolicyState { Applied, Accepted, Revoked, PaidOut, Expired, Declined, SendFailed }\r\n\r\n  // oraclize callback types:\r\n  enum OraclizeState { ForUnderwriting, ForPayout }\r\n\r\n  //               00   01\r\n  enum Currency { ETH, USD }\r\n\r\n  // the policy structure: this structure keeps track of the individual parameters of a policy.\r\n  // typically customer address, premium and some status information.\r\n  struct Policy {\r\n    // 0 - the customer\r\n    address customer;\r\n\r\n    // 1 - premium\r\n    uint premium;\r\n    // risk specific parameters:\r\n    // 2 - pointer to the risk in the risks mapping\r\n    bytes32 riskId;\r\n    // custom payout pattern\r\n    // in future versions, customer will be able to tamper with this array.\r\n    // to keep things simple, we have decided to hard-code the array for all policies.\r\n    // uint8[5] pattern;\r\n    // 3 - probability weight. this is the central parameter\r\n    uint weight;\r\n    // 4 - calculated Payout\r\n    uint calculatedPayout;\r\n    // 5 - actual Payout\r\n    uint actualPayout;\r\n\r\n    // status fields:\r\n    // 6 - the state of the policy\r\n    PolicyState state;\r\n    // 7 - time of last state change\r\n    uint stateTime;\r\n    // 8 - state change message/reason\r\n    bytes32 stateMessage;\r\n    // 9 - TLSNotary Proof\r\n    bytes proof;\r\n    // 10 - Currency\r\n    Currency currency;\r\n    // 10 - External customer id\r\n    bytes32 customerExternalId;\r\n    // 11 - Policy lat, lng\r\n    bytes32 latlng;\r\n  }\r\n\r\n  // the risk structure; this structure keeps track of the risk-\r\n  // specific parameters.\r\n  // several policies can share the same risk structure\r\n  // (typically same people in a specific geographic\r\n  // area [market] for a particular season)\r\n  struct Risk {\r\n    // 0 - Market, \"PR\" for pilot\r\n    bytes32 market;\r\n    // 1 - Season, the current year\r\n    bytes32 season;\r\n    // 2 - the event category that triggered payouts\r\n    bytes32 category;\r\n    // 3 - we limit the cumulated weighted premium to avoid cluster risks\r\n    uint cumulatedWeightedPremium;\r\n    // 4 - max cumulated Payout for this risk\r\n    uint premiumMultiplier;\r\n  }\r\n\r\n  // the oraclize callback structure: we use several oraclize calls.\r\n  // all oraclize calls will result in a common callback to __callback(...).\r\n  // to keep track of the different querys we have to introduce this struct.\r\n  struct OraclizeCallback {\r\n    // for which policy have we called?\r\n    uint policyId;\r\n    // for which purpose did we call? {ForUnderwrite | ForPayout}\r\n    OraclizeState oState;\r\n  }\r\n\r\n  struct Customer {\r\n    bytes32 customerExternalId;\r\n    bool identityConfirmed;\r\n  }\r\n}",
-  "sourcePath": "C:\\Projects\\InsureNET\\master-branch\\admin-tool\\src\\contracts\\hurricane\\HurricaneDatabaseModel.sol",
+  "sourcePath": "C:\\Projects\\INET-IncomeStream\\App\\admin-tool\\src\\contracts\\hurricane\\HurricaneDatabaseModel.sol",
   "ast": {
-    "absolutePath": "/home/jaxcoder/Projects/InetMaster/applications/admin-tool/src/contracts/hurricane/HurricaneDatabaseModel.sol",
+    "absolutePath": "/C/Projects/INET-IncomeStream/App/admin-tool/src/contracts/hurricane/HurricaneDatabaseModel.sol",
     "exportedSymbols": {
       "HurricaneDatabaseModel": [
         2893
@@ -810,7 +810,7 @@
     "src": "147:4114:17"
   },
   "legacyAST": {
-    "absolutePath": "/home/jaxcoder/Projects/InetMaster/applications/admin-tool/src/contracts/hurricane/HurricaneDatabaseModel.sol",
+    "absolutePath": "/C/Projects/INET-IncomeStream/App/admin-tool/src/contracts/hurricane/HurricaneDatabaseModel.sol",
     "exportedSymbols": {
       "HurricaneDatabaseModel": [
         2893
@@ -1616,15 +1616,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.23",
-<<<<<<< HEAD
-<<<<<<< HEAD
-  "updatedAt": "2020-04-18T18:34:24.968Z",
-=======
-  "updatedAt": "2020-04-16T14:28:55.009Z",
->>>>>>> 36b0d5f3bf0ebccba57c4d0791aae1d41cb5c827
-=======
-  "updatedAt": "2020-04-21T22:10:01.869Z",
->>>>>>> ee303f788f936d4520e78653b719739650301464
+  "updatedAt": "2020-04-25T19:31:30.589Z",
   "devdoc": {
     "methods": {}
   },
