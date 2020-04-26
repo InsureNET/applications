@@ -21,7 +21,7 @@ class BuyForm extends Component {
     return (
       <Container>
         
-        <div style={{ marginLeft: 35 }}> 
+        <div style={{ marginLeft: 35, textAlign: 'center' }}> 
             <Paper elevation={3}  style={{ padding: 35 }}>
               <form className="mb-3" onSubmit={(event) => {
                   event.preventDefault()
@@ -48,7 +48,7 @@ class BuyForm extends Component {
                     placeholder="0"
                     required /><br />
                     <span className="float-right text-muted">
-                    Balance: {this.props.ethBalance}
+                    Balance: {window.web3.utils.fromWei(this.props.ethBalance)}
                   </span>
                   <div className="input-group-append">
                     <div className="input-group-text">

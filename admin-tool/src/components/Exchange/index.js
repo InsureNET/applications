@@ -112,6 +112,7 @@ class Exchange extends Component {
         this.state.ethSwap.methods.buyTokens()
           .send({ value: etherAmount, from: this.state.account }).on('transactionHash', (hash) => {
             this.setState({ loading: false })
+            window.location.reload()
           })
       }
     
@@ -120,6 +121,7 @@ class Exchange extends Component {
         this.state.token.methods.approve(this.state.ethSwap.address, tokenAmount).send({ from: this.state.account }).on('transactionHash', (hash) => {
           this.state.ethSwap.methods.sellTokens(tokenAmount).send({ from: this.state.account }).on('transactionHash', (hash) => {
             this.setState({ loading: false })
+            window.location.reload()
           })
         })
       }
