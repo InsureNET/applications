@@ -6,7 +6,7 @@ require('babel-polyfill');
 // // // Create your own key for Production environments (https://infura.io/)
 // const INFURA_ID = process.env.INFURA_ID || 'e8cc7c8e245b46b482873ce9382a542b';
 
-
+const mnemonic = "outside bridge shrimp above piece myth acquire doll void filter fit reject";
 
 // const configNetwok = (network, networkId, path = "m/44'/60'/0'/0/", gas = 4465030, gasPrice = 1e10) => ({
 //   provider: () => new HDWalletProvider(
