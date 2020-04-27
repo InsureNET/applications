@@ -115,7 +115,7 @@ contract Marketplace {
 
     // Create a Policy
     function createPolicy(
-        string memory _name,
+        //string memory _name,
         string memory _policyNumber,
         uint _price
     ) public {

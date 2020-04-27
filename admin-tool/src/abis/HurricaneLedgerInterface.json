@@ -73,25 +73,25 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":false,\"inputs\":[{\"internalType\":\"enum HurricaneDatabaseModel.Acc\",\"name\":\"_from\",\"type\":\"uint8\"},{\"internalType\":\"enum HurricaneDatabaseModel.Acc\",\"name\":\"_to\",\"type\":\"uint8\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"bookkeeping\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"enum HurricaneDatabaseModel.Acc\",\"name\":\"_to\",\"type\":\"uint8\"}],\"name\":\"receiveFunds\",\"outputs\":[],\"payable\":true,\"stateMutability\":\"payable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"address\",\"name\":\"_recipient\",\"type\":\"address\"},{\"internalType\":\"enum HurricaneDatabaseModel.Acc\",\"name\":\"_from\",\"type\":\"uint8\"},{\"internalType\":\"uint256\",\"name\":\"_amount\",\"type\":\"uint256\"}],\"name\":\"sendFunds\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"_success\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/home/jaxcoder/Projects/InetMaster/applications/admin-tool/src/contracts/hurricane/HurricaneLedgerInterface.sol\":\"HurricaneLedgerInterface\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/jaxcoder/Projects/InetMaster/applications/admin-tool/src/contracts/hurricane/HurricaneDatabaseModel.sol\":{\"keccak256\":\"0x297ecadda18b862a200e228afb6d8f9ff8ae50447be948a4f27c61f05c20ea73\",\"urls\":[\"bzz-raw://0ddb1fc425b60d8f3f2103a9d1559e537d2fcad223f5c9396e91c51884500c7c\",\"dweb:/ipfs/QmPRva8xHAxK7FfZoTcru37UmMDjR91kNo77SqU1sQwane\"]},\"/home/jaxcoder/Projects/InetMaster/applications/admin-tool/src/contracts/hurricane/HurricaneLedgerInterface.sol\":{\"keccak256\":\"0x9f5c2a1fe3327ec5ca70e921b9e8355b61cdc16a404956f09f0bf7fbdc6baa74\",\"urls\":[\"bzz-raw://40e5074c269d94224f92b8729f868bebba4b42570999e9d50db9123b638b348b\",\"dweb:/ipfs/QmZXcqpM35JW8NdUCJNwc794nEagCfbioYGAPCwxjKukHd\"]}},\"version\":1}",
+  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":false,\"inputs\":[{\"internalType\":\"enum HurricaneDatabaseModel.Acc\",\"name\":\"_from\",\"type\":\"uint8\"},{\"internalType\":\"enum HurricaneDatabaseModel.Acc\",\"name\":\"_to\",\"type\":\"uint8\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"bookkeeping\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"enum HurricaneDatabaseModel.Acc\",\"name\":\"_to\",\"type\":\"uint8\"}],\"name\":\"receiveFunds\",\"outputs\":[],\"payable\":true,\"stateMutability\":\"payable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"address\",\"name\":\"_recipient\",\"type\":\"address\"},{\"internalType\":\"enum HurricaneDatabaseModel.Acc\",\"name\":\"_from\",\"type\":\"uint8\"},{\"internalType\":\"uint256\",\"name\":\"_amount\",\"type\":\"uint256\"}],\"name\":\"sendFunds\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"_success\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/C/Projects/INET-IncomeStream/App/admin-tool/src/contracts/hurricane/HurricaneLedgerInterface.sol\":\"HurricaneLedgerInterface\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/C/Projects/INET-IncomeStream/App/admin-tool/src/contracts/hurricane/HurricaneDatabaseModel.sol\":{\"keccak256\":\"0x71bd00db30af787eed7ded701d100e5b937c693521ef6c371372fd8c595506d1\",\"urls\":[\"bzz-raw://c5bf98be99adde3c8ef93195c45dbe2804eac38b8006636969d870f8803cdf39\",\"dweb:/ipfs/QmRR5TvL2d1G66DdunadyuEUfwXHNdijnZEoxzikXiJkuJ\"]},\"/C/Projects/INET-IncomeStream/App/admin-tool/src/contracts/hurricane/HurricaneLedgerInterface.sol\":{\"keccak256\":\"0x40c048f3b2527a3ad56ee2f5f79d7a8e3d88728753b316884b458eb27aa38236\",\"urls\":[\"bzz-raw://dafe70729be0948d167bf4995cef64e52e34c1630779f744c35ca5603858803c\",\"dweb:/ipfs/QmZXZNWazfayMvaSdZU75S82wWL4hXZhGAVQHgHujGtXfc\"]}},\"version\":1}",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "sourceMap": "",
   "deployedSourceMap": "",
-  "source": "/**\n * Oraclized Underwriting and Payout\n *\n * @description\tLedger contract interface\n * @copyright (c) 2020 InsureNET\n * @author Jason Romero\n */\n\npragma solidity 0.5.16;\n\nimport \"./HurricaneDatabaseModel.sol\";\n\n\ncontract HurricaneLedgerInterface is HurricaneDatabaseModel {\n  function receiveFunds(Acc _to) public payable;\n\n  function sendFunds(address _recipient, Acc _from, uint _amount) public returns (bool _success);\n\n  function bookkeeping(Acc _from, Acc _to, uint amount) public;\n}",
-  "sourcePath": "/home/jaxcoder/Projects/InetMaster/applications/admin-tool/src/contracts/hurricane/HurricaneLedgerInterface.sol",
+  "source": "/**\r\n * Oraclized Underwriting and Payout\r\n *\r\n * @description\tLedger contract interface\r\n * @copyright (c) 2020 InsureNET\r\n * @author Jason Romero\r\n */\r\n\r\npragma solidity 0.5.16;\r\n\r\nimport \"./HurricaneDatabaseModel.sol\";\r\n\r\n\r\ncontract HurricaneLedgerInterface is HurricaneDatabaseModel {\r\n  function receiveFunds(Acc _to) public payable;\r\n\r\n  function sendFunds(address _recipient, Acc _from, uint _amount) public returns (bool _success);\r\n\r\n  function bookkeeping(Acc _from, Acc _to, uint amount) public;\r\n}",
+  "sourcePath": "C:\\Projects\\INET-IncomeStream\\App\\admin-tool\\src\\contracts\\hurricane\\HurricaneLedgerInterface.sol",
   "ast": {
-    "absolutePath": "/home/jaxcoder/Projects/InetMaster/applications/admin-tool/src/contracts/hurricane/HurricaneLedgerInterface.sol",
+    "absolutePath": "/C/Projects/INET-IncomeStream/App/admin-tool/src/contracts/hurricane/HurricaneLedgerInterface.sol",
     "exportedSymbols": {
       "HurricaneLedgerInterface": [
-        2924
+        2925
       ]
     },
-    "id": 2925,
+    "id": 2926,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 2895,
+        "id": 2896,
         "literals": [
           "solidity",
           "0.5",
@@ -101,12 +101,12 @@
         "src": "156:23:18"
       },
       {
-        "absolutePath": "/home/jaxcoder/Projects/InetMaster/applications/admin-tool/src/contracts/hurricane/HurricaneDatabaseModel.sol",
+        "absolutePath": "/C/Projects/INET-IncomeStream/App/admin-tool/src/contracts/hurricane/HurricaneDatabaseModel.sol",
         "file": "./HurricaneDatabaseModel.sol",
-        "id": 2896,
+        "id": 2897,
         "nodeType": "ImportDirective",
-        "scope": 2925,
-        "sourceUnit": 2894,
+        "scope": 2926,
+        "sourceUnit": 2895,
         "src": "183:38:18",
         "symbolAliases": [],
         "unitAlias": ""
@@ -117,31 +117,31 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 2897,
+              "id": 2898,
               "name": "HurricaneDatabaseModel",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 2893,
+              "referencedDeclaration": 2894,
               "src": "264:22:18",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_HurricaneDatabaseModel_$2893",
+                "typeIdentifier": "t_contract$_HurricaneDatabaseModel_$2894",
                 "typeString": "contract HurricaneDatabaseModel"
               }
             },
-            "id": 2898,
+            "id": 2899,
             "nodeType": "InheritanceSpecifier",
             "src": "264:22:18"
           }
         ],
         "contractDependencies": [
-          2893
+          2894
         ],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 2924,
+        "id": 2925,
         "linearizedBaseContracts": [
-          2924,
-          2893
+          2925,
+          2894
         ],
         "name": "HurricaneLedgerInterface",
         "nodeType": "ContractDefinition",
@@ -149,38 +149,38 @@
           {
             "body": null,
             "documentation": null,
-            "id": 2903,
+            "id": 2904,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "receiveFunds",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2901,
+              "id": 2902,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2900,
+                  "id": 2901,
                   "name": "_to",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2903,
+                  "scope": 2904,
                   "src": "314:7:18",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_enum$_Acc_$2830",
+                    "typeIdentifier": "t_enum$_Acc_$2831",
                     "typeString": "enum HurricaneDatabaseModel.Acc"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 2899,
+                    "id": 2900,
                     "name": "Acc",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 2830,
+                    "referencedDeclaration": 2831,
                     "src": "314:3:18",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_enum$_Acc_$2830",
+                      "typeIdentifier": "t_enum$_Acc_$2831",
                       "typeString": "enum HurricaneDatabaseModel.Acc"
                     }
                   },
@@ -191,12 +191,12 @@
               "src": "313:9:18"
             },
             "returnParameters": {
-              "id": 2902,
+              "id": 2903,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "337:0:18"
             },
-            "scope": 2924,
+            "scope": 2925,
             "src": "292:46:18",
             "stateMutability": "payable",
             "superFunction": null,
@@ -205,22 +205,22 @@
           {
             "body": null,
             "documentation": null,
-            "id": 2914,
+            "id": 2915,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "sendFunds",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2910,
+              "id": 2911,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2905,
+                  "id": 2906,
                   "name": "_recipient",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2914,
+                  "scope": 2915,
                   "src": "363:18:18",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -229,7 +229,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2904,
+                    "id": 2905,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "363:7:18",
@@ -244,26 +244,26 @@
                 },
                 {
                   "constant": false,
-                  "id": 2907,
+                  "id": 2908,
                   "name": "_from",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2914,
+                  "scope": 2915,
                   "src": "383:9:18",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_enum$_Acc_$2830",
+                    "typeIdentifier": "t_enum$_Acc_$2831",
                     "typeString": "enum HurricaneDatabaseModel.Acc"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 2906,
+                    "id": 2907,
                     "name": "Acc",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 2830,
+                    "referencedDeclaration": 2831,
                     "src": "383:3:18",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_enum$_Acc_$2830",
+                      "typeIdentifier": "t_enum$_Acc_$2831",
                       "typeString": "enum HurricaneDatabaseModel.Acc"
                     }
                   },
@@ -272,10 +272,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 2909,
+                  "id": 2910,
                   "name": "_amount",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2914,
+                  "scope": 2915,
                   "src": "394:12:18",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -284,7 +284,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2908,
+                    "id": 2909,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "394:4:18",
@@ -300,15 +300,15 @@
               "src": "362:45:18"
             },
             "returnParameters": {
-              "id": 2913,
+              "id": 2914,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2912,
+                  "id": 2913,
                   "name": "_success",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2914,
+                  "scope": 2915,
                   "src": "424:13:18",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -317,7 +317,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 2911,
+                    "id": 2912,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "424:4:18",
@@ -332,7 +332,7 @@
               ],
               "src": "423:15:18"
             },
-            "scope": 2924,
+            "scope": 2925,
             "src": "344:95:18",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -341,38 +341,38 @@
           {
             "body": null,
             "documentation": null,
-            "id": 2923,
+            "id": 2924,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "bookkeeping",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2921,
+              "id": 2922,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2916,
+                  "id": 2917,
                   "name": "_from",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2923,
+                  "scope": 2924,
                   "src": "466:9:18",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_enum$_Acc_$2830",
+                    "typeIdentifier": "t_enum$_Acc_$2831",
                     "typeString": "enum HurricaneDatabaseModel.Acc"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 2915,
+                    "id": 2916,
                     "name": "Acc",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 2830,
+                    "referencedDeclaration": 2831,
                     "src": "466:3:18",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_enum$_Acc_$2830",
+                      "typeIdentifier": "t_enum$_Acc_$2831",
                       "typeString": "enum HurricaneDatabaseModel.Acc"
                     }
                   },
@@ -381,26 +381,26 @@
                 },
                 {
                   "constant": false,
-                  "id": 2918,
+                  "id": 2919,
                   "name": "_to",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2923,
+                  "scope": 2924,
                   "src": "477:7:18",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_enum$_Acc_$2830",
+                    "typeIdentifier": "t_enum$_Acc_$2831",
                     "typeString": "enum HurricaneDatabaseModel.Acc"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 2917,
+                    "id": 2918,
                     "name": "Acc",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 2830,
+                    "referencedDeclaration": 2831,
                     "src": "477:3:18",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_enum$_Acc_$2830",
+                      "typeIdentifier": "t_enum$_Acc_$2831",
                       "typeString": "enum HurricaneDatabaseModel.Acc"
                     }
                   },
@@ -409,10 +409,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 2920,
+                  "id": 2921,
                   "name": "amount",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2923,
+                  "scope": 2924,
                   "src": "486:11:18",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -421,7 +421,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2919,
+                    "id": 2920,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "486:4:18",
@@ -437,36 +437,36 @@
               "src": "465:33:18"
             },
             "returnParameters": {
-              "id": 2922,
+              "id": 2923,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "505:0:18"
             },
-            "scope": 2924,
+            "scope": 2925,
             "src": "445:61:18",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 2925,
+        "scope": 2926,
         "src": "227:282:18"
       }
     ],
     "src": "156:353:18"
   },
   "legacyAST": {
-    "absolutePath": "/home/jaxcoder/Projects/InetMaster/applications/admin-tool/src/contracts/hurricane/HurricaneLedgerInterface.sol",
+    "absolutePath": "/C/Projects/INET-IncomeStream/App/admin-tool/src/contracts/hurricane/HurricaneLedgerInterface.sol",
     "exportedSymbols": {
       "HurricaneLedgerInterface": [
-        2924
+        2925
       ]
     },
-    "id": 2925,
+    "id": 2926,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 2895,
+        "id": 2896,
         "literals": [
           "solidity",
           "0.5",
@@ -476,12 +476,12 @@
         "src": "156:23:18"
       },
       {
-        "absolutePath": "/home/jaxcoder/Projects/InetMaster/applications/admin-tool/src/contracts/hurricane/HurricaneDatabaseModel.sol",
+        "absolutePath": "/C/Projects/INET-IncomeStream/App/admin-tool/src/contracts/hurricane/HurricaneDatabaseModel.sol",
         "file": "./HurricaneDatabaseModel.sol",
-        "id": 2896,
+        "id": 2897,
         "nodeType": "ImportDirective",
-        "scope": 2925,
-        "sourceUnit": 2894,
+        "scope": 2926,
+        "sourceUnit": 2895,
         "src": "183:38:18",
         "symbolAliases": [],
         "unitAlias": ""
@@ -492,31 +492,31 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 2897,
+              "id": 2898,
               "name": "HurricaneDatabaseModel",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 2893,
+              "referencedDeclaration": 2894,
               "src": "264:22:18",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_HurricaneDatabaseModel_$2893",
+                "typeIdentifier": "t_contract$_HurricaneDatabaseModel_$2894",
                 "typeString": "contract HurricaneDatabaseModel"
               }
             },
-            "id": 2898,
+            "id": 2899,
             "nodeType": "InheritanceSpecifier",
             "src": "264:22:18"
           }
         ],
         "contractDependencies": [
-          2893
+          2894
         ],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 2924,
+        "id": 2925,
         "linearizedBaseContracts": [
-          2924,
-          2893
+          2925,
+          2894
         ],
         "name": "HurricaneLedgerInterface",
         "nodeType": "ContractDefinition",
@@ -524,38 +524,38 @@
           {
             "body": null,
             "documentation": null,
-            "id": 2903,
+            "id": 2904,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "receiveFunds",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2901,
+              "id": 2902,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2900,
+                  "id": 2901,
                   "name": "_to",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2903,
+                  "scope": 2904,
                   "src": "314:7:18",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_enum$_Acc_$2830",
+                    "typeIdentifier": "t_enum$_Acc_$2831",
                     "typeString": "enum HurricaneDatabaseModel.Acc"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 2899,
+                    "id": 2900,
                     "name": "Acc",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 2830,
+                    "referencedDeclaration": 2831,
                     "src": "314:3:18",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_enum$_Acc_$2830",
+                      "typeIdentifier": "t_enum$_Acc_$2831",
                       "typeString": "enum HurricaneDatabaseModel.Acc"
                     }
                   },
@@ -566,12 +566,12 @@
               "src": "313:9:18"
             },
             "returnParameters": {
-              "id": 2902,
+              "id": 2903,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "337:0:18"
             },
-            "scope": 2924,
+            "scope": 2925,
             "src": "292:46:18",
             "stateMutability": "payable",
             "superFunction": null,
@@ -580,22 +580,22 @@
           {
             "body": null,
             "documentation": null,
-            "id": 2914,
+            "id": 2915,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "sendFunds",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2910,
+              "id": 2911,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2905,
+                  "id": 2906,
                   "name": "_recipient",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2914,
+                  "scope": 2915,
                   "src": "363:18:18",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -604,7 +604,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2904,
+                    "id": 2905,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "363:7:18",
@@ -619,26 +619,26 @@
                 },
                 {
                   "constant": false,
-                  "id": 2907,
+                  "id": 2908,
                   "name": "_from",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2914,
+                  "scope": 2915,
                   "src": "383:9:18",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_enum$_Acc_$2830",
+                    "typeIdentifier": "t_enum$_Acc_$2831",
                     "typeString": "enum HurricaneDatabaseModel.Acc"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 2906,
+                    "id": 2907,
                     "name": "Acc",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 2830,
+                    "referencedDeclaration": 2831,
                     "src": "383:3:18",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_enum$_Acc_$2830",
+                      "typeIdentifier": "t_enum$_Acc_$2831",
                       "typeString": "enum HurricaneDatabaseModel.Acc"
                     }
                   },
@@ -647,10 +647,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 2909,
+                  "id": 2910,
                   "name": "_amount",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2914,
+                  "scope": 2915,
                   "src": "394:12:18",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -659,7 +659,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2908,
+                    "id": 2909,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "394:4:18",
@@ -675,15 +675,15 @@
               "src": "362:45:18"
             },
             "returnParameters": {
-              "id": 2913,
+              "id": 2914,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2912,
+                  "id": 2913,
                   "name": "_success",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2914,
+                  "scope": 2915,
                   "src": "424:13:18",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -692,7 +692,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 2911,
+                    "id": 2912,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "424:4:18",
@@ -707,7 +707,7 @@
               ],
               "src": "423:15:18"
             },
-            "scope": 2924,
+            "scope": 2925,
             "src": "344:95:18",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -716,38 +716,38 @@
           {
             "body": null,
             "documentation": null,
-            "id": 2923,
+            "id": 2924,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "bookkeeping",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2921,
+              "id": 2922,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2916,
+                  "id": 2917,
                   "name": "_from",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2923,
+                  "scope": 2924,
                   "src": "466:9:18",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_enum$_Acc_$2830",
+                    "typeIdentifier": "t_enum$_Acc_$2831",
                     "typeString": "enum HurricaneDatabaseModel.Acc"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 2915,
+                    "id": 2916,
                     "name": "Acc",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 2830,
+                    "referencedDeclaration": 2831,
                     "src": "466:3:18",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_enum$_Acc_$2830",
+                      "typeIdentifier": "t_enum$_Acc_$2831",
                       "typeString": "enum HurricaneDatabaseModel.Acc"
                     }
                   },
@@ -756,26 +756,26 @@
                 },
                 {
                   "constant": false,
-                  "id": 2918,
+                  "id": 2919,
                   "name": "_to",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2923,
+                  "scope": 2924,
                   "src": "477:7:18",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_enum$_Acc_$2830",
+                    "typeIdentifier": "t_enum$_Acc_$2831",
                     "typeString": "enum HurricaneDatabaseModel.Acc"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 2917,
+                    "id": 2918,
                     "name": "Acc",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 2830,
+                    "referencedDeclaration": 2831,
                     "src": "477:3:18",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_enum$_Acc_$2830",
+                      "typeIdentifier": "t_enum$_Acc_$2831",
                       "typeString": "enum HurricaneDatabaseModel.Acc"
                     }
                   },
@@ -784,10 +784,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 2920,
+                  "id": 2921,
                   "name": "amount",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2923,
+                  "scope": 2924,
                   "src": "486:11:18",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -796,7 +796,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2919,
+                    "id": 2920,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "486:4:18",
@@ -812,19 +812,19 @@
               "src": "465:33:18"
             },
             "returnParameters": {
-              "id": 2922,
+              "id": 2923,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "505:0:18"
             },
-            "scope": 2924,
+            "scope": 2925,
             "src": "445:61:18",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 2925,
+        "scope": 2926,
         "src": "227:282:18"
       }
     ],
@@ -836,15 +836,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.23",
-<<<<<<< HEAD
-<<<<<<< HEAD
-  "updatedAt": "2020-04-18T18:34:24.969Z",
-=======
-  "updatedAt": "2020-04-16T14:28:55.010Z",
->>>>>>> 36b0d5f3bf0ebccba57c4d0791aae1d41cb5c827
-=======
-  "updatedAt": "2020-04-21T22:10:01.871Z",
->>>>>>> ee303f788f936d4520e78653b719739650301464
+  "updatedAt": "2020-04-27T02:23:11.614Z",
   "devdoc": {
     "methods": {}
   },

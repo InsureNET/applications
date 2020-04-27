@@ -193,6 +193,7 @@ class MarketplaceContent extends Component {
         .once('receipt', (receipt) => {
             console.log(receipt)
             this.setState({ loading: false })
+            window.location.reload()
         })
   }
 
@@ -202,6 +203,7 @@ class MarketplaceContent extends Component {
         .send({ from: this.state.account })
         .once('receipt', (receipt) => {
             this.setState({ loading: false })
+            window.location.reload()
         })
   }
 
@@ -211,6 +213,7 @@ class MarketplaceContent extends Component {
         .send({ from: this.state.account, value: price })
         .once('receipt', (receipt) => {
             this.setState({ loading: false })
+            window.location.reload()
         })
   }
 
