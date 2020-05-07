@@ -22,20 +22,19 @@ import SettingsIcon from '@material-ui/icons/Settings'
 import PhonelinkSetupIcon from '@material-ui/icons/PhonelinkSetup'
 import Logo from 'components/Logo'
 //import Logo from '../../../public/images/mockup.jpg'
-import AccountBalanceWalletIcon from '@material-ui/icons/AccountBalanceWallet';
-import LocalShippingIcon from '@material-ui/icons/LocalShipping';
-import Brightness7Icon from '@material-ui/icons/Brightness7';
-import StoreIcon from '@material-ui/icons/Store';
-import AddToPhotosRoundedIcon from '@material-ui/icons/AddToPhotosRounded';
-import AccountBalanceRoundedIcon from '@material-ui/icons/AccountBalanceRounded';
-import ApartmentRoundedIcon from '@material-ui/icons/ApartmentRounded';
-import AssessmentRoundedIcon from '@material-ui/icons/AssessmentRounded';
-import AttachMoneyRoundedIcon from '@material-ui/icons/AttachMoneyRounded';
-import AttachFileRoundedIcon from '@material-ui/icons/AttachFileRounded';
-import UmbrellaIcon from '@material-ui/icons/BeachAccessRounded';
-import AutorenewRoundedIcon from '@material-ui/icons/AutorenewRounded';
-import WriteContractIcon from '@material-ui/icons/BorderColorRounded';
-
+import AccountBalanceWalletIcon from '@material-ui/icons/AccountBalanceWallet'
+import LocalShippingIcon from '@material-ui/icons/LocalShipping'
+import Brightness7Icon from '@material-ui/icons/Brightness7'
+import StoreIcon from '@material-ui/icons/Store'
+import AddToPhotosRoundedIcon from '@material-ui/icons/AddToPhotosRounded'
+import AccountBalanceRoundedIcon from '@material-ui/icons/AccountBalanceRounded'
+import ApartmentRoundedIcon from '@material-ui/icons/ApartmentRounded'
+import AssessmentRoundedIcon from '@material-ui/icons/AssessmentRounded'
+import AttachMoneyRoundedIcon from '@material-ui/icons/AttachMoneyRounded'
+import AttachFileRoundedIcon from '@material-ui/icons/AttachFileRounded'
+import UmbrellaIcon from '@material-ui/icons/BeachAccessRounded'
+import AutorenewRoundedIcon from '@material-ui/icons/AutorenewRounded'
+import WriteContractIcon from '@material-ui/icons/BorderColorRounded'
 
 const categories = [
 	{
@@ -44,27 +43,20 @@ const categories = [
 			// { id: 'Login', icon: <PeopleIcon />, page: 'login' },
 			// { id: 'Join', icon: <PeopleIcon />, page: 'join' },
 			{ id: 'Member Dashboard', icon: <PeopleIcon />, page: 'membership' },
-		]
+		],
 	},
 	{
 		id: 'Products',
 		children: [
 			{ id: 'Marketplace', icon: <StoreIcon />, page: 'marketplace' },
-<<<<<<< HEAD
-			{ id: 'Income Stream', icon: <AssessmentRoundedIcon />, page: 'income-stream' },
-			{ id: 'Accident', icon: <WriteContractIcon />, page: 'accident' },
-			{ id: 'Hurricane', icon: <UmbrellaIcon />, page: 'hurricane' },
-			{ id: 'Property', icon: <HomeIcon />, page: 'property' },
-=======
 			{ id: 'Income Stream', icon: <AssessmentRoundedIcon />, page: 'incomestream' },
 			// { id: 'Accident', icon: <WriteContractIcon />, page: 'accident' },
 			// { id: 'Hurricane', icon: <UmbrellaIcon />, page: 'hurricane' },
 			// { id: 'Property', icon: <HomeIcon />, page: 'property' },
->>>>>>> 254b9cfde080ee672fee22aea39024c72c570824
 			//{ id: 'Liability', icon: <ApartmentRoundedIcon />, page: 'liability' },
 			//{ id: 'Weather', icon: <Brightness7Icon />, page: 'weather' },
 			//{ id: 'Transportation', icon: <LocalShippingIcon />, page: 'transportation' },
-		]
+		],
 	},
 	{
 		id: 'Exchanges',
@@ -72,42 +64,37 @@ const categories = [
 			{ id: 'Buy iNET', icon: <AttachMoneyRoundedIcon />, page: 'exchange' },
 			{ id: 'Uniswap', icon: <AutorenewRoundedIcon />, page: 'uniswap' },
 			//{ id: 'p2pb2b', icon: <AutorenewRoundedIcon />, page: 'p2pb2b' },
-		]
+		],
 	},
-	
-	
+
 	{
 		id: 'Social Network',
-		children: [
-			{ id: 'InsureNET Social', icon: <PeopleIcon />, page: 'socialnet' }
-		]
+		children: [{ id: 'InsureNET Social', icon: <PeopleIcon />, page: 'socialnet' }],
 	},
 	// {
 	// 	id: 'Administration',
 	// 	children: [
 	// 		{ id: 'Authentication', icon: <PeopleIcon />, page: 'authentication' },
 	// 		{ id: 'Hosting', icon: <PublicIcon />, page: 'hosting' },
-			
+
 	// 	],
 	// },
-	
+
 	// {
 	// 	id: 'Wallets',
 	// 	children: [
 	// 		{ id: 'MetaMask', icon: <AccountBalanceWalletIcon />, page: 'metamask' }
 	// 	]
 	// },
-	
+
 	{
 		id: 'Risk Models',
-		children: [
-			{ id: 'RiskDashboard', icon: <DnsRoundedIcon />, page: 'riskdashboard' },
-		]
+		children: [{ id: 'RiskDashboard', icon: <DnsRoundedIcon />, page: 'riskdashboard' }],
 	},
 	{
 		id: 'Risk Reporting',
 		children: [
-			{ id: 'Etherscan', icon: <SettingsInputComponentIcon/>, page: 'etherscan' },
+			{ id: 'Etherscan', icon: <SettingsInputComponentIcon />, page: 'etherscan' },
 			//{ id: 'Analytics', icon: <SettingsIcon />, page: 'analytics' },
 			//{ id: 'Performance', icon: <TimerIcon />, page: 'performance' },
 		],
@@ -119,7 +106,7 @@ const categories = [
 	// 		{ id: 'Vyper', icon: <DnsRoundedIcon />, page: 'vyper' },
 	// 	]
 	// },
-	
+
 	// {
 	// 	id: 'AI & ML',
 	// 	children: [
@@ -134,7 +121,7 @@ const categories = [
 	// 		{ id: 'Storage', icon: <PermMediaOutlinedIcon />, page: 'storage' },
 	// 	]
 	// },
-	
+
 	// {
 	// 	id: 'Testing',
 	// 	children: [
@@ -147,8 +134,8 @@ const categories = [
 		children: [
 			{ id: 'Network Status', icon: <SettingsInputComponentIcon />, page: 'network' },
 			{ id: 'Contact Support', icon: <PeopleIcon />, page: 'support' },
-		]
-	}
+		],
+	},
 ]
 
 const styles = theme => ({
@@ -199,9 +186,9 @@ const styles = theme => ({
 function Navigator({ classes, location = null, ...rest }) {
 	const matchPath = location ? location.pathname.replace(/\//g, '') : null
 	return (
-		<Drawer 
-			variant='permanent'
-			anchor='left'
+		<Drawer
+			variant="permanent"
+			anchor="left"
 			classes={{
 				paper: classes.drawerPaper,
 			}}
@@ -211,9 +198,7 @@ function Navigator({ classes, location = null, ...rest }) {
 				<ListItem className={classNames(classes.firebase, classes.item, classes.itemCategory)}>
 					<Grid container alignItems="center" spacing={8} direction="row">
 						<Grid item>InsureNET</Grid>
-						<Grid item>
-							{/* <Logo /> */}
-						</Grid>						
+						<Grid item>{/* <Logo /> */}</Grid>
 					</Grid>
 				</ListItem>
 
