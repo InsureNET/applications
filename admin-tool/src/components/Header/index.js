@@ -13,7 +13,22 @@ import Toolbar from '@material-ui/core/Toolbar'
 import Tooltip from '@material-ui/core/Tooltip'
 import Typography from '@material-ui/core/Typography'
 import { withStyles } from '@material-ui/core/styles'
-import web3 from 'web3'
+import Web3 from 'web3'
+import Onboard from 'bnc-onboard'
+
+let web3
+
+const onboard = Onboard({
+	dappId: '8e84cd42-1282-4e65-bcd0-da4f7b6ad7a4',
+	networkId: 1,
+	darkMode: true,
+	subscriptions: {
+		wallet: wallet => {
+			web3 = new Web3(wallet.provider)
+			console.log(`${wallet.name} is now connected!`)
+		},
+	},
+})
 
 const lightColor = 'rgba(230, 230, 230, 0.7)'
 
@@ -43,17 +58,15 @@ const styles = theme => ({
 	},
 })
 
-/** 
+/**
  * @dev Connect Wallet => MetaMaskk for now
  *
  */
-function connectWallet() {
-	confirm('Connect Wallet?')
-	
+async function connectWallet() {
+	//confirm('Connect Wallet?')
+	await onboard.walletSelect()
+	await onboard.walletCheck()
 }
-
-
-
 
 function Header({ classes, onDrawerToggle, title }) {
 	return (
@@ -61,20 +74,16 @@ function Header({ classes, onDrawerToggle, title }) {
 			<AppBar color="primary" position="sticky" elevation={0}>
 				<Toolbar>
 					<Grid container spacing={4} alignItems="center">
-					<Grid item xs>
-							<Typography 
-								style={{ textTransform: 'capitalize' }} 
-								color="inherit" 
-								variant="h5"
-							>
+						<Grid item xs>
+							<Typography style={{ textTransform: 'capitalize' }} color="inherit" variant="h5">
 								{title}
 							</Typography>
 						</Grid>
 						<Grid item>
-							<Button 
-								className={classes.button} 
-								variant="outlined" 
-								color="inherit" 
+							<Button
+								className={classes.button}
+								variant="outlined"
+								color="inherit"
 								size="small"
 								onClick={connectWallet}
 							>
@@ -88,18 +97,18 @@ function Header({ classes, onDrawerToggle, title }) {
 								</IconButton>
 							</Tooltip>
 						</Grid>
-							<Hidden smUp>
-								<Grid item>
-									<IconButton
-										color="inherit"
-										aria-label="Open drawer"
-										onClick={onDrawerToggle}
-										className={classes.menuButton}
-									>
-										<MenuIcon />
-									</IconButton>
-								</Grid>
-							</Hidden>
+						<Hidden smUp>
+							<Grid item>
+								<IconButton
+									color="inherit"
+									aria-label="Open drawer"
+									onClick={onDrawerToggle}
+									className={classes.menuButton}
+								>
+									<MenuIcon />
+								</IconButton>
+							</Grid>
+						</Hidden>
 						<Grid item xs />
 						<Grid item>
 							<Typography className={classes.link} component="a" href="/document">
@@ -133,7 +142,7 @@ function Header({ classes, onDrawerToggle, title }) {
 								{title}
 							</Typography>
 						</Grid> */}
-						{/* <Grid item>
+			{/* <Grid item>
 							<Button className={classes.button} variant="outlined" color="inherit" size="small">
 								Web setup
 							</Button>
