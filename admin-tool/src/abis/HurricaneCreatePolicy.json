@@ -429,47 +429,55 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"_policyId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"_address\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"_externalId\",\"type\":\"bytes32\"}],\"name\":\"LogExternal\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"_policyId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"hexQueryId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"_oraclizeUrl\",\"type\":\"string\"}],\"name\":\"LogOraclizeCall\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"_policyId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"hexQueryId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"_result\",\"type\":\"string\"},{\"indexed\":false,\"internalType\":\"bytes\",\"name\":\"hexProof\",\"type\":\"bytes\"}],\"name\":\"LogOraclizeCallback\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"_policyId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"_statistics0\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"_statistics1\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"_statistics2\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"_statistics3\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"_statistics4\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"_statistics5\",\"type\":\"uint256\"}],\"name\":\"LogPolicyAccepted\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"_policyId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"_customer\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"_market\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"ethPremium\",\"type\":\"uint256\"}],\"name\":\"LogPolicyApplied\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"_policyId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"strReason\",\"type\":\"bytes32\"}],\"name\":\"LogPolicyDeclined\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"_policyId\",\"type\":\"uint256\"}],\"name\":\"LogPolicyExpired\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"_policyId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"strReason\",\"type\":\"bytes32\"}],\"name\":\"LogPolicyManualPayout\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"_policyId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"ethAmount\",\"type\":\"uint256\"}],\"name\":\"LogPolicyPaidOut\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"_sender\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint8\",\"name\":\"_to\",\"type\":\"uint8\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"ethAmount\",\"type\":\"uint256\"}],\"name\":\"LogReceiveFunds\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"_policyId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"strReason\",\"type\":\"bytes32\"}],\"name\":\"LogSendFail\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"_recipient\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint8\",\"name\":\"_from\",\"type\":\"uint8\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"ethAmount\",\"type\":\"uint256\"}],\"name\":\"LogSendFunds\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"_policyId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint8\",\"name\":\"_policyState\",\"type\":\"uint8\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"_stateTime\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"_stateMessage\",\"type\":\"bytes32\"}],\"name\":\"LogSetState\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"}],\"name\":\"PolicyCreated\",\"type\":\"event\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"address\",\"name\":\"_insured\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_value\",\"type\":\"uint256\"}],\"name\":\"createPolicy\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"payable\":true,\"stateMutability\":\"payable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"maxPremium\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"minPremium\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"policyHolders\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{\"constructor\":{\"details\":\"Constructor function\"},\"createPolicy(address,uint256)\":{\"details\":\"create a hurricane policy\",\"params\":{\"_insured\":\"address of the policy owner\",\"_value\":\"the premiu amount to pay\"}}}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/C/Projects/InsureNET/master-branch/admin-tool/src/contracts/hurricane/HurricaneCreatePolicy.sol\":\"HurricaneCreatePolicy\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/C/Projects/InsureNET/master-branch/admin-tool/src/contracts/hurricane/HurricaneConstants.sol\":{\"keccak256\":\"0x659928817b8cebc156346ef2d6d4db17acd62a2b4c6b833d8b11b32c72fda512\",\"urls\":[\"bzz-raw://5cebc3765ac80dd3de4cf35b54b624e14fee5a4a3bb3554bf9c8e328e139a5c9\",\"dweb:/ipfs/Qmc779AhUn3JDct33TBe5272Pv3k8iFkzmzw1ZzxzF41g2\"]},\"/C/Projects/InsureNET/master-branch/admin-tool/src/contracts/hurricane/HurricaneCreatePolicy.sol\":{\"keccak256\":\"0xd4fc473c2d3a5682ca8d9e858621e505c5d762ae50d7d445e90fa26856ec200e\",\"urls\":[\"bzz-raw://6f649aea087505cf95267572d2d51f0f5d9aa04411c9a1892e63ee88eb3dcd37\",\"dweb:/ipfs/QmNmELSJwQAp4wvLyJW46LfTVj4HrnasW9EHe4yVeFAZ1H\"]},\"@openzeppelin/contracts/math/SafeMath.sol\":{\"keccak256\":\"0x640b6dee7a4b830bdfd52b5031a07fc2b12209f5b2e29e5d364a7d37f69d8076\",\"urls\":[\"bzz-raw://31113152e1ddb78fe7a4197f247591ca894e93f916867beb708d8e747b6cc74f\",\"dweb:/ipfs/QmbZaJyXdpsYGykVhHH9qpVGQg9DGCxE2QufbCUy3daTgq\"]}},\"version\":1}",
-  "bytecode": "0x608060405260196000556101f460015534801561001b57600080fd5b506101ca8061002b6000396000f3fe60806040526004361061003f5760003560e01c806351b79d551461004457806370b68a2a1461006f5780639abb9a28146100d4578063eedb9ed51461013a575b600080fd5b34801561005057600080fd5b50610059610165565b6040518082815260200191505060405180910390f35b34801561007b57600080fd5b506100be6004803603602081101561009257600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919050505061016b565b6040518082815260200191505060405180910390f35b610120600480360360408110156100ea57600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919080359060200190929190505050610183565b604051808215151515815260200191505060405180910390f35b34801561014657600080fd5b5061014f61018f565b6040518082815260200191505060405180910390f35b60015481565b60026020528060005260406000206000915090505481565b60006001905092915050565b6000548156fea265627a7a723158201a6b53901e26a751545ab5a3ba07c6118290725d9c2385b69c9b03dfaca0c8d664736f6c63430005100032",
-  "deployedBytecode": "0x60806040526004361061003f5760003560e01c806351b79d551461004457806370b68a2a1461006f5780639abb9a28146100d4578063eedb9ed51461013a575b600080fd5b34801561005057600080fd5b50610059610165565b6040518082815260200191505060405180910390f35b34801561007b57600080fd5b506100be6004803603602081101561009257600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919050505061016b565b6040518082815260200191505060405180910390f35b610120600480360360408110156100ea57600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919080359060200190929190505050610183565b604051808215151515815260200191505060405180910390f35b34801561014657600080fd5b5061014f61018f565b6040518082815260200191505060405180910390f35b60015481565b60026020528060005260406000206000915090505481565b60006001905092915050565b6000548156fea265627a7a723158201a6b53901e26a751545ab5a3ba07c6118290725d9c2385b69c9b03dfaca0c8d664736f6c63430005100032",
+  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"_policyId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"_address\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"_externalId\",\"type\":\"bytes32\"}],\"name\":\"LogExternal\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"_policyId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"hexQueryId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"_oraclizeUrl\",\"type\":\"string\"}],\"name\":\"LogOraclizeCall\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"_policyId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"hexQueryId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"_result\",\"type\":\"string\"},{\"indexed\":false,\"internalType\":\"bytes\",\"name\":\"hexProof\",\"type\":\"bytes\"}],\"name\":\"LogOraclizeCallback\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"_policyId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"_statistics0\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"_statistics1\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"_statistics2\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"_statistics3\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"_statistics4\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"_statistics5\",\"type\":\"uint256\"}],\"name\":\"LogPolicyAccepted\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"_policyId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"_customer\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"_market\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"ethPremium\",\"type\":\"uint256\"}],\"name\":\"LogPolicyApplied\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"_policyId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"strReason\",\"type\":\"bytes32\"}],\"name\":\"LogPolicyDeclined\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"_policyId\",\"type\":\"uint256\"}],\"name\":\"LogPolicyExpired\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"_policyId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"strReason\",\"type\":\"bytes32\"}],\"name\":\"LogPolicyManualPayout\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"_policyId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"ethAmount\",\"type\":\"uint256\"}],\"name\":\"LogPolicyPaidOut\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"_sender\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint8\",\"name\":\"_to\",\"type\":\"uint8\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"ethAmount\",\"type\":\"uint256\"}],\"name\":\"LogReceiveFunds\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"_policyId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"strReason\",\"type\":\"bytes32\"}],\"name\":\"LogSendFail\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"_recipient\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint8\",\"name\":\"_from\",\"type\":\"uint8\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"ethAmount\",\"type\":\"uint256\"}],\"name\":\"LogSendFunds\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"_policyId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint8\",\"name\":\"_policyState\",\"type\":\"uint8\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"_stateTime\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"_stateMessage\",\"type\":\"bytes32\"}],\"name\":\"LogSetState\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"}],\"name\":\"PolicyCreated\",\"type\":\"event\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"address\",\"name\":\"_insured\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_value\",\"type\":\"uint256\"}],\"name\":\"createPolicy\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"payable\":true,\"stateMutability\":\"payable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"maxPremium\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"minPremium\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"policyHolders\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{\"constructor\":{\"details\":\"Constructor function\"},\"createPolicy(address,uint256)\":{\"details\":\"create a hurricane policy\",\"params\":{\"_insured\":\"address of the policy owner\",\"_value\":\"the premiu amount to pay\"}}}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/C/Projects/INET-IncomeStream/App/admin-tool/src/contracts/hurricane/HurricaneCreatePolicy.sol\":\"HurricaneCreatePolicy\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/C/Projects/INET-IncomeStream/App/admin-tool/src/contracts/hurricane/HurricaneConstants.sol\":{\"keccak256\":\"0x659928817b8cebc156346ef2d6d4db17acd62a2b4c6b833d8b11b32c72fda512\",\"urls\":[\"bzz-raw://5cebc3765ac80dd3de4cf35b54b624e14fee5a4a3bb3554bf9c8e328e139a5c9\",\"dweb:/ipfs/Qmc779AhUn3JDct33TBe5272Pv3k8iFkzmzw1ZzxzF41g2\"]},\"/C/Projects/INET-IncomeStream/App/admin-tool/src/contracts/hurricane/HurricaneCreatePolicy.sol\":{\"keccak256\":\"0xd4fc473c2d3a5682ca8d9e858621e505c5d762ae50d7d445e90fa26856ec200e\",\"urls\":[\"bzz-raw://6f649aea087505cf95267572d2d51f0f5d9aa04411c9a1892e63ee88eb3dcd37\",\"dweb:/ipfs/QmNmELSJwQAp4wvLyJW46LfTVj4HrnasW9EHe4yVeFAZ1H\"]},\"@openzeppelin/contracts/math/SafeMath.sol\":{\"keccak256\":\"0x640b6dee7a4b830bdfd52b5031a07fc2b12209f5b2e29e5d364a7d37f69d8076\",\"urls\":[\"bzz-raw://31113152e1ddb78fe7a4197f247591ca894e93f916867beb708d8e747b6cc74f\",\"dweb:/ipfs/QmbZaJyXdpsYGykVhHH9qpVGQg9DGCxE2QufbCUy3daTgq\"]}},\"version\":1}",
+  "bytecode": "0x608060405260196000556101f460015534801561001b57600080fd5b506101ca8061002b6000396000f3fe60806040526004361061003f5760003560e01c806351b79d551461004457806370b68a2a1461006f5780639abb9a28146100d4578063eedb9ed51461013a575b600080fd5b34801561005057600080fd5b50610059610165565b6040518082815260200191505060405180910390f35b34801561007b57600080fd5b506100be6004803603602081101561009257600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919050505061016b565b6040518082815260200191505060405180910390f35b610120600480360360408110156100ea57600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919080359060200190929190505050610183565b604051808215151515815260200191505060405180910390f35b34801561014657600080fd5b5061014f61018f565b6040518082815260200191505060405180910390f35b60015481565b60026020528060005260406000206000915090505481565b60006001905092915050565b6000548156fea265627a7a7231582050b9e4806d55e50339bd476deadce7d20c9cf88e27e628d1d81770a9e22405fc64736f6c63430005100032",
+  "deployedBytecode": "0x60806040526004361061003f5760003560e01c806351b79d551461004457806370b68a2a1461006f5780639abb9a28146100d4578063eedb9ed51461013a575b600080fd5b34801561005057600080fd5b50610059610165565b6040518082815260200191505060405180910390f35b34801561007b57600080fd5b506100be6004803603602081101561009257600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919050505061016b565b6040518082815260200191505060405180910390f35b610120600480360360408110156100ea57600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919080359060200190929190505050610183565b604051808215151515815260200191505060405180910390f35b34801561014657600080fd5b5061014f61018f565b6040518082815260200191505060405180910390f35b60015481565b60026020528060005260406000206000915090505481565b60006001905092915050565b6000548156fea265627a7a7231582050b9e4806d55e50339bd476deadce7d20c9cf88e27e628d1d81770a9e22405fc64736f6c63430005100032",
   "sourceMap": "327:1600:15:-;;;488:2;460:30;;525:3;497:31;;1525;8:9:-1;5:2;;;30:1;27;20:12;5:2;1525:31:15;327:1600;;;;;;",
   "deployedSourceMap": "327:1600:15:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;497:31;;8:9:-1;5:2;;;30:1;27;20:12;5:2;497:31:15;;;:::i;:::-;;;;;;;;;;;;;;;;;;;537:48;;8:9:-1;5:2;;;30:1;27;20:12;5:2;537:48:15;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;537:48:15;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;1745:173;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;1745:173:15;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;460:30;;8:9:-1;5:2;;;30:1;27;20:12;5:2;460:30:15;;;:::i;:::-;;;;;;;;;;;;;;;;;;;497:31;;;;:::o;537:48::-;;;;;;;;;;;;;;;;;:::o;1745:173::-;1851:4;1906;1899:11;;1745:173;;;;:::o;460:30::-;;;;:::o",
   "source": "/**\r\n * @title Generic Prametric Hurricane Contract\r\n * @dev InsureNET Decentralized Insurance Platform\r\n *      Parametruc Hurricane Contract.\r\n * @author Jason Romero\r\n * @copyright 2020 InsureNET\r\n */\r\n\r\nimport \"@openzeppelin/contracts/math/SafeMath.sol\";\r\nimport \"./HurricaneConstants.sol\";\r\n\r\n pragma solidity ^0.5.16;\r\n\r\ncontract HurricaneCreatePolicy is HurricaneConstants {\r\n    /**\r\n    * @dev state variables\r\n    */\r\n    //uint256 is SafeMath;\r\n    uint256 public minPremium = 25;\r\n    uint256 public maxPremium = 500;\r\n\r\n    mapping(address => uint256) public policyHolders;\r\n\r\n\r\n    /**\r\n    * @dev Category of the hurricane\r\n    */\r\n    enum Category { THREE, FOUR, FIVE }\r\n\r\n    /** State Properties */\r\n\r\n\r\n    /** @dev Events */\r\n    event PolicyCreated (\r\n        uint256 id\r\n    );\r\n\r\n    /** @dev Policy Stuct */\r\n    struct Policy {\r\n        uint256 id;\r\n    }\r\n\r\n    // Describe the Binder\r\n    struct Binder {\r\n        uint id;\r\n        string name;\r\n        uint price;\r\n        address payable owner;\r\n        bool available;\r\n    }\r\n\r\n    // Describe the Product\r\n    struct Product {\r\n        uint id;\r\n        string name;\r\n        uint price;\r\n        address payable owner;\r\n        bool purchased;\r\n        bool available;\r\n    }\r\n\r\n    // Describe the Agent\r\n    struct Agent {\r\n        uint id;\r\n        string name;\r\n        string title;\r\n        uint commission;\r\n        address payable owner;\r\n        bool commissionPaid;\r\n    }\r\n\r\n    /**\r\n    * @dev Constructor function\r\n    */\r\n    constructor() public {\r\n\r\n    }\r\n\r\n    /** @dev Functions */\r\n\r\n    /**\r\n    * @dev create a hurricane policy\r\n    * @param _insured address of the policy owner\r\n    * @param _value the premiu amount to pay\r\n    */\r\n    function createPolicy (\r\n        address _insured,\r\n        uint256 _value\r\n    ) public payable returns (bool) {\r\n        // ToDo: Checks\r\n\r\n\r\n\r\n        return true;\r\n    }\r\n\r\n\r\n\r\n}",
-  "sourcePath": "C:\\Projects\\InsureNET\\master-branch\\admin-tool\\src\\contracts\\hurricane\\HurricaneCreatePolicy.sol",
+  "sourcePath": "C:\\Projects\\INET-IncomeStream\\App\\admin-tool\\src\\contracts\\hurricane\\HurricaneCreatePolicy.sol",
   "ast": {
+<<<<<<< HEAD
     "absolutePath": "/C/Projects/InsureNET/master-branch/admin-tool/src/contracts/hurricane/HurricaneCreatePolicy.sol",
+=======
+    "absolutePath": "/C/Projects/INET-IncomeStream/App/admin-tool/src/contracts/hurricane/HurricaneCreatePolicy.sol",
+>>>>>>> 254b9cfde080ee672fee22aea39024c72c570824
     "exportedSymbols": {
       "HurricaneCreatePolicy": [
-        2622
+        2623
       ]
     },
-    "id": 2623,
+    "id": 2624,
     "nodeType": "SourceUnit",
     "nodes": [
       {
         "absolutePath": "@openzeppelin/contracts/math/SafeMath.sol",
         "file": "@openzeppelin/contracts/math/SafeMath.sol",
-        "id": 2543,
+        "id": 2544,
         "nodeType": "ImportDirective",
-        "scope": 2623,
-        "sourceUnit": 5125,
+        "scope": 2624,
+        "sourceUnit": 5126,
         "src": "207:51:15",
         "symbolAliases": [],
         "unitAlias": ""
       },
       {
+<<<<<<< HEAD
         "absolutePath": "/C/Projects/InsureNET/master-branch/admin-tool/src/contracts/hurricane/HurricaneConstants.sol",
+=======
+        "absolutePath": "/C/Projects/INET-IncomeStream/App/admin-tool/src/contracts/hurricane/HurricaneConstants.sol",
+>>>>>>> 254b9cfde080ee672fee22aea39024c72c570824
         "file": "./HurricaneConstants.sol",
-        "id": 2544,
+        "id": 2545,
         "nodeType": "ImportDirective",
-        "scope": 2623,
-        "sourceUnit": 2511,
+        "scope": 2624,
+        "sourceUnit": 2512,
         "src": "260:34:15",
         "symbolAliases": [],
         "unitAlias": ""
       },
       {
-        "id": 2545,
+        "id": 2546,
         "literals": [
           "solidity",
           "^",
@@ -485,41 +493,45 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 2546,
+              "id": 2547,
               "name": "HurricaneConstants",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 2510,
+              "referencedDeclaration": 2511,
               "src": "361:18:15",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_HurricaneConstants_$2510",
+                "typeIdentifier": "t_contract$_HurricaneConstants_$2511",
                 "typeString": "contract HurricaneConstants"
               }
             },
-            "id": 2547,
+            "id": 2548,
             "nodeType": "InheritanceSpecifier",
             "src": "361:18:15"
           }
         ],
         "contractDependencies": [
-          2510
+          2511
         ],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 2622,
+        "id": 2623,
         "linearizedBaseContracts": [
-          2622,
-          2510
+          2623,
+          2511
         ],
         "name": "HurricaneCreatePolicy",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": false,
-            "id": 2550,
+            "id": 2551,
             "name": "minPremium",
             "nodeType": "VariableDeclaration",
+<<<<<<< HEAD
             "scope": 2622,
+=======
+            "scope": 2623,
+>>>>>>> 254b9cfde080ee672fee22aea39024c72c570824
             "src": "460:30:15",
             "stateVariable": true,
             "storageLocation": "default",
@@ -528,7 +540,7 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 2548,
+              "id": 2549,
               "name": "uint256",
               "nodeType": "ElementaryTypeName",
               "src": "460:7:15",
@@ -540,7 +552,7 @@
             "value": {
               "argumentTypes": null,
               "hexValue": "3235",
-              "id": 2549,
+              "id": 2550,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
@@ -559,10 +571,14 @@
           },
           {
             "constant": false,
-            "id": 2553,
+            "id": 2554,
             "name": "maxPremium",
             "nodeType": "VariableDeclaration",
+<<<<<<< HEAD
             "scope": 2622,
+=======
+            "scope": 2623,
+>>>>>>> 254b9cfde080ee672fee22aea39024c72c570824
             "src": "497:31:15",
             "stateVariable": true,
             "storageLocation": "default",
@@ -571,7 +587,7 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 2551,
+              "id": 2552,
               "name": "uint256",
               "nodeType": "ElementaryTypeName",
               "src": "497:7:15",
@@ -583,7 +599,7 @@
             "value": {
               "argumentTypes": null,
               "hexValue": "353030",
-              "id": 2552,
+              "id": 2553,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
@@ -602,10 +618,14 @@
           },
           {
             "constant": false,
-            "id": 2557,
+            "id": 2558,
             "name": "policyHolders",
             "nodeType": "VariableDeclaration",
+<<<<<<< HEAD
             "scope": 2622,
+=======
+            "scope": 2623,
+>>>>>>> 254b9cfde080ee672fee22aea39024c72c570824
             "src": "537:48:15",
             "stateVariable": true,
             "storageLocation": "default",
@@ -614,9 +634,9 @@
               "typeString": "mapping(address => uint256)"
             },
             "typeName": {
-              "id": 2556,
+              "id": 2557,
               "keyType": {
-                "id": 2554,
+                "id": 2555,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
                 "src": "545:7:15",
@@ -632,7 +652,7 @@
                 "typeString": "mapping(address => uint256)"
               },
               "valueType": {
-                "id": 2555,
+                "id": 2556,
                 "name": "uint256",
                 "nodeType": "ElementaryTypeName",
                 "src": "556:7:15",
@@ -647,22 +667,22 @@
           },
           {
             "canonicalName": "HurricaneCreatePolicy.Category",
-            "id": 2561,
+            "id": 2562,
             "members": [
               {
-                "id": 2558,
+                "id": 2559,
                 "name": "THREE",
                 "nodeType": "EnumValue",
                 "src": "667:5:15"
               },
               {
-                "id": 2559,
+                "id": 2560,
                 "name": "FOUR",
                 "nodeType": "EnumValue",
                 "src": "674:4:15"
               },
               {
-                "id": 2560,
+                "id": 2561,
                 "name": "FIVE",
                 "nodeType": "EnumValue",
                 "src": "680:4:15"
@@ -675,20 +695,24 @@
           {
             "anonymous": false,
             "documentation": "@dev Events ",
-            "id": 2565,
+            "id": 2566,
             "name": "PolicyCreated",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 2564,
+              "id": 2565,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2563,
+                  "id": 2564,
                   "indexed": false,
                   "name": "id",
                   "nodeType": "VariableDeclaration",
+<<<<<<< HEAD
                   "scope": 2565,
+=======
+                  "scope": 2566,
+>>>>>>> 254b9cfde080ee672fee22aea39024c72c570824
                   "src": "782:10:15",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -697,7 +721,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2562,
+                    "id": 2563,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "782:7:15",
@@ -716,14 +740,18 @@
           },
           {
             "canonicalName": "HurricaneCreatePolicy.Policy",
-            "id": 2568,
+            "id": 2569,
             "members": [
               {
                 "constant": false,
-                "id": 2567,
+                "id": 2568,
                 "name": "id",
                 "nodeType": "VariableDeclaration",
+<<<<<<< HEAD
                 "scope": 2568,
+=======
+                "scope": 2569,
+>>>>>>> 254b9cfde080ee672fee22aea39024c72c570824
                 "src": "863:10:15",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -732,7 +760,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 2566,
+                  "id": 2567,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "863:7:15",
@@ -747,20 +775,28 @@
             ],
             "name": "Policy",
             "nodeType": "StructDefinition",
+<<<<<<< HEAD
             "scope": 2622,
+=======
+            "scope": 2623,
+>>>>>>> 254b9cfde080ee672fee22aea39024c72c570824
             "src": "838:43:15",
             "visibility": "public"
           },
           {
             "canonicalName": "HurricaneCreatePolicy.Binder",
-            "id": 2579,
+            "id": 2580,
             "members": [
               {
                 "constant": false,
-                "id": 2570,
+                "id": 2571,
                 "name": "id",
                 "nodeType": "VariableDeclaration",
+<<<<<<< HEAD
                 "scope": 2579,
+=======
+                "scope": 2580,
+>>>>>>> 254b9cfde080ee672fee22aea39024c72c570824
                 "src": "942:7:15",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -769,7 +805,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 2569,
+                  "id": 2570,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
                   "src": "942:4:15",
@@ -783,10 +819,14 @@
               },
               {
                 "constant": false,
-                "id": 2572,
+                "id": 2573,
                 "name": "name",
                 "nodeType": "VariableDeclaration",
+<<<<<<< HEAD
                 "scope": 2579,
+=======
+                "scope": 2580,
+>>>>>>> 254b9cfde080ee672fee22aea39024c72c570824
                 "src": "960:11:15",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -795,7 +835,7 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 2571,
+                  "id": 2572,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
                   "src": "960:6:15",
@@ -809,10 +849,14 @@
               },
               {
                 "constant": false,
-                "id": 2574,
+                "id": 2575,
                 "name": "price",
                 "nodeType": "VariableDeclaration",
+<<<<<<< HEAD
                 "scope": 2579,
+=======
+                "scope": 2580,
+>>>>>>> 254b9cfde080ee672fee22aea39024c72c570824
                 "src": "982:10:15",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -821,7 +865,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 2573,
+                  "id": 2574,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
                   "src": "982:4:15",
@@ -835,10 +879,14 @@
               },
               {
                 "constant": false,
-                "id": 2576,
+                "id": 2577,
                 "name": "owner",
                 "nodeType": "VariableDeclaration",
+<<<<<<< HEAD
                 "scope": 2579,
+=======
+                "scope": 2580,
+>>>>>>> 254b9cfde080ee672fee22aea39024c72c570824
                 "src": "1003:21:15",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -847,7 +895,7 @@
                   "typeString": "address payable"
                 },
                 "typeName": {
-                  "id": 2575,
+                  "id": 2576,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
                   "src": "1003:15:15",
@@ -862,10 +910,14 @@
               },
               {
                 "constant": false,
-                "id": 2578,
+                "id": 2579,
                 "name": "available",
                 "nodeType": "VariableDeclaration",
+<<<<<<< HEAD
                 "scope": 2579,
+=======
+                "scope": 2580,
+>>>>>>> 254b9cfde080ee672fee22aea39024c72c570824
                 "src": "1035:14:15",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -874,7 +926,7 @@
                   "typeString": "bool"
                 },
                 "typeName": {
-                  "id": 2577,
+                  "id": 2578,
                   "name": "bool",
                   "nodeType": "ElementaryTypeName",
                   "src": "1035:4:15",
@@ -889,20 +941,28 @@
             ],
             "name": "Binder",
             "nodeType": "StructDefinition",
+<<<<<<< HEAD
             "scope": 2622,
+=======
+            "scope": 2623,
+>>>>>>> 254b9cfde080ee672fee22aea39024c72c570824
             "src": "917:140:15",
             "visibility": "public"
           },
           {
             "canonicalName": "HurricaneCreatePolicy.Product",
-            "id": 2592,
+            "id": 2593,
             "members": [
               {
                 "constant": false,
-                "id": 2581,
+                "id": 2582,
                 "name": "id",
                 "nodeType": "VariableDeclaration",
+<<<<<<< HEAD
                 "scope": 2592,
+=======
+                "scope": 2593,
+>>>>>>> 254b9cfde080ee672fee22aea39024c72c570824
                 "src": "1120:7:15",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -911,7 +971,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 2580,
+                  "id": 2581,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
                   "src": "1120:4:15",
@@ -925,10 +985,14 @@
               },
               {
                 "constant": false,
-                "id": 2583,
+                "id": 2584,
                 "name": "name",
                 "nodeType": "VariableDeclaration",
+<<<<<<< HEAD
                 "scope": 2592,
+=======
+                "scope": 2593,
+>>>>>>> 254b9cfde080ee672fee22aea39024c72c570824
                 "src": "1138:11:15",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -937,7 +1001,7 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 2582,
+                  "id": 2583,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
                   "src": "1138:6:15",
@@ -951,10 +1015,14 @@
               },
               {
                 "constant": false,
-                "id": 2585,
+                "id": 2586,
                 "name": "price",
                 "nodeType": "VariableDeclaration",
+<<<<<<< HEAD
                 "scope": 2592,
+=======
+                "scope": 2593,
+>>>>>>> 254b9cfde080ee672fee22aea39024c72c570824
                 "src": "1160:10:15",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -963,7 +1031,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 2584,
+                  "id": 2585,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
                   "src": "1160:4:15",
@@ -977,10 +1045,14 @@
               },
               {
                 "constant": false,
-                "id": 2587,
+                "id": 2588,
                 "name": "owner",
                 "nodeType": "VariableDeclaration",
+<<<<<<< HEAD
                 "scope": 2592,
+=======
+                "scope": 2593,
+>>>>>>> 254b9cfde080ee672fee22aea39024c72c570824
                 "src": "1181:21:15",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -989,7 +1061,7 @@
                   "typeString": "address payable"
                 },
                 "typeName": {
-                  "id": 2586,
+                  "id": 2587,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
                   "src": "1181:15:15",
@@ -1004,10 +1076,14 @@
               },
               {
                 "constant": false,
-                "id": 2589,
+                "id": 2590,
                 "name": "purchased",
                 "nodeType": "VariableDeclaration",
+<<<<<<< HEAD
                 "scope": 2592,
+=======
+                "scope": 2593,
+>>>>>>> 254b9cfde080ee672fee22aea39024c72c570824
                 "src": "1213:14:15",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1016,7 +1092,7 @@
                   "typeString": "bool"
                 },
                 "typeName": {
-                  "id": 2588,
+                  "id": 2589,
                   "name": "bool",
                   "nodeType": "ElementaryTypeName",
                   "src": "1213:4:15",
@@ -1030,10 +1106,14 @@
               },
               {
                 "constant": false,
-                "id": 2591,
+                "id": 2592,
                 "name": "available",
                 "nodeType": "VariableDeclaration",
+<<<<<<< HEAD
                 "scope": 2592,
+=======
+                "scope": 2593,
+>>>>>>> 254b9cfde080ee672fee22aea39024c72c570824
                 "src": "1238:14:15",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1042,7 +1122,7 @@
                   "typeString": "bool"
                 },
                 "typeName": {
-                  "id": 2590,
+                  "id": 2591,
                   "name": "bool",
                   "nodeType": "ElementaryTypeName",
                   "src": "1238:4:15",
@@ -1057,20 +1137,28 @@
             ],
             "name": "Product",
             "nodeType": "StructDefinition",
+<<<<<<< HEAD
             "scope": 2622,
+=======
+            "scope": 2623,
+>>>>>>> 254b9cfde080ee672fee22aea39024c72c570824
             "src": "1094:166:15",
             "visibility": "public"
           },
           {
             "canonicalName": "HurricaneCreatePolicy.Agent",
-            "id": 2605,
+            "id": 2606,
             "members": [
               {
                 "constant": false,
-                "id": 2594,
+                "id": 2595,
                 "name": "id",
                 "nodeType": "VariableDeclaration",
+<<<<<<< HEAD
                 "scope": 2605,
+=======
+                "scope": 2606,
+>>>>>>> 254b9cfde080ee672fee22aea39024c72c570824
                 "src": "1319:7:15",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1079,7 +1167,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 2593,
+                  "id": 2594,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
                   "src": "1319:4:15",
@@ -1093,10 +1181,14 @@
               },
               {
                 "constant": false,
-                "id": 2596,
+                "id": 2597,
                 "name": "name",
                 "nodeType": "VariableDeclaration",
+<<<<<<< HEAD
                 "scope": 2605,
+=======
+                "scope": 2606,
+>>>>>>> 254b9cfde080ee672fee22aea39024c72c570824
                 "src": "1337:11:15",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1105,7 +1197,7 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 2595,
+                  "id": 2596,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
                   "src": "1337:6:15",
@@ -1119,10 +1211,14 @@
               },
               {
                 "constant": false,
-                "id": 2598,
+                "id": 2599,
                 "name": "title",
                 "nodeType": "VariableDeclaration",
+<<<<<<< HEAD
                 "scope": 2605,
+=======
+                "scope": 2606,
+>>>>>>> 254b9cfde080ee672fee22aea39024c72c570824
                 "src": "1359:12:15",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1131,7 +1227,7 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 2597,
+                  "id": 2598,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
                   "src": "1359:6:15",
@@ -1145,10 +1241,14 @@
               },
               {
                 "constant": false,
-                "id": 2600,
+                "id": 2601,
                 "name": "commission",
                 "nodeType": "VariableDeclaration",
+<<<<<<< HEAD
                 "scope": 2605,
+=======
+                "scope": 2606,
+>>>>>>> 254b9cfde080ee672fee22aea39024c72c570824
                 "src": "1382:15:15",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1157,7 +1257,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 2599,
+                  "id": 2600,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
                   "src": "1382:4:15",
@@ -1171,10 +1271,14 @@
               },
               {
                 "constant": false,
-                "id": 2602,
+                "id": 2603,
                 "name": "owner",
                 "nodeType": "VariableDeclaration",
+<<<<<<< HEAD
                 "scope": 2605,
+=======
+                "scope": 2606,
+>>>>>>> 254b9cfde080ee672fee22aea39024c72c570824
                 "src": "1408:21:15",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1183,7 +1287,7 @@
                   "typeString": "address payable"
                 },
                 "typeName": {
-                  "id": 2601,
+                  "id": 2602,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
                   "src": "1408:15:15",
@@ -1198,10 +1302,14 @@
               },
               {
                 "constant": false,
-                "id": 2604,
+                "id": 2605,
                 "name": "commissionPaid",
                 "nodeType": "VariableDeclaration",
+<<<<<<< HEAD
                 "scope": 2605,
+=======
+                "scope": 2606,
+>>>>>>> 254b9cfde080ee672fee22aea39024c72c570824
                 "src": "1440:19:15",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1210,7 +1318,7 @@
                   "typeString": "bool"
                 },
                 "typeName": {
-                  "id": 2603,
+                  "id": 2604,
                   "name": "bool",
                   "nodeType": "ElementaryTypeName",
                   "src": "1440:4:15",
@@ -1225,37 +1333,41 @@
             ],
             "name": "Agent",
             "nodeType": "StructDefinition",
+<<<<<<< HEAD
             "scope": 2622,
+=======
+            "scope": 2623,
+>>>>>>> 254b9cfde080ee672fee22aea39024c72c570824
             "src": "1295:172:15",
             "visibility": "public"
           },
           {
             "body": {
-              "id": 2608,
+              "id": 2609,
               "nodeType": "Block",
               "src": "1546:10:15",
               "statements": []
             },
             "documentation": "@dev Constructor function",
-            "id": 2609,
+            "id": 2610,
             "implemented": true,
             "kind": "constructor",
             "modifiers": [],
             "name": "",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2606,
+              "id": 2607,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1536:2:15"
             },
             "returnParameters": {
-              "id": 2607,
+              "id": 2608,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1546:0:15"
             },
-            "scope": 2622,
+            "scope": 2623,
             "src": "1525:31:15",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -1263,7 +1375,7 @@
           },
           {
             "body": {
-              "id": 2620,
+              "id": 2621,
               "nodeType": "Block",
               "src": "1857:61:15",
               "statements": [
@@ -1271,7 +1383,7 @@
                   "expression": {
                     "argumentTypes": null,
                     "hexValue": "74727565",
-                    "id": 2618,
+                    "id": 2619,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": true,
@@ -1286,30 +1398,34 @@
                     },
                     "value": "true"
                   },
-                  "functionReturnParameters": 2617,
-                  "id": 2619,
+                  "functionReturnParameters": 2618,
+                  "id": 2620,
                   "nodeType": "Return",
                   "src": "1899:11:15"
                 }
               ]
             },
             "documentation": "@dev create a hurricane policy\n@param _insured address of the policy owner\n@param _value the premiu amount to pay",
-            "id": 2621,
+            "id": 2622,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "createPolicy",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2614,
+              "id": 2615,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2611,
+                  "id": 2612,
                   "name": "_insured",
                   "nodeType": "VariableDeclaration",
+<<<<<<< HEAD
                   "scope": 2621,
+=======
+                  "scope": 2622,
+>>>>>>> 254b9cfde080ee672fee22aea39024c72c570824
                   "src": "1778:16:15",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1318,7 +1434,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2610,
+                    "id": 2611,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "1778:7:15",
@@ -1333,10 +1449,14 @@
                 },
                 {
                   "constant": false,
-                  "id": 2613,
+                  "id": 2614,
                   "name": "_value",
                   "nodeType": "VariableDeclaration",
+<<<<<<< HEAD
                   "scope": 2621,
+=======
+                  "scope": 2622,
+>>>>>>> 254b9cfde080ee672fee22aea39024c72c570824
                   "src": "1805:14:15",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1345,7 +1465,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2612,
+                    "id": 2613,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "1805:7:15",
@@ -1361,15 +1481,19 @@
               "src": "1767:59:15"
             },
             "returnParameters": {
-              "id": 2617,
+              "id": 2618,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2616,
+                  "id": 2617,
                   "name": "",
                   "nodeType": "VariableDeclaration",
+<<<<<<< HEAD
                   "scope": 2621,
+=======
+                  "scope": 2622,
+>>>>>>> 254b9cfde080ee672fee22aea39024c72c570824
                   "src": "1851:4:15",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1378,7 +1502,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 2615,
+                    "id": 2616,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "1851:4:15",
@@ -1393,53 +1517,75 @@
               ],
               "src": "1850:6:15"
             },
-            "scope": 2622,
+            "scope": 2623,
             "src": "1745:173:15",
             "stateMutability": "payable",
             "superFunction": null,
             "visibility": "public"
           }
         ],
+<<<<<<< HEAD
         "scope": 2623,
+=======
+        "scope": 2624,
+>>>>>>> 254b9cfde080ee672fee22aea39024c72c570824
         "src": "327:1600:15"
       }
     ],
     "src": "207:1720:15"
   },
   "legacyAST": {
+<<<<<<< HEAD
     "absolutePath": "/C/Projects/InsureNET/master-branch/admin-tool/src/contracts/hurricane/HurricaneCreatePolicy.sol",
+=======
+    "absolutePath": "/C/Projects/INET-IncomeStream/App/admin-tool/src/contracts/hurricane/HurricaneCreatePolicy.sol",
+>>>>>>> 254b9cfde080ee672fee22aea39024c72c570824
     "exportedSymbols": {
       "HurricaneCreatePolicy": [
-        2622
+        2623
       ]
     },
-    "id": 2623,
+    "id": 2624,
     "nodeType": "SourceUnit",
     "nodes": [
       {
         "absolutePath": "@openzeppelin/contracts/math/SafeMath.sol",
         "file": "@openzeppelin/contracts/math/SafeMath.sol",
-        "id": 2543,
+        "id": 2544,
         "nodeType": "ImportDirective",
+<<<<<<< HEAD
         "scope": 2623,
         "sourceUnit": 5125,
+=======
+        "scope": 2624,
+        "sourceUnit": 5126,
+>>>>>>> 254b9cfde080ee672fee22aea39024c72c570824
         "src": "207:51:15",
         "symbolAliases": [],
         "unitAlias": ""
       },
       {
+<<<<<<< HEAD
         "absolutePath": "/C/Projects/InsureNET/master-branch/admin-tool/src/contracts/hurricane/HurricaneConstants.sol",
+=======
+        "absolutePath": "/C/Projects/INET-IncomeStream/App/admin-tool/src/contracts/hurricane/HurricaneConstants.sol",
+>>>>>>> 254b9cfde080ee672fee22aea39024c72c570824
         "file": "./HurricaneConstants.sol",
-        "id": 2544,
+        "id": 2545,
         "nodeType": "ImportDirective",
+<<<<<<< HEAD
         "scope": 2623,
         "sourceUnit": 2511,
+=======
+        "scope": 2624,
+        "sourceUnit": 2512,
+>>>>>>> 254b9cfde080ee672fee22aea39024c72c570824
         "src": "260:34:15",
         "symbolAliases": [],
         "unitAlias": ""
       },
       {
-        "id": 2545,
+        "id": 2546,
         "literals": [
           "solidity",
           "^",
@@ -1455,41 +1601,49 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 2546,
+              "id": 2547,
               "name": "HurricaneConstants",
               "nodeType": "UserDefinedTypeName",
+<<<<<<< HEAD
               "referencedDeclaration": 2510,
+=======
+              "referencedDeclaration": 2511,
+>>>>>>> 254b9cfde080ee672fee22aea39024c72c570824
               "src": "361:18:15",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_HurricaneConstants_$2510",
+                "typeIdentifier": "t_contract$_HurricaneConstants_$2511",
                 "typeString": "contract HurricaneConstants"
               }
             },
-            "id": 2547,
+            "id": 2548,
             "nodeType": "InheritanceSpecifier",
             "src": "361:18:15"
           }
         ],
         "contractDependencies": [
-          2510
+          2511
         ],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 2622,
+        "id": 2623,
         "linearizedBaseContracts": [
-          2622,
-          2510
+          2623,
+          2511
         ],
         "name": "HurricaneCreatePolicy",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": false,
-            "id": 2550,
+            "id": 2551,
             "name": "minPremium",
             "nodeType": "VariableDeclaration",
+<<<<<<< HEAD
             "scope": 2622,
+=======
+            "scope": 2623,
+>>>>>>> 254b9cfde080ee672fee22aea39024c72c570824
             "src": "460:30:15",
             "stateVariable": true,
             "storageLocation": "default",
@@ -1498,7 +1652,7 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 2548,
+              "id": 2549,
               "name": "uint256",
               "nodeType": "ElementaryTypeName",
               "src": "460:7:15",
@@ -1510,7 +1664,7 @@
             "value": {
               "argumentTypes": null,
               "hexValue": "3235",
-              "id": 2549,
+              "id": 2550,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
@@ -1529,10 +1683,14 @@
           },
           {
             "constant": false,
-            "id": 2553,
+            "id": 2554,
             "name": "maxPremium",
             "nodeType": "VariableDeclaration",
+<<<<<<< HEAD
             "scope": 2622,
+=======
+            "scope": 2623,
+>>>>>>> 254b9cfde080ee672fee22aea39024c72c570824
             "src": "497:31:15",
             "stateVariable": true,
             "storageLocation": "default",
@@ -1541,7 +1699,7 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 2551,
+              "id": 2552,
               "name": "uint256",
               "nodeType": "ElementaryTypeName",
               "src": "497:7:15",
@@ -1553,7 +1711,7 @@
             "value": {
               "argumentTypes": null,
               "hexValue": "353030",
-              "id": 2552,
+              "id": 2553,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
@@ -1572,10 +1730,14 @@
           },
           {
             "constant": false,
-            "id": 2557,
+            "id": 2558,
             "name": "policyHolders",
             "nodeType": "VariableDeclaration",
+<<<<<<< HEAD
             "scope": 2622,
+=======
+            "scope": 2623,
+>>>>>>> 254b9cfde080ee672fee22aea39024c72c570824
             "src": "537:48:15",
             "stateVariable": true,
             "storageLocation": "default",
@@ -1584,9 +1746,9 @@
               "typeString": "mapping(address => uint256)"
             },
             "typeName": {
-              "id": 2556,
+              "id": 2557,
               "keyType": {
-                "id": 2554,
+                "id": 2555,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
                 "src": "545:7:15",
@@ -1602,7 +1764,7 @@
                 "typeString": "mapping(address => uint256)"
               },
               "valueType": {
-                "id": 2555,
+                "id": 2556,
                 "name": "uint256",
                 "nodeType": "ElementaryTypeName",
                 "src": "556:7:15",
@@ -1617,22 +1779,22 @@
           },
           {
             "canonicalName": "HurricaneCreatePolicy.Category",
-            "id": 2561,
+            "id": 2562,
             "members": [
               {
-                "id": 2558,
+                "id": 2559,
                 "name": "THREE",
                 "nodeType": "EnumValue",
                 "src": "667:5:15"
               },
               {
-                "id": 2559,
+                "id": 2560,
                 "name": "FOUR",
                 "nodeType": "EnumValue",
                 "src": "674:4:15"
               },
               {
-                "id": 2560,
+                "id": 2561,
                 "name": "FIVE",
                 "nodeType": "EnumValue",
                 "src": "680:4:15"
@@ -1645,20 +1807,24 @@
           {
             "anonymous": false,
             "documentation": "@dev Events ",
-            "id": 2565,
+            "id": 2566,
             "name": "PolicyCreated",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 2564,
+              "id": 2565,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2563,
+                  "id": 2564,
                   "indexed": false,
                   "name": "id",
                   "nodeType": "VariableDeclaration",
+<<<<<<< HEAD
                   "scope": 2565,
+=======
+                  "scope": 2566,
+>>>>>>> 254b9cfde080ee672fee22aea39024c72c570824
                   "src": "782:10:15",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1667,7 +1833,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2562,
+                    "id": 2563,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "782:7:15",
@@ -1686,14 +1852,18 @@
           },
           {
             "canonicalName": "HurricaneCreatePolicy.Policy",
-            "id": 2568,
+            "id": 2569,
             "members": [
               {
                 "constant": false,
-                "id": 2567,
+                "id": 2568,
                 "name": "id",
                 "nodeType": "VariableDeclaration",
+<<<<<<< HEAD
                 "scope": 2568,
+=======
+                "scope": 2569,
+>>>>>>> 254b9cfde080ee672fee22aea39024c72c570824
                 "src": "863:10:15",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1702,7 +1872,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 2566,
+                  "id": 2567,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "863:7:15",
@@ -1717,20 +1887,28 @@
             ],
             "name": "Policy",
             "nodeType": "StructDefinition",
+<<<<<<< HEAD
             "scope": 2622,
+=======
+            "scope": 2623,
+>>>>>>> 254b9cfde080ee672fee22aea39024c72c570824
             "src": "838:43:15",
             "visibility": "public"
           },
           {
             "canonicalName": "HurricaneCreatePolicy.Binder",
-            "id": 2579,
+            "id": 2580,
             "members": [
               {
                 "constant": false,
-                "id": 2570,
+                "id": 2571,
                 "name": "id",
                 "nodeType": "VariableDeclaration",
+<<<<<<< HEAD
                 "scope": 2579,
+=======
+                "scope": 2580,
+>>>>>>> 254b9cfde080ee672fee22aea39024c72c570824
                 "src": "942:7:15",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1739,7 +1917,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 2569,
+                  "id": 2570,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
                   "src": "942:4:15",
@@ -1753,10 +1931,14 @@
               },
               {
                 "constant": false,
-                "id": 2572,
+                "id": 2573,
                 "name": "name",
                 "nodeType": "VariableDeclaration",
+<<<<<<< HEAD
                 "scope": 2579,
+=======
+                "scope": 2580,
+>>>>>>> 254b9cfde080ee672fee22aea39024c72c570824
                 "src": "960:11:15",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1765,7 +1947,7 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 2571,
+                  "id": 2572,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
                   "src": "960:6:15",
@@ -1779,10 +1961,14 @@
               },
               {
                 "constant": false,
-                "id": 2574,
+                "id": 2575,
                 "name": "price",
                 "nodeType": "VariableDeclaration",
+<<<<<<< HEAD
                 "scope": 2579,
+=======
+                "scope": 2580,
+>>>>>>> 254b9cfde080ee672fee22aea39024c72c570824
                 "src": "982:10:15",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1791,7 +1977,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 2573,
+                  "id": 2574,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
                   "src": "982:4:15",
@@ -1805,10 +1991,14 @@
               },
               {
                 "constant": false,
-                "id": 2576,
+                "id": 2577,
                 "name": "owner",
                 "nodeType": "VariableDeclaration",
+<<<<<<< HEAD
                 "scope": 2579,
+=======
+                "scope": 2580,
+>>>>>>> 254b9cfde080ee672fee22aea39024c72c570824
                 "src": "1003:21:15",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1817,7 +2007,7 @@
                   "typeString": "address payable"
                 },
                 "typeName": {
-                  "id": 2575,
+                  "id": 2576,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
                   "src": "1003:15:15",
@@ -1832,10 +2022,14 @@
               },
               {
                 "constant": false,
-                "id": 2578,
+                "id": 2579,
                 "name": "available",
                 "nodeType": "VariableDeclaration",
+<<<<<<< HEAD
                 "scope": 2579,
+=======
+                "scope": 2580,
+>>>>>>> 254b9cfde080ee672fee22aea39024c72c570824
                 "src": "1035:14:15",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1844,7 +2038,7 @@
                   "typeString": "bool"
                 },
                 "typeName": {
-                  "id": 2577,
+                  "id": 2578,
                   "name": "bool",
                   "nodeType": "ElementaryTypeName",
                   "src": "1035:4:15",
@@ -1859,20 +2053,28 @@
             ],
             "name": "Binder",
             "nodeType": "StructDefinition",
+<<<<<<< HEAD
             "scope": 2622,
+=======
+            "scope": 2623,
+>>>>>>> 254b9cfde080ee672fee22aea39024c72c570824
             "src": "917:140:15",
             "visibility": "public"
           },
           {
             "canonicalName": "HurricaneCreatePolicy.Product",
-            "id": 2592,
+            "id": 2593,
             "members": [
               {
                 "constant": false,
-                "id": 2581,
+                "id": 2582,
                 "name": "id",
                 "nodeType": "VariableDeclaration",
+<<<<<<< HEAD
                 "scope": 2592,
+=======
+                "scope": 2593,
+>>>>>>> 254b9cfde080ee672fee22aea39024c72c570824
                 "src": "1120:7:15",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1881,7 +2083,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 2580,
+                  "id": 2581,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
                   "src": "1120:4:15",
@@ -1895,10 +2097,14 @@
               },
               {
                 "constant": false,
-                "id": 2583,
+                "id": 2584,
                 "name": "name",
                 "nodeType": "VariableDeclaration",
+<<<<<<< HEAD
                 "scope": 2592,
+=======
+                "scope": 2593,
+>>>>>>> 254b9cfde080ee672fee22aea39024c72c570824
                 "src": "1138:11:15",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1907,7 +2113,7 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 2582,
+                  "id": 2583,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
                   "src": "1138:6:15",
@@ -1921,10 +2127,14 @@
               },
               {
                 "constant": false,
-                "id": 2585,
+                "id": 2586,
                 "name": "price",
                 "nodeType": "VariableDeclaration",
+<<<<<<< HEAD
                 "scope": 2592,
+=======
+                "scope": 2593,
+>>>>>>> 254b9cfde080ee672fee22aea39024c72c570824
                 "src": "1160:10:15",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1933,7 +2143,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 2584,
+                  "id": 2585,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
                   "src": "1160:4:15",
@@ -1947,10 +2157,14 @@
               },
               {
                 "constant": false,
-                "id": 2587,
+                "id": 2588,
                 "name": "owner",
                 "nodeType": "VariableDeclaration",
+<<<<<<< HEAD
                 "scope": 2592,
+=======
+                "scope": 2593,
+>>>>>>> 254b9cfde080ee672fee22aea39024c72c570824
                 "src": "1181:21:15",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1959,7 +2173,7 @@
                   "typeString": "address payable"
                 },
                 "typeName": {
-                  "id": 2586,
+                  "id": 2587,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
                   "src": "1181:15:15",
@@ -1974,10 +2188,14 @@
               },
               {
                 "constant": false,
-                "id": 2589,
+                "id": 2590,
                 "name": "purchased",
                 "nodeType": "VariableDeclaration",
+<<<<<<< HEAD
                 "scope": 2592,
+=======
+                "scope": 2593,
+>>>>>>> 254b9cfde080ee672fee22aea39024c72c570824
                 "src": "1213:14:15",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1986,7 +2204,7 @@
                   "typeString": "bool"
                 },
                 "typeName": {
-                  "id": 2588,
+                  "id": 2589,
                   "name": "bool",
                   "nodeType": "ElementaryTypeName",
                   "src": "1213:4:15",
@@ -2000,10 +2218,14 @@
               },
               {
                 "constant": false,
-                "id": 2591,
+                "id": 2592,
                 "name": "available",
                 "nodeType": "VariableDeclaration",
+<<<<<<< HEAD
                 "scope": 2592,
+=======
+                "scope": 2593,
+>>>>>>> 254b9cfde080ee672fee22aea39024c72c570824
                 "src": "1238:14:15",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -2012,7 +2234,7 @@
                   "typeString": "bool"
                 },
                 "typeName": {
-                  "id": 2590,
+                  "id": 2591,
                   "name": "bool",
                   "nodeType": "ElementaryTypeName",
                   "src": "1238:4:15",
@@ -2027,20 +2249,28 @@
             ],
             "name": "Product",
             "nodeType": "StructDefinition",
+<<<<<<< HEAD
             "scope": 2622,
+=======
+            "scope": 2623,
+>>>>>>> 254b9cfde080ee672fee22aea39024c72c570824
             "src": "1094:166:15",
             "visibility": "public"
           },
           {
             "canonicalName": "HurricaneCreatePolicy.Agent",
-            "id": 2605,
+            "id": 2606,
             "members": [
               {
                 "constant": false,
-                "id": 2594,
+                "id": 2595,
                 "name": "id",
                 "nodeType": "VariableDeclaration",
+<<<<<<< HEAD
                 "scope": 2605,
+=======
+                "scope": 2606,
+>>>>>>> 254b9cfde080ee672fee22aea39024c72c570824
                 "src": "1319:7:15",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -2049,7 +2279,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 2593,
+                  "id": 2594,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
                   "src": "1319:4:15",
@@ -2063,10 +2293,14 @@
               },
               {
                 "constant": false,
-                "id": 2596,
+                "id": 2597,
                 "name": "name",
                 "nodeType": "VariableDeclaration",
+<<<<<<< HEAD
                 "scope": 2605,
+=======
+                "scope": 2606,
+>>>>>>> 254b9cfde080ee672fee22aea39024c72c570824
                 "src": "1337:11:15",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -2075,7 +2309,7 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 2595,
+                  "id": 2596,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
                   "src": "1337:6:15",
@@ -2089,10 +2323,14 @@
               },
               {
                 "constant": false,
-                "id": 2598,
+                "id": 2599,
                 "name": "title",
                 "nodeType": "VariableDeclaration",
+<<<<<<< HEAD
                 "scope": 2605,
+=======
+                "scope": 2606,
+>>>>>>> 254b9cfde080ee672fee22aea39024c72c570824
                 "src": "1359:12:15",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -2101,7 +2339,7 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 2597,
+                  "id": 2598,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
                   "src": "1359:6:15",
@@ -2115,10 +2353,14 @@
               },
               {
                 "constant": false,
-                "id": 2600,
+                "id": 2601,
                 "name": "commission",
                 "nodeType": "VariableDeclaration",
+<<<<<<< HEAD
                 "scope": 2605,
+=======
+                "scope": 2606,
+>>>>>>> 254b9cfde080ee672fee22aea39024c72c570824
                 "src": "1382:15:15",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -2127,7 +2369,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 2599,
+                  "id": 2600,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
                   "src": "1382:4:15",
@@ -2141,10 +2383,14 @@
               },
               {
                 "constant": false,
-                "id": 2602,
+                "id": 2603,
                 "name": "owner",
                 "nodeType": "VariableDeclaration",
+<<<<<<< HEAD
                 "scope": 2605,
+=======
+                "scope": 2606,
+>>>>>>> 254b9cfde080ee672fee22aea39024c72c570824
                 "src": "1408:21:15",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -2153,7 +2399,7 @@
                   "typeString": "address payable"
                 },
                 "typeName": {
-                  "id": 2601,
+                  "id": 2602,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
                   "src": "1408:15:15",
@@ -2168,10 +2414,14 @@
               },
               {
                 "constant": false,
-                "id": 2604,
+                "id": 2605,
                 "name": "commissionPaid",
                 "nodeType": "VariableDeclaration",
+<<<<<<< HEAD
                 "scope": 2605,
+=======
+                "scope": 2606,
+>>>>>>> 254b9cfde080ee672fee22aea39024c72c570824
                 "src": "1440:19:15",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -2180,7 +2430,7 @@
                   "typeString": "bool"
                 },
                 "typeName": {
-                  "id": 2603,
+                  "id": 2604,
                   "name": "bool",
                   "nodeType": "ElementaryTypeName",
                   "src": "1440:4:15",
@@ -2195,37 +2445,41 @@
             ],
             "name": "Agent",
             "nodeType": "StructDefinition",
+<<<<<<< HEAD
             "scope": 2622,
+=======
+            "scope": 2623,
+>>>>>>> 254b9cfde080ee672fee22aea39024c72c570824
             "src": "1295:172:15",
             "visibility": "public"
           },
           {
             "body": {
-              "id": 2608,
+              "id": 2609,
               "nodeType": "Block",
               "src": "1546:10:15",
               "statements": []
             },
             "documentation": "@dev Constructor function",
-            "id": 2609,
+            "id": 2610,
             "implemented": true,
             "kind": "constructor",
             "modifiers": [],
             "name": "",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2606,
+              "id": 2607,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1536:2:15"
             },
             "returnParameters": {
-              "id": 2607,
+              "id": 2608,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1546:0:15"
             },
-            "scope": 2622,
+            "scope": 2623,
             "src": "1525:31:15",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -2233,7 +2487,7 @@
           },
           {
             "body": {
-              "id": 2620,
+              "id": 2621,
               "nodeType": "Block",
               "src": "1857:61:15",
               "statements": [
@@ -2241,7 +2495,7 @@
                   "expression": {
                     "argumentTypes": null,
                     "hexValue": "74727565",
-                    "id": 2618,
+                    "id": 2619,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": true,
@@ -2256,30 +2510,34 @@
                     },
                     "value": "true"
                   },
-                  "functionReturnParameters": 2617,
-                  "id": 2619,
+                  "functionReturnParameters": 2618,
+                  "id": 2620,
                   "nodeType": "Return",
                   "src": "1899:11:15"
                 }
               ]
             },
             "documentation": "@dev create a hurricane policy\n@param _insured address of the policy owner\n@param _value the premiu amount to pay",
-            "id": 2621,
+            "id": 2622,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "createPolicy",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2614,
+              "id": 2615,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2611,
+                  "id": 2612,
                   "name": "_insured",
                   "nodeType": "VariableDeclaration",
+<<<<<<< HEAD
                   "scope": 2621,
+=======
+                  "scope": 2622,
+>>>>>>> 254b9cfde080ee672fee22aea39024c72c570824
                   "src": "1778:16:15",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2288,7 +2546,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2610,
+                    "id": 2611,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "1778:7:15",
@@ -2303,10 +2561,14 @@
                 },
                 {
                   "constant": false,
-                  "id": 2613,
+                  "id": 2614,
                   "name": "_value",
                   "nodeType": "VariableDeclaration",
+<<<<<<< HEAD
                   "scope": 2621,
+=======
+                  "scope": 2622,
+>>>>>>> 254b9cfde080ee672fee22aea39024c72c570824
                   "src": "1805:14:15",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2315,7 +2577,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 2612,
+                    "id": 2613,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "1805:7:15",
@@ -2331,15 +2593,19 @@
               "src": "1767:59:15"
             },
             "returnParameters": {
-              "id": 2617,
+              "id": 2618,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2616,
+                  "id": 2617,
                   "name": "",
                   "nodeType": "VariableDeclaration",
+<<<<<<< HEAD
                   "scope": 2621,
+=======
+                  "scope": 2622,
+>>>>>>> 254b9cfde080ee672fee22aea39024c72c570824
                   "src": "1851:4:15",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2348,7 +2614,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 2615,
+                    "id": 2616,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "1851:4:15",
@@ -2363,14 +2629,18 @@
               ],
               "src": "1850:6:15"
             },
-            "scope": 2622,
+            "scope": 2623,
             "src": "1745:173:15",
             "stateMutability": "payable",
             "superFunction": null,
             "visibility": "public"
           }
         ],
+<<<<<<< HEAD
         "scope": 2623,
+=======
+        "scope": 2624,
+>>>>>>> 254b9cfde080ee672fee22aea39024c72c570824
         "src": "327:1600:15"
       }
     ],
@@ -2380,9 +2650,719 @@
     "name": "solc",
     "version": "0.5.16+commit.9c3226ce.Emscripten.clang"
   },
+<<<<<<< HEAD
   "networks": {},
   "schemaVersion": "3.0.23",
   "updatedAt": "2020-05-07T13:21:14.443Z",
+=======
+  "networks": {
+    "3": {
+      "events": {
+        "0x61dc648f76dcf4df63a23b1cd65ae4a116413759706ff1c99fd5e839e4765e4d": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "_policyId",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "address",
+              "name": "_address",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "bytes32",
+              "name": "_externalId",
+              "type": "bytes32"
+            }
+          ],
+          "name": "LogExternal",
+          "type": "event"
+        },
+        "0xb90c86a9f5664ed33e42de2fb2af08739c36ba363a2f1a3ce65b41e0d474aa24": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "_policyId",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "bytes32",
+              "name": "hexQueryId",
+              "type": "bytes32"
+            },
+            {
+              "indexed": false,
+              "internalType": "string",
+              "name": "_oraclizeUrl",
+              "type": "string"
+            }
+          ],
+          "name": "LogOraclizeCall",
+          "type": "event"
+        },
+        "0x4e010942cd8d70ef60f3bd7e17c62008722f9551f8f28dc7040004160de7e2cc": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "_policyId",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "bytes32",
+              "name": "hexQueryId",
+              "type": "bytes32"
+            },
+            {
+              "indexed": false,
+              "internalType": "string",
+              "name": "_result",
+              "type": "string"
+            },
+            {
+              "indexed": false,
+              "internalType": "bytes",
+              "name": "hexProof",
+              "type": "bytes"
+            }
+          ],
+          "name": "LogOraclizeCallback",
+          "type": "event"
+        },
+        "0x70385f0d2eec84d8ff6456734404ae65b06b980e7360ea503ca23dcc56a1c515": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "_policyId",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "_statistics0",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "_statistics1",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "_statistics2",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "_statistics3",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "_statistics4",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "_statistics5",
+              "type": "uint256"
+            }
+          ],
+          "name": "LogPolicyAccepted",
+          "type": "event"
+        },
+        "0xa1a0ee9005fffba1f170ed11d5512d7983400e59419ceb31221f71832fa6cb2c": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "_policyId",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "address",
+              "name": "_customer",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "bytes32",
+              "name": "_market",
+              "type": "bytes32"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "ethPremium",
+              "type": "uint256"
+            }
+          ],
+          "name": "LogPolicyApplied",
+          "type": "event"
+        },
+        "0x9ee71fae4eaec97727495a88dce95da03083cceac90064c30bd03ef65b86a3ae": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "_policyId",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "bytes32",
+              "name": "strReason",
+              "type": "bytes32"
+            }
+          ],
+          "name": "LogPolicyDeclined",
+          "type": "event"
+        },
+        "0x08b74d3cccbcb3894ccc99c3a75f6a6890f71ea4c039fe60eabd7bee40b1231c": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "_policyId",
+              "type": "uint256"
+            }
+          ],
+          "name": "LogPolicyExpired",
+          "type": "event"
+        },
+        "0xa868cd6faa17ac2172ea3d4f9f7910ca932112bfeb017f45ed09bd881c054030": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "_policyId",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "bytes32",
+              "name": "strReason",
+              "type": "bytes32"
+            }
+          ],
+          "name": "LogPolicyManualPayout",
+          "type": "event"
+        },
+        "0xa4952f195dcb5d573305f9d9fe2fd0d63f66aa1149e328d2629377ababab53a7": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "_policyId",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "ethAmount",
+              "type": "uint256"
+            }
+          ],
+          "name": "LogPolicyPaidOut",
+          "type": "event"
+        },
+        "0xd03e9bccd46f248f783faac581aa0546bf19c3646bb6be5ce14839513bb90391": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "address",
+              "name": "_sender",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint8",
+              "name": "_to",
+              "type": "uint8"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "ethAmount",
+              "type": "uint256"
+            }
+          ],
+          "name": "LogReceiveFunds",
+          "type": "event"
+        },
+        "0xa552c8a0921dff81852c41a9081153b41b89ada680ef32d9e6ed0e8a7d296182": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "_policyId",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "bytes32",
+              "name": "strReason",
+              "type": "bytes32"
+            }
+          ],
+          "name": "LogSendFail",
+          "type": "event"
+        },
+        "0x58d25b935835d1791b52774277ec18acc66c328af44c3a19fcf57cb68065611c": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "address",
+              "name": "_recipient",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint8",
+              "name": "_from",
+              "type": "uint8"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "ethAmount",
+              "type": "uint256"
+            }
+          ],
+          "name": "LogSendFunds",
+          "type": "event"
+        },
+        "0x0f3fb52a4b3a9f6b9191fcfe3320487160165440bcdabb6577a8bc165a87dcc8": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "_policyId",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint8",
+              "name": "_policyState",
+              "type": "uint8"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "_stateTime",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "bytes32",
+              "name": "_stateMessage",
+              "type": "bytes32"
+            }
+          ],
+          "name": "LogSetState",
+          "type": "event"
+        },
+        "0xde5ef345cecbaaffdfbe2454b7947aa14037bac2f45e4fc98976f8bffea38623": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "id",
+              "type": "uint256"
+            }
+          ],
+          "name": "PolicyCreated",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0xC3926b70C9ED1498f3bBF8Fb9535dAD5396BfE57",
+      "transactionHash": "0xd25138ea5919ce8223af5ea3ade2c29cabee0c2bebb0d24fd63481dba3e53f31"
+    },
+    "5777": {
+      "events": {
+        "0x61dc648f76dcf4df63a23b1cd65ae4a116413759706ff1c99fd5e839e4765e4d": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "_policyId",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "address",
+              "name": "_address",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "bytes32",
+              "name": "_externalId",
+              "type": "bytes32"
+            }
+          ],
+          "name": "LogExternal",
+          "type": "event"
+        },
+        "0xb90c86a9f5664ed33e42de2fb2af08739c36ba363a2f1a3ce65b41e0d474aa24": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "_policyId",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "bytes32",
+              "name": "hexQueryId",
+              "type": "bytes32"
+            },
+            {
+              "indexed": false,
+              "internalType": "string",
+              "name": "_oraclizeUrl",
+              "type": "string"
+            }
+          ],
+          "name": "LogOraclizeCall",
+          "type": "event"
+        },
+        "0x4e010942cd8d70ef60f3bd7e17c62008722f9551f8f28dc7040004160de7e2cc": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "_policyId",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "bytes32",
+              "name": "hexQueryId",
+              "type": "bytes32"
+            },
+            {
+              "indexed": false,
+              "internalType": "string",
+              "name": "_result",
+              "type": "string"
+            },
+            {
+              "indexed": false,
+              "internalType": "bytes",
+              "name": "hexProof",
+              "type": "bytes"
+            }
+          ],
+          "name": "LogOraclizeCallback",
+          "type": "event"
+        },
+        "0x70385f0d2eec84d8ff6456734404ae65b06b980e7360ea503ca23dcc56a1c515": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "_policyId",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "_statistics0",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "_statistics1",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "_statistics2",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "_statistics3",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "_statistics4",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "_statistics5",
+              "type": "uint256"
+            }
+          ],
+          "name": "LogPolicyAccepted",
+          "type": "event"
+        },
+        "0xa1a0ee9005fffba1f170ed11d5512d7983400e59419ceb31221f71832fa6cb2c": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "_policyId",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "address",
+              "name": "_customer",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "bytes32",
+              "name": "_market",
+              "type": "bytes32"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "ethPremium",
+              "type": "uint256"
+            }
+          ],
+          "name": "LogPolicyApplied",
+          "type": "event"
+        },
+        "0x9ee71fae4eaec97727495a88dce95da03083cceac90064c30bd03ef65b86a3ae": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "_policyId",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "bytes32",
+              "name": "strReason",
+              "type": "bytes32"
+            }
+          ],
+          "name": "LogPolicyDeclined",
+          "type": "event"
+        },
+        "0x08b74d3cccbcb3894ccc99c3a75f6a6890f71ea4c039fe60eabd7bee40b1231c": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "_policyId",
+              "type": "uint256"
+            }
+          ],
+          "name": "LogPolicyExpired",
+          "type": "event"
+        },
+        "0xa868cd6faa17ac2172ea3d4f9f7910ca932112bfeb017f45ed09bd881c054030": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "_policyId",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "bytes32",
+              "name": "strReason",
+              "type": "bytes32"
+            }
+          ],
+          "name": "LogPolicyManualPayout",
+          "type": "event"
+        },
+        "0xa4952f195dcb5d573305f9d9fe2fd0d63f66aa1149e328d2629377ababab53a7": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "_policyId",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "ethAmount",
+              "type": "uint256"
+            }
+          ],
+          "name": "LogPolicyPaidOut",
+          "type": "event"
+        },
+        "0xd03e9bccd46f248f783faac581aa0546bf19c3646bb6be5ce14839513bb90391": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "address",
+              "name": "_sender",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint8",
+              "name": "_to",
+              "type": "uint8"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "ethAmount",
+              "type": "uint256"
+            }
+          ],
+          "name": "LogReceiveFunds",
+          "type": "event"
+        },
+        "0xa552c8a0921dff81852c41a9081153b41b89ada680ef32d9e6ed0e8a7d296182": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "_policyId",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "bytes32",
+              "name": "strReason",
+              "type": "bytes32"
+            }
+          ],
+          "name": "LogSendFail",
+          "type": "event"
+        },
+        "0x58d25b935835d1791b52774277ec18acc66c328af44c3a19fcf57cb68065611c": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "address",
+              "name": "_recipient",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint8",
+              "name": "_from",
+              "type": "uint8"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "ethAmount",
+              "type": "uint256"
+            }
+          ],
+          "name": "LogSendFunds",
+          "type": "event"
+        },
+        "0x0f3fb52a4b3a9f6b9191fcfe3320487160165440bcdabb6577a8bc165a87dcc8": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "_policyId",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint8",
+              "name": "_policyState",
+              "type": "uint8"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "_stateTime",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "bytes32",
+              "name": "_stateMessage",
+              "type": "bytes32"
+            }
+          ],
+          "name": "LogSetState",
+          "type": "event"
+        },
+        "0xde5ef345cecbaaffdfbe2454b7947aa14037bac2f45e4fc98976f8bffea38623": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "id",
+              "type": "uint256"
+            }
+          ],
+          "name": "PolicyCreated",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0xAeE23a7D17707302b457Efd2Fb1cc5F0821C55b6",
+      "transactionHash": "0x9951228ad600a9b967bda54179a47229773f198488534ab4bb768b7e06181614"
+    }
+  },
+  "schemaVersion": "3.0.23",
+  "updatedAt": "2020-04-27T02:31:49.502Z",
+  "networkType": "ethereum",
+>>>>>>> 254b9cfde080ee672fee22aea39024c72c570824
   "devdoc": {
     "methods": {
       "constructor": {

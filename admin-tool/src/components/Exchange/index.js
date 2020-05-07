@@ -6,21 +6,53 @@ import EthSwap from '../../abis/EthSwap.json'
 import Navbar from '../Navbar/index'
 import Main from '../Exchange/main'
 import Paper from '@material-ui/core/Paper'
-import { withStyles } from '@material-ui/core/styles'
+import Button from '@material-ui/core/Button'
+import { withStyles, makeStyles  } from '@material-ui/core/styles'
 import TabBar from 'components/TabBar'
+import CircularProgress from '@material-ui/core/CircularProgress';
 import Backdrop from '../Utility/SimpleBackdrop'
 import CustomTabs from '../Utility/CustomizedTabs'
 
 const tabNames = ['Buy', 'Sell', 'Active', 'Pending', 'Completed', 'All']
 
+const useStyles = makeStyles((theme) => ({
+  backdrop: {
+    zIndex: theme.zIndex.drawer + 1,
+    color: '#fff',
+  },
+}));
+
+function SimpleBackdrop() {
+  const classes = useStyles();
+  
+  return (
+    <div>
+      <Backdrop className={classes.backdrop} open={true}>
+        <CircularProgress color="inherit" />
+      </Backdrop>
+    </div>
+  );
+}
+
+function PleaseWaitModal() {
+  return (
+      <div>
+          <h3>Processing, please stand by...</h3>
+      </div>
+  );
+}
+
 class Exchange extends Component {
-    async componentWillMount() {
+      
+      async componentWillMount() {
+        this.setState({ loading: true })
         await this.loadWeb3()
         await this.loadBlockchainData()
       }
     
       // load the blockchain data
       async loadBlockchainData() {
+        this.setState({ loading: true })
         const web3 = window.web3
         // get the accounts
         const accounts = await web3.eth.getAccounts()
@@ -41,6 +73,7 @@ class Exchange extends Component {
           let tokenBalance = await token.methods.balanceOf(this.state.account).call()
           tokenBalance = web3.utils.fromWei(tokenBalance, 'ether')
           this.setState({ tokenBalance: tokenBalance })
+          this.setState({ loading: false })
         } else {
           window.alert('Token contract not deployed to detected network.')
         }
@@ -50,6 +83,7 @@ class Exchange extends Component {
         if(ethSwapData) {
           const ethSwap = new web3.eth.Contract(EthSwap.abi, ethSwapData.address)
           this.setState({ ethSwap })
+          this.setState({ loading: false })
         } else {
           window.alert('EthSwap contract not deployed to detected network.')
         }
@@ -58,12 +92,15 @@ class Exchange extends Component {
       }
     
       async loadWeb3() {
+        this.setState({ loading: true })
         if (window.ethereum) {
           window.web3 = new Web3(window.ethereum)
           await window.ethereum.enable()
+          this.setState({ loading: false })
         }
         else if (window.web3) {
           window.web3 = new Web3(window.web3.currentProvider)
+          this.setState({ loading: false })
         }
         else {
           window.alert('Non-Ethereum browser detected. You should consider trying MetaMask!')
@@ -75,6 +112,7 @@ class Exchange extends Component {
         this.state.ethSwap.methods.buyTokens()
           .send({ value: etherAmount, from: this.state.account }).on('transactionHash', (hash) => {
             this.setState({ loading: false })
+            window.location.reload()
           })
       }
     
@@ -83,6 +121,7 @@ class Exchange extends Component {
         this.state.token.methods.approve(this.state.ethSwap.address, tokenAmount).send({ from: this.state.account }).on('transactionHash', (hash) => {
           this.state.ethSwap.methods.sellTokens(tokenAmount).send({ from: this.state.account }).on('transactionHash', (hash) => {
             this.setState({ loading: false })
+            window.location.reload()
           })
         })
       }
@@ -95,7 +134,7 @@ class Exchange extends Component {
           ethSwap: {},
           ethBalance: '0',
           tokenBalance: '0',
-          loading: false,
+          loading: true,
           metadata: {},
           transactions: [],
         }
@@ -105,8 +144,8 @@ class Exchange extends Component {
         let content
         // Wait until the blockchain data has loaded.
         if(this.state.loading) {
-          <Backdrop />
-          content = <p id="loader" className="text-center">Loading...</p>
+          
+          content = <SimpleBackdrop />//<p id="loader" className="text-center">Loading...</p>
         } else {
           content = <Main
             ethBalance={this.state.ethBalance}

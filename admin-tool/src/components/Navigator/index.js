@@ -50,10 +50,17 @@ const categories = [
 		id: 'Products',
 		children: [
 			{ id: 'Marketplace', icon: <StoreIcon />, page: 'marketplace' },
+<<<<<<< HEAD
 			{ id: 'Income Stream', icon: <AssessmentRoundedIcon />, page: 'income-stream' },
 			{ id: 'Accident', icon: <WriteContractIcon />, page: 'accident' },
 			{ id: 'Hurricane', icon: <UmbrellaIcon />, page: 'hurricane' },
 			{ id: 'Property', icon: <HomeIcon />, page: 'property' },
+=======
+			{ id: 'Income Stream', icon: <AssessmentRoundedIcon />, page: 'incomestream' },
+			// { id: 'Accident', icon: <WriteContractIcon />, page: 'accident' },
+			// { id: 'Hurricane', icon: <UmbrellaIcon />, page: 'hurricane' },
+			// { id: 'Property', icon: <HomeIcon />, page: 'property' },
+>>>>>>> 254b9cfde080ee672fee22aea39024c72c570824
 			//{ id: 'Liability', icon: <ApartmentRoundedIcon />, page: 'liability' },
 			//{ id: 'Weather', icon: <Brightness7Icon />, page: 'weather' },
 			//{ id: 'Transportation', icon: <LocalShippingIcon />, page: 'transportation' },

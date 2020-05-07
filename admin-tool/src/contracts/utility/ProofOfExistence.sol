@@ -5,7 +5,7 @@
  * @copyright 2020 InsureNET
  */
 
-pragma solidity ^0.5.16;
+pragma solidity ^0.5.15;
 
 // Proof of Existence contract, version 1
 contract ProofOfExistence {

@@ -28,9 +28,15 @@ contract Token {
     * @dev all distribution will add up to the 1 Billion tokens minted.
     */
     // Founder
+<<<<<<< HEAD
     address payable founder  = 0xd2cCea05436bf27aE49B01726075449F815B683e;
 
     string public foundersAddress = '0xd2cCea05436bf27aE49B01726075449F815B683e';
+=======
+    address payable founder  = 0x39dD9FDAA2aA42766c0aee7d598D275768732eb8;
+    address payable owner = 0x39dD9FDAA2aA42766c0aee7d598D275768732eb8;
+    string public foundersAddress = '0x39dD9FDAA2aA42766c0aee7d598D275768732eb8';
+>>>>>>> 254b9cfde080ee672fee22aea39024c72c570824
     uint256 public foundersDistribution = 100000000000000000000000000; // 100 Million Tokens
 
     // Partners, Bounties and Marketing
@@ -90,13 +96,10 @@ contract Token {
 
     //     _frozen_sub(account, amount)
     //     _balances[account] = _balances[account].add(amount)
-
     // }
 
     // function _burnFrozen(address account, uint256 amount) internal {
     //     require(account != address(0), "ERC20: burn from the zero address");
-
-
     // }
 
     // function freezeTokens(address _account, uint256 _amount) public onlyOwner returns (bool) {
@@ -117,10 +120,9 @@ contract Token {
     // }
 
     // function mintBatchFrozenTokens(
-    //     address[] calldata accounts, 
+    //     address[] calldata accounts,
     //     uint256[] calldata amounts
     // ) external onlyMinter returns (bool) {
-        
     // }
 
     function transfer(address _to, uint256 _value) public returns (bool success) {

@@ -206,25 +206,29 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"policyNumber\",\"type\":\"string\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"converageAmount\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"riskPoolRequirement\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"address payable\",\"name\":\"policyHolder\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"fee\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"bool\",\"name\":\"active\",\"type\":\"bool\"}],\"name\":\"PolicyCreated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"string\",\"name\":\"reason\",\"type\":\"string\"}],\"name\":\"PolicyDestroyed\",\"type\":\"event\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"string\",\"name\":\"_name\",\"type\":\"string\"},{\"internalType\":\"address payable\",\"name\":\"_policyHolder\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_price\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_fee\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_coverageAmt\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_riskPoolAmtRqd\",\"type\":\"uint256\"}],\"name\":\"createPolicy\",\"outputs\":[],\"payable\":true,\"stateMutability\":\"payable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[],\"name\":\"destroyPolicy\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"fee\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"policyCount\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"policyHolder\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"policyHolderCount\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"riskPoolAmountRequired\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{\"constructor\":{\"details\":\"constructor\"},\"createPolicy(string,address,uint256,uint256,uint256,uint256)\":{\"details\":\"createPolicy\",\"params\":{\"_coverageAmt\":\"coverage amount (amount of payout)\",\"_fee\":\"fee for InsureNET\",\"_name\":\"name of the policy\",\"_policyHolder\":\"address of the policyHolder\",\"_price\":\"price of the policy\",\"_riskPoolAmtRqd\":\"the amount needed to cover this policies risk     \"}}}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/C/Projects/InsureNET/master-branch/admin-tool/src/contracts/utility/PolicyCreator.sol\":\"PolicyCreator\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/C/Projects/InsureNET/master-branch/admin-tool/src/contracts/utility/PolicyCreator.sol\":{\"keccak256\":\"0x86b93c0250d6f367e915f1eb906f2b02a5d230ed78a46c1929a9f84929c259d8\",\"urls\":[\"bzz-raw://77e48ca814a506e8c112625989ac2bc29c92efcb3d7a430565c19d6274ac6a45\",\"dweb:/ipfs/QmNcPsMUUKo6yQChe8GqzLtUo84UTZyTH54oXVDzdT6FsC\"]}},\"version\":1}",
-  "bytecode": "0x608060405261060e60025534801561001657600080fd5b506104c8806100266000396000f3fe6080604052600436106100705760003560e01c8063a1fdf65b1161004e578063a1fdf65b146101e6578063baf97c0614610211578063ddca3f431461023c578063de54d4291461026757610070565b8063202d301a146100755780633433d7011461017857806381f8ac8e1461018f575b600080fd5b610176600480360360c081101561008b57600080fd5b81019080803590602001906401000000008111156100a857600080fd5b8201836020820111156100ba57600080fd5b803590602001918460018302840111640100000000831117156100dc57600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f820116905080830192505050505050509192919290803573ffffffffffffffffffffffffffffffffffffffff16906020019092919080359060200190929190803590602001909291908035906020019092919080359060200190929190505050610292565b005b34801561018457600080fd5b5061018d6103ec565b005b34801561019b57600080fd5b506101a4610456565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b3480156101f257600080fd5b506101fb61047b565b6040518082815260200191505060405180910390f35b34801561021d57600080fd5b50610226610481565b6040518082815260200191505060405180910390f35b34801561024857600080fd5b50610251610487565b6040518082815260200191505060405180910390f35b34801561027357600080fd5b5061027c61048d565b6040518082815260200191505060405180910390f35b6003600081548092919060010191905055507f444d395fb980805f385c34edaad025ad3b9b4fa58b0a5f19d0c8c7c5a31a75dd600354878685858a8960016040518089815260200180602001806020018981526020018881526020018781526020018673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020018581526020018415151515815260200183810383528a818151815260200191508051906020019080838360005b8381101561036e578082015181840152602081019050610353565b50505050905090810190601f16801561039b5780820380516001836020036101000a031916815260200191505b508381038252600e8152602001807f3c506f6c6963794e756d6265723e0000000000000000000000000000000000008152506020019a505050505050505050505060405180910390a1505050505050565b7fb854d408981709638a788f4c013160169eb8b24d45ce28922f3d1b4afd8a897e60405180806020018281038252600c8152602001807f46656c74206c696b65206974000000000000000000000000000000000000000081525060200191505060405180910390a1565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b60045481565b60015481565b60025481565b6003548156fea265627a7a723158209ad2aa8d1275dd674274c9dcb67305c7f80bbc380ff0c255fc02dd15665f5e1164736f6c63430005100032",
-  "deployedBytecode": "0x6080604052600436106100705760003560e01c8063a1fdf65b1161004e578063a1fdf65b146101e6578063baf97c0614610211578063ddca3f431461023c578063de54d4291461026757610070565b8063202d301a146100755780633433d7011461017857806381f8ac8e1461018f575b600080fd5b610176600480360360c081101561008b57600080fd5b81019080803590602001906401000000008111156100a857600080fd5b8201836020820111156100ba57600080fd5b803590602001918460018302840111640100000000831117156100dc57600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f820116905080830192505050505050509192919290803573ffffffffffffffffffffffffffffffffffffffff16906020019092919080359060200190929190803590602001909291908035906020019092919080359060200190929190505050610292565b005b34801561018457600080fd5b5061018d6103ec565b005b34801561019b57600080fd5b506101a4610456565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b3480156101f257600080fd5b506101fb61047b565b6040518082815260200191505060405180910390f35b34801561021d57600080fd5b50610226610481565b6040518082815260200191505060405180910390f35b34801561024857600080fd5b50610251610487565b6040518082815260200191505060405180910390f35b34801561027357600080fd5b5061027c61048d565b6040518082815260200191505060405180910390f35b6003600081548092919060010191905055507f444d395fb980805f385c34edaad025ad3b9b4fa58b0a5f19d0c8c7c5a31a75dd600354878685858a8960016040518089815260200180602001806020018981526020018881526020018781526020018673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020018581526020018415151515815260200183810383528a818151815260200191508051906020019080838360005b8381101561036e578082015181840152602081019050610353565b50505050905090810190601f16801561039b5780820380516001836020036101000a031916815260200191505b508381038252600e8152602001807f3c506f6c6963794e756d6265723e0000000000000000000000000000000000008152506020019a505050505050505050505060405180910390a1505050505050565b7fb854d408981709638a788f4c013160169eb8b24d45ce28922f3d1b4afd8a897e60405180806020018281038252600c8152602001807f46656c74206c696b65206974000000000000000000000000000000000000000081525060200191505060405180910390a1565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b60045481565b60015481565b60025481565b6003548156fea265627a7a723158209ad2aa8d1275dd674274c9dcb67305c7f80bbc380ff0c255fc02dd15665f5e1164736f6c63430005100032",
+  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"policyNumber\",\"type\":\"string\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"converageAmount\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"riskPoolRequirement\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"address payable\",\"name\":\"policyHolder\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"fee\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"bool\",\"name\":\"active\",\"type\":\"bool\"}],\"name\":\"PolicyCreated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"string\",\"name\":\"reason\",\"type\":\"string\"}],\"name\":\"PolicyDestroyed\",\"type\":\"event\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"string\",\"name\":\"_name\",\"type\":\"string\"},{\"internalType\":\"address payable\",\"name\":\"_policyHolder\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_price\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_fee\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_coverageAmt\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_riskPoolAmtRqd\",\"type\":\"uint256\"}],\"name\":\"createPolicy\",\"outputs\":[],\"payable\":true,\"stateMutability\":\"payable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[],\"name\":\"destroyPolicy\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"fee\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"policyCount\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"policyHolder\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"policyHolderCount\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"riskPoolAmountRequired\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{\"constructor\":{\"details\":\"constructor\"},\"createPolicy(string,address,uint256,uint256,uint256,uint256)\":{\"details\":\"createPolicy\",\"params\":{\"_coverageAmt\":\"coverage amount (amount of payout)\",\"_fee\":\"fee for InsureNET\",\"_name\":\"name of the policy\",\"_policyHolder\":\"address of the policyHolder\",\"_price\":\"price of the policy\",\"_riskPoolAmtRqd\":\"the amount needed to cover this policies risk     \"}}}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/C/Projects/INET-IncomeStream/App/admin-tool/src/contracts/utility/PolicyCreator.sol\":\"PolicyCreator\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/C/Projects/INET-IncomeStream/App/admin-tool/src/contracts/utility/PolicyCreator.sol\":{\"keccak256\":\"0x86b93c0250d6f367e915f1eb906f2b02a5d230ed78a46c1929a9f84929c259d8\",\"urls\":[\"bzz-raw://77e48ca814a506e8c112625989ac2bc29c92efcb3d7a430565c19d6274ac6a45\",\"dweb:/ipfs/QmNcPsMUUKo6yQChe8GqzLtUo84UTZyTH54oXVDzdT6FsC\"]}},\"version\":1}",
+  "bytecode": "0x608060405261060e60025534801561001657600080fd5b506104c8806100266000396000f3fe6080604052600436106100705760003560e01c8063a1fdf65b1161004e578063a1fdf65b146101e6578063baf97c0614610211578063ddca3f431461023c578063de54d4291461026757610070565b8063202d301a146100755780633433d7011461017857806381f8ac8e1461018f575b600080fd5b610176600480360360c081101561008b57600080fd5b81019080803590602001906401000000008111156100a857600080fd5b8201836020820111156100ba57600080fd5b803590602001918460018302840111640100000000831117156100dc57600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f820116905080830192505050505050509192919290803573ffffffffffffffffffffffffffffffffffffffff16906020019092919080359060200190929190803590602001909291908035906020019092919080359060200190929190505050610292565b005b34801561018457600080fd5b5061018d6103ec565b005b34801561019b57600080fd5b506101a4610456565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b3480156101f257600080fd5b506101fb61047b565b6040518082815260200191505060405180910390f35b34801561021d57600080fd5b50610226610481565b6040518082815260200191505060405180910390f35b34801561024857600080fd5b50610251610487565b6040518082815260200191505060405180910390f35b34801561027357600080fd5b5061027c61048d565b6040518082815260200191505060405180910390f35b6003600081548092919060010191905055507f444d395fb980805f385c34edaad025ad3b9b4fa58b0a5f19d0c8c7c5a31a75dd600354878685858a8960016040518089815260200180602001806020018981526020018881526020018781526020018673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020018581526020018415151515815260200183810383528a818151815260200191508051906020019080838360005b8381101561036e578082015181840152602081019050610353565b50505050905090810190601f16801561039b5780820380516001836020036101000a031916815260200191505b508381038252600e8152602001807f3c506f6c6963794e756d6265723e0000000000000000000000000000000000008152506020019a505050505050505050505060405180910390a1505050505050565b7fb854d408981709638a788f4c013160169eb8b24d45ce28922f3d1b4afd8a897e60405180806020018281038252600c8152602001807f46656c74206c696b65206974000000000000000000000000000000000000000081525060200191505060405180910390a1565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b60045481565b60015481565b60025481565b6003548156fea265627a7a72315820b1e0cecd8f6ff7b8466a19e7d32e68f2a8b0c6ac6041748c38bd9efc76406e3f64736f6c63430005100032",
+  "deployedBytecode": "0x6080604052600436106100705760003560e01c8063a1fdf65b1161004e578063a1fdf65b146101e6578063baf97c0614610211578063ddca3f431461023c578063de54d4291461026757610070565b8063202d301a146100755780633433d7011461017857806381f8ac8e1461018f575b600080fd5b610176600480360360c081101561008b57600080fd5b81019080803590602001906401000000008111156100a857600080fd5b8201836020820111156100ba57600080fd5b803590602001918460018302840111640100000000831117156100dc57600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f820116905080830192505050505050509192919290803573ffffffffffffffffffffffffffffffffffffffff16906020019092919080359060200190929190803590602001909291908035906020019092919080359060200190929190505050610292565b005b34801561018457600080fd5b5061018d6103ec565b005b34801561019b57600080fd5b506101a4610456565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b3480156101f257600080fd5b506101fb61047b565b6040518082815260200191505060405180910390f35b34801561021d57600080fd5b50610226610481565b6040518082815260200191505060405180910390f35b34801561024857600080fd5b50610251610487565b6040518082815260200191505060405180910390f35b34801561027357600080fd5b5061027c61048d565b6040518082815260200191505060405180910390f35b6003600081548092919060010191905055507f444d395fb980805f385c34edaad025ad3b9b4fa58b0a5f19d0c8c7c5a31a75dd600354878685858a8960016040518089815260200180602001806020018981526020018881526020018781526020018673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020018581526020018415151515815260200183810383528a818151815260200191508051906020019080838360005b8381101561036e578082015181840152602081019050610353565b50505050905090810190601f16801561039b5780820380516001836020036101000a031916815260200191505b508381038252600e8152602001807f3c506f6c6963794e756d6265723e0000000000000000000000000000000000008152506020019a505050505050505050505060405180910390a1505050505050565b7fb854d408981709638a788f4c013160169eb8b24d45ce28922f3d1b4afd8a897e60405180806020018281038252600c8152602001807f46656c74206c696b65206974000000000000000000000000000000000000000081525060200191505060405180910390a1565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b60045481565b60015481565b60025481565b6003548156fea265627a7a72315820b1e0cecd8f6ff7b8466a19e7d32e68f2a8b0c6ac6041748c38bd9efc76406e3f64736f6c63430005100032",
   "sourceMap": "207:2593:30:-;;;356:4;335:25;;1817:31;8:9:-1;5:2;;;30:1;27;20:12;5:2;1817:31:30;207:2593;;;;;;",
   "deployedSourceMap": "207:2593:30:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2216:471;;;;;;13:3:-1;8;5:12;2:2;;;30:1;27;20:12;2:2;2216:471:30;;;;;;;;;;21:11:-1;8;5:28;2:2;;;46:1;43;36:12;2:2;2216:471:30;;35:9:-1;28:4;12:14;8:25;5:40;2:2;;;58:1;55;48:12;2:2;2216:471:30;;;;;;100:9:-1;95:1;81:12;77:20;67:8;63:35;60:50;39:11;25:12;22:29;11:107;8:2;;;131:1;128;121:12;8:2;2216:471:30;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;30:3:-1;22:6;14;1:33;99:1;93:3;85:6;81:16;74:27;137:4;133:9;126:4;121:3;117:14;113:30;106:37;;169:3;161:6;157:16;147:26;;2216:471:30;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;2697:98;;8:9:-1;5:2;;;30:1;27;20:12;5:2;2697:98:30;;;:::i;:::-;;262:27;;8:9:-1;5:2;;;30:1;27;20:12;5:2;262:27:30;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;431:37;;8:9:-1;5:2;;;30:1;27;20:12;5:2;431:37:30;;;:::i;:::-;;;;;;;;;;;;;;;;;;;296:32;;8:9:-1;5:2;;;30:1;27;20:12;5:2;296:32:30;;;:::i;:::-;;;;;;;;;;;;;;;;;;;335:25;;8:9:-1;5:2;;;30:1;27;20:12;5:2;335:25:30;;;:::i;:::-;;;;;;;;;;;;;;;;;;;367:26;;8:9:-1;5:2;;;30:1;27;20:12;5:2;367:26:30;;;:::i;:::-;;;;;;;;;;;;;;;;;;;2216:471;2457:11;;:14;;;;;;;;;;;;;2562:117;2576:11;;2589:5;2614:6;2622:12;2636:15;2653:13;2668:4;2674;2562:117;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;2562:117:30;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2216:471;;;;;;:::o;2697:98::-;2756:31;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2697:98::o;262:27::-;;;;;;;;;;;;;:::o;431:37::-;;;;:::o;296:32::-;;;;:::o;335:25::-;;;;:::o;367:26::-;;;;:::o",
   "source": "/**\r\n * @title Policy Creator Contract\r\n * @dev InsureNET Decentralized Insurance Platform Policy Creator Contract.\r\n * @author Jason Romero\r\n * @copyright 2020 InsureNET\r\n */\r\n\r\npragma solidity ^0.5.16;\r\n\r\ncontract PolicyCreator {\r\n    // State parameters\r\n    address public policyHolder;\r\n    uint256 public policyHolderCount;\r\n    uint256 public fee = 1550;\r\n    uint256 public policyCount;\r\n    // ToDo: Formula for this\r\n    uint256 public riskPoolAmountRequired;\r\n\r\n    // Mappings\r\n\r\n\r\n    // Structs\r\n    struct Policy {\r\n        uint id;\r\n        string name;\r\n        uint256 price;\r\n        uint256 converageAmount;\r\n        uint256 riskPoolRequirement;\r\n        address payable policyHolder;\r\n        uint256 fee;\r\n        bool active;\r\n    }\r\n\r\n  // the risk structure; this structure keeps track of the risk-\r\n  // specific parameters.\r\n  // several policies can share the same risk structure\r\n  // (typically same people in a specific geographic\r\n  // area [market] for a particular season)\r\n  struct Risk {\r\n    // 0 - Market, \"PR\" for pilot\r\n    bytes32 market;\r\n    // 1 - Season, the current year\r\n    bytes32 season;\r\n    // 2 - the event category that triggered payouts\r\n    bytes32 category;\r\n    // 3 - we limit the cumulated weighted premium to avoid cluster risks\r\n    uint cumulatedWeightedPremium;\r\n    // 4 - max cumulated Payout for this risk\r\n    uint premiumMultiplier;\r\n  }\r\n\r\n    // Events\r\n    event PolicyCreated (\r\n        uint id,\r\n        string name,\r\n        string policyNumber,\r\n        uint256 price,\r\n        uint256 converageAmount,\r\n        uint256 riskPoolRequirement,\r\n        address payable policyHolder,\r\n        uint256 fee,\r\n        bool active\r\n    );\r\n\r\n    event PolicyDestroyed (\r\n        string reason\r\n    );\r\n\r\n    /**\r\n    * @dev constructor\r\n    */\r\n    constructor() public {\r\n\r\n    }\r\n\r\n    /**\r\n    * @dev createPolicy\r\n    * @param _name name of the policy\r\n    * @param _policyHolder address of the policyHolder\r\n    * @param _price price of the policy\r\n    * @param _fee fee for InsureNET\r\n    * @param _coverageAmt coverage amount (amount of payout)\r\n    * @param _riskPoolAmtRqd the amount needed to cover this policies risk\r\n    *\r\n    */\r\n    function createPolicy (\r\n        string memory _name,\r\n        address payable _policyHolder,\r\n        uint256 _price,\r\n        uint256 _fee,\r\n        uint256 _coverageAmt,\r\n        uint256 _riskPoolAmtRqd\r\n    ) public payable {\r\n\r\n        policyCount ++;\r\n        // ToDo: how do I want to do the policyNumber?? uuid??? custom???\r\n        emit PolicyCreated(policyCount, _name, '<PolicyNumber>', _price, _coverageAmt, _riskPoolAmtRqd, _policyHolder, _fee, true);\r\n    }\r\n\r\n\r\n    function destroyPolicy (\r\n\r\n    ) public {\r\n\r\n        emit PolicyDestroyed('Felt like it');\r\n    }\r\n\r\n}\r\n",
-  "sourcePath": "C:\\Projects\\InsureNET\\master-branch\\admin-tool\\src\\contracts\\utility\\PolicyCreator.sol",
+  "sourcePath": "C:\\Projects\\INET-IncomeStream\\App\\admin-tool\\src\\contracts\\utility\\PolicyCreator.sol",
   "ast": {
+<<<<<<< HEAD
     "absolutePath": "/C/Projects/InsureNET/master-branch/admin-tool/src/contracts/utility/PolicyCreator.sol",
+=======
+    "absolutePath": "/C/Projects/INET-IncomeStream/App/admin-tool/src/contracts/utility/PolicyCreator.sol",
+>>>>>>> 254b9cfde080ee672fee22aea39024c72c570824
     "exportedSymbols": {
       "PolicyCreator": [
-        3966
+        3967
       ]
     },
-    "id": 3967,
+    "id": 3968,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 3859,
+        "id": 3860,
         "literals": [
           "solidity",
           "^",
@@ -240,19 +244,19 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 3966,
+        "id": 3967,
         "linearizedBaseContracts": [
-          3966
+          3967
         ],
         "name": "PolicyCreator",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": false,
-            "id": 3861,
+            "id": 3862,
             "name": "policyHolder",
             "nodeType": "VariableDeclaration",
-            "scope": 3966,
+            "scope": 3967,
             "src": "262:27:30",
             "stateVariable": true,
             "storageLocation": "default",
@@ -261,7 +265,7 @@
               "typeString": "address"
             },
             "typeName": {
-              "id": 3860,
+              "id": 3861,
               "name": "address",
               "nodeType": "ElementaryTypeName",
               "src": "262:7:30",
@@ -276,10 +280,10 @@
           },
           {
             "constant": false,
-            "id": 3863,
+            "id": 3864,
             "name": "policyHolderCount",
             "nodeType": "VariableDeclaration",
-            "scope": 3966,
+            "scope": 3967,
             "src": "296:32:30",
             "stateVariable": true,
             "storageLocation": "default",
@@ -288,7 +292,7 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 3862,
+              "id": 3863,
               "name": "uint256",
               "nodeType": "ElementaryTypeName",
               "src": "296:7:30",
@@ -302,10 +306,10 @@
           },
           {
             "constant": false,
-            "id": 3866,
+            "id": 3867,
             "name": "fee",
             "nodeType": "VariableDeclaration",
-            "scope": 3966,
+            "scope": 3967,
             "src": "335:25:30",
             "stateVariable": true,
             "storageLocation": "default",
@@ -314,7 +318,7 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 3864,
+              "id": 3865,
               "name": "uint256",
               "nodeType": "ElementaryTypeName",
               "src": "335:7:30",
@@ -326,7 +330,7 @@
             "value": {
               "argumentTypes": null,
               "hexValue": "31353530",
-              "id": 3865,
+              "id": 3866,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
@@ -345,10 +349,10 @@
           },
           {
             "constant": false,
-            "id": 3868,
+            "id": 3869,
             "name": "policyCount",
             "nodeType": "VariableDeclaration",
-            "scope": 3966,
+            "scope": 3967,
             "src": "367:26:30",
             "stateVariable": true,
             "storageLocation": "default",
@@ -357,7 +361,7 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 3867,
+              "id": 3868,
               "name": "uint256",
               "nodeType": "ElementaryTypeName",
               "src": "367:7:30",
@@ -371,10 +375,10 @@
           },
           {
             "constant": false,
-            "id": 3870,
+            "id": 3871,
             "name": "riskPoolAmountRequired",
             "nodeType": "VariableDeclaration",
-            "scope": 3966,
+            "scope": 3967,
             "src": "431:37:30",
             "stateVariable": true,
             "storageLocation": "default",
@@ -383,7 +387,7 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 3869,
+              "id": 3870,
               "name": "uint256",
               "nodeType": "ElementaryTypeName",
               "src": "431:7:30",
@@ -397,14 +401,14 @@
           },
           {
             "canonicalName": "PolicyCreator.Policy",
-            "id": 3887,
+            "id": 3888,
             "members": [
               {
                 "constant": false,
-                "id": 3872,
+                "id": 3873,
                 "name": "id",
                 "nodeType": "VariableDeclaration",
-                "scope": 3887,
+                "scope": 3888,
                 "src": "539:7:30",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -413,7 +417,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 3871,
+                  "id": 3872,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
                   "src": "539:4:30",
@@ -427,10 +431,10 @@
               },
               {
                 "constant": false,
-                "id": 3874,
+                "id": 3875,
                 "name": "name",
                 "nodeType": "VariableDeclaration",
-                "scope": 3887,
+                "scope": 3888,
                 "src": "557:11:30",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -439,7 +443,7 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 3873,
+                  "id": 3874,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
                   "src": "557:6:30",
@@ -453,10 +457,10 @@
               },
               {
                 "constant": false,
-                "id": 3876,
+                "id": 3877,
                 "name": "price",
                 "nodeType": "VariableDeclaration",
-                "scope": 3887,
+                "scope": 3888,
                 "src": "579:13:30",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -465,7 +469,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 3875,
+                  "id": 3876,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "579:7:30",
@@ -479,10 +483,10 @@
               },
               {
                 "constant": false,
-                "id": 3878,
+                "id": 3879,
                 "name": "converageAmount",
                 "nodeType": "VariableDeclaration",
-                "scope": 3887,
+                "scope": 3888,
                 "src": "603:23:30",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -491,7 +495,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 3877,
+                  "id": 3878,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "603:7:30",
@@ -505,10 +509,10 @@
               },
               {
                 "constant": false,
-                "id": 3880,
+                "id": 3881,
                 "name": "riskPoolRequirement",
                 "nodeType": "VariableDeclaration",
-                "scope": 3887,
+                "scope": 3888,
                 "src": "637:27:30",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -517,7 +521,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 3879,
+                  "id": 3880,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "637:7:30",
@@ -531,10 +535,10 @@
               },
               {
                 "constant": false,
-                "id": 3882,
+                "id": 3883,
                 "name": "policyHolder",
                 "nodeType": "VariableDeclaration",
-                "scope": 3887,
+                "scope": 3888,
                 "src": "675:28:30",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -543,7 +547,7 @@
                   "typeString": "address payable"
                 },
                 "typeName": {
-                  "id": 3881,
+                  "id": 3882,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
                   "src": "675:15:30",
@@ -558,10 +562,10 @@
               },
               {
                 "constant": false,
-                "id": 3884,
+                "id": 3885,
                 "name": "fee",
                 "nodeType": "VariableDeclaration",
-                "scope": 3887,
+                "scope": 3888,
                 "src": "714:11:30",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -570,7 +574,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 3883,
+                  "id": 3884,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "714:7:30",
@@ -584,10 +588,10 @@
               },
               {
                 "constant": false,
-                "id": 3886,
+                "id": 3887,
                 "name": "active",
                 "nodeType": "VariableDeclaration",
-                "scope": 3887,
+                "scope": 3888,
                 "src": "736:11:30",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -596,7 +600,7 @@
                   "typeString": "bool"
                 },
                 "typeName": {
-                  "id": 3885,
+                  "id": 3886,
                   "name": "bool",
                   "nodeType": "ElementaryTypeName",
                   "src": "736:4:30",
@@ -611,20 +615,20 @@
             ],
             "name": "Policy",
             "nodeType": "StructDefinition",
-            "scope": 3966,
+            "scope": 3967,
             "src": "514:241:30",
             "visibility": "public"
           },
           {
             "canonicalName": "PolicyCreator.Risk",
-            "id": 3898,
+            "id": 3899,
             "members": [
               {
                 "constant": false,
-                "id": 3889,
+                "id": 3890,
                 "name": "market",
                 "nodeType": "VariableDeclaration",
-                "scope": 3898,
+                "scope": 3899,
                 "src": "1064:14:30",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -633,7 +637,7 @@
                   "typeString": "bytes32"
                 },
                 "typeName": {
-                  "id": 3888,
+                  "id": 3889,
                   "name": "bytes32",
                   "nodeType": "ElementaryTypeName",
                   "src": "1064:7:30",
@@ -647,10 +651,10 @@
               },
               {
                 "constant": false,
-                "id": 3891,
+                "id": 3892,
                 "name": "season",
                 "nodeType": "VariableDeclaration",
-                "scope": 3898,
+                "scope": 3899,
                 "src": "1122:14:30",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -659,7 +663,7 @@
                   "typeString": "bytes32"
                 },
                 "typeName": {
-                  "id": 3890,
+                  "id": 3891,
                   "name": "bytes32",
                   "nodeType": "ElementaryTypeName",
                   "src": "1122:7:30",
@@ -673,10 +677,10 @@
               },
               {
                 "constant": false,
-                "id": 3893,
+                "id": 3894,
                 "name": "category",
                 "nodeType": "VariableDeclaration",
-                "scope": 3898,
+                "scope": 3899,
                 "src": "1197:16:30",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -685,7 +689,7 @@
                   "typeString": "bytes32"
                 },
                 "typeName": {
-                  "id": 3892,
+                  "id": 3893,
                   "name": "bytes32",
                   "nodeType": "ElementaryTypeName",
                   "src": "1197:7:30",
@@ -699,10 +703,10 @@
               },
               {
                 "constant": false,
-                "id": 3895,
+                "id": 3896,
                 "name": "cumulatedWeightedPremium",
                 "nodeType": "VariableDeclaration",
-                "scope": 3898,
+                "scope": 3899,
                 "src": "1295:29:30",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -711,7 +715,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 3894,
+                  "id": 3895,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
                   "src": "1295:4:30",
@@ -725,10 +729,10 @@
               },
               {
                 "constant": false,
-                "id": 3897,
+                "id": 3898,
                 "name": "premiumMultiplier",
                 "nodeType": "VariableDeclaration",
-                "scope": 3898,
+                "scope": 3899,
                 "src": "1378:22:30",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -737,7 +741,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 3896,
+                  "id": 3897,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
                   "src": "1378:4:30",
@@ -752,27 +756,27 @@
             ],
             "name": "Risk",
             "nodeType": "StructDefinition",
-            "scope": 3966,
+            "scope": 3967,
             "src": "1010:396:30",
             "visibility": "public"
           },
           {
             "anonymous": false,
             "documentation": null,
-            "id": 3918,
+            "id": 3919,
             "name": "PolicyCreated",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 3917,
+              "id": 3918,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3900,
+                  "id": 3901,
                   "indexed": false,
                   "name": "id",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3918,
+                  "scope": 3919,
                   "src": "1460:7:30",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -781,7 +785,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 3899,
+                    "id": 3900,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "1460:4:30",
@@ -795,11 +799,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 3902,
+                  "id": 3903,
                   "indexed": false,
                   "name": "name",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3918,
+                  "scope": 3919,
                   "src": "1478:11:30",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -808,7 +812,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 3901,
+                    "id": 3902,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "1478:6:30",
@@ -822,11 +826,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 3904,
+                  "id": 3905,
                   "indexed": false,
                   "name": "policyNumber",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3918,
+                  "scope": 3919,
                   "src": "1500:19:30",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -835,7 +839,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 3903,
+                    "id": 3904,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "1500:6:30",
@@ -849,11 +853,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 3906,
+                  "id": 3907,
                   "indexed": false,
                   "name": "price",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3918,
+                  "scope": 3919,
                   "src": "1530:13:30",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -862,7 +866,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 3905,
+                    "id": 3906,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "1530:7:30",
@@ -876,11 +880,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 3908,
+                  "id": 3909,
                   "indexed": false,
                   "name": "converageAmount",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3918,
+                  "scope": 3919,
                   "src": "1554:23:30",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -889,7 +893,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 3907,
+                    "id": 3908,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "1554:7:30",
@@ -903,11 +907,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 3910,
+                  "id": 3911,
                   "indexed": false,
                   "name": "riskPoolRequirement",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3918,
+                  "scope": 3919,
                   "src": "1588:27:30",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -916,7 +920,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 3909,
+                    "id": 3910,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "1588:7:30",
@@ -930,11 +934,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 3912,
+                  "id": 3913,
                   "indexed": false,
                   "name": "policyHolder",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3918,
+                  "scope": 3919,
                   "src": "1626:28:30",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -943,7 +947,7 @@
                     "typeString": "address payable"
                   },
                   "typeName": {
-                    "id": 3911,
+                    "id": 3912,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "1626:15:30",
@@ -958,11 +962,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 3914,
+                  "id": 3915,
                   "indexed": false,
                   "name": "fee",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3918,
+                  "scope": 3919,
                   "src": "1665:11:30",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -971,7 +975,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 3913,
+                    "id": 3914,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "1665:7:30",
@@ -985,11 +989,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 3916,
+                  "id": 3917,
                   "indexed": false,
                   "name": "active",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3918,
+                  "scope": 3919,
                   "src": "1687:11:30",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -998,7 +1002,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 3915,
+                    "id": 3916,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "1687:4:30",
@@ -1018,20 +1022,20 @@
           {
             "anonymous": false,
             "documentation": null,
-            "id": 3922,
+            "id": 3923,
             "name": "PolicyDestroyed",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 3921,
+              "id": 3922,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3920,
+                  "id": 3921,
                   "indexed": false,
                   "name": "reason",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3922,
+                  "scope": 3923,
                   "src": "1747:13:30",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1040,7 +1044,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 3919,
+                    "id": 3920,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "1747:6:30",
@@ -1059,31 +1063,31 @@
           },
           {
             "body": {
-              "id": 3925,
+              "id": 3926,
               "nodeType": "Block",
               "src": "1838:10:30",
               "statements": []
             },
             "documentation": "@dev constructor",
-            "id": 3926,
+            "id": 3927,
             "implemented": true,
             "kind": "constructor",
             "modifiers": [],
             "name": "",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 3923,
+              "id": 3924,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1828:2:30"
             },
             "returnParameters": {
-              "id": 3924,
+              "id": 3925,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1838:0:30"
             },
-            "scope": 3966,
+            "scope": 3967,
             "src": "1817:31:30",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -1091,14 +1095,14 @@
           },
           {
             "body": {
-              "id": 3956,
+              "id": 3957,
               "nodeType": "Block",
               "src": "2444:243:30",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 3942,
+                    "id": 3943,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1109,11 +1113,11 @@
                     "src": "2457:14:30",
                     "subExpression": {
                       "argumentTypes": null,
-                      "id": 3941,
+                      "id": 3942,
                       "name": "policyCount",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 3868,
+                      "referencedDeclaration": 3869,
                       "src": "2457:11:30",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -1125,7 +1129,7 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 3943,
+                  "id": 3944,
                   "nodeType": "ExpressionStatement",
                   "src": "2457:14:30"
                 },
@@ -1135,11 +1139,11 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 3945,
+                        "id": 3946,
                         "name": "policyCount",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 3868,
+                        "referencedDeclaration": 3869,
                         "src": "2576:11:30",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -1148,11 +1152,11 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 3946,
+                        "id": 3947,
                         "name": "_name",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 3928,
+                        "referencedDeclaration": 3929,
                         "src": "2589:5:30",
                         "typeDescriptions": {
                           "typeIdentifier": "t_string_memory_ptr",
@@ -1162,7 +1166,7 @@
                       {
                         "argumentTypes": null,
                         "hexValue": "3c506f6c6963794e756d6265723e",
-                        "id": 3947,
+                        "id": 3948,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -1179,11 +1183,11 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 3948,
+                        "id": 3949,
                         "name": "_price",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 3932,
+                        "referencedDeclaration": 3933,
                         "src": "2614:6:30",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -1192,11 +1196,11 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 3949,
+                        "id": 3950,
                         "name": "_coverageAmt",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 3936,
+                        "referencedDeclaration": 3937,
                         "src": "2622:12:30",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -1205,11 +1209,11 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 3950,
+                        "id": 3951,
                         "name": "_riskPoolAmtRqd",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 3938,
+                        "referencedDeclaration": 3939,
                         "src": "2636:15:30",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -1218,11 +1222,11 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 3951,
+                        "id": 3952,
                         "name": "_policyHolder",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 3930,
+                        "referencedDeclaration": 3931,
                         "src": "2653:13:30",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address_payable",
@@ -1231,11 +1235,11 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 3952,
+                        "id": 3953,
                         "name": "_fee",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 3934,
+                        "referencedDeclaration": 3935,
                         "src": "2668:4:30",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -1245,7 +1249,7 @@
                       {
                         "argumentTypes": null,
                         "hexValue": "74727565",
-                        "id": 3953,
+                        "id": 3954,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -1300,18 +1304,18 @@
                           "typeString": "bool"
                         }
                       ],
-                      "id": 3944,
+                      "id": 3945,
                       "name": "PolicyCreated",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 3918,
+                      "referencedDeclaration": 3919,
                       "src": "2562:13:30",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_event_nonpayable$_t_uint256_$_t_string_memory_ptr_$_t_string_memory_ptr_$_t_uint256_$_t_uint256_$_t_uint256_$_t_address_payable_$_t_uint256_$_t_bool_$returns$__$",
                         "typeString": "function (uint256,string memory,string memory,uint256,uint256,uint256,address payable,uint256,bool)"
                       }
                     },
-                    "id": 3954,
+                    "id": 3955,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1325,29 +1329,29 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 3955,
+                  "id": 3956,
                   "nodeType": "EmitStatement",
                   "src": "2557:122:30"
                 }
               ]
             },
             "documentation": "@dev createPolicy\n@param _name name of the policy\n@param _policyHolder address of the policyHolder\n@param _price price of the policy\n@param _fee fee for InsureNET\n@param _coverageAmt coverage amount (amount of payout)\n@param _riskPoolAmtRqd the amount needed to cover this policies risk\n\n    ",
-            "id": 3957,
+            "id": 3958,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "createPolicy",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 3939,
+              "id": 3940,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3928,
+                  "id": 3929,
                   "name": "_name",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3957,
+                  "scope": 3958,
                   "src": "2249:19:30",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -1356,7 +1360,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 3927,
+                    "id": 3928,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "2249:6:30",
@@ -1370,10 +1374,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 3930,
+                  "id": 3931,
                   "name": "_policyHolder",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3957,
+                  "scope": 3958,
                   "src": "2279:29:30",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1382,7 +1386,7 @@
                     "typeString": "address payable"
                   },
                   "typeName": {
-                    "id": 3929,
+                    "id": 3930,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "2279:15:30",
@@ -1397,10 +1401,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 3932,
+                  "id": 3933,
                   "name": "_price",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3957,
+                  "scope": 3958,
                   "src": "2319:14:30",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1409,7 +1413,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 3931,
+                    "id": 3932,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "2319:7:30",
@@ -1423,10 +1427,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 3934,
+                  "id": 3935,
                   "name": "_fee",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3957,
+                  "scope": 3958,
                   "src": "2344:12:30",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1435,7 +1439,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 3933,
+                    "id": 3934,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "2344:7:30",
@@ -1449,10 +1453,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 3936,
+                  "id": 3937,
                   "name": "_coverageAmt",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3957,
+                  "scope": 3958,
                   "src": "2367:20:30",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1461,7 +1465,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 3935,
+                    "id": 3936,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "2367:7:30",
@@ -1475,10 +1479,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 3938,
+                  "id": 3939,
                   "name": "_riskPoolAmtRqd",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3957,
+                  "scope": 3958,
                   "src": "2398:23:30",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1487,7 +1491,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 3937,
+                    "id": 3938,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "2398:7:30",
@@ -1503,12 +1507,12 @@
               "src": "2238:190:30"
             },
             "returnParameters": {
-              "id": 3940,
+              "id": 3941,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "2444:0:30"
             },
-            "scope": 3966,
+            "scope": 3967,
             "src": "2216:471:30",
             "stateMutability": "payable",
             "superFunction": null,
@@ -1516,7 +1520,7 @@
           },
           {
             "body": {
-              "id": 3964,
+              "id": 3965,
               "nodeType": "Block",
               "src": "2738:57:30",
               "statements": [
@@ -1527,7 +1531,7 @@
                       {
                         "argumentTypes": null,
                         "hexValue": "46656c74206c696b65206974",
-                        "id": 3961,
+                        "id": 3962,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -1550,18 +1554,18 @@
                           "typeString": "literal_string \"Felt like it\""
                         }
                       ],
-                      "id": 3960,
+                      "id": 3961,
                       "name": "PolicyDestroyed",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 3922,
+                      "referencedDeclaration": 3923,
                       "src": "2756:15:30",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_event_nonpayable$_t_string_memory_ptr_$returns$__$",
                         "typeString": "function (string memory)"
                       }
                     },
-                    "id": 3962,
+                    "id": 3963,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1575,56 +1579,60 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 3963,
+                  "id": 3964,
                   "nodeType": "EmitStatement",
                   "src": "2751:36:30"
                 }
               ]
             },
             "documentation": null,
-            "id": 3965,
+            "id": 3966,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "destroyPolicy",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 3958,
+              "id": 3959,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "2720:10:30"
             },
             "returnParameters": {
-              "id": 3959,
+              "id": 3960,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "2738:0:30"
             },
-            "scope": 3966,
+            "scope": 3967,
             "src": "2697:98:30",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 3967,
+        "scope": 3968,
         "src": "207:2593:30"
       }
     ],
     "src": "179:2623:30"
   },
   "legacyAST": {
+<<<<<<< HEAD
     "absolutePath": "/C/Projects/InsureNET/master-branch/admin-tool/src/contracts/utility/PolicyCreator.sol",
+=======
+    "absolutePath": "/C/Projects/INET-IncomeStream/App/admin-tool/src/contracts/utility/PolicyCreator.sol",
+>>>>>>> 254b9cfde080ee672fee22aea39024c72c570824
     "exportedSymbols": {
       "PolicyCreator": [
-        3966
+        3967
       ]
     },
-    "id": 3967,
+    "id": 3968,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 3859,
+        "id": 3860,
         "literals": [
           "solidity",
           "^",
@@ -1640,19 +1648,19 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 3966,
+        "id": 3967,
         "linearizedBaseContracts": [
-          3966
+          3967
         ],
         "name": "PolicyCreator",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": false,
-            "id": 3861,
+            "id": 3862,
             "name": "policyHolder",
             "nodeType": "VariableDeclaration",
-            "scope": 3966,
+            "scope": 3967,
             "src": "262:27:30",
             "stateVariable": true,
             "storageLocation": "default",
@@ -1661,7 +1669,7 @@
               "typeString": "address"
             },
             "typeName": {
-              "id": 3860,
+              "id": 3861,
               "name": "address",
               "nodeType": "ElementaryTypeName",
               "src": "262:7:30",
@@ -1676,10 +1684,10 @@
           },
           {
             "constant": false,
-            "id": 3863,
+            "id": 3864,
             "name": "policyHolderCount",
             "nodeType": "VariableDeclaration",
-            "scope": 3966,
+            "scope": 3967,
             "src": "296:32:30",
             "stateVariable": true,
             "storageLocation": "default",
@@ -1688,7 +1696,7 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 3862,
+              "id": 3863,
               "name": "uint256",
               "nodeType": "ElementaryTypeName",
               "src": "296:7:30",
@@ -1702,10 +1710,10 @@
           },
           {
             "constant": false,
-            "id": 3866,
+            "id": 3867,
             "name": "fee",
             "nodeType": "VariableDeclaration",
-            "scope": 3966,
+            "scope": 3967,
             "src": "335:25:30",
             "stateVariable": true,
             "storageLocation": "default",
@@ -1714,7 +1722,7 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 3864,
+              "id": 3865,
               "name": "uint256",
               "nodeType": "ElementaryTypeName",
               "src": "335:7:30",
@@ -1726,7 +1734,7 @@
             "value": {
               "argumentTypes": null,
               "hexValue": "31353530",
-              "id": 3865,
+              "id": 3866,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
@@ -1745,10 +1753,10 @@
           },
           {
             "constant": false,
-            "id": 3868,
+            "id": 3869,
             "name": "policyCount",
             "nodeType": "VariableDeclaration",
-            "scope": 3966,
+            "scope": 3967,
             "src": "367:26:30",
             "stateVariable": true,
             "storageLocation": "default",
@@ -1757,7 +1765,7 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 3867,
+              "id": 3868,
               "name": "uint256",
               "nodeType": "ElementaryTypeName",
               "src": "367:7:30",
@@ -1771,10 +1779,10 @@
           },
           {
             "constant": false,
-            "id": 3870,
+            "id": 3871,
             "name": "riskPoolAmountRequired",
             "nodeType": "VariableDeclaration",
-            "scope": 3966,
+            "scope": 3967,
             "src": "431:37:30",
             "stateVariable": true,
             "storageLocation": "default",
@@ -1783,7 +1791,7 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 3869,
+              "id": 3870,
               "name": "uint256",
               "nodeType": "ElementaryTypeName",
               "src": "431:7:30",
@@ -1797,14 +1805,14 @@
           },
           {
             "canonicalName": "PolicyCreator.Policy",
-            "id": 3887,
+            "id": 3888,
             "members": [
               {
                 "constant": false,
-                "id": 3872,
+                "id": 3873,
                 "name": "id",
                 "nodeType": "VariableDeclaration",
-                "scope": 3887,
+                "scope": 3888,
                 "src": "539:7:30",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1813,7 +1821,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 3871,
+                  "id": 3872,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
                   "src": "539:4:30",
@@ -1827,10 +1835,10 @@
               },
               {
                 "constant": false,
-                "id": 3874,
+                "id": 3875,
                 "name": "name",
                 "nodeType": "VariableDeclaration",
-                "scope": 3887,
+                "scope": 3888,
                 "src": "557:11:30",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1839,7 +1847,7 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 3873,
+                  "id": 3874,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
                   "src": "557:6:30",
@@ -1853,10 +1861,10 @@
               },
               {
                 "constant": false,
-                "id": 3876,
+                "id": 3877,
                 "name": "price",
                 "nodeType": "VariableDeclaration",
-                "scope": 3887,
+                "scope": 3888,
                 "src": "579:13:30",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1865,7 +1873,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 3875,
+                  "id": 3876,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "579:7:30",
@@ -1879,10 +1887,10 @@
               },
               {
                 "constant": false,
-                "id": 3878,
+                "id": 3879,
                 "name": "converageAmount",
                 "nodeType": "VariableDeclaration",
-                "scope": 3887,
+                "scope": 3888,
                 "src": "603:23:30",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1891,7 +1899,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 3877,
+                  "id": 3878,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "603:7:30",
@@ -1905,10 +1913,10 @@
               },
               {
                 "constant": false,
-                "id": 3880,
+                "id": 3881,
                 "name": "riskPoolRequirement",
                 "nodeType": "VariableDeclaration",
-                "scope": 3887,
+                "scope": 3888,
                 "src": "637:27:30",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1917,7 +1925,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 3879,
+                  "id": 3880,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "637:7:30",
@@ -1931,10 +1939,10 @@
               },
               {
                 "constant": false,
-                "id": 3882,
+                "id": 3883,
                 "name": "policyHolder",
                 "nodeType": "VariableDeclaration",
-                "scope": 3887,
+                "scope": 3888,
                 "src": "675:28:30",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1943,7 +1951,7 @@
                   "typeString": "address payable"
                 },
                 "typeName": {
-                  "id": 3881,
+                  "id": 3882,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
                   "src": "675:15:30",
@@ -1958,10 +1966,10 @@
               },
               {
                 "constant": false,
-                "id": 3884,
+                "id": 3885,
                 "name": "fee",
                 "nodeType": "VariableDeclaration",
-                "scope": 3887,
+                "scope": 3888,
                 "src": "714:11:30",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1970,7 +1978,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 3883,
+                  "id": 3884,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "714:7:30",
@@ -1984,10 +1992,10 @@
               },
               {
                 "constant": false,
-                "id": 3886,
+                "id": 3887,
                 "name": "active",
                 "nodeType": "VariableDeclaration",
-                "scope": 3887,
+                "scope": 3888,
                 "src": "736:11:30",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1996,7 +2004,7 @@
                   "typeString": "bool"
                 },
                 "typeName": {
-                  "id": 3885,
+                  "id": 3886,
                   "name": "bool",
                   "nodeType": "ElementaryTypeName",
                   "src": "736:4:30",
@@ -2011,20 +2019,20 @@
             ],
             "name": "Policy",
             "nodeType": "StructDefinition",
-            "scope": 3966,
+            "scope": 3967,
             "src": "514:241:30",
             "visibility": "public"
           },
           {
             "canonicalName": "PolicyCreator.Risk",
-            "id": 3898,
+            "id": 3899,
             "members": [
               {
                 "constant": false,
-                "id": 3889,
+                "id": 3890,
                 "name": "market",
                 "nodeType": "VariableDeclaration",
-                "scope": 3898,
+                "scope": 3899,
                 "src": "1064:14:30",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -2033,7 +2041,7 @@
                   "typeString": "bytes32"
                 },
                 "typeName": {
-                  "id": 3888,
+                  "id": 3889,
                   "name": "bytes32",
                   "nodeType": "ElementaryTypeName",
                   "src": "1064:7:30",
@@ -2047,10 +2055,10 @@
               },
               {
                 "constant": false,
-                "id": 3891,
+                "id": 3892,
                 "name": "season",
                 "nodeType": "VariableDeclaration",
-                "scope": 3898,
+                "scope": 3899,
                 "src": "1122:14:30",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -2059,7 +2067,7 @@
                   "typeString": "bytes32"
                 },
                 "typeName": {
-                  "id": 3890,
+                  "id": 3891,
                   "name": "bytes32",
                   "nodeType": "ElementaryTypeName",
                   "src": "1122:7:30",
@@ -2073,10 +2081,10 @@
               },
               {
                 "constant": false,
-                "id": 3893,
+                "id": 3894,
                 "name": "category",
                 "nodeType": "VariableDeclaration",
-                "scope": 3898,
+                "scope": 3899,
                 "src": "1197:16:30",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -2085,7 +2093,7 @@
                   "typeString": "bytes32"
                 },
                 "typeName": {
-                  "id": 3892,
+                  "id": 3893,
                   "name": "bytes32",
                   "nodeType": "ElementaryTypeName",
                   "src": "1197:7:30",
@@ -2099,10 +2107,10 @@
               },
               {
                 "constant": false,
-                "id": 3895,
+                "id": 3896,
                 "name": "cumulatedWeightedPremium",
                 "nodeType": "VariableDeclaration",
-                "scope": 3898,
+                "scope": 3899,
                 "src": "1295:29:30",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -2111,7 +2119,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 3894,
+                  "id": 3895,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
                   "src": "1295:4:30",
@@ -2125,10 +2133,10 @@
               },
               {
                 "constant": false,
-                "id": 3897,
+                "id": 3898,
                 "name": "premiumMultiplier",
                 "nodeType": "VariableDeclaration",
-                "scope": 3898,
+                "scope": 3899,
                 "src": "1378:22:30",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -2137,7 +2145,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 3896,
+                  "id": 3897,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
                   "src": "1378:4:30",
@@ -2152,27 +2160,27 @@
             ],
             "name": "Risk",
             "nodeType": "StructDefinition",
-            "scope": 3966,
+            "scope": 3967,
             "src": "1010:396:30",
             "visibility": "public"
           },
           {
             "anonymous": false,
             "documentation": null,
-            "id": 3918,
+            "id": 3919,
             "name": "PolicyCreated",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 3917,
+              "id": 3918,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3900,
+                  "id": 3901,
                   "indexed": false,
                   "name": "id",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3918,
+                  "scope": 3919,
                   "src": "1460:7:30",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2181,7 +2189,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 3899,
+                    "id": 3900,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "1460:4:30",
@@ -2195,11 +2203,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 3902,
+                  "id": 3903,
                   "indexed": false,
                   "name": "name",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3918,
+                  "scope": 3919,
                   "src": "1478:11:30",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2208,7 +2216,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 3901,
+                    "id": 3902,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "1478:6:30",
@@ -2222,11 +2230,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 3904,
+                  "id": 3905,
                   "indexed": false,
                   "name": "policyNumber",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3918,
+                  "scope": 3919,
                   "src": "1500:19:30",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2235,7 +2243,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 3903,
+                    "id": 3904,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "1500:6:30",
@@ -2249,11 +2257,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 3906,
+                  "id": 3907,
                   "indexed": false,
                   "name": "price",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3918,
+                  "scope": 3919,
                   "src": "1530:13:30",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2262,7 +2270,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 3905,
+                    "id": 3906,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "1530:7:30",
@@ -2276,11 +2284,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 3908,
+                  "id": 3909,
                   "indexed": false,
                   "name": "converageAmount",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3918,
+                  "scope": 3919,
                   "src": "1554:23:30",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2289,7 +2297,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 3907,
+                    "id": 3908,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "1554:7:30",
@@ -2303,11 +2311,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 3910,
+                  "id": 3911,
                   "indexed": false,
                   "name": "riskPoolRequirement",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3918,
+                  "scope": 3919,
                   "src": "1588:27:30",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2316,7 +2324,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 3909,
+                    "id": 3910,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "1588:7:30",
@@ -2330,11 +2338,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 3912,
+                  "id": 3913,
                   "indexed": false,
                   "name": "policyHolder",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3918,
+                  "scope": 3919,
                   "src": "1626:28:30",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2343,7 +2351,7 @@
                     "typeString": "address payable"
                   },
                   "typeName": {
-                    "id": 3911,
+                    "id": 3912,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "1626:15:30",
@@ -2358,11 +2366,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 3914,
+                  "id": 3915,
                   "indexed": false,
                   "name": "fee",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3918,
+                  "scope": 3919,
                   "src": "1665:11:30",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2371,7 +2379,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 3913,
+                    "id": 3914,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "1665:7:30",
@@ -2385,11 +2393,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 3916,
+                  "id": 3917,
                   "indexed": false,
                   "name": "active",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3918,
+                  "scope": 3919,
                   "src": "1687:11:30",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2398,7 +2406,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 3915,
+                    "id": 3916,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "1687:4:30",
@@ -2418,20 +2426,20 @@
           {
             "anonymous": false,
             "documentation": null,
-            "id": 3922,
+            "id": 3923,
             "name": "PolicyDestroyed",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 3921,
+              "id": 3922,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3920,
+                  "id": 3921,
                   "indexed": false,
                   "name": "reason",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3922,
+                  "scope": 3923,
                   "src": "1747:13:30",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2440,7 +2448,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 3919,
+                    "id": 3920,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "1747:6:30",
@@ -2459,31 +2467,31 @@
           },
           {
             "body": {
-              "id": 3925,
+              "id": 3926,
               "nodeType": "Block",
               "src": "1838:10:30",
               "statements": []
             },
             "documentation": "@dev constructor",
-            "id": 3926,
+            "id": 3927,
             "implemented": true,
             "kind": "constructor",
             "modifiers": [],
             "name": "",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 3923,
+              "id": 3924,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1828:2:30"
             },
             "returnParameters": {
-              "id": 3924,
+              "id": 3925,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1838:0:30"
             },
-            "scope": 3966,
+            "scope": 3967,
             "src": "1817:31:30",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -2491,14 +2499,14 @@
           },
           {
             "body": {
-              "id": 3956,
+              "id": 3957,
               "nodeType": "Block",
               "src": "2444:243:30",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 3942,
+                    "id": 3943,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -2509,11 +2517,11 @@
                     "src": "2457:14:30",
                     "subExpression": {
                       "argumentTypes": null,
-                      "id": 3941,
+                      "id": 3942,
                       "name": "policyCount",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 3868,
+                      "referencedDeclaration": 3869,
                       "src": "2457:11:30",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -2525,7 +2533,7 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 3943,
+                  "id": 3944,
                   "nodeType": "ExpressionStatement",
                   "src": "2457:14:30"
                 },
@@ -2535,11 +2543,11 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 3945,
+                        "id": 3946,
                         "name": "policyCount",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 3868,
+                        "referencedDeclaration": 3869,
                         "src": "2576:11:30",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -2548,11 +2556,11 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 3946,
+                        "id": 3947,
                         "name": "_name",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 3928,
+                        "referencedDeclaration": 3929,
                         "src": "2589:5:30",
                         "typeDescriptions": {
                           "typeIdentifier": "t_string_memory_ptr",
@@ -2562,7 +2570,7 @@
                       {
                         "argumentTypes": null,
                         "hexValue": "3c506f6c6963794e756d6265723e",
-                        "id": 3947,
+                        "id": 3948,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -2579,11 +2587,11 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 3948,
+                        "id": 3949,
                         "name": "_price",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 3932,
+                        "referencedDeclaration": 3933,
                         "src": "2614:6:30",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -2592,11 +2600,11 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 3949,
+                        "id": 3950,
                         "name": "_coverageAmt",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 3936,
+                        "referencedDeclaration": 3937,
                         "src": "2622:12:30",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -2605,11 +2613,11 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 3950,
+                        "id": 3951,
                         "name": "_riskPoolAmtRqd",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 3938,
+                        "referencedDeclaration": 3939,
                         "src": "2636:15:30",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -2618,11 +2626,11 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 3951,
+                        "id": 3952,
                         "name": "_policyHolder",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 3930,
+                        "referencedDeclaration": 3931,
                         "src": "2653:13:30",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address_payable",
@@ -2631,11 +2639,11 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 3952,
+                        "id": 3953,
                         "name": "_fee",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 3934,
+                        "referencedDeclaration": 3935,
                         "src": "2668:4:30",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -2645,7 +2653,7 @@
                       {
                         "argumentTypes": null,
                         "hexValue": "74727565",
-                        "id": 3953,
+                        "id": 3954,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -2700,18 +2708,18 @@
                           "typeString": "bool"
                         }
                       ],
-                      "id": 3944,
+                      "id": 3945,
                       "name": "PolicyCreated",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 3918,
+                      "referencedDeclaration": 3919,
                       "src": "2562:13:30",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_event_nonpayable$_t_uint256_$_t_string_memory_ptr_$_t_string_memory_ptr_$_t_uint256_$_t_uint256_$_t_uint256_$_t_address_payable_$_t_uint256_$_t_bool_$returns$__$",
                         "typeString": "function (uint256,string memory,string memory,uint256,uint256,uint256,address payable,uint256,bool)"
                       }
                     },
-                    "id": 3954,
+                    "id": 3955,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -2725,29 +2733,29 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 3955,
+                  "id": 3956,
                   "nodeType": "EmitStatement",
                   "src": "2557:122:30"
                 }
               ]
             },
             "documentation": "@dev createPolicy\n@param _name name of the policy\n@param _policyHolder address of the policyHolder\n@param _price price of the policy\n@param _fee fee for InsureNET\n@param _coverageAmt coverage amount (amount of payout)\n@param _riskPoolAmtRqd the amount needed to cover this policies risk\n\n    ",
-            "id": 3957,
+            "id": 3958,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "createPolicy",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 3939,
+              "id": 3940,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3928,
+                  "id": 3929,
                   "name": "_name",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3957,
+                  "scope": 3958,
                   "src": "2249:19:30",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -2756,7 +2764,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 3927,
+                    "id": 3928,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "2249:6:30",
@@ -2770,10 +2778,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 3930,
+                  "id": 3931,
                   "name": "_policyHolder",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3957,
+                  "scope": 3958,
                   "src": "2279:29:30",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2782,7 +2790,7 @@
                     "typeString": "address payable"
                   },
                   "typeName": {
-                    "id": 3929,
+                    "id": 3930,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "2279:15:30",
@@ -2797,10 +2805,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 3932,
+                  "id": 3933,
                   "name": "_price",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3957,
+                  "scope": 3958,
                   "src": "2319:14:30",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2809,7 +2817,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 3931,
+                    "id": 3932,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "2319:7:30",
@@ -2823,10 +2831,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 3934,
+                  "id": 3935,
                   "name": "_fee",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3957,
+                  "scope": 3958,
                   "src": "2344:12:30",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2835,7 +2843,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 3933,
+                    "id": 3934,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "2344:7:30",
@@ -2849,10 +2857,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 3936,
+                  "id": 3937,
                   "name": "_coverageAmt",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3957,
+                  "scope": 3958,
                   "src": "2367:20:30",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2861,7 +2869,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 3935,
+                    "id": 3936,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "2367:7:30",
@@ -2875,10 +2883,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 3938,
+                  "id": 3939,
                   "name": "_riskPoolAmtRqd",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3957,
+                  "scope": 3958,
                   "src": "2398:23:30",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2887,7 +2895,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 3937,
+                    "id": 3938,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "2398:7:30",
@@ -2903,12 +2911,12 @@
               "src": "2238:190:30"
             },
             "returnParameters": {
-              "id": 3940,
+              "id": 3941,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "2444:0:30"
             },
-            "scope": 3966,
+            "scope": 3967,
             "src": "2216:471:30",
             "stateMutability": "payable",
             "superFunction": null,
@@ -2916,7 +2924,7 @@
           },
           {
             "body": {
-              "id": 3964,
+              "id": 3965,
               "nodeType": "Block",
               "src": "2738:57:30",
               "statements": [
@@ -2927,7 +2935,7 @@
                       {
                         "argumentTypes": null,
                         "hexValue": "46656c74206c696b65206974",
-                        "id": 3961,
+                        "id": 3962,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -2950,18 +2958,18 @@
                           "typeString": "literal_string \"Felt like it\""
                         }
                       ],
-                      "id": 3960,
+                      "id": 3961,
                       "name": "PolicyDestroyed",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 3922,
+                      "referencedDeclaration": 3923,
                       "src": "2756:15:30",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_event_nonpayable$_t_string_memory_ptr_$returns$__$",
                         "typeString": "function (string memory)"
                       }
                     },
-                    "id": 3962,
+                    "id": 3963,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -2975,39 +2983,39 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 3963,
+                  "id": 3964,
                   "nodeType": "EmitStatement",
                   "src": "2751:36:30"
                 }
               ]
             },
             "documentation": null,
-            "id": 3965,
+            "id": 3966,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "destroyPolicy",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 3958,
+              "id": 3959,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "2720:10:30"
             },
             "returnParameters": {
-              "id": 3959,
+              "id": 3960,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "2738:0:30"
             },
-            "scope": 3966,
+            "scope": 3967,
             "src": "2697:98:30",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 3967,
+        "scope": 3968,
         "src": "207:2593:30"
       }
     ],
@@ -3017,9 +3025,179 @@
     "name": "solc",
     "version": "0.5.16+commit.9c3226ce.Emscripten.clang"
   },
+<<<<<<< HEAD
   "networks": {},
   "schemaVersion": "3.0.23",
   "updatedAt": "2020-05-07T13:21:14.468Z",
+=======
+  "networks": {
+    "3": {
+      "events": {
+        "0x444d395fb980805f385c34edaad025ad3b9b4fa58b0a5f19d0c8c7c5a31a75dd": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "id",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "string",
+              "name": "name",
+              "type": "string"
+            },
+            {
+              "indexed": false,
+              "internalType": "string",
+              "name": "policyNumber",
+              "type": "string"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "price",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "converageAmount",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "riskPoolRequirement",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "address payable",
+              "name": "policyHolder",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "fee",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "bool",
+              "name": "active",
+              "type": "bool"
+            }
+          ],
+          "name": "PolicyCreated",
+          "type": "event"
+        },
+        "0xb854d408981709638a788f4c013160169eb8b24d45ce28922f3d1b4afd8a897e": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "string",
+              "name": "reason",
+              "type": "string"
+            }
+          ],
+          "name": "PolicyDestroyed",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0x3eAfed68dBD73DbC9a876CCddecb80D5e09f715f",
+      "transactionHash": "0x6b040c43a3648998077d919011d926c5429369b0f6b6fbb28189b0eeada7210e"
+    },
+    "5777": {
+      "events": {
+        "0x444d395fb980805f385c34edaad025ad3b9b4fa58b0a5f19d0c8c7c5a31a75dd": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "id",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "string",
+              "name": "name",
+              "type": "string"
+            },
+            {
+              "indexed": false,
+              "internalType": "string",
+              "name": "policyNumber",
+              "type": "string"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "price",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "converageAmount",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "riskPoolRequirement",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "address payable",
+              "name": "policyHolder",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "fee",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "bool",
+              "name": "active",
+              "type": "bool"
+            }
+          ],
+          "name": "PolicyCreated",
+          "type": "event"
+        },
+        "0xb854d408981709638a788f4c013160169eb8b24d45ce28922f3d1b4afd8a897e": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "string",
+              "name": "reason",
+              "type": "string"
+            }
+          ],
+          "name": "PolicyDestroyed",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0x99913A987f7A2527106E93337694De81019feA27",
+      "transactionHash": "0xff85c16c54d1d50c6be4be2000497f5a8f0c36a0a37698d0e4010f74dbf2ee52"
+    }
+  },
+  "schemaVersion": "3.0.23",
+  "updatedAt": "2020-04-27T02:31:49.498Z",
+  "networkType": "ethereum",
+>>>>>>> 254b9cfde080ee672fee22aea39024c72c570824
   "devdoc": {
     "methods": {
       "constructor": {

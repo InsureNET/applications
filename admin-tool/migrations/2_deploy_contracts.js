@@ -11,23 +11,28 @@ module.exports = async function(deployer) {
   /**
    * @dev Deployments
    */
-  await deployer.deploy(SocialNetwork);
+  //await deployer.deploy(SocialNetwork);
 
   // POE
-  await deployer.deploy(POE);
+ // await deployer.deploy(POE);
 
   // Deploy Marketplace
-  await deployer.deploy(Marketplace);
-  const marketplace = await Marketplace.deployed();
+  //await deployer.deploy(Marketplace);
+  //const marketplace = await Marketplace.deployed();
 
   // Deploy Product Contracts
+<<<<<<< HEAD
   await deployer.deploy(DisasterBond, '0xd2cCea05436bf27aE49B01726075449F815B683e', 10, 5000);
   const disasterBond = await DisasterBond.deployed();
+=======
+  //await deployer.deploy(DisasterBond, '0x51Caa385AB6363F6dF543BaEbe9501F057A8638e', 10, 5000);
+  //const disasterBond = await DisasterBond.deployed();
+>>>>>>> 254b9cfde080ee672fee22aea39024c72c570824
 
   // Deploy Policy Creator
-  await deployer.deploy(PolicyCreator);
+  //await deployer.deploy(PolicyCreator);
   //const polciyCreator = await polciyCreator.deployed();
-  await deployer.deploy(HurricanePolicyCreator);
+  //await deployer.deploy(HurricanePolicyCreator);
 
   // Deploy Token
   await deployer.deploy(Token);
@@ -45,7 +50,11 @@ module.exports = async function(deployer) {
 
   // Transfer to the founders wallet
   // 25 Million until I set up the rest of the accounts
+<<<<<<< HEAD
   await token.transfer('0xd2cCea05436bf27aE49B01726075449F815B683e', '25000000000000000000000000');
+=======
+  await token.transfer('0x39dD9FDAA2aA42766c0aee7d598D275768732eb8', '25000000000000000000000000');
+>>>>>>> 254b9cfde080ee672fee22aea39024c72c570824
 
   // Transfer to the partners wallets
 
