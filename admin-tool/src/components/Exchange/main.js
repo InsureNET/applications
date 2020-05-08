@@ -47,19 +47,19 @@ class Main extends Component {
   render() {
     
     let content
-    //if(this.state.currentForm === 'buy') {
+    if(this.state.currentForm === 'buy') {
       content = <BuyForm
         ethBalance={this.props.ethBalance}
         tokenBalance={this.props.tokenBalance}
         buyTokens={this.props.buyTokens}
       />
-    // } else {
-    //   content = <SellForm
-    //     ethBalance={this.props.ethBalance}
-    //     tokenBalance={this.props.tokenBalance}
-    //     sellTokens={this.props.sellTokens}
-    //   />
-    // }
+    } else {
+      content = <SellForm
+        ethBalance={this.props.ethBalance}
+        tokenBalance={this.props.tokenBalance}
+        sellTokens={this.props.sellTokens}
+      />
+    }
 
     return (
       <div style={{ marginLeft: 35 }} id="content" className="mt-3">
@@ -69,7 +69,7 @@ class Main extends Component {
           the token value.
         </p>
         <div className="d-flex justify-content-between mb-3">
-          {/*<ThemeProvider theme={theme}>
+          <ThemeProvider theme={theme}>
           <Button variant="contained" color="primary"
             onClick={(event) => {
               console.log('buying')
@@ -87,7 +87,7 @@ class Main extends Component {
                     }}
         >
           Sell
-        </ColorButton> */}
+        </ColorButton>
         </div>
         <hr />
         <div className="card mb-4" >

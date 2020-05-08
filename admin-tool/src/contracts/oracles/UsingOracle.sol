@@ -1,4 +1,7 @@
-pragma solidity ^0.5.16;
+
+
+
+pragma solidity >=0.4.22 <0.7.0;
 
 contract UsingOracle {
 

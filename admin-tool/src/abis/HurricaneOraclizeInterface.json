@@ -4,38 +4,38 @@
   "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/C/Projects/InsureNET/master-branch/admin-tool/src/contracts/hurricane/HurricaneOraclizeInterface.sol\":\"HurricaneOraclizeInterface\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/C/Projects/InsureNET/master-branch/admin-tool/src/contracts/hurricane/HurricaneOraclizeInterface.sol\":{\"keccak256\":\"0x8b68c8587594739435141390da58dba6a800639ffce919f0ff907f09e65002ff\",\"urls\":[\"bzz-raw://4c6cd65dba6805c58d53d40d63d0c0a2b94e995e1b61f55511536e0ae76a1885\",\"dweb:/ipfs/QmTXMPLt5B2eNFACS5WnNUnfuiNDgYqPEcSUmgqbhDGxDD\"]},\"/C/Projects/InsureNET/master-branch/admin-tool/src/contracts/oracles/UsingOracle.sol\":{\"keccak256\":\"0xd19e3dee9d5918d6c78f2572066ae17875ef5219e3eb45deca6059ccb886145e\",\"urls\":[\"bzz-raw://ce1cc7a7755d6df7a660d5a20f9b8a83c35e663c7faa603ed413a35d505c2e98\",\"dweb:/ipfs/QmWpAKs6VAn1q8gp4MtuXHVRiUmxDKuAnMN1ov5KpNs8Mh\"]}},\"version\":1}",
   "bytecode": "0x6080604052603e8060116000396000f3fe6080604052600080fdfea265627a7a72315820545268cb77a26715117d799f71e28a5662f70e68a0205a4f9c14f1823994b4ed64736f6c63430005100032",
   "deployedBytecode": "0x6080604052600080fdfea265627a7a72315820545268cb77a26715117d799f71e28a5662f70e68a0205a4f9c14f1823994b4ed64736f6c63430005100032",
-  "sourceMap": "243:202:19:-;;;;;;;;;",
-  "deployedSourceMap": "243:202:19:-;;;;;",
+  "sourceMap": "243:202:21:-;;;;;;;;;",
+  "deployedSourceMap": "243:202:21:-;;;;;",
   "source": "/**\r\n * FlightDelay with Oraclized Underwriting and Payout\r\n *\r\n * @description\tOcaclize API interface\r\n * @copyright (c) 2020 InsureNET\r\n * @author Jason Romero\r\n */\r\n\r\n\r\npragma solidity 0.5.16;\r\n\r\n\r\nimport \"../oracles/UsingOracle.sol\";\r\n\r\n\r\ncontract HurricaneOraclizeInterface is UsingOracle {\r\n  modifier onlyOraclizeOr (address _emergency) {\r\n    \r\n    //require(msg.sender == oracle_cbAddress() || msg.sender == _emergency);\r\n    _;\r\n  }\r\n}",
   "sourcePath": "C:\\Projects\\InsureNET\\master-branch\\admin-tool\\src\\contracts\\hurricane\\HurricaneOraclizeInterface.sol",
   "ast": {
     "absolutePath": "/C/Projects/InsureNET/master-branch/admin-tool/src/contracts/hurricane/HurricaneOraclizeInterface.sol",
     "exportedSymbols": {
       "HurricaneOraclizeInterface": [
-        2937
+        3087
       ]
     },
-    "id": 2938,
+    "id": 3088,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 2927,
+        "id": 3077,
         "literals": [
           "solidity",
           "0.5",
           ".16"
         ],
         "nodeType": "PragmaDirective",
-        "src": "172:23:19"
+        "src": "172:23:21"
       },
       {
         "absolutePath": "/C/Projects/InsureNET/master-branch/admin-tool/src/contracts/oracles/UsingOracle.sol",
         "file": "../oracles/UsingOracle.sol",
-        "id": 2928,
+        "id": 3078,
         "nodeType": "ImportDirective",
-        "scope": 2938,
-        "sourceUnit": 2988,
-        "src": "201:36:19",
+        "scope": 3088,
+        "sourceUnit": 3138,
+        "src": "201:36:21",
         "symbolAliases": [],
         "unitAlias": ""
       },
@@ -45,63 +45,63 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 2929,
+              "id": 3079,
               "name": "UsingOracle",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 2987,
-              "src": "282:11:19",
+              "referencedDeclaration": 3137,
+              "src": "282:11:21",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_UsingOracle_$2987",
+                "typeIdentifier": "t_contract$_UsingOracle_$3137",
                 "typeString": "contract UsingOracle"
               }
             },
-            "id": 2930,
+            "id": 3080,
             "nodeType": "InheritanceSpecifier",
-            "src": "282:11:19"
+            "src": "282:11:21"
           }
         ],
         "contractDependencies": [
-          2987
+          3137
         ],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 2937,
+        "id": 3087,
         "linearizedBaseContracts": [
-          2937,
-          2987
+          3087,
+          3137
         ],
         "name": "HurricaneOraclizeInterface",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "body": {
-              "id": 2935,
+              "id": 3085,
               "nodeType": "Block",
-              "src": "344:98:19",
+              "src": "344:98:21",
               "statements": [
                 {
-                  "id": 2934,
+                  "id": 3084,
                   "nodeType": "PlaceholderStatement",
-                  "src": "435:1:19"
+                  "src": "435:1:21"
                 }
               ]
             },
             "documentation": null,
-            "id": 2936,
+            "id": 3086,
             "name": "onlyOraclizeOr",
             "nodeType": "ModifierDefinition",
             "parameters": {
-              "id": 2933,
+              "id": 3083,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2932,
+                  "id": 3082,
                   "name": "_emergency",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2936,
-                  "src": "324:18:19",
+                  "scope": 3086,
+                  "src": "324:18:21",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -109,10 +109,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2931,
+                    "id": 3081,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "324:7:19",
+                    "src": "324:7:21",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -123,46 +123,46 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "323:20:19"
+              "src": "323:20:21"
             },
-            "src": "299:143:19",
+            "src": "299:143:21",
             "visibility": "internal"
           }
         ],
-        "scope": 2938,
-        "src": "243:202:19"
+        "scope": 3088,
+        "src": "243:202:21"
       }
     ],
-    "src": "172:273:19"
+    "src": "172:273:21"
   },
   "legacyAST": {
     "absolutePath": "/C/Projects/InsureNET/master-branch/admin-tool/src/contracts/hurricane/HurricaneOraclizeInterface.sol",
     "exportedSymbols": {
       "HurricaneOraclizeInterface": [
-        2937
+        3087
       ]
     },
-    "id": 2938,
+    "id": 3088,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 2927,
+        "id": 3077,
         "literals": [
           "solidity",
           "0.5",
           ".16"
         ],
         "nodeType": "PragmaDirective",
-        "src": "172:23:19"
+        "src": "172:23:21"
       },
       {
         "absolutePath": "/C/Projects/InsureNET/master-branch/admin-tool/src/contracts/oracles/UsingOracle.sol",
         "file": "../oracles/UsingOracle.sol",
-        "id": 2928,
+        "id": 3078,
         "nodeType": "ImportDirective",
-        "scope": 2938,
-        "sourceUnit": 2988,
-        "src": "201:36:19",
+        "scope": 3088,
+        "sourceUnit": 3138,
+        "src": "201:36:21",
         "symbolAliases": [],
         "unitAlias": ""
       },
@@ -172,63 +172,63 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 2929,
+              "id": 3079,
               "name": "UsingOracle",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 2987,
-              "src": "282:11:19",
+              "referencedDeclaration": 3137,
+              "src": "282:11:21",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_UsingOracle_$2987",
+                "typeIdentifier": "t_contract$_UsingOracle_$3137",
                 "typeString": "contract UsingOracle"
               }
             },
-            "id": 2930,
+            "id": 3080,
             "nodeType": "InheritanceSpecifier",
-            "src": "282:11:19"
+            "src": "282:11:21"
           }
         ],
         "contractDependencies": [
-          2987
+          3137
         ],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 2937,
+        "id": 3087,
         "linearizedBaseContracts": [
-          2937,
-          2987
+          3087,
+          3137
         ],
         "name": "HurricaneOraclizeInterface",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "body": {
-              "id": 2935,
+              "id": 3085,
               "nodeType": "Block",
-              "src": "344:98:19",
+              "src": "344:98:21",
               "statements": [
                 {
-                  "id": 2934,
+                  "id": 3084,
                   "nodeType": "PlaceholderStatement",
-                  "src": "435:1:19"
+                  "src": "435:1:21"
                 }
               ]
             },
             "documentation": null,
-            "id": 2936,
+            "id": 3086,
             "name": "onlyOraclizeOr",
             "nodeType": "ModifierDefinition",
             "parameters": {
-              "id": 2933,
+              "id": 3083,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2932,
+                  "id": 3082,
                   "name": "_emergency",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2936,
-                  "src": "324:18:19",
+                  "scope": 3086,
+                  "src": "324:18:21",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -236,10 +236,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2931,
+                    "id": 3081,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "324:7:19",
+                    "src": "324:7:21",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -250,17 +250,17 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "323:20:19"
+              "src": "323:20:21"
             },
-            "src": "299:143:19",
+            "src": "299:143:21",
             "visibility": "internal"
           }
         ],
-        "scope": 2938,
-        "src": "243:202:19"
+        "scope": 3088,
+        "src": "243:202:21"
       }
     ],
-    "src": "172:273:19"
+    "src": "172:273:21"
   },
   "compiler": {
     "name": "solc",
@@ -268,7 +268,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.23",
-  "updatedAt": "2020-05-07T13:39:16.689Z",
+  "updatedAt": "2020-05-08T21:51:30.710Z",
   "devdoc": {
     "methods": {}
   },

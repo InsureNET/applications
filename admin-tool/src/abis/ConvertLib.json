@@ -4,29 +4,29 @@
   "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/C/Projects/InsureNET/master-branch/admin-tool/src/contracts/utility/convertLib.sol\":\"ConvertLib\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/C/Projects/InsureNET/master-branch/admin-tool/src/contracts/utility/convertLib.sol\":{\"keccak256\":\"0x8bb0386b045569ba40a4d23c07e844cac691429e9761133fa3634ceaf6d3e9bd\",\"urls\":[\"bzz-raw://5189f27e7776b6f269d169cd24da7de05cfb45ff8965af9c284a5f31f01201a9\",\"dweb:/ipfs/QmUYkXWzV8WrcXmdo4L1nnHRyPYKwPFbs2FAtLD5K23o1V\"]}},\"version\":1}",
   "bytecode": "0x6080604052348015600f57600080fd5b50603e80601d6000396000f3fe6080604052600080fdfea265627a7a72315820ad93473132dac1d3dceb260270184037929450e82a147e8b36dc0b3bee6da5dc64736f6c63430005100032",
   "deployedBytecode": "0x6080604052600080fdfea265627a7a72315820ad93473132dac1d3dceb260270184037929450e82a147e8b36dc0b3bee6da5dc64736f6c63430005100032",
-  "sourceMap": "194:3346:32:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;194:3346:32;;;;;;;",
-  "deployedSourceMap": "194:3346:32:-;;;;;",
+  "sourceMap": "194:3346:34:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;194:3346:34;;;;;;;",
+  "deployedSourceMap": "194:3346:34:-;;;;;",
   "source": "// /**\r\n//  * Oraclized Underwriting and Payout\r\n//  *\r\n//  * @description\tConversions\r\n//  * @copyright (c) 2020 InsureNET\r\n//  * @author Jason Romero\r\n//  */\r\n\r\n\r\npragma solidity 0.5.16;\r\n\r\n\r\ncontract ConvertLib {\r\n\r\n//   // For date-time lib function getYear\r\n//   uint16 internal constant ORIGIN_YEAR = 1970;\r\n//   uint internal constant YEAR_IN_SECONDS = 31536000;\r\n//   uint internal constant LEAP_YEAR_IN_SECONDS = 31622400;\r\n\r\n//   // .. since beginning of the year\r\n//   uint16[12] internal days_since = [\r\n//     11,\r\n//     42,\r\n//     70,\r\n//     101,\r\n//     131,\r\n//     162,\r\n//     192,\r\n//     223,\r\n//     254,\r\n//     284,\r\n//     315,\r\n//     345\r\n//   ];\r\n\r\n//   function b32toHexString(bytes32 x) internal pure returns (string memory) {\r\n//     bytes memory b = new bytes(64);\r\n//     for (uint i = 0; i < 32; i++) {\r\n//       uint8 by = uint8(uint(x) / (2**(8*(31 - i))));\r\n//       uint8 high = by/16;\r\n//       uint8 low = by - 16*high;\r\n//       if (high > 9) {\r\n//         high += 39;\r\n//       }\r\n//       if (low > 9) {\r\n//         low += 39;\r\n//       }\r\n//       b[2*i] = byte(high+48);\r\n//       b[2*i+1] = byte(low+48);\r\n//     }\r\n\r\n//     return string(b);\r\n//   }\r\n\r\n//   // helper functions for getYear\r\n//   function isLeapYear(uint16 year) internal pure returns (bool) {\r\n//     if (year % 4 != 0) {\r\n//       return false;\r\n//     }\r\n//     if (year % 100 != 0) {\r\n//       return true;\r\n//     }\r\n//     if (year % 400 != 0) {\r\n//       return false;\r\n//     }\r\n//     return true;\r\n//   }\r\n\r\n//   function leapYearsBefore(uint year) internal pure returns (uint) {\r\n//     year -= 1;\r\n//     return year / 4 - year / 100 + year / 400;\r\n//   }\r\n\r\n//   function getYear(uint timestamp) internal pure returns (uint16) {\r\n//     uint secondsAccountedFor = 0;\r\n//     uint16 year;\r\n//     uint numLeapYears;\r\n\r\n//     // Year\r\n//     year = uint16(ORIGIN_YEAR + timestamp / YEAR_IN_SECONDS);\r\n//     numLeapYears = leapYearsBefore(year) - leapYearsBefore(ORIGIN_YEAR);\r\n\r\n//     secondsAccountedFor += LEAP_YEAR_IN_SECONDS * numLeapYears;\r\n//     secondsAccountedFor += YEAR_IN_SECONDS * (year - ORIGIN_YEAR - numLeapYears);\r\n\r\n//     while (secondsAccountedFor > timestamp) {\r\n//       if (isLeapYear(uint16(year - 1))) {\r\n//         secondsAccountedFor -= LEAP_YEAR_IN_SECONDS;\r\n//       } else {\r\n//         secondsAccountedFor -= YEAR_IN_SECONDS;\r\n//       }\r\n//       year -= 1;\r\n//     }\r\n//     return year;\r\n//   }\r\n\r\n//   function stringToBytes32(string memory _source) internal pure returns (bytes32 result) {\r\n//     bytes memory tempEmptyStringTest = bytes(_source);\r\n//     if (tempEmptyStringTest.length == 0) {\r\n//       return 0x0;\r\n//     }\r\n\r\n//     /* solhint-disable no-inline-assembly */\r\n//     assembly {\r\n//       result := mload(add(_source, 32))\r\n//     }\r\n//     /* solhint-enable no-inline-assembly */\r\n//   }\r\n\r\n//   function b32toString(\r\n//     bytes32 x\r\n//     ) internal pure returns (string memory) {\r\n//     // gas usage: about 1K gas per char.\r\n//     bytes memory bytesString = new bytes(32);\r\n//     uint charCount = 0;\r\n\r\n//     for (uint j = 0; j < 32; j++) {\r\n//       byte char = byte(bytes32(uint(x) * 2 ** (8 * j)));\r\n//       if (char != 0) {\r\n//         bytesString[charCount] = char;\r\n//         charCount++;\r\n//       }\r\n//     }\r\n\r\n//     bytes memory bytesStringTrimmed = new bytes(charCount);\r\n\r\n//     for (j = 0; j < charCount; j++) {\r\n//       bytesStringTrimmed[j] = bytesString[j];\r\n//     }\r\n\r\n//     return string(bytesStringTrimmed);\r\n//   }\r\n }",
   "sourcePath": "C:\\Projects\\InsureNET\\master-branch\\admin-tool\\src\\contracts\\utility\\convertLib.sol",
   "ast": {
     "absolutePath": "/C/Projects/InsureNET/master-branch/admin-tool/src/contracts/utility/convertLib.sol",
     "exportedSymbols": {
       "ConvertLib": [
-        4006
+        4189
       ]
     },
-    "id": 4007,
+    "id": 4190,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 4005,
+        "id": 4188,
         "literals": [
           "solidity",
           "0.5",
           ".16"
         ],
         "nodeType": "PragmaDirective",
-        "src": "165:23:32"
+        "src": "165:23:34"
       },
       {
         "baseContracts": [],
@@ -34,38 +34,38 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 4006,
+        "id": 4189,
         "linearizedBaseContracts": [
-          4006
+          4189
         ],
         "name": "ConvertLib",
         "nodeType": "ContractDefinition",
         "nodes": [],
-        "scope": 4007,
-        "src": "194:3346:32"
+        "scope": 4190,
+        "src": "194:3346:34"
       }
     ],
-    "src": "165:3375:32"
+    "src": "165:3375:34"
   },
   "legacyAST": {
     "absolutePath": "/C/Projects/InsureNET/master-branch/admin-tool/src/contracts/utility/convertLib.sol",
     "exportedSymbols": {
       "ConvertLib": [
-        4006
+        4189
       ]
     },
-    "id": 4007,
+    "id": 4190,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 4005,
+        "id": 4188,
         "literals": [
           "solidity",
           "0.5",
           ".16"
         ],
         "nodeType": "PragmaDirective",
-        "src": "165:23:32"
+        "src": "165:23:34"
       },
       {
         "baseContracts": [],
@@ -73,18 +73,18 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 4006,
+        "id": 4189,
         "linearizedBaseContracts": [
-          4006
+          4189
         ],
         "name": "ConvertLib",
         "nodeType": "ContractDefinition",
         "nodes": [],
-        "scope": 4007,
-        "src": "194:3346:32"
+        "scope": 4190,
+        "src": "194:3346:34"
       }
     ],
-    "src": "165:3375:32"
+    "src": "165:3375:34"
   },
   "compiler": {
     "name": "solc",
@@ -92,7 +92,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.23",
-  "updatedAt": "2020-05-07T13:39:16.716Z",
+  "updatedAt": "2020-05-08T21:51:30.743Z",
   "devdoc": {
     "methods": {}
   },
