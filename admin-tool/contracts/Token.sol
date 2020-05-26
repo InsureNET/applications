@@ -36,8 +36,10 @@ contract Token {
     // Partners, Bounties and Marketing
     string public partner1 = '';
     string public partner2 = '';
+    string public partner3 = '';
     uint256 public partner1Dist = 15000000000000000000000000 ; // 15 Million
     uint256 public partner2Dist = 15000000000000000000000000; // 15 Million
+    uint256 public partner3Dist = 15000000000000000000000000; // 15 Million
     uint256 public bountyDist = 20000000000000000000000000; // 20 Million
     uint256 public marketingDist = 100000000000000000000000000; // 100 Million
 
@@ -67,6 +69,7 @@ contract Token {
 
     mapping(address => uint256) public balanceOf;
     mapping(address => mapping(address => uint256)) public allowance;
+
 
     constructor() public {
         balanceOf[msg.sender] = totalSupply();

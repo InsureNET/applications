@@ -13,7 +13,21 @@ import Toolbar from '@material-ui/core/Toolbar'
 import Tooltip from '@material-ui/core/Tooltip'
 import Typography from '@material-ui/core/Typography'
 import { withStyles } from '@material-ui/core/styles'
-import web3 from 'web3'
+import Web3 from 'web3'
+import Onboard from 'bnc-onboard'
+
+let web3
+
+const onboard = Onboard({
+    dappId: '8e84cd42-1282-4e65-bcd0-da4f7b6ad7a4',
+    networkId: 5777,
+    subscriptions: {
+        wallet: wallet => {
+            web3 = new Web3(wallet.provider)
+            console.log(`${wallet.name} is now connected!`)
+        }
+    }
+})
 
 const lightColor = 'rgba(230, 230, 230, 0.7)'
 
@@ -44,11 +58,12 @@ const styles = theme => ({
 })
 
 /** 
- * @dev Connect Wallet => MetaMaskk for now
+ * @dev Connect Wallet => MetaMask for now
  *
  */
-function connectWallet() {
-	confirm('Connect Wallet?')
+async function connectWallet() {
+	await onboard.walletSelect();
+    await onboard.walletCheck(); 
 	
 }
 

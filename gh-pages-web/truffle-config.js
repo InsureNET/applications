@@ -6,7 +6,7 @@ require('babel-polyfill');
 // // // Create your own key for Production environments (https://infura.io/)
 // const INFURA_ID = process.env.INFURA_ID || 'e8cc7c8e245b46b482873ce9382a542b';
 
-const mnemonic = "outside bridge shrimp above piece myth acquire doll void filter fit reject";
+const mnemonic = "";
 
 // const configNetwok = (network, networkId, path = "m/44'/60'/0'/0/", gas = 4465030, gasPrice = 1e10) => ({
 //   provider: () => new HDWalletProvider(
@@ -25,11 +25,15 @@ module.exports = {
       host: "127.0.0.1",
       port: 7545,
       network_id: "5777" // Match any network id
-    }//,
-    // ropsten: configNetwok('ropsten', 3),
+    }
     // kovan: configNetwok('kovan', 42),
     // rinkeby: configNetwok('rinkeby', 4),
-    // main: configNetwok('mainnet', 1),
+  },
+  kovan: {
+    provider: () => new HDWalletProvider(
+      mnemonic,
+      "https://kovan.infura.io/v3/e8cc7c8e245b46b482873ce9382a542b"
+    )
   },
   truffleteams: {
     provider: () => new HDWalletProvider(
@@ -51,7 +55,7 @@ module.exports = {
       mnemonic,
       "https://mainnet.infura.io/v3/e8cc7c8e245b46b482873ce9382a542b",
     ),
-    network_id: 5,
+    network_id: 1,
     gas: 4700000
   },
   contracts_directory: './src/contracts/',

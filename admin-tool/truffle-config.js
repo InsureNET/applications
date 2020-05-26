@@ -32,8 +32,8 @@ module.exports = {
   },
   // Rinkeby: https://rinkeby.infura.io/v3/e8cc7c8e245b46b482873ce9382a542b
   // Kovan: https://kovan.infura.io/v3/e8cc7c8e245b46b482873ce9382a542b
-  contracts_directory: './src/contracts/',
-  contracts_build_directory: './src/abis/',
+  contracts_directory: './contracts/',
+  contracts_build_directory: './abis/',
   compilers: {
     solc: {
       optimizer: {

@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import { MuiThemeProvider, createMuiTheme, withStyles } from '@material-ui/core/styles'
 import { Hidden, CssBaseline } from '@material-ui/core'
 import Navigator from 'components/Navigator'
-
 import Header from 'components/Header'
 import { red } from '@material-ui/core/colors'
 
