@@ -1,7 +1,7 @@
-pragma solidity ^0.5.15;
+pragma solidity ^0.5.16;
 
 contract IncomeStream {
-    address founder = 0xdf972c62237bd76d27058cD13989e0EE9C1445D9;
+    address founder = 0xd2cCea05436bf27aE49B01726075449F815B683e;
 
     mapping(address => uint256) public balanceOf;
     mapping(address => mapping(address => uint256)) public allowance;
@@ -116,7 +116,7 @@ contract IncomeStream {
         public
         onlyOwner
     {
-        burnStream(_streamId);
+        //burnStream(_streamId);
     }
 
 
