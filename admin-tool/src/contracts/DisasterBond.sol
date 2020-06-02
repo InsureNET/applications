@@ -12,25 +12,25 @@ contract DisasterBond {
     * @dev Outcome of the event
     * @param none
     */
-    enum Outcome { NONE, DISASTER_HAPPEN, DISASTER_NOT_HAPPEN, VOID, OTHER }
+    enum Outcome { NONE, CAT_3, CAT_4, CAT_5, VOID, OTHER }
 
     // state properties
     uint public principal;
     uint public coupon;
     address payable public oracle;
-    address payable public sponsor;
+    address payable public insured;
     address payable public investor;
     uint public end;
 
     Outcome outcome;
 
     // Constructor (runs only once upon deployment)
-    constructor(address payable _oracle, uint _principal, uint _duration) public payable {
+    constructor(address payable _oracle, uint256 _principal, uint256 _duration) public payable {
         oracle = _oracle;
         principal = _principal;
         coupon = msg.value;
-        sponsor = msg.sender;
-        end = now + _duration;
+        investor = msg.sender;
+        end = block.timestamp + _duration;
     }
 
     // called by application to invest in a coupon
@@ -53,16 +53,24 @@ contract DisasterBond {
         outcome = _outcome;
 
         //
-        if(_outcome == Outcome.DISASTER_HAPPEN) {
+        if(_outcome == Outcome.CAT_3) {
             // transfer to sponser
-            sponsor.transfer(principal);
+            insured.transfer(principal);
             
-        } else if(_outcome == Outcome.DISASTER_NOT_HAPPEN) {
-            // give back to investor
+        } if(_outcome == Outcome.CAT_4) {
+            // transfer to sponser
+            insured.transfer(principal);
+            
+        } if(_outcome == Outcome.CAT_5) {
+            // transfer to sponser
+            insured.transfer(principal);
+            
+        } else if(_outcome == Outcome.VOID) {
+            // give back to insured
             investor.transfer(principal);
 
         } else {
-            // default to investor
+            // default to insured
             investor.transfer(principal);
         }
     }
