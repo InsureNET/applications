@@ -6,7 +6,6 @@
  */
 
 pragma solidity ^0.5.16;
-
 contract DisasterBond {
     /**
     * @dev Outcome of the event
