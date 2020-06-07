@@ -14,3 +14,11 @@ export function web3AccountLoaded(account) {
         account
     }
 }
+
+export function blockchainDataLoaded(data) {
+    return {
+        type: 'BLOCKCHAIN_DATA_LOADED',
+        data
+    }
+}
+

@@ -1,19 +1,17 @@
 import React, { Component } from 'react';
-import Identicon from 'identicon.js';
-import { makeStyles } from '@material-ui/core/styles';
+import Identicon from 'identicon.js';import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-
 import style from './main.css'
-
-
-
-
 
 class Main extends Component {
   constructor(props) {
     super(props)
     this.state = {
       account: this.props.account,
+      posts: [],
+      favorites: [],
+      boostedPosts: [],
+      totalTips: 0,
     }
   }
 
@@ -28,8 +26,7 @@ class Main extends Component {
               <form onSubmit={(event) => {
                 event.preventDefault()
                 const content = this.postContent.value
-                this.props.createPost(content)
-                
+                this.props.createPost(content)                
               }}>
                 <div className="form-group mr-sm-2">
                   <input

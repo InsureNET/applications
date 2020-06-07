@@ -5,7 +5,12 @@
  * @copyright 2020 InsureNET
  */
 
-pragma solidity ^0.5.0;
+import "@openzeppelin/contracts/math/SafeMath.sol";
+import "@openzeppelin/contracts/token/ERC20/ERC20Pausable.sol";
+import "@openzeppelin/contracts/token/ERC20/ERC20Mintable.sol";
+
+
+pragma solidity ^0.5.15;
 
 /**
 * @dev iNET Token Contract
@@ -16,15 +21,16 @@ pragma solidity ^0.5.0;
 contract Token {
     string  public name = "iNET Token";
     string  public symbol = "iNET";
-    uint256 public totalSupply = 1000000000000000000000000000; // 1 Billion tokens
+    uint256 public _totalSupply = 10**9 * 10**18; // 1 Billion tokens
     uint8   public decimals = 18;
 
     /**
     * @dev all distribution will add up to the 1 Billion tokens minted.
     */
     // Founder
-    address public founder  = 0x6F7d7d68c3Eed4Df81CF5F97582deef8ABC51533;
-    string public foundersAddress = '0x6F7d7d68c3Eed4Df81CF5F97582deef8ABC51533';
+    address payable founder  = 0x39dD9FDAA2aA42766c0aee7d598D275768732eb8;
+    address payable owner = 0x39dD9FDAA2aA42766c0aee7d598D275768732eb8;
+    string public foundersAddress = '0x39dD9FDAA2aA42766c0aee7d598D275768732eb8';
     uint256 public foundersDistribution = 100000000000000000000000000; // 100 Million Tokens
 
     // Partners, Bounties and Marketing
@@ -50,13 +56,68 @@ contract Token {
         uint256 _value
     );
 
+    // /**
+    // * @dev Throws if called by any account other than the owner.
+    // */
+    modifier onlyOwner() {
+        require(msg.sender == founder, 'Must me founder/owner');
+        _;
+    }
+
+
     mapping(address => uint256) public balanceOf;
     mapping(address => mapping(address => uint256)) public allowance;
 
     constructor() public {
-        balanceOf[msg.sender] = totalSupply - 100000000000000000000000000; // 1 Billion
+        balanceOf[msg.sender] = totalSupply();
+        founder = msg.sender;
     }
 
+
+    // function balanceOf(address _account) public view returns (uint256) {
+    //     return _balanceOf[_account];
+    // }
+
+
+    function totalSupply() public view returns (uint256) {
+        return _totalSupply;
+    }
+
+    // function _melt(address account, uint256 amount) internal {
+    //     require(account != address(0), "ERC20: melt from the zero address");
+    //     require(amount > 0, "ERC20: value should be greater than 0");
+    //     require(_frozen_balanceOf(account), "ERC20: not enough to melt");
+
+    //     _frozen_sub(account, amount)
+    //     _balances[account] = _balances[account].add(amount)
+    // }
+
+    // function _burnFrozen(address account, uint256 amount) internal {
+    //     require(account != address(0), "ERC20: burn from the zero address");
+    // }
+
+    // function freezeTokens(address _account, uint256 _amount) public onlyOwner returns (bool) {
+    //     _freeze(_account, _amount)
+    //     emit Transfer(_account, address(this), _amount)
+    //     return true;
+    // }
+
+    // function mentTokens(address _account, uint256 amount) public onlyMelter returns (bool) {
+    //     _melt(_account, _amount)
+    //     emit Transfer(_account, address(this), _amount)
+    //     return true;
+    // }
+
+    // function mintFrozenTokens(address _account, uint256 amount) public onlyMinter {
+    //     _mintfrozen(_account, amount)
+    //     return true;
+    // }
+
+    // function mintBatchFrozenTokens(
+    //     address[] calldata accounts,
+    //     uint256[] calldata amounts
+    // ) external onlyMinter returns (bool) {
+    // }
 
     function transfer(address _to, uint256 _value) public returns (bool success) {
         require(balanceOf[msg.sender] >= _value, 'you need more ether');

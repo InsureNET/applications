@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import Layout from 'components/Layout'
 import HurricaneContent from 'components/Hurricane'
 
-function HurricanePage({ data, location }) {
+function HurricanePage({ data, location, account }) {
 	const pageTitle = location ? location.pathname.replace(/\//g, '') : ''
 	return (
 		<Layout location={location} title={pageTitle}>
@@ -12,7 +12,7 @@ function HurricanePage({ data, location }) {
 	)
 }
 HurricanePage.propTypes = {
-	data: PropTypes.object.isRequired,
+	data: PropTypes.object,
 	location: PropTypes.object,
 }
 export default HurricanePage

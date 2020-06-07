@@ -42,7 +42,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function CardComponent() {
+function CardComponent({ account, metadata, approvedAllowance, action }) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 

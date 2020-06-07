@@ -7,7 +7,7 @@
 pragma solidity ^0.5.0;
 
 contract Ownable {
-  address public owner;
+  address private owner;
 
   event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);
 
@@ -35,6 +35,14 @@ contract Ownable {
     require(newOwner != address(0), 'bad address for new owner');
     emit OwnershipTransferred(owner, newOwner);
     owner = newOwner;
+  }
+
+  /**
+  * @dev Return owner address
+  * @return address of owner
+  */
+  function getOwner() external view returns(address) {
+    return owner;
   }
 
 }

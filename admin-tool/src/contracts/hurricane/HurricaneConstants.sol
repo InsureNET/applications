@@ -114,7 +114,7 @@ contract HurricaneConstants {
   uint internal constant MAX_PREMIUM = 10 ether;
 
   // maximum payout
-  uint internal constant MAX_PAYOUT = 1100 finney;
+  uint internal constant MAX_PAYOUT = 35 ether;
 
   //uint internal constant MIN_PREMIUM_EUR = 1500 wei;
   //uint internal constant MAX_PREMIUM_EUR = 29000 wei;
@@ -122,7 +122,7 @@ contract HurricaneConstants {
 
   uint internal constant MIN_PREMIUM_USD = 1700 wei;
   uint internal constant MAX_PREMIUM_USD = 34000 wei;
-  uint internal constant MAX_PAYOUT_USD = 35000 wei;
+  uint internal constant MAX_PAYOUT_USD = 35 ether;
 
   //uint internal constant MIN_PREMIUM_GBP = 1300 wei;
   //uint internal constant MAX_PREMIUM_GBP = 25000 wei;
@@ -140,9 +140,11 @@ contract HurricaneConstants {
   // This api is a placeholder until we can integrate
   // an accurate risk pricing service
   // ToDo: setup our own oracle services
+  // todo: our own oracle
   string internal constant ORACLIZE_RATINGS_BASE_URL =
     "json(https://staging.hurricaneguard.io/api/oracle/ratings/?";
 
+  // todo: our own oracle
   string internal constant ORACLIZE_STATUS_BASE_URL =
     "json(https://staging.hurricaneguard.io/api/oracle/status/?";
 

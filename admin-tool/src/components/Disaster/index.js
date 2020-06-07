@@ -42,7 +42,7 @@ function addPolicy(event) {
     console.log(event.target)
 }
 
-function AccidentContent({ classes }) {
+function DisasterContent({ classes }) {
     return (
         <div>
           
@@ -66,8 +66,8 @@ function AccidentContent({ classes }) {
       );
 }
 
-AccidentContent.propTypes = {
+DisasterContent.propTypes = {
     classes: PropTypes.object,
 }
 
-export default withStyles(styles)(AccidentContent);
+export default withStyles(styles)(DisasterContent);

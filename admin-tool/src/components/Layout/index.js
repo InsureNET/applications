@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { MuiThemeProvider, createMuiTheme, withStyles } from '@material-ui/core/styles'
-import CssBaseline from '@material-ui/core/CssBaseline'
-import Hidden from '@material-ui/core/Hidden'
+import { Hidden, CssBaseline } from '@material-ui/core'
 import Navigator from 'components/Navigator'
 
 import Header from 'components/Header'
+import { red } from '@material-ui/core/colors'
 
 let theme = createMuiTheme({
 	typography: {
@@ -123,12 +123,13 @@ theme = {
 	},
 }
 
-const drawerWidth = 256
+const drawerWidth = 250
 
 const styles = {
 	root: {
 		display: 'flex',
 		minHeight: '100vh',
+		backgroundColor: 'white'
 	},
 	drawer: {
 		[theme.breakpoints.up('sm')]: {
@@ -140,11 +141,13 @@ const styles = {
 		flex: 1,
 		display: 'flex',
 		flexDirection: 'column',
+		backgroundColor: 'white'
 	},
 	mainContent: {
 		flex: 1,
 		padding: '0px',
-	},
+		backgroundColor: 'white'
+	}
 }
 
 function Layout({ location, title, children, classes }) {

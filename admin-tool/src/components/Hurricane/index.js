@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useEffect } from 'react';
 //import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Web3 from 'web3'
 import HurricaneContract from '../../abis/HurricaneCreatePolicy.json'
@@ -6,6 +6,7 @@ import { withStyles } from '@material-ui/core/styles'
 import Paper from '@material-ui/core/Paper'
 import TabBar from 'components/TabBar'
 import Main from 'components/Hurricane/main'
+import CustomTabs from '../Utility/CustomizedTabs'
 
 const styles = theme => ({
 	paper: {
@@ -27,19 +28,24 @@ const styles = theme => ({
 	},
 	container: {
 		padding: '48px 36px 0',
+		backgroundColor: 'white',
 	},
 });
 
 const tabNames = ['Buy', 'Sell', 'Claims'];
 
 class HurricaneContent extends Component {
-	async componentWillMount() {
+	async componentDidMount() {
 		console.group('[HurricaneContent]::[ComponentWillMount]')
 		this.loadWeb3();
 
 		this.loadBlockchainData()
 
 		console.groupEnd();
+	}
+
+	async componentDidUpdate() {
+
 	}
 
 	// Load Web3
@@ -83,8 +89,10 @@ class HurricaneContent extends Component {
 		if (contractData) {
 			const contractAbi = HurricaneContract.abi;
 			const contractAddress = HurricaneContract.networks['5777'].address //contractData.address;
+			console.log('Hurricane Contract Address:: ', contractAddress)
 			const contract = new web3.eth.Contract(contractAbi, contractAddress)
 			this.setState({ contract })
+			console.log('State Contract:: ', this.state.contract)
 			//this.setState({ loaoding: false })
 		} else {
 			window.alert('Contract is not deployed on current network.')
@@ -95,10 +103,37 @@ class HurricaneContent extends Component {
 	}
 
 
-	buyPolciy(coverageAmount1, coverageAmount2, coverageAmount3, premiumAmount) {
-		console.log('buying policy')
+	buyPolciy(event, coverageAmount1, coverageAmount2, coverageAmount3, premiumAmount) {
+		console.log('Step One Complete: ', event.target)
+		console.log(coverageAmount1)
 		
 	}
+
+	nextStep(el, account) {
+		console.log('Step One Complete: ', el)
+		console.log(account)
+	}
+
+	/**
+	 * @dev changes the view based on tab index
+	 * 0 = Buy, 1 = Sell, 2 = Claims
+	 */
+	onTabChanged = (newValue) => {
+		console.log(newValue)
+		this.setState({ selectedTab: newValue})
+		console.log(this.state.selectedTab)
+	}
+
+	/**
+	 * @dev updates the value of the premium
+	 */
+	onSliderChange = (event, newValue) => {
+		//console.log('Slider Event: ', newValue)
+		this.setState({ selectedPolicyAmount: newValue })
+		
+	}
+
+	
 
 	constructor(props){
 		super(props)
@@ -113,34 +148,41 @@ class HurricaneContent extends Component {
 			metadata: {},
 			policies: [],
 			transactions: [],
+			selectedPolicyAmount: 100,
+			selectedTab: 1,
+			step: 1,
 		}
 	}
 
-
-	render(props){
+	render(){
 		let content
 		if (this.state.loading) {
 			content = <p id='loader' className='text-center'>Loading..</p>
 		} else {
 			content = <Main
 				account={this.state.account}
-				onClick={this.buyPolciy}
+				nextStepClick={this.nextStep}
+				onSliderChange={this.onSliderChange}
 				loading={this.state.loading}
+				selectedPolicyAmount= {this.state.selectedPolicyAmount}
 			/>
 		}
 		return (
 			<div>
 				<div className="container-fluid mt-5">
 				<div className="row">
-				<TabBar tabNames={tabNames} />
+				{/* <CustomTabs 
+					tabNames={tabNames}
+					value={this.state.selectedTab}
+					onTabChanged={this.onTabChanged}
+				/> */}
+				{/** ToDo: Add Progress Bar here.. */}
+				
 				<div className='container'>
-					<Paper className='paper'>
-
-					</Paper>
 					<main 
 						role="main" 
 						className="col-lg-12 ml-auto mr-auto" 
-						style={{ maxWidth: '600px' }}
+						style={{ maxWidth: '2400px', backgroundColor: 'white' }}
 					>
 						<div className="content mr-auto ml-auto">
 							{content}

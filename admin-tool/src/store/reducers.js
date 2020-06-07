@@ -8,6 +8,8 @@ function web3(state = {}, action) {
             return { ...state, account: action.account }
         case  'ETHER_BALANCE_LOADED':
             return { ...state, balance: action.balance }
+        case 'BLOCKCHAIN_DATA_LOADED':
+            return { ...state, data: action.data }
         default:
                 return state
     }

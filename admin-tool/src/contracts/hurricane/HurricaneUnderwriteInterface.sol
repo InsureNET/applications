@@ -8,6 +8,6 @@
 
 pragma solidity ^0.5.16;
 
-contract HurricaneGuardUnderwriteInterface {
+contract HurricaneUnderwriteInterface {
   function scheduleUnderwriteOraclizeCall(uint _policyId, bytes32 _latlng) public;
 }

@@ -4,13 +4,11 @@ import Layout from 'components/Layout'
 import PropTypes from 'prop-types'
 import Content from 'components/Content'
 
-function DashboardIndex({ data, location }) {
+function DashboardIndex({ data, location, address }) {
 	const { title } = data.site.siteMetadata
 	return (
 		<Layout location={location} title={title}>
-
-			<Content />
-			
+			<Content address={address}/>
 		</Layout>
 	)
 }
@@ -21,6 +19,7 @@ function DashboardIndex({ data, location }) {
 DashboardIndex.propTypes = {
 	data: PropTypes.object.isRequired,
 	location: PropTypes.object,
+	address: PropTypes.address,
 }
 
 /** @dev pageQuery

@@ -1,8 +1,8 @@
 ## dfuse Client Library - Search Ethereum Data React Example
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and
-showcase how to use [dfuse Client Library](https://github.com/dfuse-io/client-js) to easily stream
-all transfers happening in Mainnet in a streaming fashion.
+[dfuse Client Library](https://github.com/dfuse-io/client-js) 
+to easily stream all transfers happening in Mainnet in a 
+streaming fashion.
 
 First install all the dependencies:
 
